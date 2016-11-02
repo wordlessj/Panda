@@ -22,6 +22,8 @@
 		3BB2EE9D1DC9C5DE001D7AAB /* CGContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE9C1DC9C5DE001D7AAB /* CGContextExtensions.swift */; };
 		3BB2EE9F1DC9C6B1001D7AAB /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE9E1DC9C6B1001D7AAB /* UIEdgeInsetsExtensions.swift */; };
 		3BB2EEA11DC9CE7E001D7AAB /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */; };
+		3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEAA1DC9E891001D7AAB /* Font.swift */; };
+		3BB2EEAD1DC9E967001D7AAB /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEAC1DC9E967001D7AAB /* UIFontExtensions.swift */; };
 		3BF5F3451DC8CE3C0037C598 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3441DC8CE3C0037C598 /* UIButton.swift */; };
 		3BF5F3471DC8D1120037C598 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3461DC8D1120037C598 /* UILabel.swift */; };
 		3BF5F3491DC8D5600037C598 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3481DC8D5600037C598 /* UITextField.swift */; };
@@ -52,6 +54,8 @@
 		3BB2EE9C1DC9C5DE001D7AAB /* CGContextExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGContextExtensions.swift; sourceTree = "<group>"; };
 		3BB2EE9E1DC9C6B1001D7AAB /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		3BB2EEAA1DC9E891001D7AAB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		3BB2EEAC1DC9E967001D7AAB /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		3BF5F3441DC8CE3C0037C598 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		3BF5F3461DC8D1120037C598 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		3BF5F3481DC8D5600037C598 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -114,11 +118,13 @@
 			isa = PBXGroup;
 			children = (
 				3B2B901F1DC8530800B4E92F /* Actions.swift */,
+				3BB2EEAA1DC9E891001D7AAB /* Font.swift */,
 				3BB2EE9A1DC9C3E2001D7AAB /* CGAffineTransformExtensions.swift */,
 				3BB2EE9C1DC9C5DE001D7AAB /* CGContextExtensions.swift */,
 				3BB2EE981DC9C2B1001D7AAB /* CGGeometryExtensions.swift */,
 				3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */,
 				3BB2EE9E1DC9C6B1001D7AAB /* UIEdgeInsetsExtensions.swift */,
+				3BB2EEAC1DC9E967001D7AAB /* UIFontExtensions.swift */,
 				3BB2EE941DC9BF46001D7AAB /* UIStackViewExtensions.swift */,
 				3BF5F3561DC991000037C598 /* UITableViewExtensions.swift */,
 				3B2B90181DC7770500B4E92F /* UIViewExtensions.swift */,
@@ -230,11 +236,13 @@
 			files = (
 				3BB2EE9F1DC9C6B1001D7AAB /* UIEdgeInsetsExtensions.swift in Sources */,
 				3BB2EE8F1DC99F0E001D7AAB /* UICollectionViewExtensions.swift in Sources */,
+				3BB2EEAD1DC9E967001D7AAB /* UIFontExtensions.swift in Sources */,
 				3BB2EE9D1DC9C5DE001D7AAB /* CGContextExtensions.swift in Sources */,
 				3BB2EE9B1DC9C3E2001D7AAB /* CGAffineTransformExtensions.swift in Sources */,
 				3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */,
 				3BF5F3591DC99E680037C598 /* UICollectionView.swift in Sources */,
 				3BF5F3511DC8DFF20037C598 /* UIGestureRecognizer.swift in Sources */,
+				3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */,
 				3B2B90191DC7770500B4E92F /* UIViewExtensions.swift in Sources */,
 				3B2B90201DC8530800B4E92F /* Actions.swift in Sources */,
 				3BF5F3471DC8D1120037C598 /* UILabel.swift in Sources */,

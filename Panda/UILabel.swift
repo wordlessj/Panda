@@ -22,7 +22,7 @@ extension UILabel {
     }
 
     @discardableResult
-    public func font(_ value: UIFont!) -> Self {
+    public func font(_ value: UIFont?) -> Self {
         font = value
         return self
     }

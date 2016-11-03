@@ -46,6 +46,7 @@ extension FontContainer {
     }
 }
 
+extension UIButton: FontContainer {}
 extension UILabel: FontContainer {}
 extension UITextField: FontContainer {}
 extension UITextView: FontContainer {}

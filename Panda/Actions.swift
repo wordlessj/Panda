@@ -51,13 +51,11 @@ extension UIControl {
     }
 }
 
-private class ObjectActionBox {
-    static let triggerSelector = #selector(trigger)
+private class ObjectActionBox<Object: AnyObject> {
+    unowned let object: Object
+    let action: (Object) -> ()
 
-    unowned let object: AnyObject
-    let action: (AnyObject) -> ()
-
-    init(object: AnyObject, action: @escaping (AnyObject) -> ()) {
+    init(object: Object, action: @escaping (Object) -> ()) {
         self.object = object
         self.action = action
     }
@@ -70,21 +68,23 @@ private class ObjectActionBox {
 public protocol GestureRecognizer: class {}
 
 extension GestureRecognizer where Self: UIGestureRecognizer {
-    private var actionBox: ObjectActionBox? {
-        get { return objc_getAssociatedObject(self, &actionBoxKey) as? ObjectActionBox }
+    private var actionBox: ObjectActionBox<Self>? {
+        get { return objc_getAssociatedObject(self, &actionBoxKey) as? ObjectActionBox<Self> }
         set { objc_setAssociatedObject(self, &actionBoxKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
 
     @discardableResult
     public func action(_ action: ((Self) -> ())?) -> Self {
+        let selector = #selector(ObjectActionBox<Self>.trigger)
+
         if let box = actionBox {
-            removeTarget(box, action: ObjectActionBox.triggerSelector)
+            removeTarget(box, action: selector)
             actionBox = nil
         }
 
         if let action = action {
-            let box = ObjectActionBox(object: self, action: action as! (AnyObject) -> ())
-            addTarget(box, action: ObjectActionBox.triggerSelector)
+            let box = ObjectActionBox(object: self, action: action)
+            addTarget(box, action: selector)
             actionBox = box
         }
 

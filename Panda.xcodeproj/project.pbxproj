@@ -86,7 +86,7 @@
 		3B2B8FFE1DC70A3E00B4E92F = {
 			isa = PBXGroup;
 			children = (
-				3B2B900A1DC70A3E00B4E92F /* Panda */,
+				3B2B900A1DC70A3E00B4E92F /* Sources */,
 				3B2B90091DC70A3E00B4E92F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,14 +99,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B2B900A1DC70A3E00B4E92F /* Panda */ = {
+		3B2B900A1DC70A3E00B4E92F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3BB2EE971DC9C204001D7AAB /* Properties */,
 				3BB2EE961DC9C1FD001D7AAB /* Extensions */,
+				3BB2EE971DC9C204001D7AAB /* Properties */,
 				3B2B90131DC70B3B00B4E92F /* Supporting Files */,
 			);
-			path = Panda;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		3B2B90131DC70B3B00B4E92F /* Supporting Files */ = {
@@ -136,7 +136,7 @@
 				3B2B90181DC7770500B4E92F /* UIViewExtensions.swift */,
 				3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3BB2EE971DC9C204001D7AAB /* Properties */ = {
@@ -157,7 +157,7 @@
 				3BF5F34C1DC8DB220037C598 /* UITextView.swift */,
 				3B2B90141DC70D9B00B4E92F /* UIView.swift */,
 			);
-			name = Properties;
+			path = Properties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +204,7 @@
 					3B2B90071DC70A3E00B4E92F = {
 						CreatedOnToolsVersion = 8.1;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -378,15 +378,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Panda/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordlessj.Panda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -398,15 +401,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Panda/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordlessj.Panda;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};

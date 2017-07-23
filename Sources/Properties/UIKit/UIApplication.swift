@@ -72,4 +72,38 @@ extension PandaChain where Object: UIApplication {
         object.isStatusBarHidden = value
         return self
     }
+
+    @discardableResult
+    public func minimumBackgroundFetchInterval(_ minimumBackgroundFetchInterval: TimeInterval) -> PandaChain {
+        object.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        return self
+    }
+
+    @available(iOS, introduced: 5.0, deprecated: 9.0)
+    @discardableResult
+    public func newsstandIconImage(_ image: UIImage?) -> PandaChain {
+        object.setNewsstandIconImage(image)
+        return self
+    }
+
+    @available(iOS, introduced: 2.0, deprecated: 9.0)
+    @discardableResult
+    public func statusBarOrientation(_ interfaceOrientation: UIInterfaceOrientation, animated: Bool) -> PandaChain {
+        object.setStatusBarOrientation(interfaceOrientation, animated: animated)
+        return self
+    }
+
+    @available(iOS, introduced: 2.0, deprecated: 9.0)
+    @discardableResult
+    public func statusBarStyle(_ statusBarStyle: UIStatusBarStyle, animated: Bool) -> PandaChain {
+        object.setStatusBarStyle(statusBarStyle, animated: animated)
+        return self
+    }
+
+    @available(iOS, introduced: 3.2, deprecated: 9.0)
+    @discardableResult
+    public func statusBarHidden(_ hidden: Bool, with animation: UIStatusBarAnimation) -> PandaChain {
+        object.setStatusBarHidden(hidden, with: animation)
+        return self
+    }
 }

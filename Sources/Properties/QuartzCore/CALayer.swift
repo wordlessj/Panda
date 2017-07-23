@@ -277,4 +277,16 @@ extension PandaChain where Object: CALayer {
         object.style = value
         return self
     }
+
+    @discardableResult
+    public func affineTransform(_ m: CGAffineTransform) -> PandaChain {
+        object.setAffineTransform(m)
+        return self
+    }
+
+    @discardableResult
+    public func needsDisplayIn(_ r: CGRect) -> PandaChain {
+        object.setNeedsDisplayIn(r)
+        return self
+    }
 }

@@ -50,4 +50,16 @@ extension PandaChain where Object: UIPopoverController {
         object.backgroundViewClass = value
         return self
     }
+
+    @discardableResult
+    public func contentView(_ viewController: UIViewController, animated: Bool) -> PandaChain {
+        object.setContentView(viewController, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func contentSize(_ size: CGSize, animated: Bool) -> PandaChain {
+        object.setContentSize(size, animated: animated)
+        return self
+    }
 }

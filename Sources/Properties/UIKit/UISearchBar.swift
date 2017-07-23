@@ -188,4 +188,100 @@ extension PandaChain where Object: UISearchBar {
         object.textContentType = value
         return self
     }
+
+    @discardableResult
+    public func showsCancelButton(_ showsCancelButton: Bool, animated: Bool) -> PandaChain {
+        object.setShowsCancelButton(showsCancelButton, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: barPosition, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func searchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setSearchFieldBackgroundImage(backgroundImage, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func image(_ iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState) -> PandaChain {
+        object.setImage(iconImage, for: icon, state: state)
+        return self
+    }
+
+    @discardableResult
+    public func scopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setScopeBarButtonBackgroundImage(backgroundImage, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func scopeBarButtonDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> PandaChain {
+        object.setScopeBarButtonDividerImage(dividerImage, forLeftSegmentState: leftState, rightSegmentState: rightState)
+        return self
+    }
+
+    @discardableResult
+    public func scopeBarButtonTitleTextAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+        object.setScopeBarButtonTitleTextAttributes(attributes, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func positionAdjustment(_ adjustment: UIOffset, for icon: UISearchBarIcon) -> PandaChain {
+        object.setPositionAdjustment(adjustment, for: icon)
+        return self
+    }
+
+    @discardableResult
+    public func searchFieldBackgroundImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setSearchFieldBackgroundImage
+        )
+    }
+
+    @discardableResult
+    public func scopeBarButtonBackgroundImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setScopeBarButtonBackgroundImage
+        )
+    }
+
+    @discardableResult
+    public func scopeBarButtonTitleTextAttributes(
+        normal: [String: Any],
+        highlighted: [String: Any]? = nil,
+        selected: [String: Any]? = nil,
+        disabled: [String: Any]? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setScopeBarButtonTitleTextAttributes
+        )
+    }
 }

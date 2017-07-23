@@ -43,4 +43,22 @@ extension PandaChain where Object: UIToolbar {
         object.delegate = value
         return self
     }
+
+    @discardableResult
+    public func items(_ items: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
+        object.setItems(items, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, forToolbarPosition: topOrBottom, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func shadowImage(_ shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition) -> PandaChain {
+        object.setShadowImage(shadowImage, forToolbarPosition: topOrBottom)
+        return self
+    }
 }

@@ -31,4 +31,16 @@ extension PandaChain where Object: UIPushBehavior {
         object.pushDirection = value
         return self
     }
+
+    @discardableResult
+    public func targetOffsetFromCenter(_ o: UIOffset, for item: UIDynamicItem) -> PandaChain {
+        object.setTargetOffsetFromCenter(o, for: item)
+        return self
+    }
+
+    @discardableResult
+    public func angle(_ angle: CGFloat, magnitude: CGFloat) -> PandaChain {
+        object.setAngle(angle, magnitude: magnitude)
+        return self
+    }
 }

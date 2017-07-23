@@ -152,4 +152,16 @@ extension PandaChain where Object: UIScrollView {
         object.refreshControl = value
         return self
     }
+
+    @discardableResult
+    public func contentOffset(_ contentOffset: CGPoint, animated: Bool) -> PandaChain {
+        object.setContentOffset(contentOffset, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func zoomScale(_ scale: CGFloat, animated: Bool) -> PandaChain {
+        object.setZoomScale(scale, animated: animated)
+        return self
+    }
 }

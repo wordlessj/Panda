@@ -67,4 +67,34 @@ extension PandaChain where Object: UINavigationItem {
         object.rightBarButtonItem = value
         return self
     }
+
+    @discardableResult
+    public func hidesBackButton(_ hidesBackButton: Bool, animated: Bool) -> PandaChain {
+        object.setHidesBackButton(hidesBackButton, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func leftBarButtonItems(_ items: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
+        object.setLeftBarButtonItems(items, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func rightBarButtonItems(_ items: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
+        object.setRightBarButtonItems(items, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func leftBarButton(_ item: UIBarButtonItem?, animated: Bool) -> PandaChain {
+        object.setLeftBarButton(item, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func rightBarButton(_ item: UIBarButtonItem?, animated: Bool) -> PandaChain {
+        object.setRightBarButton(item, animated: animated)
+        return self
+    }
 }

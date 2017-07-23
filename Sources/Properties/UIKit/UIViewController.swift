@@ -128,4 +128,10 @@ extension PandaChain where Object: UIViewController {
         object.transitioningDelegate = value
         return self
     }
+
+    @discardableResult
+    public func toolbarItems(_ toolbarItems: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
+        object.setToolbarItems(toolbarItems, animated: animated)
+        return self
+    }
 }

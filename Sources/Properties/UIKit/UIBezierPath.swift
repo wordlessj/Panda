@@ -49,4 +49,10 @@ extension PandaChain where Object: UIBezierPath {
         object.usesEvenOddFillRule = value
         return self
     }
+
+    @discardableResult
+    public func lineDash(_ pattern: UnsafePointer<CGFloat>?, count: Int, phase: CGFloat) -> PandaChain {
+        object.setLineDash(pattern, count: count, phase: phase)
+        return self
+    }
 }

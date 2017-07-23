@@ -25,4 +25,10 @@ extension PandaChain where Object: UICollisionBehavior {
         object.collisionDelegate = value
         return self
     }
+
+    @discardableResult
+    public func translatesReferenceBoundsIntoBoundary(with insets: UIEdgeInsets) -> PandaChain {
+        object.setTranslatesReferenceBoundsIntoBoundary(with: insets)
+        return self
+    }
 }

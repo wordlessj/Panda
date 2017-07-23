@@ -176,4 +176,22 @@ extension PandaChain where Object: UIView {
         object.restorationIdentifier = value
         return self
     }
+
+    @discardableResult
+    public func needsDisplay(_ rect: CGRect) -> PandaChain {
+        object.setNeedsDisplay(rect)
+        return self
+    }
+
+    @discardableResult
+    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+        object.setContentHuggingPriority(priority, for: axis)
+        return self
+    }
+
+    @discardableResult
+    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+        object.setContentCompressionResistancePriority(priority, for: axis)
+        return self
+    }
 }

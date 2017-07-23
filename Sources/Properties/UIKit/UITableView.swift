@@ -172,4 +172,10 @@ extension PandaChain where Object: UITableView {
         object.remembersLastFocusedIndexPath = value
         return self
     }
+
+    @discardableResult
+    public func editing(_ editing: Bool, animated: Bool) -> PandaChain {
+        object.setEditing(editing, animated: animated)
+        return self
+    }
 }

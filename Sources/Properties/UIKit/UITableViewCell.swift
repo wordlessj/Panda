@@ -110,4 +110,22 @@ extension PandaChain where Object: UITableViewCell {
         object.focusStyle = value
         return self
     }
+
+    @discardableResult
+    public func selected(_ selected: Bool, animated: Bool) -> PandaChain {
+        object.setSelected(selected, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func highlighted(_ highlighted: Bool, animated: Bool) -> PandaChain {
+        object.setHighlighted(highlighted, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func editing(_ editing: Bool, animated: Bool) -> PandaChain {
+        object.setEditing(editing, animated: animated)
+        return self
+    }
 }

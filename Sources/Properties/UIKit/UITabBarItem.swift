@@ -32,4 +32,28 @@ extension PandaChain where Object: UITabBarItem {
         object.badgeColor = value
         return self
     }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func badgeTextAttributes(_ textAttributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+        object.setBadgeTextAttributes(textAttributes, for: state)
+        return self
+    }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func badgeTextAttributes(
+        normal: [String: Any],
+        highlighted: [String: Any]? = nil,
+        selected: [String: Any]? = nil,
+        disabled: [String: Any]? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setBadgeTextAttributes
+        )
+    }
 }

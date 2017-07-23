@@ -104,4 +104,11 @@ extension PandaChain where Object: NSMutableParagraphStyle {
         object.allowsDefaultTighteningForTruncation = value
         return self
     }
+
+    @available(iOS 9.0, *)
+    @discardableResult
+    public func paragraphStyle(_ obj: NSParagraphStyle) -> PandaChain {
+        object.setParagraphStyle(obj)
+        return self
+    }
 }

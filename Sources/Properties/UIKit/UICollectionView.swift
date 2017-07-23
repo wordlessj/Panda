@@ -64,4 +64,10 @@ extension PandaChain where Object: UICollectionView {
         object.remembersLastFocusedIndexPath = value
         return self
     }
+
+    @discardableResult
+    public func collectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool) -> PandaChain {
+        object.setCollectionViewLayout(layout, animated: animated)
+        return self
+    }
 }

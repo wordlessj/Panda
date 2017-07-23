@@ -55,4 +55,22 @@ extension PandaChain where Object: UINavigationController {
         object.hidesBarsOnTap = value
         return self
     }
+
+    @discardableResult
+    public func viewControllers(_ viewControllers: [UIViewController], animated: Bool) -> PandaChain {
+        object.setViewControllers(viewControllers, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func navigationBarHidden(_ hidden: Bool, animated: Bool) -> PandaChain {
+        object.setNavigationBarHidden(hidden, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func toolbarHidden(_ hidden: Bool, animated: Bool) -> PandaChain {
+        object.setToolbarHidden(hidden, animated: animated)
+        return self
+    }
 }

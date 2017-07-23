@@ -50,4 +50,10 @@ extension PandaChain where Object: UIProgressView {
         object.observedProgress = value
         return self
     }
+
+    @discardableResult
+    public func progress(_ progress: Float, animated: Bool) -> PandaChain {
+        object.setProgress(progress, animated: animated)
+        return self
+    }
 }

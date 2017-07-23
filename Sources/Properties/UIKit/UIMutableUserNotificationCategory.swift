@@ -14,4 +14,10 @@ extension PandaChain where Object: UIMutableUserNotificationCategory {
         object.identifier = value
         return self
     }
+
+    @discardableResult
+    public func actions(_ actions: [UIUserNotificationAction]?, for context: UIUserNotificationActionContext) -> PandaChain {
+        object.setActions(actions, for: context)
+        return self
+    }
 }

@@ -25,4 +25,16 @@ extension PandaChain where Object: UITextInput {
         object.inputDelegate = value
         return self
     }
+
+    @discardableResult
+    public func markedText(_ markedText: String?, selectedRange: NSRange) -> PandaChain {
+        object.setMarkedText(markedText, selectedRange: selectedRange)
+        return self
+    }
+
+    @discardableResult
+    public func baseWritingDirection(_ writingDirection: UITextWritingDirection, for range: UITextRange) -> PandaChain {
+        object.setBaseWritingDirection(writingDirection, for: range)
+        return self
+    }
 }

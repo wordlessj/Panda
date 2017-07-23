@@ -49,4 +49,110 @@ extension PandaChain where Object: UIBarButtonItem {
         object.tintColor = value
         return self
     }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: state, style: style, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func titlePositionAdjustment(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setTitlePositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackButtonBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backButtonTitlePositionAdjustment(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackButtonTitlePositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backButtonBackgroundVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackButtonBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundVerticalPositionAdjustment(
+        default d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackgroundVerticalPositionAdjustment
+        )
+    }
+
+    @discardableResult
+    public func titlePositionAdjustment(
+        default d: UIOffset,
+        compact: UIOffset? = nil,
+        defaultPrompt: UIOffset? = nil,
+        compactPrompt: UIOffset? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setTitlePositionAdjustment
+        )
+    }
+
+    @discardableResult
+    public func backButtonTitlePositionAdjustment(
+        default d: UIOffset,
+        compact: UIOffset? = nil,
+        defaultPrompt: UIOffset? = nil,
+        compactPrompt: UIOffset? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackButtonTitlePositionAdjustment
+        )
+    }
+
+    @discardableResult
+    public func backButtonBackgroundVerticalPositionAdjustment(
+        default d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackButtonBackgroundVerticalPositionAdjustment
+        )
+    }
 }

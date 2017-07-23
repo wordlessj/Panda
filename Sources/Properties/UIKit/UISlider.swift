@@ -61,4 +61,76 @@ extension PandaChain where Object: UISlider {
         object.thumbTintColor = value
         return self
     }
+
+    @discardableResult
+    public func value(_ value: Float, animated: Bool) -> PandaChain {
+        object.setValue(value, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func thumbImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setThumbImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func minimumTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setMinimumTrackImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func maximumTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setMaximumTrackImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func thumbImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setThumbImage
+        )
+    }
+
+    @discardableResult
+    public func minimumTrackImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setMinimumTrackImage
+        )
+    }
+
+    @discardableResult
+    public func maximumTrackImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setMaximumTrackImage
+        )
+    }
 }

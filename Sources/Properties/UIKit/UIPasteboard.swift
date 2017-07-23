@@ -61,4 +61,30 @@ extension PandaChain where Object: UIPasteboard {
         object.colors = value
         return self
     }
+
+    @available(iOS, introduced: 3.0, deprecated: 10.0)
+    @discardableResult
+    public func persistent(_ persistent: Bool) -> PandaChain {
+        object.setPersistent(persistent)
+        return self
+    }
+
+    @discardableResult
+    public func value(_ value: Any, forPasteboardType pasteboardType: String) -> PandaChain {
+        object.setValue(value, forPasteboardType: pasteboardType)
+        return self
+    }
+
+    @discardableResult
+    public func data(_ data: Data, forPasteboardType pasteboardType: String) -> PandaChain {
+        object.setData(data, forPasteboardType: pasteboardType)
+        return self
+    }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func items(_ items: [[String: Any]], options: [UIPasteboardOption: Any]) -> PandaChain {
+        object.setItems(items, options: options)
+        return self
+    }
 }

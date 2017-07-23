@@ -37,4 +37,10 @@ extension PandaChain where Object: UITabBarController {
         object.delegate = value
         return self
     }
+
+    @discardableResult
+    public func viewControllers(_ viewControllers: [UIViewController]?, animated: Bool) -> PandaChain {
+        object.setViewControllers(viewControllers, animated: animated)
+        return self
+    }
 }

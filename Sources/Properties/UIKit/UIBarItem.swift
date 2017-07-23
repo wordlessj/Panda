@@ -49,4 +49,26 @@ extension PandaChain where Object: UIBarItem {
         object.tag = value
         return self
     }
+
+    @discardableResult
+    public func titleTextAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+        object.setTitleTextAttributes(attributes, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func titleTextAttributes(
+        normal: [String: Any],
+        highlighted: [String: Any]? = nil,
+        selected: [String: Any]? = nil,
+        disabled: [String: Any]? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setTitleTextAttributes
+        )
+    }
 }

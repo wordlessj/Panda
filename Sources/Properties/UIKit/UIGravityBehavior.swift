@@ -25,4 +25,10 @@ extension PandaChain where Object: UIGravityBehavior {
         object.magnitude = value
         return self
     }
+
+    @discardableResult
+    public func angle(_ angle: CGFloat, magnitude: CGFloat) -> PandaChain {
+        object.setAngle(angle, magnitude: magnitude)
+        return self
+    }
 }

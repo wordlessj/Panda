@@ -55,4 +55,76 @@ extension PandaChain where Object: UIStepper {
         object.tintColor = value
         return self
     }
+
+    @discardableResult
+    public func backgroundImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setBackgroundImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func dividerImage(_ image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> PandaChain {
+        object.setDividerImage(image, forLeftSegmentState: leftState, rightSegmentState: rightState)
+        return self
+    }
+
+    @discardableResult
+    public func incrementImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setIncrementImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func decrementImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setDecrementImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setBackgroundImage
+        )
+    }
+
+    @discardableResult
+    public func incrementImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setIncrementImage
+        )
+    }
+
+    @discardableResult
+    public func decrementImage(
+        normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setDecrementImage
+        )
+    }
 }

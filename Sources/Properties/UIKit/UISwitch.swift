@@ -43,4 +43,10 @@ extension PandaChain where Object: UISwitch {
         object.isOn = value
         return self
     }
+
+    @discardableResult
+    public func on(_ on: Bool, animated: Bool) -> PandaChain {
+        object.setOn(on, animated: animated)
+        return self
+    }
 }

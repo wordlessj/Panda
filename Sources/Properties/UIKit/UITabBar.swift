@@ -92,4 +92,10 @@ extension PandaChain where Object: UITabBar {
         object.isTranslucent = value
         return self
     }
+
+    @discardableResult
+    public func items(_ items: [UITabBarItem]?, animated: Bool) -> PandaChain {
+        object.setItems(items, animated: animated)
+        return self
+    }
 }

@@ -25,4 +25,16 @@ extension PandaChain where Object: UIMenuController {
         object.menuItems = value
         return self
     }
+
+    @discardableResult
+    public func menuVisible(_ menuVisible: Bool, animated: Bool) -> PandaChain {
+        object.setMenuVisible(menuVisible, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func targetRect(_ targetRect: CGRect, in targetView: UIView) -> PandaChain {
+        object.setTargetRect(targetRect, in: targetView)
+        return self
+    }
 }

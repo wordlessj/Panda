@@ -19,4 +19,10 @@ extension PandaChain where Object: UIPanGestureRecognizer {
         object.maximumNumberOfTouches = value
         return self
     }
+
+    @discardableResult
+    public func translation(_ translation: CGPoint, in view: UIView?) -> PandaChain {
+        object.setTranslation(translation, in: view)
+        return self
+    }
 }

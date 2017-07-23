@@ -67,4 +67,60 @@ extension PandaChain where Object: UINavigationBar {
         object.backIndicatorTransitionMaskImage = value
         return self
     }
+
+    @discardableResult
+    public func items(_ items: [UINavigationItem]?, animated: Bool) -> PandaChain {
+        object.setItems(items, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: barPosition, barMetrics: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(_ backgroundImage: UIImage?, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func titleVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setTitleVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @discardableResult
+    public func backgroundImage(
+        default d: UIImage,
+        compact: UIImage? = nil,
+        defaultPrompt: UIImage? = nil,
+        compactPrompt: UIImage? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackgroundImage
+        )
+    }
+
+    @discardableResult
+    public func titleVerticalPositionAdjustment(
+        default d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setTitleVerticalPositionAdjustment
+        )
+    }
 }

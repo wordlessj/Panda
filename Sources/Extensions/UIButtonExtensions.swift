@@ -26,39 +26,5 @@
 import UIKit
 
 extension PandaChain where Object: UIButton {
-    @discardableResult
-    public func title(_ title: String?, for state: UIControlState = .normal) -> PandaChain {
-        object.setTitle(title, for: state)
-        return self
-    }
 
-    @discardableResult
-    public func attributedTitle(_ title: NSAttributedString?, for state: UIControlState = .normal) -> PandaChain {
-        object.setAttributedTitle(title, for: state)
-        return self
-    }
-
-    @discardableResult
-    public func titleColor(_ color: UIColor?, for state: UIControlState = .normal) -> PandaChain {
-        object.setTitleColor(color, for: state)
-        return self
-    }
-
-    @discardableResult
-    public func titleShadowColor(_ color: UIColor?, for state: UIControlState = .normal) -> PandaChain {
-        object.setTitleShadowColor(color, for: state)
-        return self
-    }
-
-    @discardableResult
-    public func backgroundImage(_ image: UIImage?, for state: UIControlState = .normal) -> PandaChain {
-        object.setBackgroundImage(image, for: state)
-        return self
-    }
-
-    @discardableResult
-    public func image(_ image: UIImage?, for state: UIControlState = .normal) -> PandaChain {
-        object.setImage(image, for: state)
-        return self
-    }
 }

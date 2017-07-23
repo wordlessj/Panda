@@ -25,22 +25,6 @@
 
 import UIKit
 
-extension PandaChain where Object: UIView {
-    @discardableResult
-    public func contentCompressionResistancePriority(_ priority: UILayoutPriority,
-                                                     for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentCompressionResistancePriority(priority, for: axis)
-        return self
-    }
-
-    @discardableResult
-    public func contentHuggingPriority(_ priority: UILayoutPriority,
-                                       for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentHuggingPriority(priority, for: axis)
-        return self
-    }
-}
-
 extension UIView {
     @discardableResult
     public func addSubviews(_ views: UIView...) -> Self {

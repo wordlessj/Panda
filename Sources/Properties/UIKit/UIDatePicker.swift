@@ -61,4 +61,10 @@ extension PandaChain where Object: UIDatePicker {
         object.minuteInterval = value
         return self
     }
+
+    @discardableResult
+    public func date(_ date: Date, animated: Bool) -> PandaChain {
+        object.setDate(date, animated: animated)
+        return self
+    }
 }

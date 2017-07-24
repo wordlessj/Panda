@@ -1,5 +1,5 @@
 //
-//  UIStackViewExtensions.swift
+//  CALayerExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -23,19 +23,32 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+import QuartzCore
 
-@available(iOS 9.0, *)
-extension PandaChain where Object: UIStackView {
+extension PandaChain where Object: CALayer {
     @discardableResult
-    public func addArrangedSubviews(_ views: [UIView]) -> PandaChain {
-        views.forEach { object.addArrangedSubview($0) }
+    public func addSublayers(_ layers: [CALayer]) -> PandaChain {
+        layers.forEach { object.addSublayer($0) }
         return self
+    }
+}
+
+extension PandaChain where Object: CALayer {
+    @discardableResult
+    public func border(width: CGFloat, color: CGColor?) -> PandaChain {
+        return borderWidth(width).borderColor(color)
     }
 
     @discardableResult
-    public func removeArrangedSubviews(_ views: [UIView]) -> PandaChain {
-        views.forEach { object.removeArrangedSubview($0) }
-        return self
+    public func shadow(opacity: CGFloat,
+                       radius: CGFloat,
+                       offset: CGSize,
+                       color: CGColor?,
+                       path: CGPath? = nil) -> PandaChain {
+        return shadowOpacity(Float(opacity))
+            .shadowRadius(radius)
+            .shadowOffset(offset)
+            .shadowColor(color)
+            .shadowPath(path)
     }
 }

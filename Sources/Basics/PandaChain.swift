@@ -29,11 +29,44 @@ public struct PandaChain<Object> {
     public var object: Object
 }
 
+extension PandaChain {
+    /// Do something on the object.
+    ///
+    /// - parameter action: Something to be done.
+    @discardableResult
+    public func `do`(_ action: (Object) -> ()) -> PandaChain {
+        action(object)
+        return self
+    }
+}
+
+struct ConfigStack {
+    static var shared = ConfigStack()
+
+    private var stack = [[Any]]()
+
+    mutating func push() {
+        stack.append([])
+    }
+
+    mutating func pop() -> [Any] {
+        return stack.removeLast()
+    }
+
+    mutating func add(_ element: Any) {
+        guard !stack.isEmpty else { return }
+        stack[stack.count - 1].append(element)
+    }
+}
+
 public protocol PandaChainable {}
 
 extension PandaChainable {
     /// Panda extensions.
-    public var panda: PandaChain<Self> { return PandaChain(object: self) }
+    public var pd: PandaChain<Self> {
+        ConfigStack.shared.add(self)
+        return PandaChain(object: self)
+    }
 }
 
 extension NSObject: PandaChainable {}

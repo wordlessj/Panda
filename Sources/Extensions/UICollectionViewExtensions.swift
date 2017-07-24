@@ -2,49 +2,74 @@
 //  UICollectionViewExtensions.swift
 //  Panda
 //
-//  Created by Javier on 11/2/16.
-//  Copyright © 2016 Javier. All rights reserved.
+//  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import UIKit
 
-extension UICollectionView {
+extension PandaChain where Object: UICollectionView {
+    /// Register a class for cell, reuse identifier is the class name.
     @discardableResult
-    public func registerReusableCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type) -> Self {
-        register(cellClass, forCellWithReuseIdentifier: NSStringFromClass(cellClass))
+    public func registerCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type) -> PandaChain {
+        object.register(cellClass, forCellWithReuseIdentifier: NSStringFromClass(cellClass))
         return self
     }
 
+    /// Unregister a class for cell, reuse identifier is the class name.
     @discardableResult
-    public func unregisterReusableCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type) -> Self {
-        register(nil as AnyClass?, forCellWithReuseIdentifier: NSStringFromClass(cellClass))
+    public func unregisterCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type) -> PandaChain {
+        object.register(nil as AnyClass?, forCellWithReuseIdentifier: NSStringFromClass(cellClass))
         return self
     }
 
+    /// Register a class for supplementary view, reuse identifier is the class name.
     @discardableResult
-    public func registerReusableSupplementaryView<ReusableView: UICollectionReusableView>
-        (_ viewClass: ReusableView.Type, ofKind elementKind: String) -> Self {
-        register(viewClass, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: NSStringFromClass(viewClass))
+    public func registerSupplementaryView<View: UICollectionReusableView>
+        (_ viewClass: View.Type, ofKind elementKind: String) -> PandaChain {
+        object.register(viewClass,
+                        forSupplementaryViewOfKind: elementKind,
+                        withReuseIdentifier: NSStringFromClass(viewClass))
         return self
     }
 
+    /// Unregister a class for supplementary view, reuse identifier is the class name.
     @discardableResult
-    public func unregisterReusableSupplementaryView<ReusableView: UICollectionReusableView>
-        (_ viewClass: ReusableView.Type, ofKind elementKind: String) -> Self {
-        register(nil as AnyClass?,
-                 forSupplementaryViewOfKind: elementKind,
-                 withReuseIdentifier: NSStringFromClass(viewClass))
+    public func unregisterSupplementaryView<View: UICollectionReusableView>
+        (_ viewClass: View.Type, ofKind elementKind: String) -> PandaChain {
+        object.register(nil as AnyClass?,
+                        forSupplementaryViewOfKind: elementKind,
+                        withReuseIdentifier: NSStringFromClass(viewClass))
         return self
     }
 
-    public func dequeueReusableCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type, for indexPath: IndexPath) -> Cell {
-        return dequeueReusableCell(withReuseIdentifier: NSStringFromClass(cellClass), for: indexPath) as! Cell
+    /// Dequeue a reusable cell, reuse identifier is the class name.
+    public func dequeueCell<Cell: UICollectionViewCell>(_ cellClass: Cell.Type, for indexPath: IndexPath) -> Cell {
+        return object.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(cellClass), for: indexPath) as! Cell
     }
 
-    public func dequeueReusableSupplementaryView<ReusableView: UICollectionReusableView>
-        (_ viewClass: ReusableView.Type, ofKind elementKind: String, for indexPath: IndexPath) -> ReusableView {
-        return dequeueReusableSupplementaryView(ofKind: elementKind,
-                                                withReuseIdentifier: NSStringFromClass(viewClass),
-                                                for: indexPath) as! ReusableView
+    /// Dequeue a reusable supplementary view, reuse identifier is the class name.
+    public func dequeueSupplementaryView<View: UICollectionReusableView>
+        (_ viewClass: View.Type, ofKind elementKind: String, for indexPath: IndexPath) -> View {
+        return object.dequeueReusableSupplementaryView(ofKind: elementKind,
+                                                       withReuseIdentifier: NSStringFromClass(viewClass),
+                                                       for: indexPath) as! View
     }
 }

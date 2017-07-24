@@ -2,8 +2,25 @@
 //  Actions.swift
 //  Panda
 //
-//  Created by Javier on 11/1/16.
-//  Copyright © 2016 Javier. All rights reserved.
+//  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import UIKit
@@ -11,7 +28,7 @@ import UIKit
 private class ActionBox {
     static let triggerSelector = #selector(trigger)
 
-    let action: () -> ()
+    private let action: () -> ()
 
     init(action: @escaping () -> ()) {
         self.action = action
@@ -22,29 +39,32 @@ private class ActionBox {
     }
 }
 
-extension UIControlEvents: Hashable {
-    public var hashValue: Int { return Int(rawValue) }
-}
-
 private var actionBoxKey: UInt8 = 0
 
 extension UIControl {
-    private var actionBoxes: [UIControlEvents: ActionBox] {
-        get { return objc_getAssociatedObject(self, &actionBoxKey) as? [UIControlEvents: ActionBox] ?? [:] }
+    fileprivate var actionBoxes: [UInt: ActionBox] {
+        get { return objc_getAssociatedObject(self, &actionBoxKey) as? [UInt: ActionBox] ?? [:] }
         set { objc_setAssociatedObject(self, &actionBoxKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
+}
 
+extension PandaChain where Object: UIControl {
+    /// Associates `action` for `events`.
+    ///
+    /// - parameters:
+    ///     - events: Defaults to `touchUpInside`.
+    ///     - action: If `nil`, the action associated with `events` will be removed.
     @discardableResult
-    public func action(events: UIControlEvents = .touchUpInside, action: (() -> ())?) -> Self {
-        if let box = actionBoxes[events] {
-            removeTarget(box, action: ActionBox.triggerSelector, for: events)
-            actionBoxes[events] = nil
+    public func action(for events: UIControlEvents = .touchUpInside, action: (() -> ())?) -> PandaChain {
+        if let box = object.actionBoxes[events.rawValue] {
+            object.removeTarget(box, action: ActionBox.triggerSelector, for: events)
+            object.actionBoxes[events.rawValue] = nil
         }
 
         if let action = action {
             let box = ActionBox(action: action)
-            addTarget(box, action: ActionBox.triggerSelector, for: events)
-            actionBoxes[events] = box
+            object.addTarget(box, action: ActionBox.triggerSelector, for: events)
+            object.actionBoxes[events.rawValue] = box
         }
 
         return self
@@ -52,8 +72,8 @@ extension UIControl {
 }
 
 private class ObjectActionBox<Object: AnyObject> {
-    unowned let object: Object
-    let action: (Object) -> ()
+    private unowned let object: Object
+    private let action: (Object) -> ()
 
     init(object: Object, action: @escaping (Object) -> ()) {
         self.object = object
@@ -68,28 +88,33 @@ private class ObjectActionBox<Object: AnyObject> {
 public protocol GestureRecognizer: class {}
 
 extension GestureRecognizer where Self: UIGestureRecognizer {
-    private var actionBox: ObjectActionBox<Self>? {
+    fileprivate var actionBox: ObjectActionBox<Self>? {
         get { return objc_getAssociatedObject(self, &actionBoxKey) as? ObjectActionBox<Self> }
         set { objc_setAssociatedObject(self, &actionBoxKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
+}
 
+extension UIGestureRecognizer: GestureRecognizer {}
+
+extension PandaChain where Object: UIGestureRecognizer {
+    /// Set `action`.
+    ///
+    /// - parameter action: If `nil`, the action set before will be removed.
     @discardableResult
-    public func action(_ action: ((Self) -> ())?) -> Self {
-        let selector = #selector(ObjectActionBox<Self>.trigger)
+    public func action(_ action: ((Object) -> ())?) -> PandaChain {
+        let selector = #selector(ObjectActionBox<Object>.trigger)
 
-        if let box = actionBox {
-            removeTarget(box, action: selector)
-            actionBox = nil
+        if let box = object.actionBox {
+            object.removeTarget(box, action: selector)
+            object.actionBox = nil
         }
 
         if let action = action {
-            let box = ObjectActionBox(object: self, action: action)
-            addTarget(box, action: selector)
-            actionBox = box
+            let box = ObjectActionBox(object: object, action: action)
+            object.addTarget(box, action: selector)
+            object.actionBox = box
         }
 
         return self
     }
 }
-
-extension UIGestureRecognizer: GestureRecognizer {}

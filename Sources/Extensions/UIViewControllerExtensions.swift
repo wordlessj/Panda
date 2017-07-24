@@ -2,22 +2,49 @@
 //  UIViewControllerExtensions.swift
 //  Panda
 //
-//  Created by Javier on 10/18/15.
-//  Copyright © 2015 Javier. All rights reserved.
+//  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import UIKit
 
-extension UIViewController {
-    public func addChildViewControllerAndView(_ controller: UIViewController, to toView: UIView? = nil) {
-        addChildViewController(controller)
-        (toView ?? view).addSubview(controller.view)
-        controller.didMove(toParentViewController: self)
+extension PandaChain where Object: UIViewController {
+    /// Add child view controller and its view, also calls `didMove(toParentViewController:)`.
+    ///
+    /// - parameters:
+    ///     - controller: Child view controller.
+    ///     - toView: A view to which `controller`'s view is added. Defaults to `nil`, meaning receiver's view.
+    @discardableResult
+    public func addChild(_ controller: UIViewController, to toView: UIView? = nil) -> PandaChain {
+        object.addChildViewController(controller)
+        (toView ?? object.view).addSubview(controller.view)
+        controller.didMove(toParentViewController: object)
+        return self
     }
 
-    public func removeFromParentViewControllerAndView() {
-        willMove(toParentViewController: nil)
-        view.removeFromSuperview()
-        removeFromParentViewController()
+    /// Remove child view controller and its view, also calls `willMove(toParentViewController:)`.
+    @discardableResult
+    public func removeFromParent() -> PandaChain {
+        object.willMove(toParentViewController: nil)
+        object.view.removeFromSuperview()
+        object.removeFromParentViewController()
+        return self
     }
 }

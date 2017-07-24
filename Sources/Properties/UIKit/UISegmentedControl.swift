@@ -88,7 +88,7 @@ extension PandaChain where Object: UISegmentedControl {
 
     @discardableResult
     public func titleTextAttributes(
-        normal: [AnyHashable: Any],
+        _ normal: [AnyHashable: Any],
         highlighted: [AnyHashable: Any]? = nil,
         selected: [AnyHashable: Any]? = nil,
         disabled: [AnyHashable: Any]? = nil

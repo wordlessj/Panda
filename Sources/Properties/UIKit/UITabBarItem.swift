@@ -43,7 +43,7 @@ extension PandaChain where Object: UITabBarItem {
     @available(iOS 10.0, *)
     @discardableResult
     public func badgeTextAttributes(
-        normal: [String: Any],
+        _ normal: [String: Any],
         highlighted: [String: Any]? = nil,
         selected: [String: Any]? = nil,
         disabled: [String: Any]? = nil

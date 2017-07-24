@@ -94,7 +94,7 @@ extension PandaChain where Object: UIBarButtonItem {
 
     @discardableResult
     public func backgroundVerticalPositionAdjustment(
-        default d: CGFloat,
+        _ d: CGFloat,
         compact: CGFloat? = nil,
         defaultPrompt: CGFloat? = nil,
         compactPrompt: CGFloat? = nil
@@ -110,7 +110,7 @@ extension PandaChain where Object: UIBarButtonItem {
 
     @discardableResult
     public func titlePositionAdjustment(
-        default d: UIOffset,
+        _ d: UIOffset,
         compact: UIOffset? = nil,
         defaultPrompt: UIOffset? = nil,
         compactPrompt: UIOffset? = nil
@@ -126,7 +126,7 @@ extension PandaChain where Object: UIBarButtonItem {
 
     @discardableResult
     public func backButtonTitlePositionAdjustment(
-        default d: UIOffset,
+        _ d: UIOffset,
         compact: UIOffset? = nil,
         defaultPrompt: UIOffset? = nil,
         compactPrompt: UIOffset? = nil
@@ -142,7 +142,7 @@ extension PandaChain where Object: UIBarButtonItem {
 
     @discardableResult
     public func backButtonBackgroundVerticalPositionAdjustment(
-        default d: CGFloat,
+        _ d: CGFloat,
         compact: CGFloat? = nil,
         defaultPrompt: CGFloat? = nil,
         compactPrompt: CGFloat? = nil

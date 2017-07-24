@@ -239,7 +239,7 @@ extension PandaChain where Object: UISearchBar {
 
     @discardableResult
     public func searchFieldBackgroundImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -255,7 +255,7 @@ extension PandaChain where Object: UISearchBar {
 
     @discardableResult
     public func scopeBarButtonBackgroundImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -271,7 +271,7 @@ extension PandaChain where Object: UISearchBar {
 
     @discardableResult
     public func scopeBarButtonTitleTextAttributes(
-        normal: [String: Any],
+        _ normal: [String: Any],
         highlighted: [String: Any]? = nil,
         selected: [String: Any]? = nil,
         disabled: [String: Any]? = nil

@@ -88,7 +88,7 @@ extension PandaChain where Object: UISlider {
 
     @discardableResult
     public func thumbImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -104,7 +104,7 @@ extension PandaChain where Object: UISlider {
 
     @discardableResult
     public func minimumTrackImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -120,7 +120,7 @@ extension PandaChain where Object: UISlider {
 
     @discardableResult
     public func maximumTrackImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil

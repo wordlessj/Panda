@@ -94,7 +94,7 @@ extension PandaChain where Object: UINavigationBar {
 
     @discardableResult
     public func backgroundImage(
-        default d: UIImage,
+        _ d: UIImage,
         compact: UIImage? = nil,
         defaultPrompt: UIImage? = nil,
         compactPrompt: UIImage? = nil
@@ -110,7 +110,7 @@ extension PandaChain where Object: UINavigationBar {
 
     @discardableResult
     public func titleVerticalPositionAdjustment(
-        default d: CGFloat,
+        _ d: CGFloat,
         compact: CGFloat? = nil,
         defaultPrompt: CGFloat? = nil,
         compactPrompt: CGFloat? = nil

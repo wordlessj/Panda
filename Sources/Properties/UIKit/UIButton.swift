@@ -94,7 +94,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func title(
-        normal: String,
+        _ normal: String,
         highlighted: String? = nil,
         selected: String? = nil,
         disabled: String? = nil
@@ -110,7 +110,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func titleColor(
-        normal: UIColor,
+        _ normal: UIColor,
         highlighted: UIColor? = nil,
         selected: UIColor? = nil,
         disabled: UIColor? = nil
@@ -126,7 +126,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func titleShadowColor(
-        normal: UIColor,
+        _ normal: UIColor,
         highlighted: UIColor? = nil,
         selected: UIColor? = nil,
         disabled: UIColor? = nil
@@ -142,7 +142,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func image(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -158,7 +158,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func backgroundImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -174,7 +174,7 @@ extension PandaChain where Object: UIButton {
 
     @discardableResult
     public func attributedTitle(
-        normal: NSAttributedString,
+        _ normal: NSAttributedString,
         highlighted: NSAttributedString? = nil,
         selected: NSAttributedString? = nil,
         disabled: NSAttributedString? = nil

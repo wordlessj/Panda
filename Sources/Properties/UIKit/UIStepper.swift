@@ -82,7 +82,7 @@ extension PandaChain where Object: UIStepper {
 
     @discardableResult
     public func backgroundImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -98,7 +98,7 @@ extension PandaChain where Object: UIStepper {
 
     @discardableResult
     public func incrementImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil
@@ -114,7 +114,7 @@ extension PandaChain where Object: UIStepper {
 
     @discardableResult
     public func decrementImage(
-        normal: UIImage,
+        _ normal: UIImage,
         highlighted: UIImage? = nil,
         selected: UIImage? = nil,
         disabled: UIImage? = nil

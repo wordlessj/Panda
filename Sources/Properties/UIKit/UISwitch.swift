@@ -8,18 +8,42 @@
 import UIKit
 
 extension PandaChain where Object: UISwitch {
+    /// `onTintColor`
+    @discardableResult
+    public func onTint(_ value: UIColor?) -> PandaChain {
+        object.onTintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "onTint()")
     @discardableResult
     public func onTintColor(_ value: UIColor?) -> PandaChain {
         object.onTintColor = value
         return self
     }
 
+    /// `tintColor`
+    @discardableResult
+    public func tint(_ value: UIColor?) -> PandaChain {
+        object.tintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> PandaChain {
         object.tintColor = value
         return self
     }
 
+    /// `thumbTintColor`
+    @discardableResult
+    public func thumbTint(_ value: UIColor?) -> PandaChain {
+        object.thumbTintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "thumbTint()")
     @discardableResult
     public func thumbTintColor(_ value: UIColor?) -> PandaChain {
         object.thumbTintColor = value
@@ -39,7 +63,7 @@ extension PandaChain where Object: UISwitch {
     }
 
     @discardableResult
-    public func isOn(_ value: Bool) -> PandaChain {
+    public func on(_ value: Bool) -> PandaChain {
         object.isOn = value
         return self
     }

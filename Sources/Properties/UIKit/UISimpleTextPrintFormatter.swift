@@ -32,6 +32,14 @@ extension PandaChain where Object: UISimpleTextPrintFormatter {
         return self
     }
 
+    /// `textAlignment`
+    @discardableResult
+    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+        object.textAlignment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "alignment()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value

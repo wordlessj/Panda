@@ -9,7 +9,7 @@ import UIKit
 
 extension PandaChain where Object: UIMenuController {
     @discardableResult
-    public func isMenuVisible(_ value: Bool) -> PandaChain {
+    public func menuVisible(_ value: Bool) -> PandaChain {
         object.isMenuVisible = value
         return self
     }

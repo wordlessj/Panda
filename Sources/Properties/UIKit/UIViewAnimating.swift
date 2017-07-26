@@ -9,7 +9,7 @@ import UIKit
 
 extension PandaChain where Object: UIViewAnimating {
     @discardableResult
-    public func isReversed(_ value: Bool) -> PandaChain {
+    public func reversed(_ value: Bool) -> PandaChain {
         object.isReversed = value
         return self
     }

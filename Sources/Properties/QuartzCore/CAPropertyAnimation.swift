@@ -15,13 +15,13 @@ extension PandaChain where Object: CAPropertyAnimation {
     }
 
     @discardableResult
-    public func isAdditive(_ value: Bool) -> PandaChain {
+    public func additive(_ value: Bool) -> PandaChain {
         object.isAdditive = value
         return self
     }
 
     @discardableResult
-    public func isCumulative(_ value: Bool) -> PandaChain {
+    public func cumulative(_ value: Bool) -> PandaChain {
         object.isCumulative = value
         return self
     }

@@ -8,12 +8,28 @@
 import UIKit
 
 extension PandaChain where Object: UIPrintFormatter {
+    /// `maximumContentHeight`
+    @discardableResult
+    public func maxContentHeight(_ value: CGFloat) -> PandaChain {
+        object.maximumContentHeight = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxContentHeight()")
     @discardableResult
     public func maximumContentHeight(_ value: CGFloat) -> PandaChain {
         object.maximumContentHeight = value
         return self
     }
 
+    /// `maximumContentWidth`
+    @discardableResult
+    public func maxContentWidth(_ value: CGFloat) -> PandaChain {
+        object.maximumContentWidth = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxContentWidth()")
     @discardableResult
     public func maximumContentWidth(_ value: CGFloat) -> PandaChain {
         object.maximumContentWidth = value

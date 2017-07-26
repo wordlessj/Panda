@@ -8,6 +8,14 @@
 import UIKit
 
 extension PandaChain where Object: UISearchBar {
+    /// `barStyle`
+    @discardableResult
+    public func style(_ value: UIBarStyle) -> PandaChain {
+        object.barStyle = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func barStyle(_ value: UIBarStyle) -> PandaChain {
         object.barStyle = value
@@ -57,23 +65,47 @@ extension PandaChain where Object: UISearchBar {
     }
 
     @discardableResult
-    public func isSearchResultsButtonSelected(_ value: Bool) -> PandaChain {
+    public func searchResultsButtonSelected(_ value: Bool) -> PandaChain {
         object.isSearchResultsButtonSelected = value
         return self
     }
 
+    /// `tintColor`
+    @discardableResult
+    public func tint(_ value: UIColor?) -> PandaChain {
+        object.tintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> PandaChain {
         object.tintColor = value
         return self
     }
 
+    /// `barTintColor`
+    @discardableResult
+    public func barTint(_ value: UIColor?) -> PandaChain {
+        object.barTintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "barTint()")
     @discardableResult
     public func barTintColor(_ value: UIColor?) -> PandaChain {
         object.barTintColor = value
         return self
     }
 
+    /// `searchBarStyle`
+    @discardableResult
+    public func style(_ value: UISearchBarStyle) -> PandaChain {
+        object.searchBarStyle = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func searchBarStyle(_ value: UISearchBarStyle) -> PandaChain {
         object.searchBarStyle = value
@@ -81,7 +113,7 @@ extension PandaChain where Object: UISearchBar {
     }
 
     @discardableResult
-    public func isTranslucent(_ value: Bool) -> PandaChain {
+    public func translucent(_ value: Bool) -> PandaChain {
         object.isTranslucent = value
         return self
     }
@@ -110,12 +142,28 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `backgroundImage`
+    @discardableResult
+    public func background(_ value: UIImage?) -> PandaChain {
+        object.backgroundImage = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> PandaChain {
         object.backgroundImage = value
         return self
     }
 
+    /// `scopeBarBackgroundImage`
+    @discardableResult
+    public func scopeBarBackground(_ value: UIImage?) -> PandaChain {
+        object.scopeBarBackgroundImage = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "scopeBarBackground()")
     @discardableResult
     public func scopeBarBackgroundImage(_ value: UIImage?) -> PandaChain {
         object.scopeBarBackgroundImage = value
@@ -177,7 +225,7 @@ extension PandaChain where Object: UISearchBar {
     }
 
     @discardableResult
-    public func isSecureTextEntry(_ value: Bool) -> PandaChain {
+    public func secureTextEntry(_ value: Bool) -> PandaChain {
         object.isSecureTextEntry = value
         return self
     }
@@ -195,12 +243,28 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `backgroundImage`
+    @discardableResult
+    public func background(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundImage(backgroundImage, for: barPosition, barMetrics: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: barPosition, barMetrics: barMetrics)
         return self
     }
 
+    /// `searchFieldBackgroundImage`
+    @discardableResult
+    public func searchFieldBackground(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setSearchFieldBackgroundImage(backgroundImage, for: state)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "searchFieldBackground()")
     @discardableResult
     public func searchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
         object.setSearchFieldBackgroundImage(backgroundImage, for: state)
@@ -213,6 +277,14 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `scopeBarButtonBackgroundImage`
+    @discardableResult
+    public func scopeBarButtonBackground(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setScopeBarButtonBackgroundImage(backgroundImage, for: state)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "scopeBarButtonBackground()")
     @discardableResult
     public func scopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
         object.setScopeBarButtonBackgroundImage(backgroundImage, for: state)
@@ -225,6 +297,14 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `scopeBarButtonTitleTextAttributes`
+    @discardableResult
+    public func scopeBarButtonTitleAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+        object.setScopeBarButtonTitleTextAttributes(attributes, for: state)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributes()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
         object.setScopeBarButtonTitleTextAttributes(attributes, for: state)
@@ -237,6 +317,24 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `searchFieldBackgroundImage`
+    @discardableResult
+    public func searchFieldBackground(
+        _ normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setSearchFieldBackgroundImage
+        )
+    }
+
+    @available(*, deprecated, renamed: "searchFieldBackground()")
     @discardableResult
     public func searchFieldBackgroundImage(
         _ normal: UIImage,
@@ -253,6 +351,24 @@ extension PandaChain where Object: UISearchBar {
         )
     }
 
+    /// `scopeBarButtonBackgroundImage`
+    @discardableResult
+    public func scopeBarButtonBackground(
+        _ normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setScopeBarButtonBackgroundImage
+        )
+    }
+
+    @available(*, deprecated, renamed: "scopeBarButtonBackground()")
     @discardableResult
     public func scopeBarButtonBackgroundImage(
         _ normal: UIImage,
@@ -269,6 +385,24 @@ extension PandaChain where Object: UISearchBar {
         )
     }
 
+    /// `scopeBarButtonTitleTextAttributes`
+    @discardableResult
+    public func scopeBarButtonTitleAttributes(
+        _ normal: [String: Any],
+        highlighted: [String: Any]? = nil,
+        selected: [String: Any]? = nil,
+        disabled: [String: Any]? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setScopeBarButtonTitleTextAttributes
+        )
+    }
+
+    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributes()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributes(
         _ normal: [String: Any],

@@ -33,6 +33,14 @@ extension PandaChain where Object: UIAlertView {
         return self
     }
 
+    /// `alertViewStyle`
+    @discardableResult
+    public func style(_ value: UIAlertViewStyle) -> PandaChain {
+        object.alertViewStyle = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func alertViewStyle(_ value: UIAlertViewStyle) -> PandaChain {
         object.alertViewStyle = value

@@ -20,14 +20,22 @@ extension PandaChain where Object: UIImageView {
         return self
     }
 
+    /// `isUserInteractionEnabled`
     @discardableResult
-    public func isUserInteractionEnabled(_ value: Bool) -> PandaChain {
+    public func interactable(_ value: Bool) -> PandaChain {
+        object.isUserInteractionEnabled = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "interactable()")
+    @discardableResult
+    public func userInteractionEnabled(_ value: Bool) -> PandaChain {
         object.isUserInteractionEnabled = value
         return self
     }
 
     @discardableResult
-    public func isHighlighted(_ value: Bool) -> PandaChain {
+    public func highlighted(_ value: Bool) -> PandaChain {
         object.isHighlighted = value
         return self
     }
@@ -56,6 +64,14 @@ extension PandaChain where Object: UIImageView {
         return self
     }
 
+    /// `tintColor`
+    @discardableResult
+    public func tint(_ value: UIColor?) -> PandaChain {
+        object.tintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> PandaChain {
         object.tintColor = value

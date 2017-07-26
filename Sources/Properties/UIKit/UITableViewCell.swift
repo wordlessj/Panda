@@ -8,18 +8,42 @@
 import UIKit
 
 extension PandaChain where Object: UITableViewCell {
+    /// `backgroundView`
+    @discardableResult
+    public func background(_ value: UIView?) -> PandaChain {
+        object.backgroundView = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundView(_ value: UIView?) -> PandaChain {
         object.backgroundView = value
         return self
     }
 
+    /// `selectedBackgroundView`
+    @discardableResult
+    public func selectedBackground(_ value: UIView?) -> PandaChain {
+        object.selectedBackgroundView = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "selectedBackground()")
     @discardableResult
     public func selectedBackgroundView(_ value: UIView?) -> PandaChain {
         object.selectedBackgroundView = value
         return self
     }
 
+    /// `multipleSelectionBackgroundView`
+    @discardableResult
+    public func multipleSelectionBackground(_ value: UIView?) -> PandaChain {
+        object.multipleSelectionBackgroundView = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "multipleSelectionBackground()")
     @discardableResult
     public func multipleSelectionBackgroundView(_ value: UIView?) -> PandaChain {
         object.multipleSelectionBackgroundView = value
@@ -33,13 +57,13 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func isSelected(_ value: Bool) -> PandaChain {
+    public func selected(_ value: Bool) -> PandaChain {
         object.isSelected = value
         return self
     }
 
     @discardableResult
-    public func isHighlighted(_ value: Bool) -> PandaChain {
+    public func highlighted(_ value: Bool) -> PandaChain {
         object.isHighlighted = value
         return self
     }
@@ -99,7 +123,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func isEditing(_ value: Bool) -> PandaChain {
+    public func editing(_ value: Bool) -> PandaChain {
         object.isEditing = value
         return self
     }

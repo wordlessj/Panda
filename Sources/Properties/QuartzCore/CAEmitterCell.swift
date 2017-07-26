@@ -15,7 +15,7 @@ extension PandaChain where Object: CAEmitterCell {
     }
 
     @discardableResult
-    public func isEnabled(_ value: Bool) -> PandaChain {
+    public func enabled(_ value: Bool) -> PandaChain {
         object.isEnabled = value
         return self
     }

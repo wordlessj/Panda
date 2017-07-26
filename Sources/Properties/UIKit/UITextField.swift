@@ -20,12 +20,28 @@ extension PandaChain where Object: UITextField {
         return self
     }
 
+    /// `textColor`
+    @discardableResult
+    public func color(_ value: UIColor?) -> PandaChain {
+        object.textColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "color()")
     @discardableResult
     public func textColor(_ value: UIColor?) -> PandaChain {
         object.textColor = value
         return self
     }
 
+    /// `textAlignment`
+    @discardableResult
+    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+        object.textAlignment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "alignment()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
@@ -38,6 +54,14 @@ extension PandaChain where Object: UITextField {
         return self
     }
 
+    /// `defaultTextAttributes`
+    @discardableResult
+    public func defaultAttributes(_ value: [String: Any]) -> PandaChain {
+        object.defaultTextAttributes = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "defaultAttributes()")
     @discardableResult
     public func defaultTextAttributes(_ value: [String: Any]) -> PandaChain {
         object.defaultTextAttributes = value
@@ -62,12 +86,28 @@ extension PandaChain where Object: UITextField {
         return self
     }
 
+    /// `adjustsFontSizeToFitWidth`
+    @discardableResult
+    public func adjustsFontSize(_ value: Bool) -> PandaChain {
+        object.adjustsFontSizeToFitWidth = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "adjustsFontSize()")
     @discardableResult
     public func adjustsFontSizeToFitWidth(_ value: Bool) -> PandaChain {
         object.adjustsFontSizeToFitWidth = value
         return self
     }
 
+    /// `minimumFontSize`
+    @discardableResult
+    public func minFontSize(_ value: CGFloat) -> PandaChain {
+        object.minimumFontSize = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minFontSize()")
     @discardableResult
     public func minimumFontSize(_ value: CGFloat) -> PandaChain {
         object.minimumFontSize = value
@@ -92,6 +132,14 @@ extension PandaChain where Object: UITextField {
         return self
     }
 
+    /// `allowsEditingTextAttributes`
+    @discardableResult
+    public func attributesEditable(_ value: Bool) -> PandaChain {
+        object.allowsEditingTextAttributes = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "attributesEditable()")
     @discardableResult
     public func allowsEditingTextAttributes(_ value: Bool) -> PandaChain {
         object.allowsEditingTextAttributes = value
@@ -201,7 +249,7 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func isSecureTextEntry(_ value: Bool) -> PandaChain {
+    public func secureTextEntry(_ value: Bool) -> PandaChain {
         object.isSecureTextEntry = value
         return self
     }

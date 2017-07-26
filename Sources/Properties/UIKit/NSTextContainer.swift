@@ -26,6 +26,14 @@ extension PandaChain where Object: NSTextContainer {
         return self
     }
 
+    /// `lineBreakMode`
+    @discardableResult
+    public func lineBreak(_ value: NSLineBreakMode) -> PandaChain {
+        object.lineBreakMode = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "lineBreak()")
     @discardableResult
     public func lineBreakMode(_ value: NSLineBreakMode) -> PandaChain {
         object.lineBreakMode = value
@@ -38,6 +46,14 @@ extension PandaChain where Object: NSTextContainer {
         return self
     }
 
+    /// `maximumNumberOfLines`
+    @discardableResult
+    public func maxLines(_ value: Int) -> PandaChain {
+        object.maximumNumberOfLines = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxLines()")
     @discardableResult
     public func maximumNumberOfLines(_ value: Int) -> PandaChain {
         object.maximumNumberOfLines = value

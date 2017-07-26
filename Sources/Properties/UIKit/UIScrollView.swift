@@ -32,8 +32,16 @@ extension PandaChain where Object: UIScrollView {
         return self
     }
 
+    /// `isDirectionalLockEnabled`
     @discardableResult
-    public func isDirectionalLockEnabled(_ value: Bool) -> PandaChain {
+    public func directionLocked(_ value: Bool) -> PandaChain {
+        object.isDirectionalLockEnabled = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "directionLocked()")
+    @discardableResult
+    public func directionalLockEnabled(_ value: Bool) -> PandaChain {
         object.isDirectionalLockEnabled = value
         return self
     }
@@ -56,30 +64,70 @@ extension PandaChain where Object: UIScrollView {
         return self
     }
 
+    /// `isPagingEnabled`
     @discardableResult
-    public func isPagingEnabled(_ value: Bool) -> PandaChain {
+    public func paged(_ value: Bool) -> PandaChain {
         object.isPagingEnabled = value
         return self
     }
 
+    @available(*, deprecated, renamed: "paged()")
     @discardableResult
-    public func isScrollEnabled(_ value: Bool) -> PandaChain {
+    public func pagingEnabled(_ value: Bool) -> PandaChain {
+        object.isPagingEnabled = value
+        return self
+    }
+
+    /// `isScrollEnabled`
+    @discardableResult
+    public func scrollable(_ value: Bool) -> PandaChain {
         object.isScrollEnabled = value
         return self
     }
 
+    @available(*, deprecated, renamed: "scrollable()")
+    @discardableResult
+    public func scrollEnabled(_ value: Bool) -> PandaChain {
+        object.isScrollEnabled = value
+        return self
+    }
+
+    /// `showsHorizontalScrollIndicator`
+    @discardableResult
+    public func showsHorizontalIndicator(_ value: Bool) -> PandaChain {
+        object.showsHorizontalScrollIndicator = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "showsHorizontalIndicator()")
     @discardableResult
     public func showsHorizontalScrollIndicator(_ value: Bool) -> PandaChain {
         object.showsHorizontalScrollIndicator = value
         return self
     }
 
+    /// `showsVerticalScrollIndicator`
+    @discardableResult
+    public func showsVerticalIndicator(_ value: Bool) -> PandaChain {
+        object.showsVerticalScrollIndicator = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "showsVerticalIndicator()")
     @discardableResult
     public func showsVerticalScrollIndicator(_ value: Bool) -> PandaChain {
         object.showsVerticalScrollIndicator = value
         return self
     }
 
+    /// `scrollIndicatorInsets`
+    @discardableResult
+    public func indicatorInsets(_ value: UIEdgeInsets) -> PandaChain {
+        object.scrollIndicatorInsets = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "indicatorInsets()")
     @discardableResult
     public func scrollIndicatorInsets(_ value: UIEdgeInsets) -> PandaChain {
         object.scrollIndicatorInsets = value
@@ -110,12 +158,28 @@ extension PandaChain where Object: UIScrollView {
         return self
     }
 
+    /// `minimumZoomScale`
+    @discardableResult
+    public func minZoomScale(_ value: CGFloat) -> PandaChain {
+        object.minimumZoomScale = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minZoomScale()")
     @discardableResult
     public func minimumZoomScale(_ value: CGFloat) -> PandaChain {
         object.minimumZoomScale = value
         return self
     }
 
+    /// `maximumZoomScale`
+    @discardableResult
+    public func maxZoomScale(_ value: CGFloat) -> PandaChain {
+        object.maximumZoomScale = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxZoomScale()")
     @discardableResult
     public func maximumZoomScale(_ value: CGFloat) -> PandaChain {
         object.maximumZoomScale = value

@@ -14,6 +14,14 @@ extension PandaChain where Object: UITableViewRowAction {
         return self
     }
 
+    /// `backgroundColor`
+    @discardableResult
+    public func background(_ value: UIColor?) -> PandaChain {
+        object.backgroundColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundColor(_ value: UIColor?) -> PandaChain {
         object.backgroundColor = value

@@ -27,11 +27,19 @@ extension PandaChain where Object: NSLayoutConstraint {
     }
 
     @discardableResult
-    public func isActive(_ value: Bool) -> PandaChain {
+    public func active(_ value: Bool) -> PandaChain {
         object.isActive = value
         return self
     }
 
+    /// `identifier`
+    @discardableResult
+    public func id(_ value: String?) -> PandaChain {
+        object.identifier = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "id()")
     @discardableResult
     public func identifier(_ value: String?) -> PandaChain {
         object.identifier = value

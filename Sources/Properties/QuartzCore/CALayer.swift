@@ -51,19 +51,19 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func isHidden(_ value: Bool) -> PandaChain {
+    public func hidden(_ value: Bool) -> PandaChain {
         object.isHidden = value
         return self
     }
 
     @discardableResult
-    public func isDoubleSided(_ value: Bool) -> PandaChain {
+    public func doubleSided(_ value: Bool) -> PandaChain {
         object.isDoubleSided = value
         return self
     }
 
     @discardableResult
-    public func isGeometryFlipped(_ value: Bool) -> PandaChain {
+    public func geometryFlipped(_ value: Bool) -> PandaChain {
         object.isGeometryFlipped = value
         return self
     }
@@ -86,6 +86,14 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
+    /// `masksToBounds`
+    @discardableResult
+    public func masks(_ value: Bool) -> PandaChain {
+        object.masksToBounds = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "masks()")
     @discardableResult
     public func masksToBounds(_ value: Bool) -> PandaChain {
         object.masksToBounds = value
@@ -135,7 +143,7 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func isOpaque(_ value: Bool) -> PandaChain {
+    public func opaque(_ value: Bool) -> PandaChain {
         object.isOpaque = value
         return self
     }
@@ -152,12 +160,28 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
+    /// `allowsEdgeAntialiasing`
+    @discardableResult
+    public func edgeAntialiasable(_ value: Bool) -> PandaChain {
+        object.allowsEdgeAntialiasing = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "edgeAntialiasable()")
     @discardableResult
     public func allowsEdgeAntialiasing(_ value: Bool) -> PandaChain {
         object.allowsEdgeAntialiasing = value
         return self
     }
 
+    /// `backgroundColor`
+    @discardableResult
+    public func background(_ value: CGColor?) -> PandaChain {
+        object.backgroundColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundColor(_ value: CGColor?) -> PandaChain {
         object.backgroundColor = value
@@ -212,6 +236,14 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
+    /// `shouldRasterize`
+    @discardableResult
+    public func rasterized(_ value: Bool) -> PandaChain {
+        object.shouldRasterize = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "rasterized()")
     @discardableResult
     public func shouldRasterize(_ value: Bool) -> PandaChain {
         object.shouldRasterize = value

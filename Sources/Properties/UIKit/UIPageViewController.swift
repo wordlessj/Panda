@@ -21,7 +21,7 @@ extension PandaChain where Object: UIPageViewController {
     }
 
     @discardableResult
-    public func isDoubleSided(_ value: Bool) -> PandaChain {
+    public func doubleSided(_ value: Bool) -> PandaChain {
         object.isDoubleSided = value
         return self
     }

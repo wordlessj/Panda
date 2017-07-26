@@ -57,7 +57,7 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func isSecureTextEntry(_ value: Bool) -> PandaChain {
+    public func secureTextEntry(_ value: Bool) -> PandaChain {
         object.isSecureTextEntry = value
         return self
     }
@@ -81,12 +81,28 @@ extension PandaChain where Object: UITextView {
         return self
     }
 
+    /// `textColor`
+    @discardableResult
+    public func color(_ value: UIColor?) -> PandaChain {
+        object.textColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "color()")
     @discardableResult
     public func textColor(_ value: UIColor?) -> PandaChain {
         object.textColor = value
         return self
     }
 
+    /// `textAlignment`
+    @discardableResult
+    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+        object.textAlignment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "alignment()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
@@ -100,13 +116,13 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func isEditable(_ value: Bool) -> PandaChain {
+    public func editable(_ value: Bool) -> PandaChain {
         object.isEditable = value
         return self
     }
 
     @discardableResult
-    public func isSelectable(_ value: Bool) -> PandaChain {
+    public func selectable(_ value: Bool) -> PandaChain {
         object.isSelectable = value
         return self
     }
@@ -117,6 +133,14 @@ extension PandaChain where Object: UITextView {
         return self
     }
 
+    /// `allowsEditingTextAttributes`
+    @discardableResult
+    public func attributesEditable(_ value: Bool) -> PandaChain {
+        object.allowsEditingTextAttributes = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "attributesEditable()")
     @discardableResult
     public func allowsEditingTextAttributes(_ value: Bool) -> PandaChain {
         object.allowsEditingTextAttributes = value
@@ -153,12 +177,28 @@ extension PandaChain where Object: UITextView {
         return self
     }
 
+    /// `textContainerInset`
+    @discardableResult
+    public func containerInset(_ value: UIEdgeInsets) -> PandaChain {
+        object.textContainerInset = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "containerInset()")
     @discardableResult
     public func textContainerInset(_ value: UIEdgeInsets) -> PandaChain {
         object.textContainerInset = value
         return self
     }
 
+    /// `linkTextAttributes`
+    @discardableResult
+    public func linkAttributes(_ value: [String: Any]?) -> PandaChain {
+        object.linkTextAttributes = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "linkAttributes()")
     @discardableResult
     public func linkTextAttributes(_ value: [String: Any]?) -> PandaChain {
         object.linkTextAttributes = value

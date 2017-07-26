@@ -9,7 +9,7 @@ import UIKit
 
 extension PandaChain where Object: UIStepper {
     @discardableResult
-    public func isContinuous(_ value: Bool) -> PandaChain {
+    public func continuous(_ value: Bool) -> PandaChain {
         object.isContinuous = value
         return self
     }
@@ -32,12 +32,28 @@ extension PandaChain where Object: UIStepper {
         return self
     }
 
+    /// `minimumValue`
+    @discardableResult
+    public func minValue(_ value: Double) -> PandaChain {
+        object.minimumValue = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minValue()")
     @discardableResult
     public func minimumValue(_ value: Double) -> PandaChain {
         object.minimumValue = value
         return self
     }
 
+    /// `maximumValue`
+    @discardableResult
+    public func maxValue(_ value: Double) -> PandaChain {
+        object.maximumValue = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxValue()")
     @discardableResult
     public func maximumValue(_ value: Double) -> PandaChain {
         object.maximumValue = value
@@ -50,12 +66,28 @@ extension PandaChain where Object: UIStepper {
         return self
     }
 
+    /// `tintColor`
+    @discardableResult
+    public func tint(_ value: UIColor?) -> PandaChain {
+        object.tintColor = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> PandaChain {
         object.tintColor = value
         return self
     }
 
+    /// `backgroundImage`
+    @discardableResult
+    public func background(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+        object.setBackgroundImage(image, for: state)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
         object.setBackgroundImage(image, for: state)
@@ -80,6 +112,24 @@ extension PandaChain where Object: UIStepper {
         return self
     }
 
+    /// `backgroundImage`
+    @discardableResult
+    public func background(
+        _ normal: UIImage,
+        highlighted: UIImage? = nil,
+        selected: UIImage? = nil,
+        disabled: UIImage? = nil
+    ) -> PandaChain {
+        return forControlState(
+            normal: normal,
+            highlighted: highlighted,
+            selected: selected,
+            disabled: disabled,
+            setter: object.setBackgroundImage
+        )
+    }
+
+    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(
         _ normal: UIImage,

@@ -44,18 +44,42 @@ extension PandaChain where Object: NSMutableParagraphStyle {
         return self
     }
 
+    /// `lineBreakMode`
+    @discardableResult
+    public func lineBreak(_ value: NSLineBreakMode) -> PandaChain {
+        object.lineBreakMode = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "lineBreak()")
     @discardableResult
     public func lineBreakMode(_ value: NSLineBreakMode) -> PandaChain {
         object.lineBreakMode = value
         return self
     }
 
+    /// `minimumLineHeight`
+    @discardableResult
+    public func minLineHeight(_ value: CGFloat) -> PandaChain {
+        object.minimumLineHeight = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minLineHeight()")
     @discardableResult
     public func minimumLineHeight(_ value: CGFloat) -> PandaChain {
         object.minimumLineHeight = value
         return self
     }
 
+    /// `maximumLineHeight`
+    @discardableResult
+    public func maxLineHeight(_ value: CGFloat) -> PandaChain {
+        object.maximumLineHeight = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxLineHeight()")
     @discardableResult
     public func maximumLineHeight(_ value: CGFloat) -> PandaChain {
         object.maximumLineHeight = value
@@ -98,6 +122,15 @@ extension PandaChain where Object: NSMutableParagraphStyle {
         return self
     }
 
+    /// `allowsDefaultTighteningForTruncation`
+    @available(iOS 9.0, *)
+    @discardableResult
+    public func tightenable(_ value: Bool) -> PandaChain {
+        object.allowsDefaultTighteningForTruncation = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "tightenable()")
     @available(iOS 9.0, *)
     @discardableResult
     public func allowsDefaultTighteningForTruncation(_ value: Bool) -> PandaChain {

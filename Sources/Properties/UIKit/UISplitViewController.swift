@@ -38,12 +38,28 @@ extension PandaChain where Object: UISplitViewController {
         return self
     }
 
+    /// `minimumPrimaryColumnWidth`
+    @discardableResult
+    public func minPrimaryColumnWidth(_ value: CGFloat) -> PandaChain {
+        object.minimumPrimaryColumnWidth = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minPrimaryColumnWidth()")
     @discardableResult
     public func minimumPrimaryColumnWidth(_ value: CGFloat) -> PandaChain {
         object.minimumPrimaryColumnWidth = value
         return self
     }
 
+    /// `maximumPrimaryColumnWidth`
+    @discardableResult
+    public func maxPrimaryColumnWidth(_ value: CGFloat) -> PandaChain {
+        object.maximumPrimaryColumnWidth = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "maxPrimaryColumnWidth()")
     @discardableResult
     public func maximumPrimaryColumnWidth(_ value: CGFloat) -> PandaChain {
         object.maximumPrimaryColumnWidth = value

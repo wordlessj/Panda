@@ -47,7 +47,7 @@ extension PandaChain where Object: UIDynamicItemBehavior {
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func isAnchored(_ value: Bool) -> PandaChain {
+    public func anchored(_ value: Bool) -> PandaChain {
         object.isAnchored = value
         return self
     }

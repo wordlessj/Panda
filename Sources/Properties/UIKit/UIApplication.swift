@@ -15,23 +15,39 @@ extension PandaChain where Object: UIApplication {
     }
 
     @discardableResult
-    public func isIdleTimerDisabled(_ value: Bool) -> PandaChain {
+    public func idleTimerDisabled(_ value: Bool) -> PandaChain {
         object.isIdleTimerDisabled = value
         return self
     }
 
     @discardableResult
-    public func isNetworkActivityIndicatorVisible(_ value: Bool) -> PandaChain {
+    public func networkActivityIndicatorVisible(_ value: Bool) -> PandaChain {
         object.isNetworkActivityIndicatorVisible = value
         return self
     }
 
+    /// `applicationIconBadgeNumber`
+    @discardableResult
+    public func iconBadgeNumber(_ value: Int) -> PandaChain {
+        object.applicationIconBadgeNumber = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "iconBadgeNumber()")
     @discardableResult
     public func applicationIconBadgeNumber(_ value: Int) -> PandaChain {
         object.applicationIconBadgeNumber = value
         return self
     }
 
+    /// `applicationSupportsShakeToEdit`
+    @discardableResult
+    public func supportsShakeToEdit(_ value: Bool) -> PandaChain {
+        object.applicationSupportsShakeToEdit = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "supportsShakeToEdit()")
     @discardableResult
     public func applicationSupportsShakeToEdit(_ value: Bool) -> PandaChain {
         object.applicationSupportsShakeToEdit = value
@@ -68,11 +84,19 @@ extension PandaChain where Object: UIApplication {
 
     @available(iOS, introduced: 2.0, deprecated: 9.0)
     @discardableResult
-    public func isStatusBarHidden(_ value: Bool) -> PandaChain {
+    public func statusBarHidden(_ value: Bool) -> PandaChain {
         object.isStatusBarHidden = value
         return self
     }
 
+    /// `minimumBackgroundFetchInterval`
+    @discardableResult
+    public func minBackgroundFetchInterval(_ minimumBackgroundFetchInterval: TimeInterval) -> PandaChain {
+        object.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "minBackgroundFetchInterval()")
     @discardableResult
     public func minimumBackgroundFetchInterval(_ minimumBackgroundFetchInterval: TimeInterval) -> PandaChain {
         object.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)

@@ -33,7 +33,7 @@ extension PandaChain where Object: CATextLayer {
     }
 
     @discardableResult
-    public func isWrapped(_ value: Bool) -> PandaChain {
+    public func wrapped(_ value: Bool) -> PandaChain {
         object.isWrapped = value
         return self
     }

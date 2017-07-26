@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 9.0, *)
 extension PandaChain where Object: UIFocusGuide {
     @discardableResult
-    public func isEnabled(_ value: Bool) -> PandaChain {
+    public func enabled(_ value: Bool) -> PandaChain {
         object.isEnabled = value
         return self
     }

@@ -21,6 +21,14 @@ extension PandaChain where Object: UIActionSheet {
         return self
     }
 
+    /// `actionSheetStyle`
+    @discardableResult
+    public func style(_ value: UIActionSheetStyle) -> PandaChain {
+        object.actionSheetStyle = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func actionSheetStyle(_ value: UIActionSheetStyle) -> PandaChain {
         object.actionSheetStyle = value

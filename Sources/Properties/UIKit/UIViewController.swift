@@ -21,7 +21,7 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func isModalInPopover(_ value: Bool) -> PandaChain {
+    public func modalInPopover(_ value: Bool) -> PandaChain {
         object.isModalInPopover = value
         return self
     }
@@ -106,11 +106,19 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func isEditing(_ value: Bool) -> PandaChain {
+    public func editing(_ value: Bool) -> PandaChain {
         object.isEditing = value
         return self
     }
 
+    /// `restorationIdentifier`
+    @discardableResult
+    public func restorationID(_ value: String?) -> PandaChain {
+        object.restorationIdentifier = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "restorationID()")
     @discardableResult
     public func restorationIdentifier(_ value: String?) -> PandaChain {
         object.restorationIdentifier = value
@@ -132,6 +140,18 @@ extension PandaChain where Object: UIViewController {
     @discardableResult
     public func toolbarItems(_ toolbarItems: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
         object.setToolbarItems(toolbarItems, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func editing(_ editing: Bool, animated: Bool) -> PandaChain {
+        object.setEditing(editing, animated: animated)
+        return self
+    }
+
+    @discardableResult
+    public func overrideTraitCollection(_ collection: UITraitCollection?, forChildViewController childViewController: UIViewController) -> PandaChain {
+        object.setOverrideTraitCollection(collection, forChildViewController: childViewController)
         return self
     }
 }

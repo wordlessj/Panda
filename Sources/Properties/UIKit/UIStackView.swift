@@ -33,14 +33,30 @@ extension PandaChain where Object: UIStackView {
         return self
     }
 
+    /// `isBaselineRelativeArrangement`
     @discardableResult
-    public func isBaselineRelativeArrangement(_ value: Bool) -> PandaChain {
+    public func baselineArrangement(_ value: Bool) -> PandaChain {
         object.isBaselineRelativeArrangement = value
         return self
     }
 
+    @available(*, deprecated, renamed: "baselineArrangement()")
     @discardableResult
-    public func isLayoutMarginsRelativeArrangement(_ value: Bool) -> PandaChain {
+    public func baselineRelativeArrangement(_ value: Bool) -> PandaChain {
+        object.isBaselineRelativeArrangement = value
+        return self
+    }
+
+    /// `isLayoutMarginsRelativeArrangement`
+    @discardableResult
+    public func marginsArrangement(_ value: Bool) -> PandaChain {
+        object.isLayoutMarginsRelativeArrangement = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "marginsArrangement()")
+    @discardableResult
+    public func layoutMarginsRelativeArrangement(_ value: Bool) -> PandaChain {
         object.isLayoutMarginsRelativeArrangement = value
         return self
     }

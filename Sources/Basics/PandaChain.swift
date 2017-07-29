@@ -25,8 +25,20 @@
 
 import Foundation
 
-public struct PandaChain<Object> {
-    public var object: Object
+public protocol PandaChainProtocol {
+    var anyObject: Any { get }
+}
+
+public class PandaChain<Object> {
+    public let object: Object
+
+    init(object: Object) {
+        self.object = object
+    }
+}
+
+extension PandaChain: PandaChainProtocol {
+    public var anyObject: Any { return object }
 }
 
 extension PandaChain {
@@ -40,31 +52,11 @@ extension PandaChain {
     }
 }
 
-struct ConfigStack {
-    static var shared = ConfigStack()
-
-    private var stack = [[Any]]()
-
-    mutating func push() {
-        stack.append([])
-    }
-
-    mutating func pop() -> [Any] {
-        return stack.removeLast()
-    }
-
-    mutating func add(_ element: Any) {
-        guard !stack.isEmpty else { return }
-        stack[stack.count - 1].append(element)
-    }
-}
-
 public protocol PandaChainable {}
 
 extension PandaChainable {
     /// Panda extensions.
     public var pd: PandaChain<Self> {
-        ConfigStack.shared.add(self)
         return PandaChain(object: self)
     }
 }

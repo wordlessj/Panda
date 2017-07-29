@@ -27,14 +27,6 @@ import QuartzCore
 
 extension PandaChain where Object: CALayer {
     @discardableResult
-    public func addSublayers(_ layers: [CALayer]) -> PandaChain {
-        layers.forEach { object.addSublayer($0) }
-        return self
-    }
-}
-
-extension PandaChain where Object: CALayer {
-    @discardableResult
     public func border(width: CGFloat, color: CGColor?) -> PandaChain {
         return borderWidth(width).borderColor(color)
     }

@@ -26,52 +26,6 @@
 import UIKit
 
 extension PandaChain where Object: UIView {
-    @discardableResult
-    public func addSubviews(_ views: [UIView]) -> PandaChain {
-        views.forEach { object.addSubview($0) }
-        return self
-    }
-
-    @available(iOS 9.0, *)
-    @discardableResult
-    public func addLayoutGuides(_ layoutGuides: [UILayoutGuide]) -> PandaChain {
-        layoutGuides.forEach { object.addLayoutGuide($0) }
-        return self
-    }
-
-    @available(iOS 9.0, *)
-    @discardableResult
-    public func removeLayoutGuides(_ layoutGuides: [UILayoutGuide]) -> PandaChain {
-        layoutGuides.forEach { object.removeLayoutGuide($0) }
-        return self
-    }
-
-    @discardableResult
-    public func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) -> PandaChain {
-        gestureRecognizers.forEach { object.addGestureRecognizer($0) }
-        return self
-    }
-
-    @discardableResult
-    public func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) -> PandaChain {
-        gestureRecognizers.forEach { object.removeGestureRecognizer($0) }
-        return self
-    }
-
-    @discardableResult
-    public func addMotionEffects(_ effects: [UIMotionEffect]) -> PandaChain {
-        effects.forEach { object.addMotionEffect($0) }
-        return self
-    }
-
-    @discardableResult
-    public func removeMotionEffects(_ effects: [UIMotionEffect]) -> PandaChain {
-        effects.forEach { object.removeMotionEffect($0) }
-        return self
-    }
-}
-
-extension PandaChain where Object: UIView {
     /// Animate `layoutIfNeeded()`, suitable for constraints change.
     @discardableResult
     public func animateLayout(duration: TimeInterval,

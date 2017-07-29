@@ -156,11 +156,10 @@
 		3B4081111F20810600F810BE /* CATiledLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4080EF1F2080F000F810BE /* CATiledLayer.swift */; };
 		3B4081121F20810600F810BE /* CATransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4080EC1F2080F000F810BE /* CATransition.swift */; };
 		3B4081151F22E8FB00F810BE /* SetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4081141F22E8FB00F810BE /* SetHelper.swift */; };
-		3B89336E1F25D8480037F115 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89336D1F25D8480037F115 /* Sub.swift */; };
+		3B89336E1F25D8480037F115 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89336D1F25D8480037F115 /* Add.swift */; };
 		3BB2EE8F1DC99F0E001D7AAB /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */; };
 		3BB2EE911DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE901DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift */; };
 		3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */; };
-		3BB2EE951DC9BF46001D7AAB /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE941DC9BF46001D7AAB /* UIStackViewExtensions.swift */; };
 		3BB2EEA11DC9CE7E001D7AAB /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */; };
 		3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEAA1DC9E891001D7AAB /* Font.swift */; };
 		3BB2EEB11DCA24B4001D7AAB /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEB01DCA24B4001D7AAB /* UIButtonExtensions.swift */; };
@@ -330,11 +329,10 @@
 		3B4080FD1F2080F000F810BE /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		3B4080FE1F2080F000F810BE /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		3B4081141F22E8FB00F810BE /* SetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetHelper.swift; sourceTree = "<group>"; };
-		3B89336D1F25D8480037F115 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
+		3B89336D1F25D8480037F115 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
 		3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		3BB2EE901DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		3BB2EE941DC9BF46001D7AAB /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
 		3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		3BB2EEAA1DC9E891001D7AAB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		3BB2EEB01DCA24B4001D7AAB /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
@@ -574,8 +572,8 @@
 			children = (
 				3B0A44EC1F1F6C23004757F1 /* PandaChain.swift */,
 				3B2B901F1DC8530800B4E92F /* Actions.swift */,
+				3B89336D1F25D8480037F115 /* Add.swift */,
 				3BB2EEAA1DC9E891001D7AAB /* Font.swift */,
-				3B89336D1F25D8480037F115 /* Sub.swift */,
 				3B4081141F22E8FB00F810BE /* SetHelper.swift */,
 			);
 			path = Basics;
@@ -587,7 +585,6 @@
 				3BDCEAA61F25BB390098324A /* CALayerExtensions.swift */,
 				3BB2EEB01DCA24B4001D7AAB /* UIButtonExtensions.swift */,
 				3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */,
-				3BB2EE941DC9BF46001D7AAB /* UIStackViewExtensions.swift */,
 				3BF5F3561DC991000037C598 /* UITableViewExtensions.swift */,
 				3B2B90181DC7770500B4E92F /* UIViewExtensions.swift */,
 				3BB2EEA01DC9CE7E001D7AAB /* UIViewControllerExtensions.swift */,
@@ -693,7 +690,7 @@
 				3B4081051F20810600F810BE /* CAEmitterLayer.swift in Sources */,
 				3B4081061F20810600F810BE /* CAGradientLayer.swift in Sources */,
 				3B4081071F20810600F810BE /* CAKeyframeAnimation.swift in Sources */,
-				3B89336E1F25D8480037F115 /* Sub.swift in Sources */,
+				3B89336E1F25D8480037F115 /* Add.swift in Sources */,
 				3B4081081F20810600F810BE /* CALayer.swift in Sources */,
 				3B4081091F20810600F810BE /* CAMediaTiming.swift in Sources */,
 				3B4081151F22E8FB00F810BE /* SetHelper.swift in Sources */,
@@ -843,7 +840,6 @@
 				3BF5F3491DC8D5600037C598 /* UITextField.swift in Sources */,
 				3BF5F34D1DC8DB220037C598 /* UITextView.swift in Sources */,
 				3B2B901E1DC8519D00B4E92F /* UIControl.swift in Sources */,
-				3BB2EE951DC9BF46001D7AAB /* UIStackViewExtensions.swift in Sources */,
 				3BB2EEA11DC9CE7E001D7AAB /* UIViewControllerExtensions.swift in Sources */,
 				3BF5F3571DC991000037C598 /* UITableViewExtensions.swift in Sources */,
 				3BF5F34F1DC8DE0D0037C598 /* UIImageView.swift in Sources */,

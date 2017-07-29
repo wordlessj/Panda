@@ -26,20 +26,78 @@
 import UIKit
 
 private class ActionBox {
-    static let triggerSelector = #selector(trigger)
+    static let selector = #selector(trigger(_:))
 
-    private let action: () -> ()
+    private let action: (Any) -> ()
 
-    init(action: @escaping () -> ()) {
-        self.action = action
+    init<Object>(action: @escaping (Object) -> ()) {
+        self.action = { action($0 as! Object) }
     }
 
-    @objc func trigger() {
-        action()
+    @objc func trigger(_ object: Any) {
+        action(object)
     }
 }
 
+private protocol ActionBoxContainer: class {}
+
 private var actionBoxKey: UInt8 = 0
+
+extension ActionBoxContainer {
+    fileprivate var actionBox: ActionBox? {
+        get { return objc_getAssociatedObject(self, &actionBoxKey) as? ActionBox }
+        set { objc_setAssociatedObject(self, &actionBoxKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    }
+}
+
+// MARK: CADisplayLink
+
+extension CADisplayLink: ActionBoxContainer {}
+
+extension CADisplayLink {
+    public convenience init(action: @escaping (CADisplayLink) -> ()) {
+        let box = ActionBox(action: action)
+        self.init(target: box, selector: ActionBox.selector)
+    }
+}
+
+// MARK: UIAccessibilityCustomAction
+
+extension UIAccessibilityCustomAction: ActionBoxContainer {}
+
+extension PandaChain where Object: UIAccessibilityCustomAction {
+    /// Set `action`.
+    ///
+    /// - parameter action: If `nil`, the action set before will be removed.
+    @discardableResult
+    public func action(_ action: ((Object) -> ())?) -> PandaChain {
+        let box = action.map { ActionBox(action: $0) }
+        object.target = box
+        object.selector = ActionBox.selector
+        object.actionBox = box
+        return self
+    }
+}
+
+// MARK: UIBarButtonItem
+
+extension UIBarButtonItem: ActionBoxContainer {}
+
+extension PandaChain where Object: UIBarButtonItem {
+    /// Set `action`.
+    ///
+    /// - parameter action: If `nil`, the action set before will be removed.
+    @discardableResult
+    public func action(_ action: ((Object) -> ())?) -> PandaChain {
+        let box = action.map { ActionBox(action: $0) }
+        object.target = box
+        object.action = ActionBox.selector
+        object.actionBox = box
+        return self
+    }
+}
+
+// MARK: UIControl
 
 extension UIControl {
     fileprivate var actionBoxes: [UInt: ActionBox] {
@@ -55,15 +113,15 @@ extension PandaChain where Object: UIControl {
     ///     - events: Defaults to `touchUpInside`.
     ///     - action: If `nil`, the action associated with `events` will be removed.
     @discardableResult
-    public func action(for events: UIControlEvents = .touchUpInside, action: (() -> ())?) -> PandaChain {
+    public func action(for events: UIControlEvents = .touchUpInside, action: ((Object) -> ())?) -> PandaChain {
         if let box = object.actionBoxes[events.rawValue] {
-            object.removeTarget(box, action: ActionBox.triggerSelector, for: events)
+            object.removeTarget(box, action: ActionBox.selector, for: events)
             object.actionBoxes[events.rawValue] = nil
         }
 
         if let action = action {
             let box = ActionBox(action: action)
-            object.addTarget(box, action: ActionBox.triggerSelector, for: events)
+            object.addTarget(box, action: ActionBox.selector, for: events)
             object.actionBoxes[events.rawValue] = box
         }
 
@@ -71,30 +129,9 @@ extension PandaChain where Object: UIControl {
     }
 }
 
-private class ObjectActionBox<Object: AnyObject> {
-    private unowned let object: Object
-    private let action: (Object) -> ()
+// MARK: UIGestureRecognizer
 
-    init(object: Object, action: @escaping (Object) -> ()) {
-        self.object = object
-        self.action = action
-    }
-
-    @objc func trigger() {
-        action(object)
-    }
-}
-
-public protocol GestureRecognizer: class {}
-
-extension GestureRecognizer where Self: UIGestureRecognizer {
-    fileprivate var actionBox: ObjectActionBox<Self>? {
-        get { return objc_getAssociatedObject(self, &actionBoxKey) as? ObjectActionBox<Self> }
-        set { objc_setAssociatedObject(self, &actionBoxKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-}
-
-extension UIGestureRecognizer: GestureRecognizer {}
+extension UIGestureRecognizer: ActionBoxContainer {}
 
 extension PandaChain where Object: UIGestureRecognizer {
     /// Set `action`.
@@ -102,16 +139,14 @@ extension PandaChain where Object: UIGestureRecognizer {
     /// - parameter action: If `nil`, the action set before will be removed.
     @discardableResult
     public func action(_ action: ((Object) -> ())?) -> PandaChain {
-        let selector = #selector(ObjectActionBox<Object>.trigger)
-
         if let box = object.actionBox {
-            object.removeTarget(box, action: selector)
+            object.removeTarget(box, action: ActionBox.selector)
             object.actionBox = nil
         }
 
         if let action = action {
-            let box = ObjectActionBox(object: object, action: action)
-            object.addTarget(box, action: selector)
+            let box = ActionBox(action: action)
+            object.addTarget(box, action: ActionBox.selector)
             object.actionBox = box
         }
 

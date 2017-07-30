@@ -21,12 +21,6 @@ extension PandaChain where Object: UISimpleTextPrintFormatter {
     }
 
     @discardableResult
-    public func font(_ value: UIFont?) -> PandaChain {
-        object.font = value
-        return self
-    }
-
-    @discardableResult
     public func color(_ value: UIColor?) -> PandaChain {
         object.color = value
         return self
@@ -34,12 +28,12 @@ extension PandaChain where Object: UISimpleTextPrintFormatter {
 
     /// `textAlignment`
     @discardableResult
-    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+    public func align(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
         return self
     }
 
-    @available(*, deprecated, renamed: "alignment()")
+    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value

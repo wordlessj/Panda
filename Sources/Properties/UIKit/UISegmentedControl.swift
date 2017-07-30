@@ -104,6 +104,14 @@ extension PandaChain where Object: UISegmentedControl {
         return self
     }
 
+    /// `contentPositionAdjustment`
+    @discardableResult
+    public func contentPositionAdjust(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
+        object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "contentPositionAdjust()")
     @discardableResult
     public func contentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
         object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)

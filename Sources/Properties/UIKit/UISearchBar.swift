@@ -170,12 +170,28 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `searchFieldBackgroundPositionAdjustment`
+    @discardableResult
+    public func searchFieldBackgroundPositionAdjust(_ value: UIOffset) -> PandaChain {
+        object.searchFieldBackgroundPositionAdjustment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "searchFieldBackgroundPositionAdjust()")
     @discardableResult
     public func searchFieldBackgroundPositionAdjustment(_ value: UIOffset) -> PandaChain {
         object.searchFieldBackgroundPositionAdjustment = value
         return self
     }
 
+    /// `searchTextPositionAdjustment`
+    @discardableResult
+    public func searchTextPositionAdjust(_ value: UIOffset) -> PandaChain {
+        object.searchTextPositionAdjustment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "searchTextPositionAdjust()")
     @discardableResult
     public func searchTextPositionAdjustment(_ value: UIOffset) -> PandaChain {
         object.searchTextPositionAdjustment = value
@@ -311,6 +327,14 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    /// `positionAdjustment`
+    @discardableResult
+    public func positionAdjust(_ adjustment: UIOffset, for icon: UISearchBarIcon) -> PandaChain {
+        object.setPositionAdjustment(adjustment, for: icon)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "positionAdjust()")
     @discardableResult
     public func positionAdjustment(_ adjustment: UIOffset, for icon: UISearchBarIcon) -> PandaChain {
         object.setPositionAdjustment(adjustment, for: icon)

@@ -86,12 +86,28 @@ extension PandaChain where Object: UIBarButtonItem {
         return self
     }
 
+    /// `backgroundVerticalPositionAdjustment`
+    @discardableResult
+    public func backgroundVerticalPositionAdjust(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "backgroundVerticalPositionAdjust()")
     @discardableResult
     public func backgroundVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
         return self
     }
 
+    /// `titlePositionAdjustment`
+    @discardableResult
+    public func titlePositionAdjust(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setTitlePositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "titlePositionAdjust()")
     @discardableResult
     public func titlePositionAdjustment(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
         object.setTitlePositionAdjustment(adjustment, for: barMetrics)
@@ -112,18 +128,52 @@ extension PandaChain where Object: UIBarButtonItem {
         return self
     }
 
+    /// `backButtonTitlePositionAdjustment`
+    @discardableResult
+    public func backButtonTitlePositionAdjust(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackButtonTitlePositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "backButtonTitlePositionAdjust()")
     @discardableResult
     public func backButtonTitlePositionAdjustment(_ adjustment: UIOffset, for barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackButtonTitlePositionAdjustment(adjustment, for: barMetrics)
         return self
     }
 
+    /// `backButtonBackgroundVerticalPositionAdjustment`
+    @discardableResult
+    public func backButtonBackgroundVerticalPositionAdjust(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setBackButtonBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "backButtonBackgroundVerticalPositionAdjust()")
     @discardableResult
     public func backButtonBackgroundVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackButtonBackgroundVerticalPositionAdjustment(adjustment, for: barMetrics)
         return self
     }
 
+    /// `backgroundVerticalPositionAdjustment`
+    @discardableResult
+    public func backgroundVerticalPositionAdjust(
+        _ d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackgroundVerticalPositionAdjustment
+        )
+    }
+
+    @available(*, deprecated, renamed: "backgroundVerticalPositionAdjust()")
     @discardableResult
     public func backgroundVerticalPositionAdjustment(
         _ d: CGFloat,
@@ -140,6 +190,24 @@ extension PandaChain where Object: UIBarButtonItem {
         )
     }
 
+    /// `titlePositionAdjustment`
+    @discardableResult
+    public func titlePositionAdjust(
+        _ d: UIOffset,
+        compact: UIOffset? = nil,
+        defaultPrompt: UIOffset? = nil,
+        compactPrompt: UIOffset? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setTitlePositionAdjustment
+        )
+    }
+
+    @available(*, deprecated, renamed: "titlePositionAdjust()")
     @discardableResult
     public func titlePositionAdjustment(
         _ d: UIOffset,
@@ -156,6 +224,24 @@ extension PandaChain where Object: UIBarButtonItem {
         )
     }
 
+    /// `backButtonTitlePositionAdjustment`
+    @discardableResult
+    public func backButtonTitlePositionAdjust(
+        _ d: UIOffset,
+        compact: UIOffset? = nil,
+        defaultPrompt: UIOffset? = nil,
+        compactPrompt: UIOffset? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackButtonTitlePositionAdjustment
+        )
+    }
+
+    @available(*, deprecated, renamed: "backButtonTitlePositionAdjust()")
     @discardableResult
     public func backButtonTitlePositionAdjustment(
         _ d: UIOffset,
@@ -172,6 +258,24 @@ extension PandaChain where Object: UIBarButtonItem {
         )
     }
 
+    /// `backButtonBackgroundVerticalPositionAdjustment`
+    @discardableResult
+    public func backButtonBackgroundVerticalPositionAdjust(
+        _ d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setBackButtonBackgroundVerticalPositionAdjustment
+        )
+    }
+
+    @available(*, deprecated, renamed: "backButtonBackgroundVerticalPositionAdjust()")
     @discardableResult
     public func backButtonBackgroundVerticalPositionAdjustment(
         _ d: CGFloat,

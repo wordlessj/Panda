@@ -52,6 +52,15 @@ extension PandaChain where Object: UIGestureRecognizer {
         return self
     }
 
+    /// `requiresExclusiveTouchType`
+    @available(iOS 9.2, *)
+    @discardableResult
+    public func exclusiveTouchType(_ value: Bool) -> PandaChain {
+        object.requiresExclusiveTouchType = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "exclusiveTouchType()")
     @available(iOS 9.2, *)
     @discardableResult
     public func requiresExclusiveTouchType(_ value: Bool) -> PandaChain {

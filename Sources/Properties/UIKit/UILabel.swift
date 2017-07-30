@@ -42,12 +42,12 @@ extension PandaChain where Object: UILabel {
 
     /// `textAlignment`
     @discardableResult
-    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+    public func align(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
         return self
     }
 
-    @available(*, deprecated, renamed: "alignment()")
+    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
@@ -142,6 +142,14 @@ extension PandaChain where Object: UILabel {
         return self
     }
 
+    /// `baselineAdjustment`
+    @discardableResult
+    public func baselineAdjust(_ value: UIBaselineAdjustment) -> PandaChain {
+        object.baselineAdjustment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "baselineAdjust()")
     @discardableResult
     public func baselineAdjustment(_ value: UIBaselineAdjustment) -> PandaChain {
         object.baselineAdjustment = value

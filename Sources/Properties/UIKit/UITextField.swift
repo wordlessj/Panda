@@ -36,12 +36,12 @@ extension PandaChain where Object: UITextField {
 
     /// `textAlignment`
     @discardableResult
-    public func alignment(_ value: NSTextAlignment) -> PandaChain {
+    public func align(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
         return self
     }
 
-    @available(*, deprecated, renamed: "alignment()")
+    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value

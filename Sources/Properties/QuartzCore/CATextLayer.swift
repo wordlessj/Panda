@@ -44,6 +44,14 @@ extension PandaChain where Object: CATextLayer {
         return self
     }
 
+    /// `alignmentMode`
+    @discardableResult
+    public func alignMode(_ value: String) -> PandaChain {
+        object.alignmentMode = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "alignMode()")
     @discardableResult
     public func alignmentMode(_ value: String) -> PandaChain {
         object.alignmentMode = value

@@ -20,6 +20,14 @@ extension PandaChain where Object: NSMutableParagraphStyle {
         return self
     }
 
+    /// `alignment`
+    @discardableResult
+    public func align(_ value: NSTextAlignment) -> PandaChain {
+        object.alignment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func alignment(_ value: NSTextAlignment) -> PandaChain {
         object.alignment = value

@@ -21,6 +21,14 @@ extension PandaChain where Object: UIStackView {
         return self
     }
 
+    /// `alignment`
+    @discardableResult
+    public func align(_ value: UIStackViewAlignment) -> PandaChain {
+        object.alignment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func alignment(_ value: UIStackViewAlignment) -> PandaChain {
         object.alignment = value
@@ -35,12 +43,12 @@ extension PandaChain where Object: UIStackView {
 
     /// `isBaselineRelativeArrangement`
     @discardableResult
-    public func baselineArrangement(_ value: Bool) -> PandaChain {
+    public func baselineArrange(_ value: Bool) -> PandaChain {
         object.isBaselineRelativeArrangement = value
         return self
     }
 
-    @available(*, deprecated, renamed: "baselineArrangement()")
+    @available(*, deprecated, renamed: "baselineArrange()")
     @discardableResult
     public func baselineRelativeArrangement(_ value: Bool) -> PandaChain {
         object.isBaselineRelativeArrangement = value
@@ -49,12 +57,12 @@ extension PandaChain where Object: UIStackView {
 
     /// `isLayoutMarginsRelativeArrangement`
     @discardableResult
-    public func marginsArrangement(_ value: Bool) -> PandaChain {
+    public func marginsArrange(_ value: Bool) -> PandaChain {
         object.isLayoutMarginsRelativeArrangement = value
         return self
     }
 
-    @available(*, deprecated, renamed: "marginsArrangement()")
+    @available(*, deprecated, renamed: "marginsArrange()")
     @discardableResult
     public func layoutMarginsRelativeArrangement(_ value: Bool) -> PandaChain {
         object.isLayoutMarginsRelativeArrangement = value

@@ -254,12 +254,12 @@ extension PandaChain where Object: UIView {
 
     /// `tintAdjustmentMode`
     @discardableResult
-    public func tintAdjustment(_ value: UIViewTintAdjustmentMode) -> PandaChain {
+    public func tintAdjust(_ value: UIViewTintAdjustmentMode) -> PandaChain {
         object.tintAdjustmentMode = value
         return self
     }
 
-    @available(*, deprecated, renamed: "tintAdjustment()")
+    @available(*, deprecated, renamed: "tintAdjust()")
     @discardableResult
     public func tintAdjustmentMode(_ value: UIViewTintAdjustmentMode) -> PandaChain {
         object.tintAdjustmentMode = value
@@ -328,12 +328,12 @@ extension PandaChain where Object: UIView {
 
     /// `contentCompressionResistancePriority`
     @discardableResult
-    public func compressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func resistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
         object.setContentCompressionResistancePriority(priority, for: axis)
         return self
     }
 
-    @available(*, deprecated, renamed: "compressionResistancePriority()")
+    @available(*, deprecated, renamed: "resistancePriority()")
     @discardableResult
     public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
         object.setContentCompressionResistancePriority(priority, for: axis)

@@ -20,6 +20,14 @@ extension PandaChain where Object: UITabBarItem {
         return self
     }
 
+    /// `titlePositionAdjustment`
+    @discardableResult
+    public func titlePositionAdjust(_ value: UIOffset) -> PandaChain {
+        object.titlePositionAdjustment = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "titlePositionAdjust()")
     @discardableResult
     public func titlePositionAdjustment(_ value: UIOffset) -> PandaChain {
         object.titlePositionAdjustment = value

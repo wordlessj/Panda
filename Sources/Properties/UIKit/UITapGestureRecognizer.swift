@@ -10,12 +10,12 @@ import UIKit
 extension PandaChain where Object: UITapGestureRecognizer {
     /// `numberOfTapsRequired`
     @discardableResult
-    public func tapsRequired(_ value: Int) -> PandaChain {
+    public func taps(_ value: Int) -> PandaChain {
         object.numberOfTapsRequired = value
         return self
     }
 
-    @available(*, deprecated, renamed: "tapsRequired()")
+    @available(*, deprecated, renamed: "taps()")
     @discardableResult
     public func numberOfTapsRequired(_ value: Int) -> PandaChain {
         object.numberOfTapsRequired = value
@@ -24,12 +24,12 @@ extension PandaChain where Object: UITapGestureRecognizer {
 
     /// `numberOfTouchesRequired`
     @discardableResult
-    public func touchesRequired(_ value: Int) -> PandaChain {
+    public func touches(_ value: Int) -> PandaChain {
         object.numberOfTouchesRequired = value
         return self
     }
 
-    @available(*, deprecated, renamed: "touchesRequired()")
+    @available(*, deprecated, renamed: "touches()")
     @discardableResult
     public func numberOfTouchesRequired(_ value: Int) -> PandaChain {
         object.numberOfTouchesRequired = value

@@ -134,6 +134,14 @@ extension PandaChain where Object: UINavigationBar {
         return self
     }
 
+    /// `titleVerticalPositionAdjustment`
+    @discardableResult
+    public func titleVerticalPositionAdjust(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
+        object.setTitleVerticalPositionAdjustment(adjustment, for: barMetrics)
+        return self
+    }
+
+    @available(*, deprecated, renamed: "titleVerticalPositionAdjust()")
     @discardableResult
     public func titleVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics) -> PandaChain {
         object.setTitleVerticalPositionAdjustment(adjustment, for: barMetrics)
@@ -174,6 +182,24 @@ extension PandaChain where Object: UINavigationBar {
         )
     }
 
+    /// `titleVerticalPositionAdjustment`
+    @discardableResult
+    public func titleVerticalPositionAdjust(
+        _ d: CGFloat,
+        compact: CGFloat? = nil,
+        defaultPrompt: CGFloat? = nil,
+        compactPrompt: CGFloat? = nil
+    ) -> PandaChain {
+        return forBarMetrics(
+            default: d,
+            compact: compact,
+            defaultPrompt: defaultPrompt,
+            compactPrompt: compactPrompt,
+            setter: object.setTitleVerticalPositionAdjustment
+        )
+    }
+
+    @available(*, deprecated, renamed: "titleVerticalPositionAdjust()")
     @discardableResult
     public func titleVerticalPositionAdjustment(
         _ d: CGFloat,

@@ -1,5 +1,5 @@
 //
-//  CALayerExtensions.swift
+//  SourceDelegate.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -23,24 +23,38 @@
 //  THE SOFTWARE.
 //
 
-import QuartzCore
+import UIKit
 
-extension PandaChain where Object: CALayer {
+extension PandaChain where Object: UICollectionView {
+    /// Set `dataSource` and `delegate`.
     @discardableResult
-    public func border(width: CGFloat, color: CGColor?) -> PandaChain {
-        return borderWidth(width).borderColor(color)
+    public func sourceDelegate(_ object: (UICollectionViewDataSource & UICollectionViewDelegate)?) -> PandaChain {
+        return dataSource(object).delegate(object)
     }
+}
 
+extension PandaChain where Object: UIPageViewController {
+    /// Set `dataSource` and `delegate`.
     @discardableResult
-    public func shadow(opacity: CGFloat,
-                       radius: CGFloat,
-                       offset: CGSize,
-                       color: CGColor? = nil,
-                       path: CGPath? = nil) -> PandaChain {
-        return shadowOpacity(Float(opacity))
-            .shadowRadius(radius)
-            .shadowOffset(offset)
-            .shadowColor(color)
-            .shadowPath(path)
+    public func sourceDelegate(
+        _ object: (UIPageViewControllerDataSource & UIPageViewControllerDelegate)?
+    ) -> PandaChain {
+        return dataSource(object).delegate(object)
+    }
+}
+
+extension PandaChain where Object: UIPickerView {
+    /// Set `dataSource` and `delegate`.
+    @discardableResult
+    public func sourceDelegate(_ object: (UIPickerViewDataSource & UIPickerViewDelegate)?) -> PandaChain {
+        return dataSource(object).delegate(object)
+    }
+}
+
+extension PandaChain where Object: UITableView {
+    /// Set `dataSource` and `delegate`.
+    @discardableResult
+    public func sourceDelegate(_ object: (UITableViewDataSource & UITableViewDelegate)?) -> PandaChain {
+        return dataSource(object).delegate(object)
     }
 }

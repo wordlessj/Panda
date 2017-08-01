@@ -26,49 +26,23 @@
 import UIKit
 
 extension PandaChain where Object: UIView {
-    /// Animate `layoutIfNeeded()`, suitable for constraints change.
-    @discardableResult
-    public func animateLayout(duration: TimeInterval,
-                              delay: TimeInterval = 0,
-                              options: UIViewAnimationOptions = [],
-                              completion: ((Bool) -> ())? = nil) -> PandaChain {
-        UIView.animate(withDuration: duration,
-                       delay: delay,
-                       options: options,
-                       animations: { self.object.layoutIfNeeded() },
-                       completion: completion)
-        return self
-    }
-
-    /// Animate `layoutIfNeeded()` using spring, suitable for constraints change.
-    @discardableResult
-    public func springAnimateLayout(duration: TimeInterval,
-                                    delay: TimeInterval = 0,
-                                    damping: CGFloat = 1,
-                                    initialVelocity: CGFloat = 0,
-                                    options: UIViewAnimationOptions = [],
-                                    completion: ((Bool) -> ())? = nil) -> PandaChain {
-        UIView.animate(withDuration: duration,
-                       delay: delay,
-                       usingSpringWithDamping: damping,
-                       initialSpringVelocity: initialVelocity,
-                       options: options,
-                       animations: { self.object.layoutIfNeeded() },
-                       completion: completion)
-        return self
-    }
-}
-
-extension PandaChain where Object: UIView {
-    @discardableResult
-    public func cornerRadius(_ value: CGFloat) -> PandaChain {
-        object.layer.pd.cornerRadius(value)
-        return self
-    }
-
     @discardableResult
     public func border(width: CGFloat, color: UIColor?) -> PandaChain {
         object.layer.pd.border(width: width, color: color?.cgColor)
+        return self
+    }
+
+    /// Set corner radius. Also set `clipsToBounds` to `true` to enable corner radius.
+    @discardableResult
+    public func cornerRadius(_ value: CGFloat) -> PandaChain {
+        object.layer.pd.cornerRadius(value).masks(true)
+        return self
+    }
+
+    /// Set rasterized. Also set `rasterizationScale` to screen's scale.
+    @discardableResult
+    public func rasterized(_ value: Bool) -> PandaChain {
+        object.layer.pd.rasterized(value).rasterizationScale(UIScreen.main.scale)
         return self
     }
 
@@ -76,7 +50,7 @@ extension PandaChain where Object: UIView {
     public func shadow(opacity: CGFloat,
                        radius: CGFloat,
                        offset: CGSize,
-                       color: UIColor?,
+                       color: UIColor? = nil,
                        path: CGPath? = nil) -> PandaChain {
         object.layer.pd.shadow(opacity: opacity, radius: radius, offset: offset, color: color?.cgColor, path: path)
         return self

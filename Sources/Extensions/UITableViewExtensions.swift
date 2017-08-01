@@ -26,41 +26,81 @@
 import UIKit
 
 extension PandaChain where Object: UITableView {
-    /// Register a class for cell, reuse identifier is the class name.
+    /// Register a class for cell.
+    ///
+    /// - parameters:
+    ///     - cellClass: `UITableViewCell` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `cellClass`.
     @discardableResult
-    public func registerCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) -> PandaChain {
-        object.register(cellClass, forCellReuseIdentifier: NSStringFromClass(cellClass))
+    public func register<Cell: UITableViewCell>(_ cellClass: Cell.Type, id: String? = nil) -> PandaChain {
+        object.register(cellClass, forCellReuseIdentifier: id ?? NSStringFromClass(cellClass))
         return self
     }
 
-    /// Unregister a class for cell, reuse identifier is the class name.
+    /// Unregister a class for cell.
+    ///
+    /// - parameters:
+    ///     - cellClass: `UITableViewCell` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `cellClass`.
     @discardableResult
-    public func unregisterCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) -> PandaChain {
-        object.register(nil as AnyClass?, forCellReuseIdentifier: NSStringFromClass(cellClass))
+    public func unregister<Cell: UITableViewCell>(_ cellClass: Cell.Type, id: String? = nil) -> PandaChain {
+        object.register(nil as AnyClass?, forCellReuseIdentifier: id ?? NSStringFromClass(cellClass))
         return self
     }
 
-    /// Register a class for header footer view, reuse identifier is the class name.
+    /// Register a class for header footer view.
+    ///
+    /// - parameters:
+    ///     - viewClass: `UITableViewHeaderFooterView` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `viewClass`.
     @discardableResult
-    public func registerHeaderFooterView<View: UITableViewHeaderFooterView>(_ aClass: View.Type) -> PandaChain {
-        object.register(aClass, forHeaderFooterViewReuseIdentifier: NSStringFromClass(aClass))
+    public func register<View: UITableViewHeaderFooterView>(
+        _ viewClass: View.Type,
+        id: String? = nil
+    ) -> PandaChain {
+        object.register(viewClass, forHeaderFooterViewReuseIdentifier: id ?? NSStringFromClass(viewClass))
         return self
     }
 
-    /// Unregister a class for header footer view, reuse identifier is the class name.
+    /// Unregister a class for header footer view.
+    ///
+    /// - parameters:
+    ///     - viewClass: `UITableViewHeaderFooterView` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `viewClass`.
     @discardableResult
-    public func unregisterHeaderFooterView<View: UITableViewHeaderFooterView>(_ aClass: View.Type) -> PandaChain {
-        object.register(nil as AnyClass?, forHeaderFooterViewReuseIdentifier: NSStringFromClass(aClass))
+    public func unregister<View: UITableViewHeaderFooterView>(
+        _ viewClass: View.Type,
+        id: String? = nil
+    ) -> PandaChain {
+        object.register(nil as AnyClass?,
+                        forHeaderFooterViewReuseIdentifier: id ?? NSStringFromClass(viewClass))
         return self
     }
 
-    /// Dequeue a reusable cell, reuse identifier is the class name.
-    public func dequeueCell<Cell: UITableViewCell>(_ cellClass: Cell.Type, for indexPath: IndexPath) -> Cell {
-        return object.dequeueReusableCell(withIdentifier: NSStringFromClass(cellClass), for: indexPath) as! Cell
+    /// Dequeue a reusable cell.
+    ///
+    /// - parameters:
+    ///     - cellClass: `UITableViewCell` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `cellClass`.
+    ///     - indexPath: The location of the cell.
+    public func dequeue<Cell: UITableViewCell>(
+        _ cellClass: Cell.Type,
+        id: String? = nil,
+        for indexPath: IndexPath
+    ) -> Cell {
+        return object.dequeueReusableCell(withIdentifier: id ?? NSStringFromClass(cellClass),
+                                          for: indexPath) as! Cell
     }
 
-    /// Dequeue a reusable header footer view, reuse identifier is the class name.
-    public func dequeueHeaderFooterView<View: UITableViewHeaderFooterView>(_ aClass: View.Type) -> View? {
-        return object.dequeueReusableHeaderFooterView(withIdentifier: NSStringFromClass(aClass)) as? View
+    /// Dequeue a reusable header footer view.
+    ///
+    /// - parameters:
+    ///     - viewClass: `UITableViewHeaderFooterView` subclass.
+    ///     - id: Reuse identifier. Defaults to `nil`, the name of `viewClass`.
+    public func dequeue<View: UITableViewHeaderFooterView>(
+        _ viewClass: View.Type,
+        id: String? = nil
+    ) -> View? {
+        return object.dequeueReusableHeaderFooterView(withIdentifier: id ?? NSStringFromClass(viewClass)) as? View
     }
 }

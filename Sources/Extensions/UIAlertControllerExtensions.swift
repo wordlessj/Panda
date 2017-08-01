@@ -1,5 +1,5 @@
 //
-//  UIButtonExtensions.swift
+//  UIAlertControllerExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -25,6 +25,10 @@
 
 import UIKit
 
-extension PandaChain where Object: UIButton {
-
+extension PandaChain where Object: UIAlertController {
+    @discardableResult
+    public func addTextField(configure: ((UITextField) -> ())? = nil) -> PandaChain {
+        object.addTextField(configurationHandler: configure)
+        return self
+    }
 }

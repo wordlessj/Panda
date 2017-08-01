@@ -23,12 +23,6 @@ extension PandaChain where Object: UIToolbar {
     }
 
     @discardableResult
-    public func items(_ value: [UIBarButtonItem]?) -> PandaChain {
-        object.items = value
-        return self
-    }
-
-    @discardableResult
     public func translucent(_ value: Bool) -> PandaChain {
         object.isTranslucent = value
         return self
@@ -65,12 +59,6 @@ extension PandaChain where Object: UIToolbar {
     @discardableResult
     public func delegate(_ value: UIToolbarDelegate?) -> PandaChain {
         object.delegate = value
-        return self
-    }
-
-    @discardableResult
-    public func items(_ items: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
-        object.setItems(items, animated: animated)
         return self
     }
 

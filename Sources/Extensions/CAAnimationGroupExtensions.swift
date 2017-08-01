@@ -1,5 +1,5 @@
 //
-//  CALayerExtensions.swift
+//  CAAnimationGroupExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -25,22 +25,13 @@
 
 import QuartzCore
 
-extension PandaChain where Object: CALayer {
+extension PandaChain where Object: CAAnimationGroup {
+    /// Set animations.
+    ///
+    /// - parameter value: `CAAnimation` or configured by `pd` extension.
     @discardableResult
-    public func border(width: CGFloat, color: CGColor?) -> PandaChain {
-        return borderWidth(width).borderColor(color)
-    }
-
-    @discardableResult
-    public func shadow(opacity: CGFloat,
-                       radius: CGFloat,
-                       offset: CGSize,
-                       color: CGColor? = nil,
-                       path: CGPath? = nil) -> PandaChain {
-        return shadowOpacity(Float(opacity))
-            .shadowRadius(radius)
-            .shadowOffset(offset)
-            .shadowColor(color)
-            .shadowPath(path)
+    public func animations(_ value: [Any]) -> PandaChain {
+        object.animations = value.flatMap { unbox($0) as? CAAnimation }
+        return self
     }
 }

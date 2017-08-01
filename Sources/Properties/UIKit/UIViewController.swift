@@ -15,12 +15,6 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func toolbarItems(_ value: [UIBarButtonItem]?) -> PandaChain {
-        object.toolbarItems = value
-        return self
-    }
-
-    @discardableResult
     public func modalInPopover(_ value: Bool) -> PandaChain {
         object.isModalInPopover = value
         return self
@@ -134,12 +128,6 @@ extension PandaChain where Object: UIViewController {
     @discardableResult
     public func transitioningDelegate(_ value: UIViewControllerTransitioningDelegate?) -> PandaChain {
         object.transitioningDelegate = value
-        return self
-    }
-
-    @discardableResult
-    public func toolbarItems(_ toolbarItems: [UIBarButtonItem]?, animated: Bool) -> PandaChain {
-        object.setToolbarItems(toolbarItems, animated: animated)
         return self
     }
 

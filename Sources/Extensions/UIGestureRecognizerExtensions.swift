@@ -1,5 +1,5 @@
 //
-//  UIViewControllerExtensions.swift
+//  UIGestureRecognizerExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -25,26 +25,10 @@
 
 import UIKit
 
-extension PandaChain where Object: UIViewController {
-    /// Add child view controller and its view, also calls `didMove(toParentViewController:)`.
-    ///
-    /// - parameters:
-    ///     - controller: Child view controller.
-    ///     - toView: A view to which `controller`'s view is added. Defaults to `nil`, meaning receiver's view.
+extension PandaChain where Object: UIGestureRecognizer {
     @discardableResult
-    public func addChild(_ controller: UIViewController, to toView: UIView? = nil) -> PandaChain {
-        object.addChildViewController(controller)
-        (toView ?? object.view).addSubview(controller.view)
-        controller.didMove(toParentViewController: object)
-        return self
-    }
-
-    /// Remove child view controller and its view, also calls `willMove(toParentViewController:)`.
-    @discardableResult
-    public func removeFromParent() -> PandaChain {
-        object.willMove(toParentViewController: nil)
-        object.view.removeFromSuperview()
-        object.removeFromParentViewController()
+    public func require(toFail otherGestureRecognizer: UIGestureRecognizer) -> PandaChain {
+        object.require(toFail: otherGestureRecognizer)
         return self
     }
 }

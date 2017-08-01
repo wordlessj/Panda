@@ -65,7 +65,7 @@ extension PandaChain where Object: ItemRemoving {
     }
 }
 
-private func unbox(_ item: Any) -> Any {
+func unbox(_ item: Any) -> Any {
     if let chain = item as? PandaChainProtocol {
         return chain.anyObject
     } else {

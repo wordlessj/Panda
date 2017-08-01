@@ -1,5 +1,5 @@
 //
-//  CALayerExtensions.swift
+//  UILabelExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -23,24 +23,11 @@
 //  THE SOFTWARE.
 //
 
-import QuartzCore
+import UIKit
 
-extension PandaChain where Object: CALayer {
+extension PandaChain where Object: UILabel {
     @discardableResult
-    public func border(width: CGFloat, color: CGColor?) -> PandaChain {
-        return borderWidth(width).borderColor(color)
-    }
-
-    @discardableResult
-    public func shadow(opacity: CGFloat,
-                       radius: CGFloat,
-                       offset: CGSize,
-                       color: CGColor? = nil,
-                       path: CGPath? = nil) -> PandaChain {
-        return shadowOpacity(Float(opacity))
-            .shadowRadius(radius)
-            .shadowOffset(offset)
-            .shadowColor(color)
-            .shadowPath(path)
+    public func shadow(color: UIColor?, offset: CGSize) -> PandaChain {
+        return shadowColor(color).shadowOffset(offset)
     }
 }

@@ -25,16 +25,26 @@
 
 import UIKit
 
+private func radianFromDegree(_ degree: CGFloat) -> CGFloat {
+    return degree / 180 * CGFloat.pi
+}
+
 public protocol TransformContainer: class {
     var transform: CGAffineTransform { get set }
 }
 
 extension PandaChain where Object: TransformContainer {
-    /// Set `transform` with rotation.
+    /// Set `transform` with rotation in radians.
     @discardableResult
-    public func rotation(_ angle: CGFloat) -> PandaChain {
-        object.transform = CGAffineTransform(rotationAngle: angle)
+    public func rotation(radian: CGFloat) -> PandaChain {
+        object.transform = CGAffineTransform(rotationAngle: radian)
         return self
+    }
+
+    /// Set `transform` with rotation in degrees.
+    @discardableResult
+    public func rotation(degree: CGFloat) -> PandaChain {
+        return rotation(radian: radianFromDegree(degree))
     }
 
     /// Set `transform` with scale.
@@ -44,6 +54,12 @@ extension PandaChain where Object: TransformContainer {
         return self
     }
 
+    /// Set `transform` with scale.
+    @discardableResult
+    public func scale(_ value: CGFloat) -> PandaChain {
+        return scale(x: value, y: value)
+    }
+
     /// Set `transform` with translation.
     @discardableResult
     public func translation(x: CGFloat, y: CGFloat) -> PandaChain {
@@ -51,11 +67,17 @@ extension PandaChain where Object: TransformContainer {
         return self
     }
 
-    /// Concatenate `transform` with rotation.
+    /// Concatenate `transform` with rotation in radians.
     @discardableResult
-    public func concatRotation(_ angle: CGFloat) -> PandaChain {
-        object.transform = object.transform.concatenating(CGAffineTransform(rotationAngle: angle))
+    public func concatRotation(radian: CGFloat) -> PandaChain {
+        object.transform = object.transform.concatenating(CGAffineTransform(rotationAngle: radian))
         return self
+    }
+
+    /// Concatenate `transform` with rotation in degrees.
+    @discardableResult
+    public func concatRotation(degree: CGFloat) -> PandaChain {
+        return concatRotation(radian: radianFromDegree(degree))
     }
 
     /// Concatenate `transform` with scale.
@@ -63,6 +85,12 @@ extension PandaChain where Object: TransformContainer {
     public func concatScale(x: CGFloat, y: CGFloat) -> PandaChain {
         object.transform = object.transform.concatenating(CGAffineTransform(scaleX: x, y: y))
         return self
+    }
+
+    /// Concatenate `transform` with scale.
+    @discardableResult
+    public func concatScale(_ value: CGFloat) -> PandaChain {
+        return concatScale(x: value, y: value)
     }
 
     /// Concatenate `transform` with translation.

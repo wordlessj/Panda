@@ -39,7 +39,7 @@ private class ActionBox {
     }
 }
 
-private protocol ActionBoxContainer: class {}
+public protocol ActionBoxContainer: class {}
 
 private var actionBoxKey: UInt8 = 0
 

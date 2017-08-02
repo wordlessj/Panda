@@ -96,6 +96,13 @@ extension PandaChain where Object: UICollectionViewFlowLayout {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func sectionInsetReference(_ value: UICollectionViewFlowLayoutSectionInsetReference) -> PandaChain {
+        object.sectionInsetReference = value
+        return self
+    }
+
     /// `sectionHeadersPinToVisibleBounds`
     @available(iOS 9.0, *)
     @discardableResult

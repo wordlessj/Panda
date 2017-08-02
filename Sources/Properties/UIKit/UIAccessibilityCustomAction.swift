@@ -14,6 +14,13 @@ extension PandaChain where Object: UIAccessibilityCustomAction {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func attributedName(_ value: NSAttributedString) -> PandaChain {
+        object.attributedName = value
+        return self
+    }
+
     @discardableResult
     public func target(_ value: AnyObject?) -> PandaChain {
         object.target = value

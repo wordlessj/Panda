@@ -135,6 +135,22 @@ extension PandaChain where Object: UITableViewCell {
         return self
     }
 
+    /// `userInteractionEnabledWhileDragging`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func interactableWhileDragging(_ value: Bool) -> PandaChain {
+        object.userInteractionEnabledWhileDragging = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "interactableWhileDragging()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func userInteractionEnabledWhileDragging(_ value: Bool) -> PandaChain {
+        object.userInteractionEnabledWhileDragging = value
+        return self
+    }
+
     @discardableResult
     public func selected(_ selected: Bool, animated: Bool) -> PandaChain {
         object.setSelected(selected, animated: animated)

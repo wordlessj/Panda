@@ -13,4 +13,11 @@ extension PandaChain where Object: CADisplayLink {
         object.isPaused = value
         return self
     }
+
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func preferredFramesPerSecond(_ value: Int) -> PandaChain {
+        object.preferredFramesPerSecond = value
+        return self
+    }
 }

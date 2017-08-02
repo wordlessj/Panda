@@ -54,7 +54,7 @@ extension PandaChain where Object: FontContainer {
 
     @available(iOS 8.2, *)
     @discardableResult
-    public func font(size: CGFloat, weight: CGFloat) -> PandaChain {
+    public func font(size: CGFloat, weight: UIFont.Weight) -> PandaChain {
         return font(.systemFont(ofSize: size, weight: weight))
     }
 
@@ -70,7 +70,7 @@ extension PandaChain where Object: FontContainer {
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func font(monospacedDigitSize size: CGFloat, weight: CGFloat) -> PandaChain {
+    public func font(monospacedDigitSize size: CGFloat, weight: UIFont.Weight) -> PandaChain {
         return font(.monospacedDigitSystemFont(ofSize: size, weight: weight))
     }
 }

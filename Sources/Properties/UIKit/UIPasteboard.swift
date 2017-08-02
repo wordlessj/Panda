@@ -8,6 +8,13 @@
 import UIKit
 
 extension PandaChain where Object: UIPasteboard {
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func itemProviders(_ value: [NSItemProvider]) -> PandaChain {
+        object.itemProviders = value
+        return self
+    }
+
     @discardableResult
     public func items(_ value: [[String: Any]]) -> PandaChain {
         object.items = value
@@ -66,6 +73,27 @@ extension PandaChain where Object: UIPasteboard {
     @discardableResult
     public func persistent(_ persistent: Bool) -> PandaChain {
         object.setPersistent(persistent)
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func itemProviders(_ itemProviders: [NSItemProvider], localOnly: Bool, expirationDate: Date?) -> PandaChain {
+        object.setItemProviders(itemProviders, localOnly: localOnly, expirationDate: expirationDate)
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func objects(_ objects: [NSItemProviderWriting]) -> PandaChain {
+        object.setObjects(objects)
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func objects(_ objects: [NSItemProviderWriting], localOnly: Bool, expirationDate: Date?) -> PandaChain {
+        object.setObjects(objects, localOnly: localOnly, expirationDate: expirationDate)
         return self
     }
 

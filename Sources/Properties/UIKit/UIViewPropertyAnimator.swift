@@ -34,4 +34,18 @@ extension PandaChain where Object: UIViewPropertyAnimator {
         object.isInterruptible = value
         return self
     }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func scrubsLinearly(_ value: Bool) -> PandaChain {
+        object.scrubsLinearly = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func pausesOnCompletion(_ value: Bool) -> PandaChain {
+        object.pausesOnCompletion = value
+        return self
+    }
 }

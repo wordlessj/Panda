@@ -87,6 +87,7 @@ extension PandaChain where Object: UIViewController {
         return self
     }
 
+    @available(iOS, introduced: 7.0, deprecated: 11.0)
     @discardableResult
     public func automaticallyAdjustsScrollViewInsets(_ value: Bool) -> PandaChain {
         object.automaticallyAdjustsScrollViewInsets = value
@@ -128,6 +129,29 @@ extension PandaChain where Object: UIViewController {
     @discardableResult
     public func transitioningDelegate(_ value: UIViewControllerTransitioningDelegate?) -> PandaChain {
         object.transitioningDelegate = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func additionalSafeAreaInsets(_ value: UIEdgeInsets) -> PandaChain {
+        object.additionalSafeAreaInsets = value
+        return self
+    }
+
+    /// `viewRespectsSystemMinimumLayoutMargins`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func viewRespectsSystemMinMargins(_ value: Bool) -> PandaChain {
+        object.viewRespectsSystemMinimumLayoutMargins = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "viewRespectsSystemMinMargins()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func viewRespectsSystemMinimumLayoutMargins(_ value: Bool) -> PandaChain {
+        object.viewRespectsSystemMinimumLayoutMargins = value
         return self
     }
 

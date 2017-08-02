@@ -20,15 +20,36 @@ extension PandaChain where Object: NSObject {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityAttributedLabel(_ value: NSAttributedString?) -> PandaChain {
+        object.accessibilityAttributedLabel = value
+        return self
+    }
+
     @discardableResult
     public func accessibilityHint(_ value: String?) -> PandaChain {
         object.accessibilityHint = value
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityAttributedHint(_ value: NSAttributedString?) -> PandaChain {
+        object.accessibilityAttributedHint = value
+        return self
+    }
+
     @discardableResult
     public func accessibilityValue(_ value: String?) -> PandaChain {
         object.accessibilityValue = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityAttributedValue(_ value: NSAttributedString?) -> PandaChain {
+        object.accessibilityAttributedValue = value
         return self
     }
 
@@ -87,14 +108,35 @@ extension PandaChain where Object: NSObject {
     }
 
     @discardableResult
+    public func accessibilityCustomActions(_ value: [UIAccessibilityCustomAction]?) -> PandaChain {
+        object.accessibilityCustomActions = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityDragSourceDescriptors(_ value: [UIAccessibilityLocationDescriptor]?) -> PandaChain {
+        object.accessibilityDragSourceDescriptors = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityDropPointDescriptors(_ value: [UIAccessibilityLocationDescriptor]?) -> PandaChain {
+        object.accessibilityDropPointDescriptors = value
+        return self
+    }
+
+    @discardableResult
     public func accessibilityElements(_ value: [Any]?) -> PandaChain {
         object.accessibilityElements = value
         return self
     }
 
+    @available(iOS 11.0, *)
     @discardableResult
-    public func accessibilityCustomActions(_ value: [UIAccessibilityCustomAction]?) -> PandaChain {
-        object.accessibilityCustomActions = value
+    public func accessibilityContainerType(_ value: UIAccessibilityContainerType) -> PandaChain {
+        object.accessibilityContainerType = value
         return self
     }
 

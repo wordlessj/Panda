@@ -66,6 +66,43 @@ extension PandaChain where Object: UICollectionView {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dragDelegate(_ value: UICollectionViewDragDelegate?) -> PandaChain {
+        object.dragDelegate = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dropDelegate(_ value: UICollectionViewDropDelegate?) -> PandaChain {
+        object.dropDelegate = value
+        return self
+    }
+
+    /// `dragInteractionEnabled`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func draggable(_ value: Bool) -> PandaChain {
+        object.dragInteractionEnabled = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "draggable()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dragInteractionEnabled(_ value: Bool) -> PandaChain {
+        object.dragInteractionEnabled = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func reorderingCadence(_ value: UICollectionViewReorderingCadence) -> PandaChain {
+        object.reorderingCadence = value
+        return self
+    }
+
     /// `backgroundView`
     @discardableResult
     public func background(_ value: UIView?) -> PandaChain {

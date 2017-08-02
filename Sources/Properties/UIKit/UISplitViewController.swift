@@ -65,4 +65,11 @@ extension PandaChain where Object: UISplitViewController {
         object.maximumPrimaryColumnWidth = value
         return self
     }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func primaryEdge(_ value: UISplitViewControllerPrimaryEdge) -> PandaChain {
+        object.primaryEdge = value
+        return self
+    }
 }

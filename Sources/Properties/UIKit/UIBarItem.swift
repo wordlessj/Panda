@@ -32,6 +32,22 @@ extension PandaChain where Object: UIBarItem {
         return self
     }
 
+    /// `largeContentSizeImage`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeImage(_ value: UIImage?) -> PandaChain {
+        object.largeContentSizeImage = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "largeImage()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeContentSizeImage(_ value: UIImage?) -> PandaChain {
+        object.largeContentSizeImage = value
+        return self
+    }
+
     @discardableResult
     public func imageInsets(_ value: UIEdgeInsets) -> PandaChain {
         object.imageInsets = value
@@ -44,6 +60,22 @@ extension PandaChain where Object: UIBarItem {
         return self
     }
 
+    /// `largeContentSizeImageInsets`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeImageInsets(_ value: UIEdgeInsets) -> PandaChain {
+        object.largeContentSizeImageInsets = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "largeImageInsets()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeContentSizeImageInsets(_ value: UIEdgeInsets) -> PandaChain {
+        object.largeContentSizeImageInsets = value
+        return self
+    }
+
     @discardableResult
     public func tag(_ value: Int) -> PandaChain {
         object.tag = value
@@ -52,14 +84,14 @@ extension PandaChain where Object: UIBarItem {
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleAttributes(_ attributes: [NSAttributedStringKey: Any]?, for state: UIControlState) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleTextAttributes(_ attributes: [NSAttributedStringKey: Any]?, for state: UIControlState) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
@@ -67,10 +99,10 @@ extension PandaChain where Object: UIBarItem {
     /// `titleTextAttributes`
     @discardableResult
     public func titleAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedStringKey: Any],
+        highlighted: [NSAttributedStringKey: Any]? = nil,
+        selected: [NSAttributedStringKey: Any]? = nil,
+        disabled: [NSAttributedStringKey: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -84,10 +116,10 @@ extension PandaChain where Object: UIBarItem {
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
     public func titleTextAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedStringKey: Any],
+        highlighted: [NSAttributedStringKey: Any]? = nil,
+        selected: [NSAttributedStringKey: Any]? = nil,
+        disabled: [NSAttributedStringKey: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,

@@ -26,6 +26,22 @@ extension PandaChain where Object: UIScrollView {
         return self
     }
 
+    /// `contentInsetAdjustmentBehavior`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func contentInsetAdjust(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> PandaChain {
+        object.contentInsetAdjustmentBehavior = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "contentInsetAdjust()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func contentInsetAdjustmentBehavior(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> PandaChain {
+        object.contentInsetAdjustmentBehavior = value
+        return self
+    }
+
     @discardableResult
     public func delegate(_ value: UIScrollViewDelegate?) -> PandaChain {
         object.delegate = value
@@ -143,6 +159,12 @@ extension PandaChain where Object: UIScrollView {
     @discardableResult
     public func decelerationRate(_ value: CGFloat) -> PandaChain {
         object.decelerationRate = value
+        return self
+    }
+
+    @discardableResult
+    public func indexDisplayMode(_ value: UIScrollViewIndexDisplayMode) -> PandaChain {
+        object.indexDisplayMode = value
         return self
     }
 

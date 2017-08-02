@@ -139,11 +139,14 @@ extension UIDynamicBehavior: ItemAdding, ItemRemoving {
 }
 
 extension UIView: ItemAdding, ItemRemoving {
-    /// Add `UIView`, `UIGestureRecognizer`, `UIMotionEffect`, `NSLayoutConstraint` and `UILayoutGuide`.
+    /// Add `UIView`, `UIGestureRecognizer`, `UIMotionEffect`,
+    /// `NSLayoutConstraint`, `UILayoutGuide` and `UIInteraction`.
     ///
     /// If receiver is `UIStackView`, `UIView` will be added using `addArrangedSubview`.
     public func add(_ item: Any) {
-        switch unbox(item) {
+        let unboxedItem = unbox(item)
+
+        switch unboxedItem {
         case let gesture as UIGestureRecognizer: addGestureRecognizer(gesture)
         case let effect as UIMotionEffect: addMotionEffect(effect)
         case let constraint as NSLayoutConstraint: addConstraint(constraint)
@@ -154,17 +157,22 @@ extension UIView: ItemAdding, ItemRemoving {
                 addSubview(view)
             }
         default:
-            if #available(iOS 9.0, *), let guide = item as? UILayoutGuide {
+            if #available(iOS 9.0, *), let guide = unboxedItem as? UILayoutGuide {
                 addLayoutGuide(guide)
+            } else if #available(iOS 11.0, *), let interaction = unboxedItem as? UIInteraction {
+                addInteraction(interaction)
             }
         }
     }
 
-    /// Remove `UIView`, `UIGestureRecognizer`, `UIMotionEffect`, `NSLayoutConstraint` and `UILayoutGuide`.
+    /// Remove `UIView`, `UIGestureRecognizer`, `UIMotionEffect`,
+    /// `NSLayoutConstraint`, `UILayoutGuide` and `UIInteraction`.
     ///
     /// If receiver is `UIStackView`, `UIView` will be removed using `removeArrangedSubview`.
     public func remove(_ item: Any) {
-        switch unbox(item) {
+        let unboxedItem = unbox(item)
+
+        switch unboxedItem {
         case let gesture as UIGestureRecognizer: removeGestureRecognizer(gesture)
         case let effect as UIMotionEffect: removeMotionEffect(effect)
         case let constraint as NSLayoutConstraint: removeConstraint(constraint)
@@ -175,8 +183,10 @@ extension UIView: ItemAdding, ItemRemoving {
                 view.removeFromSuperview()
             }
         default:
-            if #available(iOS 9.0, *), let guide = item as? UILayoutGuide {
+            if #available(iOS 9.0, *), let guide = unboxedItem as? UILayoutGuide {
                 removeLayoutGuide(guide)
+            } else if #available(iOS 11.0, *), let interaction = unboxedItem as? UIInteraction {
+                removeInteraction(interaction)
             }
         }
     }
@@ -184,11 +194,13 @@ extension UIView: ItemAdding, ItemRemoving {
 
 extension UIViewController: ItemAdding, ItemRemoving {
     /// Add `UIViewController` and `UIKeyCommand`.
-    public func add(_ item: Any) {
-        switch unbox(item) {
+    @objc public func add(_ item: Any) {
+        let unboxedItem = unbox(item)
+
+        switch unboxedItem {
         case let controller as UIViewController: addChildViewController(controller)
         default:
-            if #available(iOS 9.0, *), let command = item as? UIKeyCommand {
+            if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
                 addKeyCommand(command)
             }
         }
@@ -196,10 +208,12 @@ extension UIViewController: ItemAdding, ItemRemoving {
 
     /// Remove `UIViewController` and `UIKeyCommand`.
     public func remove(_ item: Any) {
-        switch unbox(item) {
+        let unboxedItem = unbox(item)
+
+        switch unboxedItem {
         case let controller as UIViewController: controller.removeFromParentViewController()
         default:
-            if #available(iOS 9.0, *), let command = item as? UIKeyCommand {
+            if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
                 removeKeyCommand(command)
             }
         }

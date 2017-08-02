@@ -8,6 +8,20 @@
 import UIKit
 
 extension PandaChain where Object: UIView {
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityIgnoresInvertColors(_ value: Bool) -> PandaChain {
+        object.accessibilityIgnoresInvertColors = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func interactions(_ value: [UIInteraction]) -> PandaChain {
+        object.interactions = value
+        return self
+    }
+
     /// `isUserInteractionEnabled`
     @discardableResult
     public func interactable(_ value: Bool) -> PandaChain {
@@ -144,6 +158,22 @@ extension PandaChain where Object: UIView {
         return self
     }
 
+    /// `directionalLayoutMargins`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func directionalMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
+        object.directionalLayoutMargins = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "directionalMargins()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func directionalLayoutMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
+        object.directionalLayoutMargins = value
+        return self
+    }
+
     /// `preservesSuperviewLayoutMargins`
     @discardableResult
     public func preservesSuperviewMargins(_ value: Bool) -> PandaChain {
@@ -155,6 +185,22 @@ extension PandaChain where Object: UIView {
     @discardableResult
     public func preservesSuperviewLayoutMargins(_ value: Bool) -> PandaChain {
         object.preservesSuperviewLayoutMargins = value
+        return self
+    }
+
+    /// `insetsLayoutMarginsFromSafeArea`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func insetsMarginsFromSafeArea(_ value: Bool) -> PandaChain {
+        object.insetsLayoutMarginsFromSafeArea = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "insetsMarginsFromSafeArea()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func insetsLayoutMarginsFromSafeArea(_ value: Bool) -> PandaChain {
+        object.insetsLayoutMarginsFromSafeArea = value
         return self
     }
 

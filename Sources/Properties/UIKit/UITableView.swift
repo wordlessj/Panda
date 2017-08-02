@@ -23,7 +23,7 @@ extension PandaChain where Object: UITableView {
     /// `prefetchDataSource`
     @available(iOS 10.0, *)
     @discardableResult
-    public func prefetchSource(_ value: UITableViewDataSourcePrefetching) -> PandaChain {
+    public func prefetchSource(_ value: UITableViewDataSourcePrefetching?) -> PandaChain {
         object.prefetchDataSource = value
         return self
     }
@@ -31,8 +31,22 @@ extension PandaChain where Object: UITableView {
     @available(*, deprecated, renamed: "prefetchSource()")
     @available(iOS 10.0, *)
     @discardableResult
-    public func prefetchDataSource(_ value: UITableViewDataSourcePrefetching) -> PandaChain {
+    public func prefetchDataSource(_ value: UITableViewDataSourcePrefetching?) -> PandaChain {
         object.prefetchDataSource = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dragDelegate(_ value: UITableViewDragDelegate?) -> PandaChain {
+        object.dragDelegate = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dropDelegate(_ value: UITableViewDropDelegate?) -> PandaChain {
+        object.dropDelegate = value
         return self
     }
 
@@ -107,6 +121,13 @@ extension PandaChain where Object: UITableView {
     @discardableResult
     public func separatorInset(_ value: UIEdgeInsets) -> PandaChain {
         object.separatorInset = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func separatorInsetReference(_ value: UITableViewSeparatorInsetReference) -> PandaChain {
+        object.separatorInsetReference = value
         return self
     }
 
@@ -268,6 +289,13 @@ extension PandaChain where Object: UITableView {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func insetsContentViewsToSafeArea(_ value: Bool) -> PandaChain {
+        object.insetsContentViewsToSafeArea = value
+        return self
+    }
+
     @discardableResult
     public func tableHeaderView(_ value: UIView?) -> PandaChain {
         object.tableHeaderView = value
@@ -293,6 +321,22 @@ extension PandaChain where Object: UITableView {
     @discardableResult
     public func remembersLastFocusedIndexPath(_ value: Bool) -> PandaChain {
         object.remembersLastFocusedIndexPath = value
+        return self
+    }
+
+    /// `dragInteractionEnabled`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func draggable(_ value: Bool) -> PandaChain {
+        object.dragInteractionEnabled = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "draggable()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func dragInteractionEnabled(_ value: Bool) -> PandaChain {
+        object.dragInteractionEnabled = value
         return self
     }
 

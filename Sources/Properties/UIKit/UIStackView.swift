@@ -68,4 +68,11 @@ extension PandaChain where Object: UIStackView {
         object.isLayoutMarginsRelativeArrangement = value
         return self
     }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func customSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) -> PandaChain {
+        object.setCustomSpacing(spacing, after: arrangedSubview)
+        return self
+    }
 }

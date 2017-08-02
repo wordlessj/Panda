@@ -32,6 +32,13 @@ extension PandaChain where Object: UIImagePickerController {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func imageExportPreset(_ value: UIImagePickerControllerImageURLExportPreset) -> PandaChain {
+        object.imageExportPreset = value
+        return self
+    }
+
     /// `videoMaximumDuration`
     @discardableResult
     public func videoMaxDuration(_ value: TimeInterval) -> PandaChain {
@@ -49,6 +56,13 @@ extension PandaChain where Object: UIImagePickerController {
     @discardableResult
     public func videoQuality(_ value: UIImagePickerControllerQualityType) -> PandaChain {
         object.videoQuality = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func videoExportPreset(_ value: String) -> PandaChain {
+        object.videoExportPreset = value
         return self
     }
 

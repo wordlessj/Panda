@@ -40,6 +40,13 @@ extension PandaChain where Object: UINavigationBar {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func prefersLargeTitles(_ value: Bool) -> PandaChain {
+        object.prefersLargeTitles = value
+        return self
+    }
+
     /// `tintColor`
     @discardableResult
     public func tint(_ value: UIColor?) -> PandaChain {
@@ -76,15 +83,31 @@ extension PandaChain where Object: UINavigationBar {
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ value: [String: Any]?) -> PandaChain {
+    public func titleAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
         object.titleTextAttributes = value
         return self
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ value: [String: Any]?) -> PandaChain {
+    public func titleTextAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
         object.titleTextAttributes = value
+        return self
+    }
+
+    /// `largeTitleTextAttributes`
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeTitleAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+        object.largeTitleTextAttributes = value
+        return self
+    }
+
+    @available(*, deprecated, renamed: "largeTitleAttributes()")
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func largeTitleTextAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+        object.largeTitleTextAttributes = value
         return self
     }
 

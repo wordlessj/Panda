@@ -317,8 +317,8 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func needsDisplayIn(_ r: CGRect) -> PandaChain {
-        object.setNeedsDisplayIn(r)
+    public func needsDisplay(_ r: CGRect) -> PandaChain {
+        object.setNeedsDisplay(r)
         return self
     }
 }

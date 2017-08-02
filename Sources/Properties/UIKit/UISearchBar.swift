@@ -216,6 +216,27 @@ extension PandaChain where Object: UISearchBar {
         return self
     }
 
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func smartQuotesType(_ value: UITextSmartQuotesType) -> PandaChain {
+        object.smartQuotesType = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func smartDashesType(_ value: UITextSmartDashesType) -> PandaChain {
+        object.smartDashesType = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func smartInsertDeleteType(_ value: UITextSmartInsertDeleteType) -> PandaChain {
+        object.smartInsertDeleteType = value
+        return self
+    }
+
     @discardableResult
     public func keyboardType(_ value: UIKeyboardType) -> PandaChain {
         object.keyboardType = value

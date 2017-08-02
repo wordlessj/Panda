@@ -1,5 +1,5 @@
 //
-//  PandaChain.swift
+//  UIScrollViewExtensions.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -23,53 +23,18 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-public protocol PandaChainProtocol {
-    var anyObject: Any { get }
-}
-
-public class PandaChain<Object> {
-    public let object: Object
-
-    init(object: Object) {
-        self.object = object
-    }
-}
-
-extension PandaChain: PandaChainProtocol {
-    public var anyObject: Any { return object }
-}
-
-extension PandaChain {
-    /// Set property value with key path.
-    ///
-    /// - parameters:
-    ///     - keyPath: Key path of the property, use inferred type expression like `\.property`.
-    ///     - value: New value.
+extension PandaChain where Object: UIScrollView {
+    /// Always bounce horizontal and vertical.
     @discardableResult
-    public func set<Value>(_ keyPath: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> PandaChain {
-        object[keyPath: keyPath] = value
-        return self
+    public func alwaysBounce(_ value: Bool) -> PandaChain {
+        return alwaysBounceHorizontal(value).alwaysBounceVertical(value)
     }
 
-    /// Do something on the object.
-    ///
-    /// - parameter action: Something to be done.
+    /// Shows horizontal and vertical scroll indicators.
     @discardableResult
-    public func `do`(_ action: (Object) -> ()) -> PandaChain {
-        action(object)
-        return self
+    public func showsIndicators(_ value: Bool) -> PandaChain {
+        return showsHorizontalIndicator(value).showsVerticalIndicator(value)
     }
 }
-
-public protocol PandaChainable {}
-
-extension PandaChainable {
-    /// Panda extensions.
-    public var pd: PandaChain<Self> {
-        return PandaChain(object: self)
-    }
-}
-
-extension NSObject: PandaChainable {}

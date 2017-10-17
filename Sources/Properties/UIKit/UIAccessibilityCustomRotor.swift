@@ -8,6 +8,14 @@
 import UIKit
 
 @available(iOS 10.0, *)
+public protocol UIAccessibilityCustomRotorConvertible {}
+
+@available(iOS 10.0, *)
+extension UIAccessibilityCustomRotor: UIAccessibilityCustomRotorConvertible {}
+@available(iOS 10.0, *)
+extension PandaChain: UIAccessibilityCustomRotorConvertible {}
+
+@available(iOS 10.0, *)
 extension PandaChain where Object: UIAccessibilityCustomRotor {
     @discardableResult
     public func name(_ value: String) -> PandaChain {

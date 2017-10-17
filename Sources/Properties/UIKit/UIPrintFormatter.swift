@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIPrintFormatterConvertible {}
+
+extension UIPrintFormatter: UIPrintFormatterConvertible {}
+extension PandaChain: UIPrintFormatterConvertible {}
+
 extension PandaChain where Object: UIPrintFormatter {
     /// `maximumContentHeight`
     @discardableResult

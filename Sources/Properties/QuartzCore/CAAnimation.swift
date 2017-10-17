@@ -7,6 +7,11 @@
 
 import QuartzCore
 
+public protocol CAAnimationConvertible {}
+
+extension CAAnimation: CAAnimationConvertible {}
+extension PandaChain: CAAnimationConvertible {}
+
 extension PandaChain where Object: CAAnimation {
     /// `timingFunction`
     @discardableResult

@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UISplitViewController {
     @discardableResult
-    public func viewControllers(_ value: [UIViewController]) -> PandaChain {
-        object.viewControllers = value
+    public func viewControllers(_ value: [UIViewControllerConvertible]) -> PandaChain {
+        object.viewControllers = unboxArray(value)
         return self
     }
 

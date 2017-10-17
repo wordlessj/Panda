@@ -7,6 +7,11 @@
 
 import QuartzCore
 
+public protocol CAEmitterCellConvertible {}
+
+extension CAEmitterCell: CAEmitterCellConvertible {}
+extension PandaChain: CAEmitterCellConvertible {}
+
 extension PandaChain where Object: CAEmitterCell {
     @discardableResult
     public func name(_ value: String?) -> PandaChain {
@@ -207,8 +212,8 @@ extension PandaChain where Object: CAEmitterCell {
     }
 
     @discardableResult
-    public func emitterCells(_ value: [CAEmitterCell]?) -> PandaChain {
-        object.emitterCells = value
+    public func emitterCells(_ value: [CAEmitterCellConvertible]?) -> PandaChain {
+        object.emitterCells = unboxArray(value)
         return self
     }
 

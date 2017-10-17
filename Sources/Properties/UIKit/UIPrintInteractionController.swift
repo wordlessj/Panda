@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UIPrintInteractionController {
     @discardableResult
-    public func printInfo(_ value: UIPrintInfo?) -> PandaChain {
-        object.printInfo = value
+    public func printInfo(_ value: UIPrintInfoConvertible?) -> PandaChain {
+        object.printInfo = unbox(value)
         return self
     }
 
@@ -40,14 +40,14 @@ extension PandaChain where Object: UIPrintInteractionController {
     }
 
     @discardableResult
-    public func printPageRenderer(_ value: UIPrintPageRenderer?) -> PandaChain {
-        object.printPageRenderer = value
+    public func printPageRenderer(_ value: UIPrintPageRendererConvertible?) -> PandaChain {
+        object.printPageRenderer = unbox(value)
         return self
     }
 
     @discardableResult
-    public func printFormatter(_ value: UIPrintFormatter?) -> PandaChain {
-        object.printFormatter = value
+    public func printFormatter(_ value: UIPrintFormatterConvertible?) -> PandaChain {
+        object.printFormatter = unbox(value)
         return self
     }
 

@@ -234,8 +234,8 @@ extension PandaChain where Object: UIScrollView {
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func refreshControl(_ value: UIRefreshControl?) -> PandaChain {
-        object.refreshControl = value
+    public func refreshControl(_ value: UIRefreshControlConvertible?) -> PandaChain {
+        object.refreshControl = unbox(value)
         return self
     }
 

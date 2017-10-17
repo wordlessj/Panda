@@ -10,8 +10,8 @@ import UIKit
 @available(iOS 11.0, *)
 extension PandaChain where Object: UIDragPreviewParameters {
     @discardableResult
-    public func visiblePath(_ value: UIBezierPath?) -> PandaChain {
-        object.visiblePath = value
+    public func visiblePath(_ value: UIBezierPathConvertible?) -> PandaChain {
+        object.visiblePath = unbox(value)
         return self
     }
 

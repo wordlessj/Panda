@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIBarButtonItemConvertible {}
+
+extension UIBarButtonItem: UIBarButtonItemConvertible {}
+extension PandaChain: UIBarButtonItemConvertible {}
+
 extension PandaChain where Object: UIBarButtonItem {
     @discardableResult
     public func style(_ value: UIBarButtonItemStyle) -> PandaChain {
@@ -27,8 +32,8 @@ extension PandaChain where Object: UIBarButtonItem {
     }
 
     @discardableResult
-    public func customView(_ value: UIView?) -> PandaChain {
-        object.customView = value
+    public func customView(_ value: UIViewConvertible?) -> PandaChain {
+        object.customView = unbox(value)
         return self
     }
 

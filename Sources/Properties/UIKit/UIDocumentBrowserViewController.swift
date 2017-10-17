@@ -28,20 +28,20 @@ extension PandaChain where Object: UIDocumentBrowserViewController {
     }
 
     @discardableResult
-    public func additionalLeadingNavigationBarButtonItems(_ value: [UIBarButtonItem]) -> PandaChain {
-        object.additionalLeadingNavigationBarButtonItems = value
+    public func additionalLeadingNavigationBarButtonItems(_ value: [UIBarButtonItemConvertible]) -> PandaChain {
+        object.additionalLeadingNavigationBarButtonItems = unboxArray(value)
         return self
     }
 
     @discardableResult
-    public func additionalTrailingNavigationBarButtonItems(_ value: [UIBarButtonItem]) -> PandaChain {
-        object.additionalTrailingNavigationBarButtonItems = value
+    public func additionalTrailingNavigationBarButtonItems(_ value: [UIBarButtonItemConvertible]) -> PandaChain {
+        object.additionalTrailingNavigationBarButtonItems = unboxArray(value)
         return self
     }
 
     @discardableResult
-    public func customActions(_ value: [UIDocumentBrowserAction]) -> PandaChain {
-        object.customActions = value
+    public func customActions(_ value: [UIDocumentBrowserActionConvertible]) -> PandaChain {
+        object.customActions = unboxArray(value)
         return self
     }
 

@@ -7,10 +7,15 @@
 
 import UIKit
 
+public protocol NSTextContainerConvertible {}
+
+extension NSTextContainer: NSTextContainerConvertible {}
+extension PandaChain: NSTextContainerConvertible {}
+
 extension PandaChain where Object: NSTextContainer {
     @discardableResult
-    public func layoutManager(_ value: NSLayoutManager?) -> PandaChain {
-        object.layoutManager = value
+    public func layoutManager(_ value: NSLayoutManagerConvertible?) -> PandaChain {
+        object.layoutManager = unbox(value)
         return self
     }
 
@@ -21,8 +26,8 @@ extension PandaChain where Object: NSTextContainer {
     }
 
     @discardableResult
-    public func exclusionPaths(_ value: [UIBezierPath]) -> PandaChain {
-        object.exclusionPaths = value
+    public func exclusionPaths(_ value: [UIBezierPathConvertible]) -> PandaChain {
+        object.exclusionPaths = unboxArray(value)
         return self
     }
 

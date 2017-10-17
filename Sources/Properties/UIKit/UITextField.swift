@@ -9,6 +9,12 @@ import UIKit
 
 extension PandaChain where Object: UITextField {
     @discardableResult
+    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
+        object.selectionAffinity = value
+        return self
+    }
+
+    @discardableResult
     public func text(_ value: String?) -> PandaChain {
         object.text = value
         return self
@@ -159,8 +165,8 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func leftView(_ value: UIView?) -> PandaChain {
-        object.leftView = value
+    public func leftView(_ value: UIViewConvertible?) -> PandaChain {
+        object.leftView = unbox(value)
         return self
     }
 
@@ -171,8 +177,8 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func rightView(_ value: UIView?) -> PandaChain {
-        object.rightView = value
+    public func rightView(_ value: UIViewConvertible?) -> PandaChain {
+        object.rightView = unbox(value)
         return self
     }
 
@@ -183,26 +189,20 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func inputView(_ value: UIView?) -> PandaChain {
-        object.inputView = value
+    public func inputView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputView = unbox(value)
         return self
     }
 
     @discardableResult
-    public func inputAccessoryView(_ value: UIView?) -> PandaChain {
-        object.inputAccessoryView = value
+    public func inputAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputAccessoryView = unbox(value)
         return self
     }
 
     @discardableResult
     public func clearsOnInsertion(_ value: Bool) -> PandaChain {
         object.clearsOnInsertion = value
-        return self
-    }
-
-    @discardableResult
-    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
-        object.selectionAffinity = value
         return self
     }
 

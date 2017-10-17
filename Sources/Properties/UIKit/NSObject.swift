@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol NSObjectConvertible {}
+
+extension NSObject: NSObjectConvertible {}
+extension PandaChain: NSObjectConvertible {}
+
 extension PandaChain where Object: NSObject {
     @discardableResult
     public func isAccessibilityElement(_ value: Bool) -> PandaChain {
@@ -66,8 +71,8 @@ extension PandaChain where Object: NSObject {
     }
 
     @discardableResult
-    public func accessibilityPath(_ value: UIBezierPath?) -> PandaChain {
-        object.accessibilityPath = value
+    public func accessibilityPath(_ value: UIBezierPathConvertible?) -> PandaChain {
+        object.accessibilityPath = unbox(value)
         return self
     }
 
@@ -108,8 +113,8 @@ extension PandaChain where Object: NSObject {
     }
 
     @discardableResult
-    public func accessibilityCustomActions(_ value: [UIAccessibilityCustomAction]?) -> PandaChain {
-        object.accessibilityCustomActions = value
+    public func accessibilityCustomActions(_ value: [UIAccessibilityCustomActionConvertible]?) -> PandaChain {
+        object.accessibilityCustomActions = unboxArray(value)
         return self
     }
 
@@ -127,6 +132,13 @@ extension PandaChain where Object: NSObject {
         return self
     }
 
+    @available(iOS 10.0, *)
+    @discardableResult
+    public func accessibilityCustomRotors(_ value: [UIAccessibilityCustomRotorConvertible]?) -> PandaChain {
+        object.accessibilityCustomRotors = unboxArray(value)
+        return self
+    }
+
     @discardableResult
     public func accessibilityElements(_ value: [Any]?) -> PandaChain {
         object.accessibilityElements = value
@@ -137,13 +149,6 @@ extension PandaChain where Object: NSObject {
     @discardableResult
     public func accessibilityContainerType(_ value: UIAccessibilityContainerType) -> PandaChain {
         object.accessibilityContainerType = value
-        return self
-    }
-
-    @available(iOS 10.0, *)
-    @discardableResult
-    public func accessibilityCustomRotors(_ value: [UIAccessibilityCustomRotor]?) -> PandaChain {
-        object.accessibilityCustomRotors = value
         return self
     }
 }

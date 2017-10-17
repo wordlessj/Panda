@@ -7,13 +7,12 @@
 
 import UIKit
 
-extension PandaChain where Object: UIViewController {
-    @discardableResult
-    public func hidesBottomBarWhenPushed(_ value: Bool) -> PandaChain {
-        object.hidesBottomBarWhenPushed = value
-        return self
-    }
+public protocol UIViewControllerConvertible {}
 
+extension UIViewController: UIViewControllerConvertible {}
+extension PandaChain: UIViewControllerConvertible {}
+
+extension PandaChain where Object: UIViewController {
     @discardableResult
     public func modalInPopover(_ value: Bool) -> PandaChain {
         object.isModalInPopover = value
@@ -21,14 +20,8 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func tabBarItem(_ value: UITabBarItem?) -> PandaChain {
-        object.tabBarItem = value
-        return self
-    }
-
-    @discardableResult
-    public func view(_ value: UIView?) -> PandaChain {
-        object.view = value
+    public func view(_ value: UIViewConvertible?) -> PandaChain {
+        object.view = unbox(value)
         return self
     }
 
@@ -156,6 +149,24 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
+    public func hidesBottomBarWhenPushed(_ value: Bool) -> PandaChain {
+        object.hidesBottomBarWhenPushed = value
+        return self
+    }
+
+    @discardableResult
+    public func toolbarItems(_ value: [UIBarButtonItemConvertible]?) -> PandaChain {
+        object.toolbarItems = unboxArray(value)
+        return self
+    }
+
+    @discardableResult
+    public func tabBarItem(_ value: UITabBarItemConvertible?) -> PandaChain {
+        object.tabBarItem = unbox(value)
+        return self
+    }
+
+    @discardableResult
     public func editing(_ editing: Bool, animated: Bool) -> PandaChain {
         object.setEditing(editing, animated: animated)
         return self
@@ -164,6 +175,12 @@ extension PandaChain where Object: UIViewController {
     @discardableResult
     public func overrideTraitCollection(_ collection: UITraitCollection?, forChildViewController childViewController: UIViewController) -> PandaChain {
         object.setOverrideTraitCollection(collection, forChildViewController: childViewController)
+        return self
+    }
+
+    @discardableResult
+    public func toolbarItems(_ toolbarItems: [UIBarButtonItemConvertible]?, animated: Bool) -> PandaChain {
+        object.setToolbarItems(unboxArray(toolbarItems), animated: animated)
         return self
     }
 }

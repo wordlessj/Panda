@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol NSTextAttachmentConvertible {}
+
+extension NSTextAttachment: NSTextAttachmentConvertible {}
+extension PandaChain: NSTextAttachmentConvertible {}
+
 extension PandaChain where Object: NSTextAttachment {
     @discardableResult
     public func contents(_ value: Data?) -> PandaChain {

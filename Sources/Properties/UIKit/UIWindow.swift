@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UIWindow {
     @discardableResult
-    public func screen(_ value: UIScreen) -> PandaChain {
-        object.screen = value
+    public func screen(_ value: UIScreenConvertible) -> PandaChain {
+        object.screen = unbox(value)
         return self
     }
 
@@ -29,8 +29,8 @@ extension PandaChain where Object: UIWindow {
     }
 
     @discardableResult
-    public func rootViewController(_ value: UIViewController?) -> PandaChain {
-        object.rootViewController = value
+    public func rootViewController(_ value: UIViewControllerConvertible?) -> PandaChain {
+        object.rootViewController = unbox(value)
         return self
     }
 }

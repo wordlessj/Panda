@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UITableViewController {
     @discardableResult
-    public func tableView(_ value: UITableView?) -> PandaChain {
-        object.tableView = value
+    public func tableView(_ value: UITableViewConvertible?) -> PandaChain {
+        object.tableView = unbox(value)
         return self
     }
 
@@ -21,8 +21,8 @@ extension PandaChain where Object: UITableViewController {
     }
 
     @discardableResult
-    public func refreshControl(_ value: UIRefreshControl?) -> PandaChain {
-        object.refreshControl = value
+    public func refreshControl(_ value: UIRefreshControlConvertible?) -> PandaChain {
+        object.refreshControl = unbox(value)
         return self
     }
 }

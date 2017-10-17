@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIScreenConvertible {}
+
+extension UIScreen: UIScreenConvertible {}
+extension PandaChain: UIScreenConvertible {}
+
 extension PandaChain where Object: UIScreen {
     @discardableResult
     public func currentMode(_ value: UIScreenMode?) -> PandaChain {

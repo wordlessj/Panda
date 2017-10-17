@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIPrintInfoConvertible {}
+
+extension UIPrintInfo: UIPrintInfoConvertible {}
+extension PandaChain: UIPrintInfoConvertible {}
+
 extension PandaChain where Object: UIPrintInfo {
     @discardableResult
     public func printerID(_ value: String?) -> PandaChain {

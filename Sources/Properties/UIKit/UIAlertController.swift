@@ -10,8 +10,8 @@ import UIKit
 extension PandaChain where Object: UIAlertController {
     @available(iOS 9.0, *)
     @discardableResult
-    public func preferredAction(_ value: UIAlertAction?) -> PandaChain {
-        object.preferredAction = value
+    public func preferredAction(_ value: UIAlertActionConvertible?) -> PandaChain {
+        object.preferredAction = unbox(value)
         return self
     }
 

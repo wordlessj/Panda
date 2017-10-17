@@ -16,14 +16,14 @@ extension PandaChain where Object: UITextInputAssistantItem {
     }
 
     @discardableResult
-    public func leadingBarButtonGroups(_ value: [UIBarButtonItemGroup]) -> PandaChain {
-        object.leadingBarButtonGroups = value
+    public func leadingBarButtonGroups(_ value: [UIBarButtonItemGroupConvertible]) -> PandaChain {
+        object.leadingBarButtonGroups = unboxArray(value)
         return self
     }
 
     @discardableResult
-    public func trailingBarButtonGroups(_ value: [UIBarButtonItemGroup]) -> PandaChain {
-        object.trailingBarButtonGroups = value
+    public func trailingBarButtonGroups(_ value: [UIBarButtonItemGroupConvertible]) -> PandaChain {
+        object.trailingBarButtonGroups = unboxArray(value)
         return self
     }
 }

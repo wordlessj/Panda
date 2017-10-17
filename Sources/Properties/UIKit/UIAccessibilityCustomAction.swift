@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIAccessibilityCustomActionConvertible {}
+
+extension UIAccessibilityCustomAction: UIAccessibilityCustomActionConvertible {}
+extension PandaChain: UIAccessibilityCustomActionConvertible {}
+
 extension PandaChain where Object: UIAccessibilityCustomAction {
     @discardableResult
     public func name(_ value: String) -> PandaChain {

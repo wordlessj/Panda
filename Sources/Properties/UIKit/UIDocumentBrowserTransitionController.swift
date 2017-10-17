@@ -16,8 +16,8 @@ extension PandaChain where Object: UIDocumentBrowserTransitionController {
     }
 
     @discardableResult
-    public func targetView(_ value: UIView?) -> PandaChain {
-        object.targetView = value
+    public func targetView(_ value: UIViewConvertible?) -> PandaChain {
+        object.targetView = unbox(value)
         return self
     }
 }

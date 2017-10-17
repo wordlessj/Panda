@@ -15,14 +15,14 @@ extension PandaChain where Object: UITabBar {
     }
 
     @discardableResult
-    public func items(_ value: [UITabBarItem]?) -> PandaChain {
-        object.items = value
+    public func items(_ value: [UITabBarItemConvertible]?) -> PandaChain {
+        object.items = unboxArray(value)
         return self
     }
 
     @discardableResult
-    public func selectedItem(_ value: UITabBarItem?) -> PandaChain {
-        object.selectedItem = value
+    public func selectedItem(_ value: UITabBarItemConvertible?) -> PandaChain {
+        object.selectedItem = unbox(value)
         return self
     }
 
@@ -135,8 +135,8 @@ extension PandaChain where Object: UITabBar {
     }
 
     @discardableResult
-    public func items(_ items: [UITabBarItem]?, animated: Bool) -> PandaChain {
-        object.setItems(items, animated: animated)
+    public func items(_ items: [UITabBarItemConvertible]?, animated: Bool) -> PandaChain {
+        object.setItems(unboxArray(items), animated: animated)
         return self
     }
 }

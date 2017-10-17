@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIAlertActionConvertible {}
+
+extension UIAlertAction: UIAlertActionConvertible {}
+extension PandaChain: UIAlertActionConvertible {}
+
 extension PandaChain where Object: UIAlertAction {
     @discardableResult
     public func enabled(_ value: Bool) -> PandaChain {

@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UITableViewConvertible {}
+
+extension UITableView: UITableViewConvertible {}
+extension PandaChain: UITableViewConvertible {}
+
 extension PandaChain where Object: UITableView {
     @discardableResult
     public func dataSource(_ value: UITableViewDataSource?) -> PandaChain {
@@ -133,15 +138,15 @@ extension PandaChain where Object: UITableView {
 
     /// `backgroundView`
     @discardableResult
-    public func background(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func background(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundView(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func backgroundView(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 
@@ -297,14 +302,14 @@ extension PandaChain where Object: UITableView {
     }
 
     @discardableResult
-    public func tableHeaderView(_ value: UIView?) -> PandaChain {
-        object.tableHeaderView = value
+    public func tableHeaderView(_ value: UIViewConvertible?) -> PandaChain {
+        object.tableHeaderView = unbox(value)
         return self
     }
 
     @discardableResult
-    public func tableFooterView(_ value: UIView?) -> PandaChain {
-        object.tableFooterView = value
+    public func tableFooterView(_ value: UIViewConvertible?) -> PandaChain {
+        object.tableFooterView = unbox(value)
         return self
     }
 

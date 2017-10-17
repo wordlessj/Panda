@@ -56,8 +56,8 @@ extension PandaChain where Object: UIApplication {
 
     @available(iOS, introduced: 4.0, deprecated: 10.0)
     @discardableResult
-    public func scheduledLocalNotifications(_ value: [UILocalNotification]?) -> PandaChain {
-        object.scheduledLocalNotifications = value
+    public func scheduledLocalNotifications(_ value: [UILocalNotificationConvertible]?) -> PandaChain {
+        object.scheduledLocalNotifications = unboxArray(value)
         return self
     }
 

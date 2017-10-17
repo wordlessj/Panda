@@ -7,6 +7,11 @@
 
 import QuartzCore
 
+public protocol CALayerConvertible {}
+
+extension CALayer: CALayerConvertible {}
+extension PandaChain: CALayerConvertible {}
+
 extension PandaChain where Object: CALayer {
     @discardableResult
     public func bounds(_ value: CGRect) -> PandaChain {
@@ -69,8 +74,8 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func sublayers(_ value: [CALayer]?) -> PandaChain {
-        object.sublayers = value
+    public func sublayers(_ value: [CALayerConvertible]?) -> PandaChain {
+        object.sublayers = unboxArray(value)
         return self
     }
 
@@ -81,8 +86,8 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func mask(_ value: CALayer?) -> PandaChain {
-        object.mask = value
+    public func mask(_ value: CALayerConvertible?) -> PandaChain {
+        object.mask = unbox(value)
         return self
     }
 

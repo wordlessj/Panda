@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UICollectionViewController {
     @discardableResult
-    public func collectionView(_ value: UICollectionView?) -> PandaChain {
-        object.collectionView = value
+    public func collectionView(_ value: UICollectionViewConvertible?) -> PandaChain {
+        object.collectionView = unbox(value)
         return self
     }
 

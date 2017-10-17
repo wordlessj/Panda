@@ -25,6 +25,26 @@
 
 import Foundation
 
+func unbox<Item, Target>(_ item: Item) -> Target {
+    if let chain = item as? PandaChainProtocol {
+        return chain.anyObject as! Target
+    } else {
+        return item as! Target
+    }
+}
+
+func unbox<Item, Target>(_ item: Item?) -> Target? {
+    return item.map { unbox($0) }
+}
+
+func unboxArray<Target>(_ items: [Any]) -> [Target] {
+    return items.map { unbox($0) }
+}
+
+func unboxArray<Target>(_ items: [Any]?) -> [Target]? {
+    return items.map { unboxArray($0) }
+}
+
 public protocol PandaChainProtocol {
     var anyObject: Any { get }
 }

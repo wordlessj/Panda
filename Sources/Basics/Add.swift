@@ -26,11 +26,13 @@
 import UIKit
 
 public protocol ItemAdding {
-    func add(_ item: Any)
+    associatedtype AddableItem
+    func add(_ item: AddableItem)
 }
 
 public protocol ItemRemoving {
-    func remove(_ item: Any)
+    associatedtype RemovableItem
+    func remove(_ item: RemovableItem)
 }
 
 extension PandaChain where Object: ItemAdding {
@@ -48,7 +50,7 @@ extension PandaChain where Object: ItemAdding {
     ///
     /// - parameter items: Plain objects or configured by `pd` extension.
     @discardableResult
-    public func add(_ items: Any...) -> PandaChain {
+    public func add(_ items: Object.AddableItem...) -> PandaChain {
         items.forEach { object.add($0) }
         return self
     }
@@ -59,92 +61,163 @@ extension PandaChain where Object: ItemRemoving {
     ///
     /// - parameter items: Plain objects or configured by `pd` extension.
     @discardableResult
-    public func remove(_ items: Any...) -> PandaChain {
+    public func remove(_ items: Object.RemovableItem...) -> PandaChain {
         items.forEach { object.remove($0) }
         return self
     }
 }
 
-func unbox(_ item: Any) -> Any {
-    if let chain = item as? PandaChainProtocol {
-        return chain.anyObject
-    } else {
-        return item
-    }
+private func typeError(container: Any, item: Any) -> Never {
+    fatalError("`\(type(of: container))` cannot add or remove `\(type(of: item))`.")
 }
+
+
+
+public protocol CALayerAddable {}
+
+extension CALayer: CALayerAddable {}
+extension CAAnimation: CALayerAddable {}
+extension PandaChain: CALayerAddable {}
+
+public protocol CALayerRemovable {}
+
+extension CALayer: CALayerRemovable {}
+extension PandaChain: CALayerRemovable {}
 
 extension CALayer: ItemAdding, ItemRemoving {
     /// Add `CALayer` and `CAAnimation`. For `CAAnimation`, key is `nil`.
-    public func add(_ item: Any) {
-        switch unbox(item) {
+    public func add(_ item: CALayerAddable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let layer as CALayer: addSublayer(layer)
         case let animation as CAAnimation: add(animation, forKey: nil)
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 
     /// Remove `CALayer`.
-    public func remove(_ item: Any) {
-        switch unbox(item) {
+    public func remove(_ item: CALayerRemovable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let layer as CALayer: layer.removeFromSuperlayer()
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 }
 
-extension UIAlertController {
-    /// Add `UIAlertAction`, `UIViewController` and `UIKeyCommand`.
-    public override func add(_ item: Any) {
-        switch unbox(item) {
-        case let action as UIAlertAction: addAction(action)
-        default: super.add(item)
-        }
-    }
-}
+
+
+public protocol UIDynamicAnimatorAddable {}
+
+extension UIDynamicBehavior: UIDynamicAnimatorAddable {}
+extension PandaChain: UIDynamicAnimatorAddable {}
+
+public protocol UIDynamicAnimatorRemovable {}
+
+extension UIDynamicBehavior: UIDynamicAnimatorRemovable {}
+extension PandaChain: UIDynamicAnimatorRemovable {}
 
 extension UIDynamicAnimator: ItemAdding, ItemRemoving {
     /// Add `UIDynamicBehavior`.
-    public func add(_ item: Any) {
-        switch unbox(item) {
+    public func add(_ item: UIDynamicAnimatorAddable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let behavior as UIDynamicBehavior: addBehavior(behavior)
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 
     /// Remove `UIDynamicBehavior`.
-    public func remove(_ item: Any) {
-        switch unbox(item) {
+    public func remove(_ item: UIDynamicAnimatorRemovable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let behavior as UIDynamicBehavior: removeBehavior(behavior)
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 }
+
+
+
+public protocol UIDynamicBehaviorAddable {}
+
+extension UIDynamicBehavior: UIDynamicBehaviorAddable {}
+extension PandaChain: UIDynamicBehaviorAddable {}
+
+public protocol UIDynamicBehaviorRemovable {}
+
+extension UIDynamicBehavior: UIDynamicBehaviorRemovable {}
+extension PandaChain: UIDynamicBehaviorRemovable {}
 
 extension UIDynamicBehavior: ItemAdding, ItemRemoving {
     /// Add `UIDynamicBehavior`.
-    public func add(_ item: Any) {
-        switch unbox(item) {
+    public func add(_ item: UIDynamicBehaviorAddable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let behavior as UIDynamicBehavior: addChildBehavior(behavior)
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 
     /// Remove `UIDynamicBehavior`.
-    public func remove(_ item: Any) {
-        switch unbox(item) {
+    public func remove(_ item: UIDynamicBehaviorRemovable) {
+        let unboxedItem: Any = unbox(item)
+
+        switch unboxedItem {
         case let behavior as UIDynamicBehavior: removeChildBehavior(behavior)
-        default: break
+        default: typeError(container: self, item: unboxedItem)
         }
     }
 }
+
+
+
+public protocol UIViewAddable {}
+
+extension UIGestureRecognizer: UIViewAddable {}
+extension UIMotionEffect: UIViewAddable {}
+extension NSLayoutConstraint: UIViewAddable {}
+extension UIView: UIViewAddable {}
+@available(iOS 9.0, *)
+extension UILayoutGuide: UIViewAddable {}
+extension PandaChain: UIViewAddable {}
+
+@available(iOS 11.0, *)
+extension UIDragInteraction: UIViewAddable {}
+@available(iOS 11.0, *)
+extension UIDropInteraction: UIViewAddable {}
+@available(iOS 11.0, *)
+extension UISpringLoadedInteraction: UIViewAddable {}
+
+public protocol UIViewRemovable {}
+
+extension UIGestureRecognizer: UIViewRemovable {}
+extension UIMotionEffect: UIViewRemovable {}
+extension NSLayoutConstraint: UIViewRemovable {}
+extension UIView: UIViewRemovable {}
+@available(iOS 9.0, *)
+extension UILayoutGuide: UIViewRemovable {}
+extension PandaChain: UIViewRemovable {}
+
+@available(iOS 11.0, *)
+extension UIDragInteraction: UIViewRemovable {}
+@available(iOS 11.0, *)
+extension UIDropInteraction: UIViewRemovable {}
+@available(iOS 11.0, *)
+extension UISpringLoadedInteraction: UIViewRemovable {}
 
 extension UIView: ItemAdding, ItemRemoving {
     /// Add `UIView`, `UIGestureRecognizer`, `UIMotionEffect`,
     /// `NSLayoutConstraint`, `UILayoutGuide` and `UIInteraction`.
     ///
     /// If receiver is `UIStackView`, `UIView` will be added using `addArrangedSubview`.
-    public func add(_ item: Any) {
-        let unboxedItem = unbox(item)
+    public func add(_ item: UIViewAddable) {
+        let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
         case let gesture as UIGestureRecognizer: addGestureRecognizer(gesture)
@@ -161,6 +234,8 @@ extension UIView: ItemAdding, ItemRemoving {
                 addLayoutGuide(guide)
             } else if #available(iOS 11.0, *), let interaction = unboxedItem as? UIInteraction {
                 addInteraction(interaction)
+            } else {
+                typeError(container: self, item: unboxedItem)
             }
         }
     }
@@ -169,8 +244,8 @@ extension UIView: ItemAdding, ItemRemoving {
     /// `NSLayoutConstraint`, `UILayoutGuide` and `UIInteraction`.
     ///
     /// If receiver is `UIStackView`, `UIView` will be removed using `removeArrangedSubview`.
-    public func remove(_ item: Any) {
-        let unboxedItem = unbox(item)
+    public func remove(_ item: UIViewRemovable) {
+        let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
         case let gesture as UIGestureRecognizer: removeGestureRecognizer(gesture)
@@ -187,34 +262,59 @@ extension UIView: ItemAdding, ItemRemoving {
                 removeLayoutGuide(guide)
             } else if #available(iOS 11.0, *), let interaction = unboxedItem as? UIInteraction {
                 removeInteraction(interaction)
+            } else {
+                typeError(container: self, item: unboxedItem)
             }
         }
     }
 }
 
+
+
+public protocol UIViewControllerAddable {}
+
+extension UIViewController: UIViewControllerAddable {}
+extension UIAlertAction: UIViewControllerAddable {}
+extension UIKeyCommand: UIViewControllerAddable {}
+extension PandaChain: UIViewControllerAddable {}
+
+public protocol UIViewControllerRemovable {}
+
+extension UIViewController: UIViewControllerRemovable {}
+extension UIKeyCommand: UIViewControllerRemovable {}
+extension PandaChain: UIViewControllerRemovable {}
+
 extension UIViewController: ItemAdding, ItemRemoving {
     /// Add `UIViewController` and `UIKeyCommand`.
-    @objc public func add(_ item: Any) {
-        let unboxedItem = unbox(item)
+    ///
+    /// If receiver is `UIAlertController`, then `UIAlertAction` can be added.
+    public func add(_ item: UIViewControllerAddable) {
+        let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
         case let controller as UIViewController: addChildViewController(controller)
         default:
-            if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
+            if let controller = self as? UIAlertController, let action = unboxedItem as? UIAlertAction {
+                controller.addAction(action)
+            } else if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
                 addKeyCommand(command)
+            } else {
+                typeError(container: self, item: unboxedItem)
             }
         }
     }
 
     /// Remove `UIViewController` and `UIKeyCommand`.
-    public func remove(_ item: Any) {
-        let unboxedItem = unbox(item)
+    public func remove(_ item: UIViewControllerRemovable) {
+        let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
         case let controller as UIViewController: controller.removeFromParentViewController()
         default:
             if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
                 removeKeyCommand(command)
+            } else {
+                typeError(container: self, item: unboxedItem)
             }
         }
     }

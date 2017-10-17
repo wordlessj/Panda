@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIInputViewConvertible {}
+
+extension UIInputView: UIInputViewConvertible {}
+extension PandaChain: UIInputViewConvertible {}
+
 extension PandaChain where Object: UIInputView {
     @available(iOS 9.0, *)
     @discardableResult

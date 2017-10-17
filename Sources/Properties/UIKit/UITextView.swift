@@ -181,14 +181,14 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func inputView(_ value: UIView?) -> PandaChain {
-        object.inputView = value
+    public func inputView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputView = unbox(value)
         return self
     }
 
     @discardableResult
-    public func inputAccessoryView(_ value: UIView?) -> PandaChain {
-        object.inputAccessoryView = value
+    public func inputAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputAccessoryView = unbox(value)
         return self
     }
 

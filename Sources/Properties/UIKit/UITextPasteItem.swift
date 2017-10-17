@@ -22,8 +22,8 @@ extension PandaChain where Object: UITextPasteItem {
     }
 
     @discardableResult
-    public func result(attachment textAttachment: NSTextAttachment) -> PandaChain {
-        object.setResult(attachment: textAttachment)
+    public func result(attachment textAttachment: NSTextAttachmentConvertible) -> PandaChain {
+        object.setResult(attachment: unbox(textAttachment))
         return self
     }
 }

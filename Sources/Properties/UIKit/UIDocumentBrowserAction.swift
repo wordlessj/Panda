@@ -8,6 +8,14 @@
 import UIKit
 
 @available(iOS 11.0, *)
+public protocol UIDocumentBrowserActionConvertible {}
+
+@available(iOS 11.0, *)
+extension UIDocumentBrowserAction: UIDocumentBrowserActionConvertible {}
+@available(iOS 11.0, *)
+extension PandaChain: UIDocumentBrowserActionConvertible {}
+
+@available(iOS 11.0, *)
 extension PandaChain where Object: UIDocumentBrowserAction {
     @discardableResult
     public func image(_ value: UIImage?) -> PandaChain {

@@ -16,8 +16,8 @@ extension PandaChain where Object: UIPopoverController {
     }
 
     @discardableResult
-    public func contentViewController(_ value: UIViewController) -> PandaChain {
-        object.contentViewController = value
+    public func contentViewController(_ value: UIViewControllerConvertible) -> PandaChain {
+        object.contentViewController = unbox(value)
         return self
     }
 
@@ -28,8 +28,8 @@ extension PandaChain where Object: UIPopoverController {
     }
 
     @discardableResult
-    public func passthroughViews(_ value: [UIView]?) -> PandaChain {
-        object.passthroughViews = value
+    public func passthroughViews(_ value: [UIViewConvertible]?) -> PandaChain {
+        object.passthroughViews = unboxArray(value)
         return self
     }
 
@@ -76,8 +76,8 @@ extension PandaChain where Object: UIPopoverController {
     }
 
     @discardableResult
-    public func contentView(_ viewController: UIViewController, animated: Bool) -> PandaChain {
-        object.setContentView(viewController, animated: animated)
+    public func contentView(_ viewController: UIViewControllerConvertible, animated: Bool) -> PandaChain {
+        object.setContentView(unbox(viewController), animated: animated)
         return self
     }
 

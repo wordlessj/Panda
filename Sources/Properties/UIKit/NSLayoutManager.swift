@@ -7,10 +7,15 @@
 
 import UIKit
 
+public protocol NSLayoutManagerConvertible {}
+
+extension NSLayoutManager: NSLayoutManagerConvertible {}
+extension PandaChain: NSLayoutManagerConvertible {}
+
 extension PandaChain where Object: NSLayoutManager {
     @discardableResult
-    public func textStorage(_ value: NSTextStorage?) -> PandaChain {
-        object.textStorage = value
+    public func textStorage(_ value: NSTextStorageConvertible?) -> PandaChain {
+        object.textStorage = unbox(value)
         return self
     }
 
@@ -57,8 +62,8 @@ extension PandaChain where Object: NSLayoutManager {
     }
 
     @discardableResult
-    public func textContainer(_ container: NSTextContainer, forGlyphRange glyphRange: NSRange) -> PandaChain {
-        object.setTextContainer(container, forGlyphRange: glyphRange)
+    public func textContainer(_ container: NSTextContainerConvertible, forGlyphRange glyphRange: NSRange) -> PandaChain {
+        object.setTextContainer(unbox(container), forGlyphRange: glyphRange)
         return self
     }
 

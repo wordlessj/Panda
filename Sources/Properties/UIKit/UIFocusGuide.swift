@@ -24,8 +24,8 @@ extension PandaChain where Object: UIFocusGuide {
 
     @available(iOS, introduced: 9.0, deprecated: 10.0)
     @discardableResult
-    public func preferredFocusedView(_ value: UIView?) -> PandaChain {
-        object.preferredFocusedView = value
+    public func preferredFocusedView(_ value: UIViewConvertible?) -> PandaChain {
+        object.preferredFocusedView = unbox(value)
         return self
     }
 }

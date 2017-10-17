@@ -10,8 +10,8 @@ import UIKit
 @available(iOS 11.0, *)
 extension PandaChain where Object: UISpringLoadedInteractionContext {
     @discardableResult
-    public func targetView(_ value: UIView?) -> PandaChain {
-        object.targetView = value
+    public func targetView(_ value: UIViewConvertible?) -> PandaChain {
+        object.targetView = unbox(value)
         return self
     }
 

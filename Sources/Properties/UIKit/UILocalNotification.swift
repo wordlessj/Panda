@@ -9,6 +9,14 @@ import UIKit
 import CoreLocation
 
 @available(iOS, introduced: 4.0, deprecated: 10.0)
+public protocol UILocalNotificationConvertible {}
+
+@available(iOS, introduced: 4.0, deprecated: 10.0)
+extension UILocalNotification: UILocalNotificationConvertible {}
+@available(iOS, introduced: 4.0, deprecated: 10.0)
+extension PandaChain: UILocalNotificationConvertible {}
+
+@available(iOS, introduced: 4.0, deprecated: 10.0)
 extension PandaChain where Object: UILocalNotification {
     @discardableResult
     public func fireDate(_ value: Date?) -> PandaChain {

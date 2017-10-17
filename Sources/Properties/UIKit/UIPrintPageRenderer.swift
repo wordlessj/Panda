@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIPrintPageRendererConvertible {}
+
+extension UIPrintPageRenderer: UIPrintPageRendererConvertible {}
+extension PandaChain: UIPrintPageRendererConvertible {}
+
 extension PandaChain where Object: UIPrintPageRenderer {
     @discardableResult
     public func headerHeight(_ value: CGFloat) -> PandaChain {
@@ -21,8 +26,8 @@ extension PandaChain where Object: UIPrintPageRenderer {
     }
 
     @discardableResult
-    public func printFormatters(_ value: [UIPrintFormatter]?) -> PandaChain {
-        object.printFormatters = value
+    public func printFormatters(_ value: [UIPrintFormatterConvertible]?) -> PandaChain {
+        object.printFormatters = unboxArray(value)
         return self
     }
 }

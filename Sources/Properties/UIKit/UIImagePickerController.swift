@@ -73,8 +73,8 @@ extension PandaChain where Object: UIImagePickerController {
     }
 
     @discardableResult
-    public func cameraOverlayView(_ value: UIView?) -> PandaChain {
-        object.cameraOverlayView = value
+    public func cameraOverlayView(_ value: UIViewConvertible?) -> PandaChain {
+        object.cameraOverlayView = unbox(value)
         return self
     }
 

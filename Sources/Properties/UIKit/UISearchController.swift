@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UISearchControllerConvertible {}
+
+extension UISearchController: UISearchControllerConvertible {}
+extension PandaChain: UISearchControllerConvertible {}
+
 extension PandaChain where Object: UISearchController {
     @discardableResult
     public func searchResultsUpdater(_ value: UISearchResultsUpdating?) -> PandaChain {

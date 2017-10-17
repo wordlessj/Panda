@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIGestureRecognizerConvertible {}
+
+extension UIGestureRecognizer: UIGestureRecognizerConvertible {}
+extension PandaChain: UIGestureRecognizerConvertible {}
+
 extension PandaChain where Object: UIGestureRecognizer {
     @discardableResult
     public func delegate(_ value: UIGestureRecognizerDelegate?) -> PandaChain {

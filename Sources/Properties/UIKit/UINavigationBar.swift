@@ -35,8 +35,8 @@ extension PandaChain where Object: UINavigationBar {
     }
 
     @discardableResult
-    public func items(_ value: [UINavigationItem]?) -> PandaChain {
-        object.items = value
+    public func items(_ value: [UINavigationItemConvertible]?) -> PandaChain {
+        object.items = unboxArray(value)
         return self
     }
 
@@ -124,8 +124,8 @@ extension PandaChain where Object: UINavigationBar {
     }
 
     @discardableResult
-    public func items(_ items: [UINavigationItem]?, animated: Bool) -> PandaChain {
-        object.setItems(items, animated: animated)
+    public func items(_ items: [UINavigationItemConvertible]?, animated: Bool) -> PandaChain {
+        object.setItems(unboxArray(items), animated: animated)
         return self
     }
 

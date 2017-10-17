@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIMenuItemConvertible {}
+
+extension UIMenuItem: UIMenuItemConvertible {}
+extension PandaChain: UIMenuItemConvertible {}
+
 extension PandaChain where Object: UIMenuItem {
     @discardableResult
     public func title(_ value: String) -> PandaChain {

@@ -21,8 +21,8 @@ extension PandaChain where Object: UIMenuController {
     }
 
     @discardableResult
-    public func menuItems(_ value: [UIMenuItem]?) -> PandaChain {
-        object.menuItems = value
+    public func menuItems(_ value: [UIMenuItemConvertible]?) -> PandaChain {
+        object.menuItems = unboxArray(value)
         return self
     }
 

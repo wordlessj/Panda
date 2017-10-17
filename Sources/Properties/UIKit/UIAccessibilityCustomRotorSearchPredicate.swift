@@ -10,8 +10,8 @@ import UIKit
 @available(iOS 10.0, *)
 extension PandaChain where Object: UIAccessibilityCustomRotorSearchPredicate {
     @discardableResult
-    public func currentItem(_ value: UIAccessibilityCustomRotorItemResult) -> PandaChain {
-        object.currentItem = value
+    public func currentItem(_ value: UIAccessibilityCustomRotorItemResultConvertible) -> PandaChain {
+        object.currentItem = unbox(value)
         return self
     }
 

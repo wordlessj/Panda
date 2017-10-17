@@ -21,8 +21,8 @@ extension PandaChain where Object: UIPopoverPresentationController {
     }
 
     @discardableResult
-    public func sourceView(_ value: UIView?) -> PandaChain {
-        object.sourceView = value
+    public func sourceView(_ value: UIViewConvertible?) -> PandaChain {
+        object.sourceView = unbox(value)
         return self
     }
 
@@ -40,14 +40,14 @@ extension PandaChain where Object: UIPopoverPresentationController {
     }
 
     @discardableResult
-    public func barButtonItem(_ value: UIBarButtonItem?) -> PandaChain {
-        object.barButtonItem = value
+    public func barButtonItem(_ value: UIBarButtonItemConvertible?) -> PandaChain {
+        object.barButtonItem = unbox(value)
         return self
     }
 
     @discardableResult
-    public func passthroughViews(_ value: [UIView]?) -> PandaChain {
-        object.passthroughViews = value
+    public func passthroughViews(_ value: [UIViewConvertible]?) -> PandaChain {
+        object.passthroughViews = unboxArray(value)
         return self
     }
 

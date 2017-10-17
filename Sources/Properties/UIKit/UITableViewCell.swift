@@ -10,43 +10,43 @@ import UIKit
 extension PandaChain where Object: UITableViewCell {
     /// `backgroundView`
     @discardableResult
-    public func background(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func background(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundView(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func backgroundView(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 
     /// `selectedBackgroundView`
     @discardableResult
-    public func selectedBackground(_ value: UIView?) -> PandaChain {
-        object.selectedBackgroundView = value
+    public func selectedBackground(_ value: UIViewConvertible?) -> PandaChain {
+        object.selectedBackgroundView = unbox(value)
         return self
     }
 
     @available(*, deprecated, renamed: "selectedBackground()")
     @discardableResult
-    public func selectedBackgroundView(_ value: UIView?) -> PandaChain {
-        object.selectedBackgroundView = value
+    public func selectedBackgroundView(_ value: UIViewConvertible?) -> PandaChain {
+        object.selectedBackgroundView = unbox(value)
         return self
     }
 
     /// `multipleSelectionBackgroundView`
     @discardableResult
-    public func multipleSelectionBackground(_ value: UIView?) -> PandaChain {
-        object.multipleSelectionBackgroundView = value
+    public func multipleSelectionBackground(_ value: UIViewConvertible?) -> PandaChain {
+        object.multipleSelectionBackgroundView = unbox(value)
         return self
     }
 
     @available(*, deprecated, renamed: "multipleSelectionBackground()")
     @discardableResult
-    public func multipleSelectionBackgroundView(_ value: UIView?) -> PandaChain {
-        object.multipleSelectionBackgroundView = value
+    public func multipleSelectionBackgroundView(_ value: UIViewConvertible?) -> PandaChain {
+        object.multipleSelectionBackgroundView = unbox(value)
         return self
     }
 
@@ -87,8 +87,8 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func accessoryView(_ value: UIView?) -> PandaChain {
-        object.accessoryView = value
+    public func accessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.accessoryView = unbox(value)
         return self
     }
 
@@ -99,8 +99,8 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func editingAccessoryView(_ value: UIView?) -> PandaChain {
-        object.editingAccessoryView = value
+    public func editingAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.editingAccessoryView = unbox(value)
         return self
     }
 

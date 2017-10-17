@@ -8,10 +8,18 @@
 import UIKit
 
 @available(iOS 10.0, *)
+public protocol UIAccessibilityCustomRotorItemResultConvertible {}
+
+@available(iOS 10.0, *)
+extension UIAccessibilityCustomRotorItemResult: UIAccessibilityCustomRotorItemResultConvertible {}
+@available(iOS 10.0, *)
+extension PandaChain: UIAccessibilityCustomRotorItemResultConvertible {}
+
+@available(iOS 10.0, *)
 extension PandaChain where Object: UIAccessibilityCustomRotorItemResult {
     @discardableResult
-    public func targetElement(_ value: NSObject) -> PandaChain {
-        object.targetElement = value
+    public func targetElement(_ value: NSObjectConvertible) -> PandaChain {
+        object.targetElement = unbox(value)
         return self
     }
 

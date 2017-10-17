@@ -10,8 +10,8 @@ import UIKit
 @available(iOS 9.0, *)
 extension PandaChain where Object: UILayoutGuide {
     @discardableResult
-    public func owningView(_ value: UIView?) -> PandaChain {
-        object.owningView = value
+    public func owningView(_ value: UIViewConvertible?) -> PandaChain {
+        object.owningView = unbox(value)
         return self
     }
 

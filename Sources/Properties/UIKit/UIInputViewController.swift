@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UIInputViewController {
     @discardableResult
-    public func inputView(_ value: UIInputView?) -> PandaChain {
-        object.inputView = value
+    public func inputView(_ value: UIInputViewConvertible?) -> PandaChain {
+        object.inputView = unbox(value)
         return self
     }
 

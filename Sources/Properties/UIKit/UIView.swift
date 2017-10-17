@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIViewConvertible {}
+
+extension UIView: UIViewConvertible {}
+extension PandaChain: UIViewConvertible {}
+
 extension PandaChain where Object: UIView {
     @available(iOS 11.0, *)
     @discardableResult
@@ -279,8 +284,8 @@ extension PandaChain where Object: UIView {
     }
 
     @discardableResult
-    public func mask(_ value: UIView?) -> PandaChain {
-        object.mask = value
+    public func mask(_ value: UIViewConvertible?) -> PandaChain {
+        object.mask = unbox(value)
         return self
     }
 
@@ -313,8 +318,8 @@ extension PandaChain where Object: UIView {
     }
 
     @discardableResult
-    public func gestureRecognizers(_ value: [UIGestureRecognizer]?) -> PandaChain {
-        object.gestureRecognizers = value
+    public func gestureRecognizers(_ value: [UIGestureRecognizerConvertible]?) -> PandaChain {
+        object.gestureRecognizers = unboxArray(value)
         return self
     }
 

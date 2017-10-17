@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UICollectionViewConvertible {}
+
+extension UICollectionView: UICollectionViewConvertible {}
+extension PandaChain: UICollectionViewConvertible {}
+
 extension PandaChain where Object: UICollectionView {
     /// `collectionViewLayout`
     @discardableResult
@@ -105,15 +110,15 @@ extension PandaChain where Object: UICollectionView {
 
     /// `backgroundView`
     @discardableResult
-    public func background(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func background(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundView(_ value: UIView?) -> PandaChain {
-        object.backgroundView = value
+    public func backgroundView(_ value: UIViewConvertible?) -> PandaChain {
+        object.backgroundView = unbox(value)
         return self
     }
 

@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol NSItemProviderConvertible {}
+
+extension NSItemProvider: NSItemProviderConvertible {}
+extension PandaChain: NSItemProviderConvertible {}
+
 extension PandaChain where Object: NSItemProvider {
     @available(iOS 11.0, *)
     @discardableResult

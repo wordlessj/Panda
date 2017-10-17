@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIBezierPathConvertible {}
+
+extension UIBezierPath: UIBezierPathConvertible {}
+extension PandaChain: UIBezierPathConvertible {}
+
 extension PandaChain where Object: UIBezierPath {
     @discardableResult
     public func cgPath(_ value: CGPath) -> PandaChain {

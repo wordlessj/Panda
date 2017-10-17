@@ -8,6 +8,14 @@
 import UIKit
 
 @available(iOS 11.0, *)
+public protocol UIPasteConfigurationConvertible {}
+
+@available(iOS 11.0, *)
+extension UIPasteConfiguration: UIPasteConfigurationConvertible {}
+@available(iOS 11.0, *)
+extension PandaChain: UIPasteConfigurationConvertible {}
+
+@available(iOS 11.0, *)
 extension PandaChain where Object: UIPasteConfiguration {
     /// `acceptableTypeIdentifiers`
     @discardableResult

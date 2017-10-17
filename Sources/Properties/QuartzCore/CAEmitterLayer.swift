@@ -9,8 +9,8 @@ import QuartzCore
 
 extension PandaChain where Object: CAEmitterLayer {
     @discardableResult
-    public func emitterCells(_ value: [CAEmitterCell]?) -> PandaChain {
-        object.emitterCells = value
+    public func emitterCells(_ value: [CAEmitterCellConvertible]?) -> PandaChain {
+        object.emitterCells = unboxArray(value)
         return self
     }
 

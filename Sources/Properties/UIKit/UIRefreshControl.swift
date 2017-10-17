@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UIRefreshControlConvertible {}
+
+extension UIRefreshControl: UIRefreshControlConvertible {}
+extension PandaChain: UIRefreshControlConvertible {}
+
 extension PandaChain where Object: UIRefreshControl {
     /// `tintColor`
     @discardableResult

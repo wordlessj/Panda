@@ -137,8 +137,8 @@ extension PandaChain where Object: UISearchBar {
     }
 
     @discardableResult
-    public func inputAccessoryView(_ value: UIView?) -> PandaChain {
-        object.inputAccessoryView = value
+    public func inputAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputAccessoryView = unbox(value)
         return self
     }
 

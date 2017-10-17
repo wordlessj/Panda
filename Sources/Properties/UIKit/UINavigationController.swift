@@ -9,8 +9,8 @@ import UIKit
 
 extension PandaChain where Object: UINavigationController {
     @discardableResult
-    public func viewControllers(_ value: [UIViewController]) -> PandaChain {
-        object.viewControllers = value
+    public func viewControllers(_ value: [UIViewControllerConvertible]) -> PandaChain {
+        object.viewControllers = unboxArray(value)
         return self
     }
 
@@ -57,8 +57,8 @@ extension PandaChain where Object: UINavigationController {
     }
 
     @discardableResult
-    public func viewControllers(_ viewControllers: [UIViewController], animated: Bool) -> PandaChain {
-        object.setViewControllers(viewControllers, animated: animated)
+    public func viewControllers(_ viewControllers: [UIViewControllerConvertible], animated: Bool) -> PandaChain {
+        object.setViewControllers(unboxArray(viewControllers), animated: animated)
         return self
     }
 

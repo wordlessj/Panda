@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol UITabBarItemConvertible {}
+
+extension UITabBarItem: UITabBarItemConvertible {}
+extension PandaChain: UITabBarItemConvertible {}
+
 extension PandaChain where Object: UITabBarItem {
     @discardableResult
     public func selectedImage(_ value: UIImage?) -> PandaChain {

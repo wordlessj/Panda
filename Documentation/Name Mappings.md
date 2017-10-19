@@ -45,6 +45,12 @@ These mappings are usually specific to one class but may be common in several cl
 | `tintAdjustmentMode` | `tintAdjust` |
 | `translatesAutoresizingMaskIntoConstraints` | `translatesAutoresizing` |
 
+### `UIBarButtonItemGroup`
+
+| Original | New |
+|:--|:--|
+| `barButtonItems` | `items` |
+
 ### `UIButton`
 
 | Original | New |
@@ -115,7 +121,12 @@ These mappings are usually specific to one class but may be common in several cl
 
 | Original | New |
 |:--|:--|
+| `backBarButtonItem` | `backItem` |
 | `largeTitleDisplayMode` | `largeTitleMode` |
+| `leftBarButtonItem` | `leftItem` |
+| `leftBarButtonItems` | `leftItems` |
+| `rightBarButtonItem` | `rightItem` |
+| `rightBarButtonItems` | `rightItems` |
 
 ### `UIScrollView`
 

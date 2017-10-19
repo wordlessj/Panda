@@ -67,6 +67,16 @@ view.pd.add(
 )
 ```
 
+Objects can be configured inline and passed to a method, if the method accepts a `*Convertible`.
+
+```swift
+// mask() accepts a UIViewConvertible.
+// You can pass a plain or configured UIView.
+view.pd.mask(
+    maskView.pd.background(.white)
+)
+```
+
 ### Add and Remove
 
 `add()` and `remove()` methods are available on types below, followed by types that can be added. `remove()` is basically used to remove multiple object at once without configuration.
@@ -82,30 +92,12 @@ view.pd.add(
 
 > `UIView` is added to `UIStackView` using `addArrangedSubview()`.
 
-Following methods behave similar to `add()`.
-
-- `CAAnimationGroup.pd.animations()`
-- `UIBarButtonItemGroup.pd.items()`
-- `UINavigationItem.pd.backItem()`
-- `UINavigationItem.pd.leftItems()`
-- `UINavigationItem.pd.leftItem()`
-- `UINavigationItem.pd.rightItems()`
-- `UINavigationItem.pd.rightItem()`
-- `UIToolbar.pd.items()`
-- `UIViewController.pd.toolbarItems()`
-
 ### Custom Properties
 
 With smart key paths, you can use `set()` to set custom properties not found in Panda.
 
 ```swift
 customView.pd.set(\.flashes, true)
-```
-
-If you want to do more, use `do()` wisely.
-
-```swift
-customView.pd.do { $0.show() }
 ```
 
 ### Action
@@ -184,6 +176,21 @@ For `UICollectionView` and `UITableView`, an identifier is required when registe
 collectionView.pd.register(CustomCell.self)
 
 let cell: CustomCell = collectionView.pd.dequeue(CustomCell.self, for: indexPath)
+```
+
+### Reuse
+
+If more than one object share similar configurations, or you want to create something like CSS, you can extract configurations into a method, then apply the method using `do()`.
+
+```swift
+view.pd.add(
+    firstLabel.pd.do(configLabel),
+    secondLabel.pd.do(configLabel)
+)
+
+func configLabel(_ label: UILabel) {
+    label.pd.color(.red).font(size: 20).lines(0)
+}
 ```
 
 ## Bamboo

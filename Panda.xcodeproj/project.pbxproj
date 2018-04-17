@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3B003F4E1F94F59C00BBD8E6 /* CAAnimationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B003F4D1F94F59C00BBD8E6 /* CAAnimationGroup.swift */; };
 		3B0A44ED1F1F6C23004757F1 /* PandaChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A44EC1F1F6C23004757F1 /* PandaChain.swift */; };
+		3B2AB39F2081B18900F95259 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB39E2081B18900F95259 /* Element.swift */; };
+		3B2AB3A12081B2F400F95259 /* ElementObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB3A02081B2F400F95259 /* ElementObject.swift */; };
+		3B2AB3A52081B4C900F95259 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB3A42081B4C900F95259 /* Component.swift */; };
+		3B2AB3A72081B5C800F95259 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB3A62081B5C800F95259 /* RenderView.swift */; };
 		3B2B900D1DC70A3E00B4E92F /* Panda.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B2B900B1DC70A3E00B4E92F /* Panda.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B2B90151DC70D9B00B4E92F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B90141DC70D9B00B4E92F /* UIView.swift */; };
 		3B2B90191DC7770500B4E92F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2B90181DC7770500B4E92F /* UIViewExtensions.swift */; };
@@ -181,12 +185,16 @@
 		3B4DEAEA1F318710007E03CB /* UITextPasteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DEAE81F31870F007E03CB /* UITextPasteItem.swift */; };
 		3B4DEAEB1F318710007E03CB /* UITextPasteConfigurationSupporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DEAE91F31870F007E03CB /* UITextPasteConfigurationSupporting.swift */; };
 		3B4DEAED1F31914C007E03CB /* CAEAGLLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DEAEC1F31914C007E03CB /* CAEAGLLayer.swift */; };
+		3B77B3192082F8FD005ECEB2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B3182082F8FD005ECEB2 /* Helper.swift */; };
+		3B77B31B20832C25005ECEB2 /* ComponentUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */; };
 		3B7C3D641F2DCD0100BCB492 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D631F2DCD0100BCB492 /* Transform.swift */; };
 		3B7C3D681F2DE25600BCB492 /* SourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D671F2DE25600BCB492 /* SourceDelegate.swift */; };
 		3B7C3D6A1F2DED0400BCB492 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D691F2DED0400BCB492 /* UIAlertControllerExtensions.swift */; };
 		3B7C3D6C1F2EFA8400BCB492 /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D6B1F2EFA8400BCB492 /* UIGestureRecognizerExtensions.swift */; };
 		3B7C3D6E1F2F575E00BCB492 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D6D1F2F575D00BCB492 /* UILabelExtensions.swift */; };
 		3B89336E1F25D8480037F115 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89336D1F25D8480037F115 /* Add.swift */; };
+		3B8D24E42084F7BF00FB0567 /* ElementStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D24E32084F7BF00FB0567 /* ElementStack.swift */; };
+		3BA7760D2081F98F000AA7E5 /* Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7760C2081F98F000AA7E5 /* Children.swift */; };
 		3BB2EE8F1DC99F0E001D7AAB /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */; };
 		3BB2EE911DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE901DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift */; };
 		3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */; };
@@ -208,6 +216,10 @@
 /* Begin PBXFileReference section */
 		3B003F4D1F94F59C00BBD8E6 /* CAAnimationGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAAnimationGroup.swift; sourceTree = "<group>"; };
 		3B0A44EC1F1F6C23004757F1 /* PandaChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PandaChain.swift; sourceTree = "<group>"; };
+		3B2AB39E2081B18900F95259 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		3B2AB3A02081B2F400F95259 /* ElementObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementObject.swift; sourceTree = "<group>"; };
+		3B2AB3A42081B4C900F95259 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		3B2AB3A62081B5C800F95259 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		3B2B90081DC70A3E00B4E92F /* Panda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Panda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2B900B1DC70A3E00B4E92F /* Panda.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panda.h; sourceTree = "<group>"; };
 		3B2B900C1DC70A3E00B4E92F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -382,12 +394,16 @@
 		3B4DEAE81F31870F007E03CB /* UITextPasteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextPasteItem.swift; sourceTree = "<group>"; };
 		3B4DEAE91F31870F007E03CB /* UITextPasteConfigurationSupporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextPasteConfigurationSupporting.swift; sourceTree = "<group>"; };
 		3B4DEAEC1F31914C007E03CB /* CAEAGLLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAEAGLLayer.swift; sourceTree = "<group>"; };
+		3B77B3182082F8FD005ECEB2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentUpdater.swift; sourceTree = "<group>"; };
 		3B7C3D631F2DCD0100BCB492 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3B7C3D671F2DE25600BCB492 /* SourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDelegate.swift; sourceTree = "<group>"; };
 		3B7C3D691F2DED0400BCB492 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		3B7C3D6B1F2EFA8400BCB492 /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		3B7C3D6D1F2F575D00BCB492 /* UILabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 		3B89336D1F25D8480037F115 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		3B8D24E32084F7BF00FB0567 /* ElementStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementStack.swift; sourceTree = "<group>"; };
+		3BA7760C2081F98F000AA7E5 /* Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Children.swift; sourceTree = "<group>"; };
 		3BB2EE8E1DC99F0E001D7AAB /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		3BB2EE901DC9B65B001D7AAB /* UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
@@ -650,6 +666,14 @@
 		3B4081131F22E8BB00F810BE /* Basics */ = {
 			isa = PBXGroup;
 			children = (
+				3B2AB39E2081B18900F95259 /* Element.swift */,
+				3B2AB3A02081B2F400F95259 /* ElementObject.swift */,
+				3B8D24E32084F7BF00FB0567 /* ElementStack.swift */,
+				3BA7760C2081F98F000AA7E5 /* Children.swift */,
+				3B2AB3A42081B4C900F95259 /* Component.swift */,
+				3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */,
+				3B2AB3A62081B5C800F95259 /* RenderView.swift */,
+				3B77B3182082F8FD005ECEB2 /* Helper.swift */,
 				3B0A44EC1F1F6C23004757F1 /* PandaChain.swift */,
 				3B2B901F1DC8530800B4E92F /* Actions.swift */,
 				3B89336D1F25D8480037F115 /* Add.swift */,
@@ -723,7 +747,7 @@
 		3B2B8FFF1DC70A3E00B4E92F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Javier;
 				TargetAttributes = {
 					3B2B90071DC70A3E00B4E92F = {
@@ -788,6 +812,7 @@
 				3B4081101F20810600F810BE /* CATextLayer.swift in Sources */,
 				3B4081111F20810600F810BE /* CATiledLayer.swift in Sources */,
 				3B4081121F20810600F810BE /* CATransition.swift in Sources */,
+				3B2AB3A52081B4C900F95259 /* Component.swift in Sources */,
 				3B7C3D6A1F2DED0400BCB492 /* UIAlertControllerExtensions.swift in Sources */,
 				3B4DEAC91F3185DC007E03CB /* UIContextualAction.swift in Sources */,
 				3B40806F1F20800700F810BE /* NSLayoutConstraint.swift in Sources */,
@@ -800,12 +825,14 @@
 				3B4080761F20800700F810BE /* NSTextContainer.swift in Sources */,
 				3B4080771F20800700F810BE /* NSTextStorage.swift in Sources */,
 				3B7C3D6E1F2F575E00BCB492 /* UILabelExtensions.swift in Sources */,
+				3B2AB3A72081B5C800F95259 /* RenderView.swift in Sources */,
 				3B4080781F20800700F810BE /* UIAccessibilityCustomAction.swift in Sources */,
 				3B4080791F20800700F810BE /* UIAccessibilityCustomRotor.swift in Sources */,
 				3B40807A1F20800700F810BE /* UIAccessibilityCustomRotorItemResult.swift in Sources */,
 				3B40807B1F20800700F810BE /* UIAccessibilityCustomRotorSearchPredicate.swift in Sources */,
 				3B40807C1F20800700F810BE /* UIAccessibilityElement.swift in Sources */,
 				3B4DEAD21F3185F3007E03CB /* UIDropSession.swift in Sources */,
+				3B8D24E42084F7BF00FB0567 /* ElementStack.swift in Sources */,
 				3B40807D1F20800700F810BE /* UIAccessibilityIdentification.swift in Sources */,
 				3B40807E1F20800700F810BE /* UIActionSheet.swift in Sources */,
 				3B40807F1F20800700F810BE /* UIActivityIndicatorView.swift in Sources */,
@@ -833,11 +860,13 @@
 				3B4080921F20800700F810BE /* UIContentSizeCategoryAdjusting.swift in Sources */,
 				3B4080931F20800700F810BE /* UIDatePicker.swift in Sources */,
 				3B4080941F20800700F810BE /* UIDevice.swift in Sources */,
+				3BA7760D2081F98F000AA7E5 /* Children.swift in Sources */,
 				3B4DEAC71F317CED007E03CB /* UIAccessibilityContentSizeCategoryImageAdjusting.swift in Sources */,
 				3B4080951F20800700F810BE /* UIDocument.swift in Sources */,
 				3B4080961F20800700F810BE /* UIDocumentInteractionController.swift in Sources */,
 				3B4DEAE71F3186F3007E03CB /* UITextDraggable.swift in Sources */,
 				3B4080971F20800700F810BE /* UIDocumentMenuViewController.swift in Sources */,
+				3B2AB3A12081B2F400F95259 /* ElementObject.swift in Sources */,
 				3B4080981F20800700F810BE /* UIDocumentPickerViewController.swift in Sources */,
 				3B4080991F20800700F810BE /* UIDynamicAnimator.swift in Sources */,
 				3BDCEAA71F25BB390098324A /* CALayerExtensions.swift in Sources */,
@@ -901,6 +930,7 @@
 				3B4080CC1F20800700F810BE /* UISearchBar.swift in Sources */,
 				3B4080CD1F20800700F810BE /* UISearchController.swift in Sources */,
 				3B4080CE1F20800700F810BE /* UISegmentedControl.swift in Sources */,
+				3B77B3192082F8FD005ECEB2 /* Helper.swift in Sources */,
 				3B4080CF1F20800700F810BE /* UISimpleTextPrintFormatter.swift in Sources */,
 				3B4080D01F20800700F810BE /* UISlider.swift in Sources */,
 				3B4DEAD61F3185F3007E03CB /* UIDragInteraction.swift in Sources */,
@@ -931,6 +961,7 @@
 				3B4080E41F20800700F810BE /* UIViewController.swift in Sources */,
 				3B4080E51F20800700F810BE /* UIViewControllerPreviewing.swift in Sources */,
 				3B4DEAD71F3185F3007E03CB /* UIDragSession.swift in Sources */,
+				3B2AB39F2081B18900F95259 /* Element.swift in Sources */,
 				3B4080E61F20800700F810BE /* UIViewPropertyAnimator.swift in Sources */,
 				3B4DEAEA1F318710007E03CB /* UITextPasteItem.swift in Sources */,
 				3B4080E71F20800700F810BE /* UIVisualEffectView.swift in Sources */,
@@ -956,6 +987,7 @@
 				3BF5F3571DC991000037C598 /* UITableViewExtensions.swift in Sources */,
 				3BF5F34F1DC8DE0D0037C598 /* UIImageView.swift in Sources */,
 				3B2B901C1DC84F5500B4E92F /* UIResponder.swift in Sources */,
+				3B77B31B20832C25005ECEB2 /* ComponentUpdater.swift in Sources */,
 				3BF5F3531DC98BFD0037C598 /* UIScrollView.swift in Sources */,
 				3BF5F3551DC98E4F0037C598 /* UITableView.swift in Sources */,
 				3B2B90151DC70D9B00B4E92F /* UIView.swift in Sources */,
@@ -979,6 +1011,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -986,6 +1019,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1039,6 +1073,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1046,6 +1081,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

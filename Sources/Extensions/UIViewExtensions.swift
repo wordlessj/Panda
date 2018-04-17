@@ -25,6 +25,26 @@
 
 import UIKit
 
+extension Element where Object: UIView {
+    @discardableResult
+    public func subviews(_ value: [ElementProtocol]) -> Self {
+        return addChildren(key: "subviews", children: Children<Object>(
+            elements: value,
+            child: { parent, index in parent.subviews[index] },
+            insert: { parent, child, index in parent.insertSubview(child as! UIView, at: index) },
+            remove: { parent, index in parent.subviews[index].removeFromSuperview() }
+        ))
+    }
+
+    @discardableResult
+    public func subviews(_ value: () -> ()) -> Self {
+        ElementStack.shared.push()
+        value()
+        let elements = ElementStack.shared.pop()
+        return subviews(elements)
+    }
+}
+
 extension PandaChain where Object: UIView {
     @discardableResult
     public func border(width: CGFloat, color: UIColor?) -> PandaChain {

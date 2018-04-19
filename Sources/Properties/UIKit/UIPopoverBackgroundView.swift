@@ -7,16 +7,18 @@
 
 import UIKit
 
-extension PandaChain where Object: UIPopoverBackgroundView {
+extension Element where Object: UIPopoverBackgroundView {
     @discardableResult
-    public func arrowOffset(_ value: CGFloat) -> PandaChain {
-        object.arrowOffset = value
-        return self
+    public func arrowOffset(_ value: CGFloat) -> Self {
+        return addAttributes(key: "arrowOffset", value: value) {
+            $0.arrowOffset = value
+        }
     }
 
     @discardableResult
-    public func arrowDirection(_ value: UIPopoverArrowDirection) -> PandaChain {
-        object.arrowDirection = value
-        return self
+    public func arrowDirection(_ value: UIPopoverArrowDirection) -> Self {
+        return addAttributes(key: "arrowDirection", value: value) {
+            $0.arrowDirection = value
+        }
     }
 }

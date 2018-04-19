@@ -7,74 +7,85 @@
 
 import UIKit
 
-extension PandaChain where Object: UIImageView {
+extension Element where Object: UIImageView {
     @discardableResult
-    public func image(_ value: UIImage?) -> PandaChain {
-        object.image = value
-        return self
+    public func image(_ value: UIImage?) -> Self {
+        return addAttributes(key: "image", value: value) {
+            $0.image = value
+        }
     }
 
     @discardableResult
-    public func highlightedImage(_ value: UIImage?) -> PandaChain {
-        object.highlightedImage = value
-        return self
+    public func highlightedImage(_ value: UIImage?) -> Self {
+        return addAttributes(key: "highlightedImage", value: value) {
+            $0.highlightedImage = value
+        }
     }
 
     /// `isUserInteractionEnabled`
     @discardableResult
-    public func interactable(_ value: Bool) -> PandaChain {
-        object.isUserInteractionEnabled = value
-        return self
+    public func interactable(_ value: Bool) -> Self {
+        return addAttributes(key: "isUserInteractionEnabled", value: value) {
+            $0.isUserInteractionEnabled = value
+        }
     }
 
     @available(*, deprecated, renamed: "interactable()")
     @discardableResult
-    public func userInteractionEnabled(_ value: Bool) -> PandaChain {
-        object.isUserInteractionEnabled = value
-        return self
+    public func userInteractionEnabled(_ value: Bool) -> Self {
+        return addAttributes(key: "isUserInteractionEnabled", value: value) {
+            $0.isUserInteractionEnabled = value
+        }
     }
 
     @discardableResult
-    public func highlighted(_ value: Bool) -> PandaChain {
-        object.isHighlighted = value
-        return self
+    public func highlighted(_ value: Bool) -> Self {
+        return addAttributes(key: "isHighlighted", value: value) {
+            $0.isHighlighted = value
+        }
     }
 
     @discardableResult
-    public func animationImages(_ value: [UIImage]?) -> PandaChain {
-        object.animationImages = value
-        return self
+    public func animationImages(_ value: [UIImage]?) -> Self {
+        return addAttributes(key: "animationImages", value: value) {
+            $0.animationImages = value
+        }
     }
 
     @discardableResult
-    public func highlightedAnimationImages(_ value: [UIImage]?) -> PandaChain {
-        object.highlightedAnimationImages = value
-        return self
+    public func highlightedAnimationImages(_ value: [UIImage]?) -> Self {
+        return addAttributes(key: "highlightedAnimationImages", value: value) {
+            $0.highlightedAnimationImages = value
+        }
     }
 
     @discardableResult
-    public func animationDuration(_ value: TimeInterval) -> PandaChain {
-        object.animationDuration = value
-        return self
+    public func animationDuration(_ value: TimeInterval) -> Self {
+        return addAttributes(key: "animationDuration", value: value) {
+            $0.animationDuration = value
+        }
     }
 
     @discardableResult
-    public func animationRepeatCount(_ value: Int) -> PandaChain {
-        object.animationRepeatCount = value
-        return self
+    public func animationRepeatCount(_ value: Int) -> Self {
+        return addAttributes(key: "animationRepeatCount", value: value) {
+            $0.animationRepeatCount = value
+        }
     }
 
     /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tint(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "tint()")
     @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tintColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 }

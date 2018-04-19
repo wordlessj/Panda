@@ -7,18 +7,20 @@
 
 import UIKit
 
-extension PandaChain where Object: UITableViewHeaderFooterView {
+extension Element where Object: UITableViewHeaderFooterView {
     /// `backgroundView`
     @discardableResult
-    public func background(_ value: UIViewConvertible?) -> PandaChain {
-        object.backgroundView = unbox(value)
-        return self
+    public func background(_ value: UIView?) -> Self {
+        return addAttributes(key: "backgroundView", value: value) {
+            $0.backgroundView = value
+        }
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundView(_ value: UIViewConvertible?) -> PandaChain {
-        object.backgroundView = unbox(value)
-        return self
+    public func backgroundView(_ value: UIView?) -> Self {
+        return addAttributes(key: "backgroundView", value: value) {
+            $0.backgroundView = value
+        }
     }
 }

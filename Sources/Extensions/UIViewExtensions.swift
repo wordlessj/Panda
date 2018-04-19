@@ -45,34 +45,97 @@ extension Element where Object: UIView {
     }
 }
 
-extension PandaChain where Object: UIView {
+extension Element where Object: UIView {
     @discardableResult
-    public func border(width: CGFloat, color: UIColor?) -> PandaChain {
-        object.layer.pd.border(width: width, color: color?.cgColor)
-        return self
-    }
-
-    /// Set corner radius. Also set `clipsToBounds` to `true` to enable corner radius.
-    @discardableResult
-    public func cornerRadius(_ value: CGFloat) -> PandaChain {
-        object.layer.pd.cornerRadius(value).masks(true)
-        return self
-    }
-
-    /// Set rasterized. Also set `rasterizationScale` to screen's scale.
-    @discardableResult
-    public func rasterized(_ value: Bool) -> PandaChain {
-        object.layer.pd.rasterized(value).rasterizationScale(UIScreen.main.scale)
-        return self
+    public func anchorPoint(_ value: CGPoint) -> Self {
+        return addAttributes(key: "anchorPoint", value: value) {
+            $0.layer.anchorPoint = value
+        }
     }
 
     @discardableResult
-    public func shadow(opacity: CGFloat,
-                       radius: CGFloat,
-                       offset: CGSize,
-                       color: UIColor? = nil,
-                       path: CGPath? = nil) -> PandaChain {
-        object.layer.pd.shadow(opacity: opacity, radius: radius, offset: offset, color: color?.cgColor, path: path)
-        return self
+    public func anchorPointZ(_ value: CGFloat) -> Self {
+        return addAttributes(key: "anchorPointZ", value: value) {
+            $0.layer.anchorPointZ = value
+        }
+    }
+
+    @discardableResult
+    public func border(width: CGFloat, color: UIColor?) -> Self {
+        return addAttributes(key: "borderWidth", value: width) {
+            $0.layer.borderWidth = width
+        }.addAttributes(key: "borderColor", value: color) {
+            $0.layer.borderColor = color?.cgColor
+        }
+    }
+
+    @discardableResult
+    public func cornerRadius(_ value: CGFloat) -> Self {
+        return addAttributes(key: "cornerRadius", value: value) {
+            $0.layer.cornerRadius = value
+        }
+    }
+
+    /// `drawsAsynchronously`
+    @discardableResult
+    public func drawsAsync(_ value: Bool) -> Self {
+        return addAttributes(key: "drawsAsynchronously", value: value) {
+            $0.layer.drawsAsynchronously = value
+        }
+    }
+
+    @available(*, deprecated, renamed: "drawsAsync()")
+    @discardableResult
+    public func drawsAsynchronously(_ value: Bool) -> Self {
+        return drawsAsync(value)
+    }
+
+    @discardableResult
+    public func rasterizationScale(_ value: CGFloat) -> Self {
+        return addAttributes(key: "rasterizationScale", value: value) {
+            $0.layer.rasterizationScale = value
+        }
+    }
+
+    /// `shouldRasterize`
+    @discardableResult
+    public func rasterized(_ value: Bool) -> Self {
+        return addAttributes(key: "shouldRasterize", value: value) {
+            $0.layer.shouldRasterize = value
+        }
+    }
+
+    @available(*, deprecated, renamed: "rasterized()")
+    @discardableResult
+    public func shouldRasterize(_ value: Bool) -> Self {
+        return rasterized(value)
+    }
+
+    @discardableResult
+    public func shadow(
+        opacity: CGFloat,
+        radius: CGFloat,
+        offset: CGSize,
+        color: UIColor? = nil,
+        path: CGPath? = nil
+    ) -> Self {
+        return addAttributes(key: "shadowOpacity", value: opacity) {
+            $0.layer.shadowOpacity = Float(opacity)
+        }.addAttributes(key: "shadowRadius", value: radius) {
+            $0.layer.shadowRadius = radius
+        }.addAttributes(key: "shadowOffset", value: offset) {
+            $0.layer.shadowOffset = offset
+        }.addAttributes(key: "shadowColor", value: color) {
+            $0.layer.shadowColor = color?.cgColor
+        }.addAttributes(key: "shadowPath", value: path) {
+            $0.layer.shadowPath = path
+        }
+    }
+
+    @discardableResult
+    public func transform3D(_ value: CATransform3D) -> Self {
+        return addAttributes(key: "transform3D", value: value) {
+            $0.layer.transform = value
+        }
     }
 }

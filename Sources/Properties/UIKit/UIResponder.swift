@@ -7,10 +7,11 @@
 
 import UIKit
 
-extension PandaChain where Object: UIResponder {
+extension Element where Object: UIResponder {
     @discardableResult
-    public func userActivity(_ value: NSUserActivity?) -> PandaChain {
-        object.userActivity = value
-        return self
+    public func userActivity(_ value: NSUserActivity?) -> Self {
+        return addAttributes(key: "userActivity", value: value) {
+            $0.userActivity = value
+        }
     }
 }

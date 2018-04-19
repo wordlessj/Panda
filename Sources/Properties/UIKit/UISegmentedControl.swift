@@ -7,148 +7,105 @@
 
 import UIKit
 
-extension PandaChain where Object: UISegmentedControl {
+extension Element where Object: UISegmentedControl {
     @discardableResult
-    public func momentary(_ value: Bool) -> PandaChain {
-        object.isMomentary = value
-        return self
+    public func momentary(_ value: Bool) -> Self {
+        return addAttributes(key: "isMomentary", value: value) {
+            $0.isMomentary = value
+        }
     }
 
     @discardableResult
-    public func apportionsSegmentWidthsByContent(_ value: Bool) -> PandaChain {
-        object.apportionsSegmentWidthsByContent = value
-        return self
+    public func apportionsSegmentWidthsByContent(_ value: Bool) -> Self {
+        return addAttributes(key: "apportionsSegmentWidthsByContent", value: value) {
+            $0.apportionsSegmentWidthsByContent = value
+        }
     }
 
     @discardableResult
-    public func selectedSegmentIndex(_ value: Int) -> PandaChain {
-        object.selectedSegmentIndex = value
-        return self
+    public func selectedSegmentIndex(_ value: Int) -> Self {
+        return addAttributes(key: "selectedSegmentIndex", value: value) {
+            $0.selectedSegmentIndex = value
+        }
     }
 
     /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tint(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "tint()")
     @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    @discardableResult
-    public func title(_ title: String?, forSegmentAt segment: Int) -> PandaChain {
-        object.setTitle(title, forSegmentAt: segment)
-        return self
-    }
-
-    @discardableResult
-    public func image(_ image: UIImage?, forSegmentAt segment: Int) -> PandaChain {
-        object.setImage(image, forSegmentAt: segment)
-        return self
-    }
-
-    @discardableResult
-    public func width(_ width: CGFloat, forSegmentAt segment: Int) -> PandaChain {
-        object.setWidth(width, forSegmentAt: segment)
-        return self
-    }
-
-    @discardableResult
-    public func contentOffset(_ offset: CGSize, forSegmentAt segment: Int) -> PandaChain {
-        object.setContentOffset(offset, forSegmentAt: segment)
-        return self
-    }
-
-    @discardableResult
-    public func enabled(_ enabled: Bool, forSegmentAt segment: Int) -> PandaChain {
-        object.setEnabled(enabled, forSegmentAt: segment)
-        return self
-    }
-
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
-    @discardableResult
-    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
-        return self
-    }
-
-    @discardableResult
-    public func dividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setDividerImage(dividerImage, forLeftSegmentState: leftState, rightSegmentState: rightState, barMetrics: barMetrics)
-        return self
+    public func tintColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ attributes: [AnyHashable: Any]?, for state: UIControlState) -> PandaChain {
-        object.setTitleTextAttributes(attributes, for: state)
-        return self
+    public func titleAttributes(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesNormal", value: value) {
+            $0.setTitleTextAttributes(value, for: .normal)
+        }
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ attributes: [AnyHashable: Any]?, for state: UIControlState) -> PandaChain {
-        object.setTitleTextAttributes(attributes, for: state)
-        return self
+    public func titleTextAttributes(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesNormal", value: value) {
+            $0.setTitleTextAttributes(value, for: .normal)
+        }
     }
 
-    /// `contentPositionAdjustment`
+    /// `titleTextAttributesHighlighted`
     @discardableResult
-    public func contentPositionAdjust(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)
-        return self
+    public func titleAttributesHighlighted(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesHighlighted", value: value) {
+            $0.setTitleTextAttributes(value, for: .highlighted)
+        }
     }
 
-    @available(*, deprecated, renamed: "contentPositionAdjust()")
+    @available(*, deprecated, renamed: "titleAttributesHighlighted()")
     @discardableResult
-    public func contentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)
-        return self
+    public func titleTextAttributesHighlighted(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesHighlighted", value: value) {
+            $0.setTitleTextAttributes(value, for: .highlighted)
+        }
     }
 
-    /// `titleTextAttributes`
+    /// `titleTextAttributesSelected`
     @discardableResult
-    public func titleAttributes(
-        _ normal: [AnyHashable: Any],
-        highlighted: [AnyHashable: Any]? = nil,
-        selected: [AnyHashable: Any]? = nil,
-        disabled: [AnyHashable: Any]? = nil
-    ) -> PandaChain {
-        return forControlState(
-            normal: normal,
-            highlighted: highlighted,
-            selected: selected,
-            disabled: disabled,
-            setter: object.setTitleTextAttributes
-        )
+    public func titleAttributesSelected(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesSelected", value: value) {
+            $0.setTitleTextAttributes(value, for: .selected)
+        }
     }
 
-    @available(*, deprecated, renamed: "titleAttributes()")
+    @available(*, deprecated, renamed: "titleAttributesSelected()")
     @discardableResult
-    public func titleTextAttributes(
-        _ normal: [AnyHashable: Any],
-        highlighted: [AnyHashable: Any]? = nil,
-        selected: [AnyHashable: Any]? = nil,
-        disabled: [AnyHashable: Any]? = nil
-    ) -> PandaChain {
-        return forControlState(
-            normal: normal,
-            highlighted: highlighted,
-            selected: selected,
-            disabled: disabled,
-            setter: object.setTitleTextAttributes
-        )
+    public func titleTextAttributesSelected(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesSelected", value: value) {
+            $0.setTitleTextAttributes(value, for: .selected)
+        }
+    }
+
+    /// `titleTextAttributesDisabled`
+    @discardableResult
+    public func titleAttributesDisabled(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesDisabled", value: value) {
+            $0.setTitleTextAttributes(value, for: .disabled)
+        }
+    }
+
+    @available(*, deprecated, renamed: "titleAttributesDisabled()")
+    @discardableResult
+    public func titleTextAttributesDisabled(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "titleTextAttributesDisabled", value: value) {
+            $0.setTitleTextAttributes(value, for: .disabled)
+        }
     }
 }

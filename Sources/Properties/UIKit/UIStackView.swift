@@ -7,72 +7,73 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
-extension PandaChain where Object: UIStackView {
+extension Element where Object: UIStackView {
     @discardableResult
-    public func axis(_ value: UILayoutConstraintAxis) -> PandaChain {
-        object.axis = value
-        return self
+    public func axis(_ value: UILayoutConstraintAxis) -> Self {
+        return addAttributes(key: "axis", value: value) {
+            $0.axis = value
+        }
     }
 
     @discardableResult
-    public func distribution(_ value: UIStackViewDistribution) -> PandaChain {
-        object.distribution = value
-        return self
+    public func distribution(_ value: UIStackViewDistribution) -> Self {
+        return addAttributes(key: "distribution", value: value) {
+            $0.distribution = value
+        }
     }
 
     /// `alignment`
     @discardableResult
-    public func align(_ value: UIStackViewAlignment) -> PandaChain {
-        object.alignment = value
-        return self
+    public func align(_ value: UIStackViewAlignment) -> Self {
+        return addAttributes(key: "alignment", value: value) {
+            $0.alignment = value
+        }
     }
 
     @available(*, deprecated, renamed: "align()")
     @discardableResult
-    public func alignment(_ value: UIStackViewAlignment) -> PandaChain {
-        object.alignment = value
-        return self
+    public func alignment(_ value: UIStackViewAlignment) -> Self {
+        return addAttributes(key: "alignment", value: value) {
+            $0.alignment = value
+        }
     }
 
     @discardableResult
-    public func spacing(_ value: CGFloat) -> PandaChain {
-        object.spacing = value
-        return self
+    public func spacing(_ value: CGFloat) -> Self {
+        return addAttributes(key: "spacing", value: value) {
+            $0.spacing = value
+        }
     }
 
     /// `isBaselineRelativeArrangement`
     @discardableResult
-    public func baselineArrange(_ value: Bool) -> PandaChain {
-        object.isBaselineRelativeArrangement = value
-        return self
+    public func baselineArrange(_ value: Bool) -> Self {
+        return addAttributes(key: "isBaselineRelativeArrangement", value: value) {
+            $0.isBaselineRelativeArrangement = value
+        }
     }
 
     @available(*, deprecated, renamed: "baselineArrange()")
     @discardableResult
-    public func baselineRelativeArrangement(_ value: Bool) -> PandaChain {
-        object.isBaselineRelativeArrangement = value
-        return self
+    public func baselineRelativeArrangement(_ value: Bool) -> Self {
+        return addAttributes(key: "isBaselineRelativeArrangement", value: value) {
+            $0.isBaselineRelativeArrangement = value
+        }
     }
 
     /// `isLayoutMarginsRelativeArrangement`
     @discardableResult
-    public func marginsArrange(_ value: Bool) -> PandaChain {
-        object.isLayoutMarginsRelativeArrangement = value
-        return self
+    public func marginsArrange(_ value: Bool) -> Self {
+        return addAttributes(key: "isLayoutMarginsRelativeArrangement", value: value) {
+            $0.isLayoutMarginsRelativeArrangement = value
+        }
     }
 
     @available(*, deprecated, renamed: "marginsArrange()")
     @discardableResult
-    public func layoutMarginsRelativeArrangement(_ value: Bool) -> PandaChain {
-        object.isLayoutMarginsRelativeArrangement = value
-        return self
-    }
-
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func customSpacing(_ spacing: CGFloat, after arrangedSubview: UIView) -> PandaChain {
-        object.setCustomSpacing(spacing, after: arrangedSubview)
-        return self
+    public func layoutMarginsRelativeArrangement(_ value: Bool) -> Self {
+        return addAttributes(key: "isLayoutMarginsRelativeArrangement", value: value) {
+            $0.isLayoutMarginsRelativeArrangement = value
+        }
     }
 }

@@ -7,34 +7,25 @@
 
 import UIKit
 
-extension PandaChain where Object: UITextInput {
+extension Element where Object: UITextInput {
     @discardableResult
-    public func selectedTextRange(_ value: UITextRange?) -> PandaChain {
-        object.selectedTextRange = value
-        return self
+    public func selectedTextRange(_ value: UITextRange?) -> Self {
+        return addAttributes(key: "selectedTextRange", value: value) {
+            $0.selectedTextRange = value
+        }
     }
 
     @discardableResult
-    public func markedTextStyle(_ value: [AnyHashable: Any]?) -> PandaChain {
-        object.markedTextStyle = value
-        return self
+    public func markedTextStyle(_ value: [AnyHashable: Any]?) -> Self {
+        return addAttributes(key: "markedTextStyle", value: value) {
+            $0.markedTextStyle = value
+        }
     }
 
     @discardableResult
-    public func inputDelegate(_ value: UITextInputDelegate?) -> PandaChain {
-        object.inputDelegate = value
-        return self
-    }
-
-    @discardableResult
-    public func markedText(_ markedText: String?, selectedRange: NSRange) -> PandaChain {
-        object.setMarkedText(markedText, selectedRange: selectedRange)
-        return self
-    }
-
-    @discardableResult
-    public func baseWritingDirection(_ writingDirection: UITextWritingDirection, for range: UITextRange) -> PandaChain {
-        object.setBaseWritingDirection(writingDirection, for: range)
-        return self
+    public func inputDelegate(_ value: UITextInputDelegate?) -> Self {
+        return addAttributes(key: "inputDelegate", value: value) {
+            $0.inputDelegate = value
+        }
     }
 }

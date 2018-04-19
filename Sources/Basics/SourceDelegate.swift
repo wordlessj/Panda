@@ -25,36 +25,26 @@
 
 import UIKit
 
-extension PandaChain where Object: UICollectionView {
+extension Element where Object: UICollectionView {
     /// Set `dataSource` and `delegate`.
     @discardableResult
-    public func sourceDelegate(_ object: (UICollectionViewDataSource & UICollectionViewDelegate)?) -> PandaChain {
+    public func sourceDelegate(_ object: (UICollectionViewDataSource & UICollectionViewDelegate)?) -> Self {
         return dataSource(object).delegate(object)
     }
 }
 
-extension PandaChain where Object: UIPageViewController {
+extension Element where Object: UIPickerView {
     /// Set `dataSource` and `delegate`.
     @discardableResult
-    public func sourceDelegate(
-        _ object: (UIPageViewControllerDataSource & UIPageViewControllerDelegate)?
-    ) -> PandaChain {
+    public func sourceDelegate(_ object: (UIPickerViewDataSource & UIPickerViewDelegate)?) -> Self {
         return dataSource(object).delegate(object)
     }
 }
 
-extension PandaChain where Object: UIPickerView {
+extension Element where Object: UITableView {
     /// Set `dataSource` and `delegate`.
     @discardableResult
-    public func sourceDelegate(_ object: (UIPickerViewDataSource & UIPickerViewDelegate)?) -> PandaChain {
-        return dataSource(object).delegate(object)
-    }
-}
-
-extension PandaChain where Object: UITableView {
-    /// Set `dataSource` and `delegate`.
-    @discardableResult
-    public func sourceDelegate(_ object: (UITableViewDataSource & UITableViewDelegate)?) -> PandaChain {
+    public func sourceDelegate(_ object: (UITableViewDataSource & UITableViewDelegate)?) -> Self {
         return dataSource(object).delegate(object)
     }
 }

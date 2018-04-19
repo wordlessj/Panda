@@ -25,9 +25,15 @@
 
 import Foundation
 
+enum ValueID: Equatable {
+    case hash(Int)
+    case none
+    case changing
+}
+
 public struct OldElement {
     var type: Any.Type
-    var attributes: [String: Int]
+    var attributes: [String: ValueID]
     var children: [String: [OldElement]]
     var key: Int?
 }
@@ -41,7 +47,7 @@ public protocol ElementProtocol {
 
 public class Element<Object: ElementObject>: ElementProtocol {
     private var type = Object.self
-    private var attributes = [String: (hash: Int, apply: (Object) -> ())]()
+    private var attributes = [String: (id: ValueID, apply: (Object) -> ())]()
     private var children = [String: Children<Object>]()
     private var key: Int?
 
@@ -49,11 +55,9 @@ public class Element<Object: ElementObject>: ElementProtocol {
         let object = object as! Object
         let oldAttributes = old?.attributes ?? [:]
 
-        for (key, value) in attributes {
-            guard oldAttributes[key] == nil ||
-                (oldAttributes[key] != nil && oldAttributes[key] != value.hash)
-                else { continue }
-            value.apply(object)
+        for (key, value) in attributes
+            where oldAttributes[key] != value.id || value.id == .changing {
+                value.apply(object)
         }
 
         for (key, value) in children {
@@ -64,7 +68,7 @@ public class Element<Object: ElementObject>: ElementProtocol {
     public func toOld() -> OldElement {
         return OldElement(
             type: type,
-            attributes: attributes.mapValues { $0.hash },
+            attributes: attributes.mapValues { $0.id },
             children: children.mapValues { $0.toOld() },
             key: key
         )
@@ -85,18 +89,31 @@ public class Element<Object: ElementObject>: ElementProtocol {
         return Object()
     }
 
-    func addAttributes<Value: Hashable>(key: String, value: Value, apply: @escaping (Object) -> ()) -> Self {
-        attributes[key] = (value.hashValue, apply)
+    func addAttributes<Value: Hashable>(key: String, value: Value?, apply: @escaping (Object) -> ()) -> Self {
+        let id: ValueID = value.map { .hash($0.hashValue) } ?? .none
+        attributes[key] = (id, apply)
         return self
     }
 
-    func addAttributes<Value: Hashable>(key: String, value: Value?, apply: @escaping (Object) -> ()) -> Self {
-        attributes[key] = (value?.hashValue ?? 0, apply)
+    func addAttributes(key: String, value: Any?, apply: @escaping (Object) -> ()) -> Self {
+        let id: ValueID
+
+        if let value = value {
+            if let value = value as? NSObjectProtocol, !(value is NSArray), !(value is NSDictionary) {
+                id = .hash(value.hash)
+            } else {
+                id = .changing
+            }
+        } else {
+            id = .none
+        }
+
+        attributes[key] = (id, apply)
         return self
     }
 
     func addChangingAttributes(key: String, apply: @escaping (Object) -> ()) -> Self {
-        attributes[key] = (Int(arc4random()), apply)
+        attributes[key] = (.changing, apply)
         return self
     }
 
@@ -127,6 +144,14 @@ extension Element {
     }
 
     @discardableResult
+    public func ref(_ value: UnsafeMutablePointer<Object?>) -> Self {
+        return addChangingAttributes(key: "ref") {
+            guard value.pointee !== $0 else { return }
+            value.pointee = $0
+        }
+    }
+
+    @discardableResult
     public func set<Value: Hashable>(_ path: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> Self {
         return addAttributes(key: "\(path.hashValue)", value: value) {
             $0[keyPath: path] = value
@@ -135,6 +160,20 @@ extension Element {
 
     @discardableResult
     public func set<Value: Hashable>(_ path: ReferenceWritableKeyPath<Object, Value?>, _ value: Value?) -> Self {
+        return addAttributes(key: "\(path.hashValue)", value: value) {
+            $0[keyPath: path] = value
+        }
+    }
+
+    @discardableResult
+    public func set<Value>(_ path: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> Self {
+        return addAttributes(key: "\(path.hashValue)", value: value) {
+            $0[keyPath: path] = value
+        }
+    }
+
+    @discardableResult
+    public func set<Value>(_ path: ReferenceWritableKeyPath<Object, Value?>, _ value: Value?) -> Self {
         return addAttributes(key: "\(path.hashValue)", value: value) {
             $0[keyPath: path] = value
         }
@@ -150,6 +189,18 @@ extension Element where Object: Component {
 
     @discardableResult
     public func props<Value: Hashable>(_ path: WritableKeyPath<Object.Props, Value?>, _ value: Value?) -> Self {
+        let fullPath = (\Object.props).appending(path: path)
+        return set(fullPath, value)
+    }
+
+    @discardableResult
+    public func props<Value>(_ path: WritableKeyPath<Object.Props, Value>, _ value: Value) -> Self {
+        let fullPath = (\Object.props).appending(path: path)
+        return set(fullPath, value)
+    }
+
+    @discardableResult
+    public func props<Value>(_ path: WritableKeyPath<Object.Props, Value?>, _ value: Value?) -> Self {
         let fullPath = (\Object.props).appending(path: path)
         return set(fullPath, value)
     }

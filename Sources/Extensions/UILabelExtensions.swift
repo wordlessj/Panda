@@ -25,9 +25,9 @@
 
 import UIKit
 
-extension PandaChain where Object: UILabel {
+extension Element where Object: UILabel {
     @discardableResult
-    public func shadow(color: UIColor?, offset: CGSize) -> PandaChain {
+    public func shadow(color: UIColor?, offset: CGSize) -> Self {
         return shadowColor(color).shadowOffset(offset)
     }
 }

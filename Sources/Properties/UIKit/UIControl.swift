@@ -7,50 +7,57 @@
 
 import UIKit
 
-extension PandaChain where Object: UIControl {
+extension Element where Object: UIControl {
     @discardableResult
-    public func enabled(_ value: Bool) -> PandaChain {
-        object.isEnabled = value
-        return self
+    public func enabled(_ value: Bool) -> Self {
+        return addAttributes(key: "isEnabled", value: value) {
+            $0.isEnabled = value
+        }
     }
 
     @discardableResult
-    public func selected(_ value: Bool) -> PandaChain {
-        object.isSelected = value
-        return self
+    public func selected(_ value: Bool) -> Self {
+        return addAttributes(key: "isSelected", value: value) {
+            $0.isSelected = value
+        }
     }
 
     @discardableResult
-    public func highlighted(_ value: Bool) -> PandaChain {
-        object.isHighlighted = value
-        return self
+    public func highlighted(_ value: Bool) -> Self {
+        return addAttributes(key: "isHighlighted", value: value) {
+            $0.isHighlighted = value
+        }
     }
 
     /// `contentVerticalAlignment`
     @discardableResult
-    public func verticalAlign(_ value: UIControlContentVerticalAlignment) -> PandaChain {
-        object.contentVerticalAlignment = value
-        return self
+    public func verticalAlign(_ value: UIControlContentVerticalAlignment) -> Self {
+        return addAttributes(key: "contentVerticalAlignment", value: value) {
+            $0.contentVerticalAlignment = value
+        }
     }
 
     @available(*, deprecated, renamed: "verticalAlign()")
     @discardableResult
-    public func contentVerticalAlignment(_ value: UIControlContentVerticalAlignment) -> PandaChain {
-        object.contentVerticalAlignment = value
-        return self
+    public func contentVerticalAlignment(_ value: UIControlContentVerticalAlignment) -> Self {
+        return addAttributes(key: "contentVerticalAlignment", value: value) {
+            $0.contentVerticalAlignment = value
+        }
     }
 
     /// `contentHorizontalAlignment`
     @discardableResult
-    public func horizontalAlign(_ value: UIControlContentHorizontalAlignment) -> PandaChain {
-        object.contentHorizontalAlignment = value
-        return self
+    public func horizontalAlign(_ value: UIControlContentHorizontalAlignment) -> Self {
+        return addAttributes(key: "contentHorizontalAlignment", value: value) {
+            $0.contentHorizontalAlignment = value
+        }
     }
 
     @available(*, deprecated, renamed: "horizontalAlign()")
     @discardableResult
-    public func contentHorizontalAlignment(_ value: UIControlContentHorizontalAlignment) -> PandaChain {
-        object.contentHorizontalAlignment = value
-        return self
+    public func contentHorizontalAlignment(_ value: UIControlContentHorizontalAlignment) -> Self {
+        return addAttributes(key: "contentHorizontalAlignment", value: value) {
+            $0.contentHorizontalAlignment = value
+        }
     }
 }

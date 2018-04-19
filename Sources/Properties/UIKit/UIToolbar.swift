@@ -7,90 +7,73 @@
 
 import UIKit
 
-extension PandaChain where Object: UIToolbar {
+extension Element where Object: UIToolbar {
     /// `barStyle`
     @discardableResult
-    public func style(_ value: UIBarStyle) -> PandaChain {
-        object.barStyle = value
-        return self
+    public func style(_ value: UIBarStyle) -> Self {
+        return addAttributes(key: "barStyle", value: value) {
+            $0.barStyle = value
+        }
     }
 
     @available(*, deprecated, renamed: "style()")
     @discardableResult
-    public func barStyle(_ value: UIBarStyle) -> PandaChain {
-        object.barStyle = value
-        return self
+    public func barStyle(_ value: UIBarStyle) -> Self {
+        return addAttributes(key: "barStyle", value: value) {
+            $0.barStyle = value
+        }
     }
 
     @discardableResult
-    public func items(_ value: [UIBarButtonItemConvertible]?) -> PandaChain {
-        object.items = unboxArray(value)
-        return self
+    public func items(_ value: [UIBarButtonItem]?) -> Self {
+        return addAttributes(key: "items", value: value) {
+            $0.items = value
+        }
     }
 
     @discardableResult
-    public func translucent(_ value: Bool) -> PandaChain {
-        object.isTranslucent = value
-        return self
+    public func translucent(_ value: Bool) -> Self {
+        return addAttributes(key: "isTranslucent", value: value) {
+            $0.isTranslucent = value
+        }
     }
 
     /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tint(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "tint()")
     @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tintColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     /// `barTintColor`
     @discardableResult
-    public func barTint(_ value: UIColor?) -> PandaChain {
-        object.barTintColor = value
-        return self
+    public func barTint(_ value: UIColor?) -> Self {
+        return addAttributes(key: "barTintColor", value: value) {
+            $0.barTintColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "barTint()")
     @discardableResult
-    public func barTintColor(_ value: UIColor?) -> PandaChain {
-        object.barTintColor = value
-        return self
+    public func barTintColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "barTintColor", value: value) {
+            $0.barTintColor = value
+        }
     }
 
     @discardableResult
-    public func delegate(_ value: UIToolbarDelegate?) -> PandaChain {
-        object.delegate = value
-        return self
-    }
-
-    @discardableResult
-    public func items(_ items: [UIBarButtonItemConvertible]?, animated: Bool) -> PandaChain {
-        object.setItems(unboxArray(items), animated: animated)
-        return self
-    }
-
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setBackgroundImage(backgroundImage, forToolbarPosition: topOrBottom, barMetrics: barMetrics)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
-    @discardableResult
-    public func backgroundImage(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setBackgroundImage(backgroundImage, forToolbarPosition: topOrBottom, barMetrics: barMetrics)
-        return self
-    }
-
-    @discardableResult
-    public func shadowImage(_ shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition) -> PandaChain {
-        object.setShadowImage(shadowImage, forToolbarPosition: topOrBottom)
-        return self
+    public func delegate(_ value: UIToolbarDelegate?) -> Self {
+        return addAttributes(key: "delegate", value: value) {
+            $0.delegate = value
+        }
     }
 }

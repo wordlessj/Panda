@@ -7,30 +7,34 @@
 
 import UIKit
 
-extension PandaChain where Object: UIWindow {
+extension Element where Object: UIWindow {
     @discardableResult
-    public func screen(_ value: UIScreenConvertible) -> PandaChain {
-        object.screen = unbox(value)
-        return self
+    public func screen(_ value: UIScreen) -> Self {
+        return addAttributes(key: "screen", value: value) {
+            $0.screen = value
+        }
     }
 
     /// `windowLevel`
     @discardableResult
-    public func level(_ value: UIWindowLevel) -> PandaChain {
-        object.windowLevel = value
-        return self
+    public func level(_ value: UIWindowLevel) -> Self {
+        return addAttributes(key: "windowLevel", value: value) {
+            $0.windowLevel = value
+        }
     }
 
     @available(*, deprecated, renamed: "level()")
     @discardableResult
-    public func windowLevel(_ value: UIWindowLevel) -> PandaChain {
-        object.windowLevel = value
-        return self
+    public func windowLevel(_ value: UIWindowLevel) -> Self {
+        return addAttributes(key: "windowLevel", value: value) {
+            $0.windowLevel = value
+        }
     }
 
     @discardableResult
-    public func rootViewController(_ value: UIViewControllerConvertible?) -> PandaChain {
-        object.rootViewController = unbox(value)
-        return self
+    public func rootViewController(_ value: UIViewController?) -> Self {
+        return addAttributes(key: "rootViewController", value: value) {
+            $0.rootViewController = value
+        }
     }
 }

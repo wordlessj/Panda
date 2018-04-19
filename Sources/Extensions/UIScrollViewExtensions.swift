@@ -25,16 +25,16 @@
 
 import UIKit
 
-extension PandaChain where Object: UIScrollView {
+extension Element where Object: UIScrollView {
     /// Always bounce horizontal and vertical.
     @discardableResult
-    public func alwaysBounce(_ value: Bool) -> PandaChain {
+    public func alwaysBounce(_ value: Bool) -> Self {
         return alwaysBounceHorizontal(value).alwaysBounceVertical(value)
     }
 
     /// Shows horizontal and vertical scroll indicators.
     @discardableResult
-    public func showsIndicators(_ value: Bool) -> PandaChain {
+    public func showsIndicators(_ value: Bool) -> Self {
         return showsHorizontalIndicator(value).showsVerticalIndicator(value)
     }
 }

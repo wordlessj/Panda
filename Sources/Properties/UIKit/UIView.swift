@@ -7,387 +7,396 @@
 
 import UIKit
 
-public protocol UIViewConvertible {}
-
-extension UIView: UIViewConvertible {}
-extension PandaChain: UIViewConvertible {}
-
-extension PandaChain where Object: UIView {
+extension Element where Object: UIView {
     @available(iOS 11.0, *)
     @discardableResult
-    public func accessibilityIgnoresInvertColors(_ value: Bool) -> PandaChain {
-        object.accessibilityIgnoresInvertColors = value
-        return self
+    public func accessibilityIgnoresInvertColors(_ value: Bool) -> Self {
+        return addAttributes(key: "accessibilityIgnoresInvertColors", value: value) {
+            $0.accessibilityIgnoresInvertColors = value
+        }
     }
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func interactions(_ value: [UIInteraction]) -> PandaChain {
-        object.interactions = value
-        return self
+    public func interactions(_ value: [UIInteraction]) -> Self {
+        return addAttributes(key: "interactions", value: value) {
+            $0.interactions = value
+        }
     }
 
     /// `isUserInteractionEnabled`
     @discardableResult
-    public func interactable(_ value: Bool) -> PandaChain {
-        object.isUserInteractionEnabled = value
-        return self
+    public func interactable(_ value: Bool) -> Self {
+        return addAttributes(key: "isUserInteractionEnabled", value: value) {
+            $0.isUserInteractionEnabled = value
+        }
     }
 
     @available(*, deprecated, renamed: "interactable()")
     @discardableResult
-    public func userInteractionEnabled(_ value: Bool) -> PandaChain {
-        object.isUserInteractionEnabled = value
-        return self
+    public func userInteractionEnabled(_ value: Bool) -> Self {
+        return addAttributes(key: "isUserInteractionEnabled", value: value) {
+            $0.isUserInteractionEnabled = value
+        }
     }
 
     @discardableResult
-    public func tag(_ value: Int) -> PandaChain {
-        object.tag = value
-        return self
+    public func tag(_ value: Int) -> Self {
+        return addAttributes(key: "tag", value: value) {
+            $0.tag = value
+        }
     }
 
     /// `semanticContentAttribute`
-    @available(iOS 9.0, *)
     @discardableResult
-    public func semantics(_ value: UISemanticContentAttribute) -> PandaChain {
-        object.semanticContentAttribute = value
-        return self
+    public func semantics(_ value: UISemanticContentAttribute) -> Self {
+        return addAttributes(key: "semanticContentAttribute", value: value) {
+            $0.semanticContentAttribute = value
+        }
     }
 
     @available(*, deprecated, renamed: "semantics()")
-    @available(iOS 9.0, *)
     @discardableResult
-    public func semanticContentAttribute(_ value: UISemanticContentAttribute) -> PandaChain {
-        object.semanticContentAttribute = value
-        return self
+    public func semanticContentAttribute(_ value: UISemanticContentAttribute) -> Self {
+        return addAttributes(key: "semanticContentAttribute", value: value) {
+            $0.semanticContentAttribute = value
+        }
     }
 
     @discardableResult
-    public func frame(_ value: CGRect) -> PandaChain {
-        object.frame = value
-        return self
+    public func frame(_ value: CGRect) -> Self {
+        return addAttributes(key: "frame", value: value) {
+            $0.frame = value
+        }
     }
 
     @discardableResult
-    public func bounds(_ value: CGRect) -> PandaChain {
-        object.bounds = value
-        return self
+    public func bounds(_ value: CGRect) -> Self {
+        return addAttributes(key: "bounds", value: value) {
+            $0.bounds = value
+        }
     }
 
     @discardableResult
-    public func center(_ value: CGPoint) -> PandaChain {
-        object.center = value
-        return self
+    public func center(_ value: CGPoint) -> Self {
+        return addAttributes(key: "center", value: value) {
+            $0.center = value
+        }
     }
 
     @discardableResult
-    public func transform(_ value: CGAffineTransform) -> PandaChain {
-        object.transform = value
-        return self
+    public func transform(_ value: CGAffineTransform) -> Self {
+        return addAttributes(key: "transform", value: value) {
+            $0.transform = value
+        }
     }
 
     /// `contentScaleFactor`
     @discardableResult
-    public func contentScale(_ value: CGFloat) -> PandaChain {
-        object.contentScaleFactor = value
-        return self
+    public func contentScale(_ value: CGFloat) -> Self {
+        return addAttributes(key: "contentScaleFactor", value: value) {
+            $0.contentScaleFactor = value
+        }
     }
 
     @available(*, deprecated, renamed: "contentScale()")
     @discardableResult
-    public func contentScaleFactor(_ value: CGFloat) -> PandaChain {
-        object.contentScaleFactor = value
-        return self
+    public func contentScaleFactor(_ value: CGFloat) -> Self {
+        return addAttributes(key: "contentScaleFactor", value: value) {
+            $0.contentScaleFactor = value
+        }
     }
 
     /// `isMultipleTouchEnabled`
     @discardableResult
-    public func multiTouchable(_ value: Bool) -> PandaChain {
-        object.isMultipleTouchEnabled = value
-        return self
+    public func multiTouchable(_ value: Bool) -> Self {
+        return addAttributes(key: "isMultipleTouchEnabled", value: value) {
+            $0.isMultipleTouchEnabled = value
+        }
     }
 
     @available(*, deprecated, renamed: "multiTouchable()")
     @discardableResult
-    public func multipleTouchEnabled(_ value: Bool) -> PandaChain {
-        object.isMultipleTouchEnabled = value
-        return self
+    public func multipleTouchEnabled(_ value: Bool) -> Self {
+        return addAttributes(key: "isMultipleTouchEnabled", value: value) {
+            $0.isMultipleTouchEnabled = value
+        }
     }
 
     @discardableResult
-    public func exclusiveTouch(_ value: Bool) -> PandaChain {
-        object.isExclusiveTouch = value
-        return self
+    public func exclusiveTouch(_ value: Bool) -> Self {
+        return addAttributes(key: "isExclusiveTouch", value: value) {
+            $0.isExclusiveTouch = value
+        }
     }
 
     /// `autoresizesSubviews`
     @discardableResult
-    public func autoresizes(_ value: Bool) -> PandaChain {
-        object.autoresizesSubviews = value
-        return self
+    public func autoresizes(_ value: Bool) -> Self {
+        return addAttributes(key: "autoresizesSubviews", value: value) {
+            $0.autoresizesSubviews = value
+        }
     }
 
     @available(*, deprecated, renamed: "autoresizes()")
     @discardableResult
-    public func autoresizesSubviews(_ value: Bool) -> PandaChain {
-        object.autoresizesSubviews = value
-        return self
+    public func autoresizesSubviews(_ value: Bool) -> Self {
+        return addAttributes(key: "autoresizesSubviews", value: value) {
+            $0.autoresizesSubviews = value
+        }
     }
 
     /// `autoresizingMask`
     @discardableResult
-    public func autoresizing(_ value: UIViewAutoresizing) -> PandaChain {
-        object.autoresizingMask = value
-        return self
+    public func autoresizing(_ value: UIViewAutoresizing) -> Self {
+        return addAttributes(key: "autoresizingMask", value: value) {
+            $0.autoresizingMask = value
+        }
     }
 
     @available(*, deprecated, renamed: "autoresizing()")
     @discardableResult
-    public func autoresizingMask(_ value: UIViewAutoresizing) -> PandaChain {
-        object.autoresizingMask = value
-        return self
+    public func autoresizingMask(_ value: UIViewAutoresizing) -> Self {
+        return addAttributes(key: "autoresizingMask", value: value) {
+            $0.autoresizingMask = value
+        }
     }
 
     /// `layoutMargins`
     @discardableResult
-    public func margins(_ value: UIEdgeInsets) -> PandaChain {
-        object.layoutMargins = value
-        return self
+    public func margins(_ value: UIEdgeInsets) -> Self {
+        return addAttributes(key: "layoutMargins", value: value) {
+            $0.layoutMargins = value
+        }
     }
 
     @available(*, deprecated, renamed: "margins()")
     @discardableResult
-    public func layoutMargins(_ value: UIEdgeInsets) -> PandaChain {
-        object.layoutMargins = value
-        return self
+    public func layoutMargins(_ value: UIEdgeInsets) -> Self {
+        return addAttributes(key: "layoutMargins", value: value) {
+            $0.layoutMargins = value
+        }
     }
 
     /// `directionalLayoutMargins`
     @available(iOS 11.0, *)
     @discardableResult
-    public func directionalMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
-        object.directionalLayoutMargins = value
-        return self
+    public func directionalMargins(_ value: NSDirectionalEdgeInsets) -> Self {
+        return addAttributes(key: "directionalLayoutMargins", value: value) {
+            $0.directionalLayoutMargins = value
+        }
     }
 
     @available(*, deprecated, renamed: "directionalMargins()")
     @available(iOS 11.0, *)
     @discardableResult
-    public func directionalLayoutMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
-        object.directionalLayoutMargins = value
-        return self
+    public func directionalLayoutMargins(_ value: NSDirectionalEdgeInsets) -> Self {
+        return addAttributes(key: "directionalLayoutMargins", value: value) {
+            $0.directionalLayoutMargins = value
+        }
     }
 
     /// `preservesSuperviewLayoutMargins`
     @discardableResult
-    public func preservesSuperviewMargins(_ value: Bool) -> PandaChain {
-        object.preservesSuperviewLayoutMargins = value
-        return self
+    public func preservesSuperviewMargins(_ value: Bool) -> Self {
+        return addAttributes(key: "preservesSuperviewLayoutMargins", value: value) {
+            $0.preservesSuperviewLayoutMargins = value
+        }
     }
 
     @available(*, deprecated, renamed: "preservesSuperviewMargins()")
     @discardableResult
-    public func preservesSuperviewLayoutMargins(_ value: Bool) -> PandaChain {
-        object.preservesSuperviewLayoutMargins = value
-        return self
+    public func preservesSuperviewLayoutMargins(_ value: Bool) -> Self {
+        return addAttributes(key: "preservesSuperviewLayoutMargins", value: value) {
+            $0.preservesSuperviewLayoutMargins = value
+        }
     }
 
     /// `insetsLayoutMarginsFromSafeArea`
     @available(iOS 11.0, *)
     @discardableResult
-    public func insetsMarginsFromSafeArea(_ value: Bool) -> PandaChain {
-        object.insetsLayoutMarginsFromSafeArea = value
-        return self
+    public func insetsMarginsFromSafeArea(_ value: Bool) -> Self {
+        return addAttributes(key: "insetsLayoutMarginsFromSafeArea", value: value) {
+            $0.insetsLayoutMarginsFromSafeArea = value
+        }
     }
 
     @available(*, deprecated, renamed: "insetsMarginsFromSafeArea()")
     @available(iOS 11.0, *)
     @discardableResult
-    public func insetsLayoutMarginsFromSafeArea(_ value: Bool) -> PandaChain {
-        object.insetsLayoutMarginsFromSafeArea = value
-        return self
+    public func insetsLayoutMarginsFromSafeArea(_ value: Bool) -> Self {
+        return addAttributes(key: "insetsLayoutMarginsFromSafeArea", value: value) {
+            $0.insetsLayoutMarginsFromSafeArea = value
+        }
     }
 
     /// `clipsToBounds`
     @discardableResult
-    public func clips(_ value: Bool) -> PandaChain {
-        object.clipsToBounds = value
-        return self
+    public func clips(_ value: Bool) -> Self {
+        return addAttributes(key: "clipsToBounds", value: value) {
+            $0.clipsToBounds = value
+        }
     }
 
     @available(*, deprecated, renamed: "clips()")
     @discardableResult
-    public func clipsToBounds(_ value: Bool) -> PandaChain {
-        object.clipsToBounds = value
-        return self
+    public func clipsToBounds(_ value: Bool) -> Self {
+        return addAttributes(key: "clipsToBounds", value: value) {
+            $0.clipsToBounds = value
+        }
     }
 
     /// `backgroundColor`
     @discardableResult
-    public func background(_ value: UIColor?) -> PandaChain {
-        object.backgroundColor = value
-        return self
+    public func background(_ value: UIColor?) -> Self {
+        return addAttributes(key: "backgroundColor", value: value) {
+            $0.backgroundColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundColor(_ value: UIColor?) -> PandaChain {
-        object.backgroundColor = value
-        return self
+    public func backgroundColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "backgroundColor", value: value) {
+            $0.backgroundColor = value
+        }
     }
 
     @discardableResult
-    public func alpha(_ value: CGFloat) -> PandaChain {
-        object.alpha = value
-        return self
+    public func alpha(_ value: CGFloat) -> Self {
+        return addAttributes(key: "alpha", value: value) {
+            $0.alpha = value
+        }
     }
 
     @discardableResult
-    public func opaque(_ value: Bool) -> PandaChain {
-        object.isOpaque = value
-        return self
+    public func opaque(_ value: Bool) -> Self {
+        return addAttributes(key: "isOpaque", value: value) {
+            $0.isOpaque = value
+        }
     }
 
     /// `clearsContextBeforeDrawing`
     @discardableResult
-    public func clearsContext(_ value: Bool) -> PandaChain {
-        object.clearsContextBeforeDrawing = value
-        return self
+    public func clearsContext(_ value: Bool) -> Self {
+        return addAttributes(key: "clearsContextBeforeDrawing", value: value) {
+            $0.clearsContextBeforeDrawing = value
+        }
     }
 
     @available(*, deprecated, renamed: "clearsContext()")
     @discardableResult
-    public func clearsContextBeforeDrawing(_ value: Bool) -> PandaChain {
-        object.clearsContextBeforeDrawing = value
-        return self
+    public func clearsContextBeforeDrawing(_ value: Bool) -> Self {
+        return addAttributes(key: "clearsContextBeforeDrawing", value: value) {
+            $0.clearsContextBeforeDrawing = value
+        }
     }
 
     @discardableResult
-    public func hidden(_ value: Bool) -> PandaChain {
-        object.isHidden = value
-        return self
+    public func hidden(_ value: Bool) -> Self {
+        return addAttributes(key: "isHidden", value: value) {
+            $0.isHidden = value
+        }
     }
 
     /// `contentMode`
     @discardableResult
-    public func mode(_ value: UIViewContentMode) -> PandaChain {
-        object.contentMode = value
-        return self
+    public func mode(_ value: UIViewContentMode) -> Self {
+        return addAttributes(key: "contentMode", value: value) {
+            $0.contentMode = value
+        }
     }
 
     @available(*, deprecated, renamed: "mode()")
     @discardableResult
-    public func contentMode(_ value: UIViewContentMode) -> PandaChain {
-        object.contentMode = value
-        return self
+    public func contentMode(_ value: UIViewContentMode) -> Self {
+        return addAttributes(key: "contentMode", value: value) {
+            $0.contentMode = value
+        }
     }
 
     @discardableResult
-    public func mask(_ value: UIViewConvertible?) -> PandaChain {
-        object.mask = unbox(value)
-        return self
+    public func mask(_ value: UIView?) -> Self {
+        return addAttributes(key: "mask", value: value) {
+            $0.mask = value
+        }
     }
 
     /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tint(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     @available(*, deprecated, renamed: "tint()")
     @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
+    public func tintColor(_ value: UIColor?) -> Self {
+        return addAttributes(key: "tintColor", value: value) {
+            $0.tintColor = value
+        }
     }
 
     /// `tintAdjustmentMode`
     @discardableResult
-    public func tintAdjust(_ value: UIViewTintAdjustmentMode) -> PandaChain {
-        object.tintAdjustmentMode = value
-        return self
+    public func tintAdjust(_ value: UIViewTintAdjustmentMode) -> Self {
+        return addAttributes(key: "tintAdjustmentMode", value: value) {
+            $0.tintAdjustmentMode = value
+        }
     }
 
     @available(*, deprecated, renamed: "tintAdjust()")
     @discardableResult
-    public func tintAdjustmentMode(_ value: UIViewTintAdjustmentMode) -> PandaChain {
-        object.tintAdjustmentMode = value
-        return self
+    public func tintAdjustmentMode(_ value: UIViewTintAdjustmentMode) -> Self {
+        return addAttributes(key: "tintAdjustmentMode", value: value) {
+            $0.tintAdjustmentMode = value
+        }
     }
 
     @discardableResult
-    public func gestureRecognizers(_ value: [UIGestureRecognizerConvertible]?) -> PandaChain {
-        object.gestureRecognizers = unboxArray(value)
-        return self
+    public func gestureRecognizers(_ value: [UIGestureRecognizer]?) -> Self {
+        return addAttributes(key: "gestureRecognizers", value: value) {
+            $0.gestureRecognizers = value
+        }
     }
 
     @discardableResult
-    public func motionEffects(_ value: [UIMotionEffect]) -> PandaChain {
-        object.motionEffects = value
-        return self
+    public func motionEffects(_ value: [UIMotionEffect]) -> Self {
+        return addAttributes(key: "motionEffects", value: value) {
+            $0.motionEffects = value
+        }
     }
 
     /// `translatesAutoresizingMaskIntoConstraints`
     @discardableResult
-    public func translatesAutoresizing(_ value: Bool) -> PandaChain {
-        object.translatesAutoresizingMaskIntoConstraints = value
-        return self
+    public func translatesAutoresizing(_ value: Bool) -> Self {
+        return addAttributes(key: "translatesAutoresizingMaskIntoConstraints", value: value) {
+            $0.translatesAutoresizingMaskIntoConstraints = value
+        }
     }
 
     @available(*, deprecated, renamed: "translatesAutoresizing()")
     @discardableResult
-    public func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> PandaChain {
-        object.translatesAutoresizingMaskIntoConstraints = value
-        return self
+    public func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> Self {
+        return addAttributes(key: "translatesAutoresizingMaskIntoConstraints", value: value) {
+            $0.translatesAutoresizingMaskIntoConstraints = value
+        }
     }
 
     /// `restorationIdentifier`
     @discardableResult
-    public func restorationID(_ value: String?) -> PandaChain {
-        object.restorationIdentifier = value
-        return self
+    public func restorationID(_ value: String?) -> Self {
+        return addAttributes(key: "restorationIdentifier", value: value) {
+            $0.restorationIdentifier = value
+        }
     }
 
     @available(*, deprecated, renamed: "restorationID()")
     @discardableResult
-    public func restorationIdentifier(_ value: String?) -> PandaChain {
-        object.restorationIdentifier = value
-        return self
-    }
-
-    @discardableResult
-    public func needsDisplay(_ rect: CGRect) -> PandaChain {
-        object.setNeedsDisplay(rect)
-        return self
-    }
-
-    /// `contentHuggingPriority`
-    @discardableResult
-    public func huggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentHuggingPriority(priority, for: axis)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "huggingPriority()")
-    @discardableResult
-    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentHuggingPriority(priority, for: axis)
-        return self
-    }
-
-    /// `contentCompressionResistancePriority`
-    @discardableResult
-    public func resistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentCompressionResistancePriority(priority, for: axis)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "resistancePriority()")
-    @discardableResult
-    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentCompressionResistancePriority(priority, for: axis)
-        return self
+    public func restorationIdentifier(_ value: String?) -> Self {
+        return addAttributes(key: "restorationIdentifier", value: value) {
+            $0.restorationIdentifier = value
+        }
     }
 }

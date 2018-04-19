@@ -7,30 +7,34 @@
 
 import UIKit
 
-extension PandaChain where Object: UIActivityIndicatorView {
+extension Element where Object: UIActivityIndicatorView {
     /// `activityIndicatorViewStyle`
     @discardableResult
-    public func style(_ value: UIActivityIndicatorViewStyle) -> PandaChain {
-        object.activityIndicatorViewStyle = value
-        return self
+    public func style(_ value: UIActivityIndicatorViewStyle) -> Self {
+        return addAttributes(key: "activityIndicatorViewStyle", value: value) {
+            $0.activityIndicatorViewStyle = value
+        }
     }
 
     @available(*, deprecated, renamed: "style()")
     @discardableResult
-    public func activityIndicatorViewStyle(_ value: UIActivityIndicatorViewStyle) -> PandaChain {
-        object.activityIndicatorViewStyle = value
-        return self
+    public func activityIndicatorViewStyle(_ value: UIActivityIndicatorViewStyle) -> Self {
+        return addAttributes(key: "activityIndicatorViewStyle", value: value) {
+            $0.activityIndicatorViewStyle = value
+        }
     }
 
     @discardableResult
-    public func hidesWhenStopped(_ value: Bool) -> PandaChain {
-        object.hidesWhenStopped = value
-        return self
+    public func hidesWhenStopped(_ value: Bool) -> Self {
+        return addAttributes(key: "hidesWhenStopped", value: value) {
+            $0.hidesWhenStopped = value
+        }
     }
 
     @discardableResult
-    public func color(_ value: UIColor?) -> PandaChain {
-        object.color = value
-        return self
+    public func color(_ value: UIColor?) -> Self {
+        return addAttributes(key: "color", value: value) {
+            $0.color = value
+        }
     }
 }

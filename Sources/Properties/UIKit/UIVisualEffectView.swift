@@ -7,10 +7,11 @@
 
 import UIKit
 
-extension PandaChain where Object: UIVisualEffectView {
+extension Element where Object: UIVisualEffectView {
     @discardableResult
-    public func effect(_ value: UIVisualEffect?) -> PandaChain {
-        object.effect = value
-        return self
+    public func effect(_ value: UIVisualEffect?) -> Self {
+        return addAttributes(key: "effect", value: value) {
+            $0.effect = value
+        }
     }
 }

@@ -7,22 +7,25 @@
 
 import UIKit
 
-extension PandaChain where Object: UIPickerView {
+extension Element where Object: UIPickerView {
     @discardableResult
-    public func dataSource(_ value: UIPickerViewDataSource?) -> PandaChain {
-        object.dataSource = value
-        return self
+    public func dataSource(_ value: UIPickerViewDataSource?) -> Self {
+        return addAttributes(key: "dataSource", value: value) {
+            $0.dataSource = value
+        }
     }
 
     @discardableResult
-    public func delegate(_ value: UIPickerViewDelegate?) -> PandaChain {
-        object.delegate = value
-        return self
+    public func delegate(_ value: UIPickerViewDelegate?) -> Self {
+        return addAttributes(key: "delegate", value: value) {
+            $0.delegate = value
+        }
     }
 
     @discardableResult
-    public func showsSelectionIndicator(_ value: Bool) -> PandaChain {
-        object.showsSelectionIndicator = value
-        return self
+    public func showsSelectionIndicator(_ value: Bool) -> Self {
+        return addAttributes(key: "showsSelectionIndicator", value: value) {
+            $0.showsSelectionIndicator = value
+        }
     }
 }

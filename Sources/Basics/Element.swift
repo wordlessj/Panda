@@ -25,7 +25,7 @@
 
 import Foundation
 
-enum ValueID: Equatable {
+public enum ValueID: Equatable {
     case hash(Int)
     case none
     case changing
@@ -39,17 +39,63 @@ public struct OldElement {
 }
 
 public protocol ElementProtocol {
+    var anyAttributes: [String: (id: ValueID, apply: (Any) -> ())] { get }
     func apply(to object: Any, old: OldElement?)
     func toOld() -> OldElement
     func isSimilar(to old: OldElement) -> Bool
     func createObject() -> Any
 }
 
-public class Element<Object: ElementObject>: ElementProtocol {
+public class Element<Object: ElementObject> {
     private var type = Object.self
     private var attributes = [String: (id: ValueID, apply: (Object) -> ())]()
     private var children = [String: Children<Object>]()
     private var key: Int?
+
+    func addAttributes<Value: Hashable>(key: String, value: Value?, apply: @escaping (Object) -> ()) -> Self {
+        let id: ValueID = value.map { .hash($0.hashValue) } ?? .none
+        attributes[key] = (id, apply)
+        return self
+    }
+
+    func addAttributes(key: String, value: Any?, apply: @escaping (Object) -> ()) -> Self {
+        let id: ValueID
+
+        if let value = value {
+            if let value = value as? NSObjectProtocol, !(value is NSArray), !(value is NSDictionary) {
+                id = .hash(value.hash)
+            } else {
+                id = .changing
+            }
+        } else {
+            id = .none
+        }
+
+        attributes[key] = (id, apply)
+        return self
+    }
+
+    func addChangingAttributes(key: String, apply: @escaping (Object) -> ()) -> Self {
+        attributes[key] = (.changing, apply)
+        return self
+    }
+
+    func addChildren(key: String, children: Children<Object>) -> Self {
+        self.children[key] = children
+        return self
+    }
+}
+
+extension Element: ElementProtocol {
+    public var anyAttributes: [String : (id: ValueID, apply: (Any) -> ())] {
+        return attributes.mapValues { value in
+            let apply = value.apply
+            return (value.id, { object in
+                guard let object = object as? Object else { return }
+                apply(object)
+            })
+        }
+    }
 
     public func apply(to object: Any, old: OldElement?) {
         let object = object as! Object
@@ -88,39 +134,6 @@ public class Element<Object: ElementObject>: ElementProtocol {
     public func createObject() -> Any {
         return Object()
     }
-
-    func addAttributes<Value: Hashable>(key: String, value: Value?, apply: @escaping (Object) -> ()) -> Self {
-        let id: ValueID = value.map { .hash($0.hashValue) } ?? .none
-        attributes[key] = (id, apply)
-        return self
-    }
-
-    func addAttributes(key: String, value: Any?, apply: @escaping (Object) -> ()) -> Self {
-        let id: ValueID
-
-        if let value = value {
-            if let value = value as? NSObjectProtocol, !(value is NSArray), !(value is NSDictionary) {
-                id = .hash(value.hash)
-            } else {
-                id = .changing
-            }
-        } else {
-            id = .none
-        }
-
-        attributes[key] = (id, apply)
-        return self
-    }
-
-    func addChangingAttributes(key: String, apply: @escaping (Object) -> ()) -> Self {
-        attributes[key] = (.changing, apply)
-        return self
-    }
-
-    func addChildren(key: String, children: Children<Object>) -> Self {
-        self.children[key] = children
-        return self
-    }
 }
 
 extension Element {
@@ -152,68 +165,18 @@ extension Element {
     }
 
     @discardableResult
-    public func style<T>(_ value: Element<T>) -> Self {
-        for (key, value) in value.attributes {
-            attributes[key] = (value.id, {
-                guard let object = $0 as? T else { return }
-                value.apply(object)
-            })
+    public func style(_ value: [ElementProtocol]) -> Self {
+        for style in value {
+            for (key, value) in style.anyAttributes {
+                attributes[key] = (value.id, value.apply)
+            }
         }
 
         return self
     }
 
     @discardableResult
-    public func set<Value: Hashable>(_ path: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> Self {
-        return addAttributes(key: "\(path.hashValue)", value: value) {
-            $0[keyPath: path] = value
-        }
-    }
-
-    @discardableResult
-    public func set<Value: Hashable>(_ path: ReferenceWritableKeyPath<Object, Value?>, _ value: Value?) -> Self {
-        return addAttributes(key: "\(path.hashValue)", value: value) {
-            $0[keyPath: path] = value
-        }
-    }
-
-    @discardableResult
-    public func set<Value>(_ path: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> Self {
-        return addAttributes(key: "\(path.hashValue)", value: value) {
-            $0[keyPath: path] = value
-        }
-    }
-
-    @discardableResult
-    public func set<Value>(_ path: ReferenceWritableKeyPath<Object, Value?>, _ value: Value?) -> Self {
-        return addAttributes(key: "\(path.hashValue)", value: value) {
-            $0[keyPath: path] = value
-        }
-    }
-}
-
-extension Element where Object: Component {
-    @discardableResult
-    public func props<Value: Hashable>(_ path: WritableKeyPath<Object.Props, Value>, _ value: Value) -> Self {
-        let fullPath = (\Object.props).appending(path: path)
-        return set(fullPath, value)
-    }
-
-    @discardableResult
-    public func props<Value: Hashable>(_ path: WritableKeyPath<Object.Props, Value?>, _ value: Value?) -> Self {
-        let fullPath = (\Object.props).appending(path: path)
-        return set(fullPath, value)
-    }
-
-    @discardableResult
-    public func props<Value>(_ path: WritableKeyPath<Object.Props, Value>, _ value: Value) -> Self {
-        let fullPath = (\Object.props).appending(path: path)
-        return set(fullPath, value)
-    }
-
-    @discardableResult
-    public func props<Value>(_ path: WritableKeyPath<Object.Props, Value?>, _ value: Value?) -> Self {
-        let fullPath = (\Object.props).appending(path: path)
-        return set(fullPath, value)
+    public func style(_ value: ElementProtocol...) -> Self {
+        return style(value)
     }
 }

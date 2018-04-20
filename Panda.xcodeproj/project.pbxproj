@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0F7CBC20887E8500B68587 /* Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F7CBB20887E8500B68587 /* Subviews.swift */; };
+		3B0F7CC12089919600B68587 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0F7CC02089919600B68587 /* KeyPath.swift */; };
 		3B2AB39F2081B18900F95259 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB39E2081B18900F95259 /* Element.swift */; };
 		3B2AB3A12081B2F400F95259 /* ElementObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB3A02081B2F400F95259 /* ElementObject.swift */; };
 		3B2AB3A52081B4C900F95259 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AB3A42081B4C900F95259 /* Component.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		3B0F7CBB20887E8500B68587 /* Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subviews.swift; sourceTree = "<group>"; };
+		3B0F7CC02089919600B68587 /* KeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
 		3B2AB39E2081B18900F95259 /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		3B2AB3A02081B2F400F95259 /* ElementObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementObject.swift; sourceTree = "<group>"; };
 		3B2AB3A42081B4C900F95259 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				3B2B901F1DC8530800B4E92F /* Actions.swift */,
 				3B7C3D6D1F2F575D00BCB492 /* Composite.swift */,
 				3BB2EEAA1DC9E891001D7AAB /* Font.swift */,
+				3B0F7CC02089919600B68587 /* KeyPath.swift */,
 				3B2B90181DC7770500B4E92F /* Layer.swift */,
 				3B7C3D671F2DE25600BCB492 /* SourceDelegate.swift */,
 				3B0F7CBB20887E8500B68587 /* Subviews.swift */,
@@ -364,6 +367,7 @@
 				3B8D24E62085D0BE00FB0567 /* UITextInput.swift in Sources */,
 				3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */,
 				3B0F7CBC20887E8500B68587 /* Subviews.swift in Sources */,
+				3B0F7CC12089919600B68587 /* KeyPath.swift in Sources */,
 				3BF5F3591DC99E680037C598 /* UICollectionView.swift in Sources */,
 				3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */,
 				3B2B90191DC7770500B4E92F /* Layer.swift in Sources */,

@@ -33,6 +33,8 @@ extension ElementObject {
         ElementStack.shared.add(element)
         return element
     }
+
+    public static var style: Element<Self> { return Element<Self>() }
 }
 
 extension UIView: ElementObject {}

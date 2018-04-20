@@ -36,3 +36,11 @@ extension ElementObject {
 }
 
 extension UIView: ElementObject {}
+
+extension Element {
+    func elements(from value: () -> ()) -> [ElementProtocol] {
+        ElementStack.shared.push()
+        value()
+        return ElementStack.shared.pop()
+    }
+}

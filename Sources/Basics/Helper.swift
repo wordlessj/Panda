@@ -52,3 +52,5 @@ extension AssociatedObject {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 }
+
+extension NSObject: AssociatedObject {}

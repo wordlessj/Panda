@@ -1,5 +1,5 @@
 //
-//  UILabelExtensions.swift
+//  Transform.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -25,9 +25,38 @@
 
 import UIKit
 
-extension Element where Object: UILabel {
+private func radianFromDegree(_ degree: CGFloat) -> CGFloat {
+    return degree / 180 * CGFloat.pi
+}
+
+extension Element where Object: UIView {
+    /// Set `transform` with rotation in radians.
     @discardableResult
-    public func shadow(color: UIColor?, offset: CGSize) -> Self {
-        return shadowColor(color).shadowOffset(offset)
+    public func rotation(radian: CGFloat) -> Self {
+        return transform(CGAffineTransform(rotationAngle: radian))
+    }
+
+    /// Set `transform` with rotation in degrees.
+    @discardableResult
+    public func rotation(degree: CGFloat) -> Self {
+        return rotation(radian: radianFromDegree(degree))
+    }
+
+    /// Set `transform` with scale.
+    @discardableResult
+    public func scale(x: CGFloat, y: CGFloat) -> Self {
+        return transform(CGAffineTransform(scaleX: x, y: y))
+    }
+
+    /// Set `transform` with scale.
+    @discardableResult
+    public func scale(_ value: CGFloat) -> Self {
+        return scale(x: value, y: value)
+    }
+
+    /// Set `transform` with translation.
+    @discardableResult
+    public func translation(x: CGFloat, y: CGFloat) -> Self {
+        return transform(CGAffineTransform(translationX: x, y: y))
     }
 }

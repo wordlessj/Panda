@@ -1,5 +1,5 @@
 //
-//  UIScrollViewExtensions.swift
+//  Composite.swift
 //  Panda
 //
 //  Copyright (c) 2017 Javier Zhang (https://wordlessj.github.io/)
@@ -24,6 +24,13 @@
 //
 
 import UIKit
+
+extension Element where Object: UILabel {
+    @discardableResult
+    public func shadow(color: UIColor?, offset: CGSize) -> Self {
+        return shadowColor(color).shadowOffset(offset)
+    }
+}
 
 extension Element where Object: UIScrollView {
     /// Always bounce horizontal and vertical.

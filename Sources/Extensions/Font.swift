@@ -29,48 +29,49 @@ public protocol FontContainer: class {
     var containedFont: UIFont? { get set }
 }
 
-extension PandaChain where Object: FontContainer {
+extension Element where Object: FontContainer {
     @discardableResult
-    public func font(_ value: UIFont?) -> PandaChain {
-        object.containedFont = value
-        return self
+    public func font(_ value: UIFont?) -> Self {
+        return addAttributes(key: "font", value: value) {
+            $0.containedFont = value
+        }
     }
 
     @discardableResult
-    public func font(style: UIFontTextStyle) -> PandaChain {
+    public func font(style: UIFontTextStyle) -> Self {
         return font(.preferredFont(forTextStyle: style))
     }
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func font(style: UIFontTextStyle, compatibleWith traitCollection: UITraitCollection?) -> PandaChain {
+    public func font(style: UIFontTextStyle, compatibleWith traitCollection: UITraitCollection?) -> Self {
         return font(.preferredFont(forTextStyle: style, compatibleWith: traitCollection))
     }
 
     @discardableResult
-    public func font(size: CGFloat) -> PandaChain {
+    public func font(size: CGFloat) -> Self {
         return font(.systemFont(ofSize: size))
     }
 
     @available(iOS 8.2, *)
     @discardableResult
-    public func font(size: CGFloat, weight: UIFont.Weight) -> PandaChain {
+    public func font(size: CGFloat, weight: UIFont.Weight) -> Self {
         return font(.systemFont(ofSize: size, weight: weight))
     }
 
     @discardableResult
-    public func font(boldSize size: CGFloat) -> PandaChain {
+    public func font(boldSize size: CGFloat) -> Self {
         return font(.boldSystemFont(ofSize: size))
     }
 
     @discardableResult
-    public func font(italicSize size: CGFloat) -> PandaChain {
+    public func font(italicSize size: CGFloat) -> Self {
         return font(.italicSystemFont(ofSize: size))
     }
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func font(monospacedDigitSize size: CGFloat, weight: UIFont.Weight) -> PandaChain {
+    public func font(monospacedDigitSize size: CGFloat, weight: UIFont.Weight) -> Self {
         return font(.monospacedDigitSystemFont(ofSize: size, weight: weight))
     }
 }
@@ -83,13 +84,6 @@ extension UIButton: FontContainer {
 }
 
 extension UILabel: FontContainer {
-    public var containedFont: UIFont? {
-        get { return font }
-        set { font = newValue }
-    }
-}
-
-extension UISimpleTextPrintFormatter: FontContainer {
     public var containedFont: UIFont? {
         get { return font }
         set { font = newValue }

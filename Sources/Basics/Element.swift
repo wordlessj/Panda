@@ -152,6 +152,18 @@ extension Element {
     }
 
     @discardableResult
+    public func style<T>(_ value: Element<T>) -> Self {
+        for (key, value) in value.attributes {
+            attributes[key] = (value.id, {
+                guard let object = $0 as? T else { return }
+                value.apply(object)
+            })
+        }
+
+        return self
+    }
+
+    @discardableResult
     public func set<Value: Hashable>(_ path: ReferenceWritableKeyPath<Object, Value>, _ value: Value) -> Self {
         return addAttributes(key: "\(path.hashValue)", value: value) {
             $0[keyPath: path] = value

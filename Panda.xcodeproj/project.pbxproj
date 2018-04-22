@@ -42,6 +42,7 @@
 		3B4080E71F20800700F810BE /* UIVisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B407FFA1F207E5C00F810BE /* UIVisualEffectView.swift */; };
 		3B4080E81F20800700F810BE /* UIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B407FF41F207E5C00F810BE /* UIWebView.swift */; };
 		3B4080E91F20800700F810BE /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B407FF51F207E5C00F810BE /* UIWindow.swift */; };
+		3B65456B208C65FC00206D9B /* LayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65456A208C65FC00206D9B /* LayoutManager.swift */; };
 		3B77B3192082F8FD005ECEB2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B3182082F8FD005ECEB2 /* Helper.swift */; };
 		3B77B31B20832C25005ECEB2 /* ComponentUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */; };
 		3B7C3D641F2DCD0100BCB492 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C3D631F2DCD0100BCB492 /* Transform.swift */; };
@@ -53,6 +54,33 @@
 		3BA7760D2081F98F000AA7E5 /* Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7760C2081F98F000AA7E5 /* Children.swift */; };
 		3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */; };
 		3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2EEAA1DC9E891001D7AAB /* Font.swift */; };
+		3BC92EF4208A15E70021E2A9 /* YGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92EEE208A15E70021E2A9 /* YGLayout.m */; };
+		3BC92EF5208A15E70021E2A9 /* UIView+Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EEF208A15E70021E2A9 /* UIView+Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC92EF6208A15E70021E2A9 /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92EF0208A15E70021E2A9 /* YGLayoutExtensions.swift */; };
+		3BC92EF7208A15E70021E2A9 /* YGLayout+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EF1208A15E70021E2A9 /* YGLayout+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3BC92EF8208A15E70021E2A9 /* UIView+Yoga.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92EF2208A15E70021E2A9 /* UIView+Yoga.m */; };
+		3BC92EF9208A15E70021E2A9 /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EF3208A15E70021E2A9 /* YGLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC92F0F208A16A30021E2A9 /* YGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92EFB208A16A20021E2A9 /* YGNode.cpp */; };
+		3BC92F10208A16A30021E2A9 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EFC208A16A20021E2A9 /* Utils.h */; };
+		3BC92F11208A16A30021E2A9 /* Yoga-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EFD208A16A20021E2A9 /* Yoga-internal.h */; };
+		3BC92F12208A16A30021E2A9 /* YGConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92EFE208A16A20021E2A9 /* YGConfig.h */; };
+		3BC92F13208A16A30021E2A9 /* Yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92EFF208A16A20021E2A9 /* Yoga.cpp */; };
+		3BC92F14208A16A30021E2A9 /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F00208A16A20021E2A9 /* YGLayout.h */; };
+		3BC92F15208A16A30021E2A9 /* YGNodePrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F01208A16A20021E2A9 /* YGNodePrint.cpp */; };
+		3BC92F16208A16A30021E2A9 /* YGConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F02208A16A20021E2A9 /* YGConfig.cpp */; };
+		3BC92F17208A16A30021E2A9 /* YGFloatOptional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F03208A16A20021E2A9 /* YGFloatOptional.cpp */; };
+		3BC92F18208A16A30021E2A9 /* YGMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F04208A16A20021E2A9 /* YGMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC92F19208A16A30021E2A9 /* YGNodePrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F05208A16A30021E2A9 /* YGNodePrint.h */; };
+		3BC92F1A208A16A30021E2A9 /* YGStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F06208A16A30021E2A9 /* YGStyle.h */; };
+		3BC92F1B208A16A30021E2A9 /* YGStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F07208A16A30021E2A9 /* YGStyle.cpp */; };
+		3BC92F1C208A16A30021E2A9 /* YGEnums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F08208A16A30021E2A9 /* YGEnums.cpp */; };
+		3BC92F1D208A16A30021E2A9 /* Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F09208A16A30021E2A9 /* Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC92F1E208A16A30021E2A9 /* YGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F0A208A16A30021E2A9 /* YGNode.h */; };
+		3BC92F1F208A16A30021E2A9 /* YGEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F0B208A16A30021E2A9 /* YGEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC92F20208A16A30021E2A9 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F0C208A16A30021E2A9 /* Utils.cpp */; };
+		3BC92F21208A16A30021E2A9 /* YGLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F0D208A16A30021E2A9 /* YGLayout.cpp */; };
+		3BC92F22208A16A30021E2A9 /* YGFloatOptional.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC92F0E208A16A30021E2A9 /* YGFloatOptional.h */; };
+		3BC92F25208A22BB0021E2A9 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC92F24208A22BB0021E2A9 /* Layout.swift */; };
 		3BF5F3451DC8CE3C0037C598 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3441DC8CE3C0037C598 /* UIButton.swift */; };
 		3BF5F3471DC8D1120037C598 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3461DC8D1120037C598 /* UILabel.swift */; };
 		3BF5F3491DC8D5600037C598 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5F3481DC8D5600037C598 /* UITextField.swift */; };
@@ -101,6 +129,7 @@
 		3B4080531F207FC200F810BE /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		3B4080671F207FE800F810BE /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3B40806A1F207FE800F810BE /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		3B65456A208C65FC00206D9B /* LayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutManager.swift; sourceTree = "<group>"; };
 		3B77B3182082F8FD005ECEB2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentUpdater.swift; sourceTree = "<group>"; };
 		3B7C3D631F2DCD0100BCB492 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
@@ -112,6 +141,33 @@
 		3BA7760C2081F98F000AA7E5 /* Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Children.swift; sourceTree = "<group>"; };
 		3BB2EE921DC9BF09001D7AAB /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		3BB2EEAA1DC9E891001D7AAB /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		3BC92EEE208A15E70021E2A9 /* YGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGLayout.m; sourceTree = "<group>"; };
+		3BC92EEF208A15E70021E2A9 /* UIView+Yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Yoga.h"; sourceTree = "<group>"; };
+		3BC92EF0208A15E70021E2A9 /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YGLayoutExtensions.swift; sourceTree = "<group>"; };
+		3BC92EF1208A15E70021E2A9 /* YGLayout+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YGLayout+Private.h"; sourceTree = "<group>"; };
+		3BC92EF2208A15E70021E2A9 /* UIView+Yoga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Yoga.m"; sourceTree = "<group>"; };
+		3BC92EF3208A15E70021E2A9 /* YGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLayout.h; sourceTree = "<group>"; };
+		3BC92EFB208A16A20021E2A9 /* YGNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGNode.cpp; sourceTree = "<group>"; };
+		3BC92EFC208A16A20021E2A9 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		3BC92EFD208A16A20021E2A9 /* Yoga-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Yoga-internal.h"; sourceTree = "<group>"; };
+		3BC92EFE208A16A20021E2A9 /* YGConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGConfig.h; sourceTree = "<group>"; };
+		3BC92EFF208A16A20021E2A9 /* Yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yoga.cpp; sourceTree = "<group>"; };
+		3BC92F00208A16A20021E2A9 /* YGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGLayout.h; sourceTree = "<group>"; };
+		3BC92F01208A16A20021E2A9 /* YGNodePrint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGNodePrint.cpp; sourceTree = "<group>"; };
+		3BC92F02208A16A20021E2A9 /* YGConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGConfig.cpp; sourceTree = "<group>"; };
+		3BC92F03208A16A20021E2A9 /* YGFloatOptional.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGFloatOptional.cpp; sourceTree = "<group>"; };
+		3BC92F04208A16A20021E2A9 /* YGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGMacros.h; sourceTree = "<group>"; };
+		3BC92F05208A16A30021E2A9 /* YGNodePrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNodePrint.h; sourceTree = "<group>"; };
+		3BC92F06208A16A30021E2A9 /* YGStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGStyle.h; sourceTree = "<group>"; };
+		3BC92F07208A16A30021E2A9 /* YGStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGStyle.cpp; sourceTree = "<group>"; };
+		3BC92F08208A16A30021E2A9 /* YGEnums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGEnums.cpp; sourceTree = "<group>"; };
+		3BC92F09208A16A30021E2A9 /* Yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yoga.h; sourceTree = "<group>"; };
+		3BC92F0A208A16A30021E2A9 /* YGNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGNode.h; sourceTree = "<group>"; };
+		3BC92F0B208A16A30021E2A9 /* YGEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGEnums.h; sourceTree = "<group>"; };
+		3BC92F0C208A16A30021E2A9 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		3BC92F0D208A16A30021E2A9 /* YGLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YGLayout.cpp; sourceTree = "<group>"; };
+		3BC92F0E208A16A30021E2A9 /* YGFloatOptional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGFloatOptional.h; sourceTree = "<group>"; };
+		3BC92F24208A22BB0021E2A9 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		3BF5F3441DC8CE3C0037C598 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		3BF5F3461DC8D1120037C598 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		3BF5F3481DC8D5600037C598 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -198,6 +254,8 @@
 				3B4081131F22E8BB00F810BE /* Basics */,
 				3BB2EE961DC9C1FD001D7AAB /* Extensions */,
 				3BB2EE971DC9C204001D7AAB /* Properties */,
+				3BC92EFA208A16650021E2A9 /* Yoga */,
+				3BC92EED208A14B90021E2A9 /* YogaKit */,
 				3B2B90131DC70B3B00B4E92F /* Supporting Files */,
 			);
 			path = Sources;
@@ -219,6 +277,7 @@
 				3B2AB3A02081B2F400F95259 /* ElementObject.swift */,
 				3B8D24E32084F7BF00FB0567 /* ElementStack.swift */,
 				3BA7760C2081F98F000AA7E5 /* Children.swift */,
+				3B65456A208C65FC00206D9B /* LayoutManager.swift */,
 				3B2AB3A42081B4C900F95259 /* Component.swift */,
 				3B77B31A20832C25005ECEB2 /* ComponentUpdater.swift */,
 				3B2AB3A62081B5C800F95259 /* RenderView.swift */,
@@ -236,6 +295,7 @@
 				3BB2EEAA1DC9E891001D7AAB /* Font.swift */,
 				3B0F7CC02089919600B68587 /* KeyPath.swift */,
 				3B2B90181DC7770500B4E92F /* Layer.swift */,
+				3BC92F24208A22BB0021E2A9 /* Layout.swift */,
 				3B7C3D671F2DE25600BCB492 /* SourceDelegate.swift */,
 				3B0F7CBB20887E8500B68587 /* Subviews.swift */,
 				3B7C3D631F2DCD0100BCB492 /* Transform.swift */,
@@ -251,6 +311,46 @@
 			path = Properties;
 			sourceTree = "<group>";
 		};
+		3BC92EED208A14B90021E2A9 /* YogaKit */ = {
+			isa = PBXGroup;
+			children = (
+				3BC92EEF208A15E70021E2A9 /* UIView+Yoga.h */,
+				3BC92EF2208A15E70021E2A9 /* UIView+Yoga.m */,
+				3BC92EF3208A15E70021E2A9 /* YGLayout.h */,
+				3BC92EEE208A15E70021E2A9 /* YGLayout.m */,
+				3BC92EF1208A15E70021E2A9 /* YGLayout+Private.h */,
+				3BC92EF0208A15E70021E2A9 /* YGLayoutExtensions.swift */,
+			);
+			path = YogaKit;
+			sourceTree = "<group>";
+		};
+		3BC92EFA208A16650021E2A9 /* Yoga */ = {
+			isa = PBXGroup;
+			children = (
+				3BC92F0C208A16A30021E2A9 /* Utils.cpp */,
+				3BC92EFC208A16A20021E2A9 /* Utils.h */,
+				3BC92F02208A16A20021E2A9 /* YGConfig.cpp */,
+				3BC92EFE208A16A20021E2A9 /* YGConfig.h */,
+				3BC92F08208A16A30021E2A9 /* YGEnums.cpp */,
+				3BC92F0B208A16A30021E2A9 /* YGEnums.h */,
+				3BC92F03208A16A20021E2A9 /* YGFloatOptional.cpp */,
+				3BC92F0E208A16A30021E2A9 /* YGFloatOptional.h */,
+				3BC92F0D208A16A30021E2A9 /* YGLayout.cpp */,
+				3BC92F00208A16A20021E2A9 /* YGLayout.h */,
+				3BC92F04208A16A20021E2A9 /* YGMacros.h */,
+				3BC92EFB208A16A20021E2A9 /* YGNode.cpp */,
+				3BC92F0A208A16A30021E2A9 /* YGNode.h */,
+				3BC92F01208A16A20021E2A9 /* YGNodePrint.cpp */,
+				3BC92F05208A16A30021E2A9 /* YGNodePrint.h */,
+				3BC92F07208A16A30021E2A9 /* YGStyle.cpp */,
+				3BC92F06208A16A30021E2A9 /* YGStyle.h */,
+				3BC92EFD208A16A20021E2A9 /* Yoga-internal.h */,
+				3BC92EFF208A16A20021E2A9 /* Yoga.cpp */,
+				3BC92F09208A16A30021E2A9 /* Yoga.h */,
+			);
+			path = Yoga;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -258,7 +358,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC92F12208A16A30021E2A9 /* YGConfig.h in Headers */,
+				3BC92F1F208A16A30021E2A9 /* YGEnums.h in Headers */,
+				3BC92EF9208A15E70021E2A9 /* YGLayout.h in Headers */,
+				3BC92EF5208A15E70021E2A9 /* UIView+Yoga.h in Headers */,
+				3BC92F18208A16A30021E2A9 /* YGMacros.h in Headers */,
+				3BC92F1D208A16A30021E2A9 /* Yoga.h in Headers */,
+				3BC92EF7208A15E70021E2A9 /* YGLayout+Private.h in Headers */,
 				3B2B900D1DC70A3E00B4E92F /* Panda.h in Headers */,
+				3BC92F11208A16A30021E2A9 /* Yoga-internal.h in Headers */,
+				3BC92F22208A16A30021E2A9 /* YGFloatOptional.h in Headers */,
+				3BC92F19208A16A30021E2A9 /* YGNodePrint.h in Headers */,
+				3BC92F10208A16A30021E2A9 /* Utils.h in Headers */,
+				3BC92F1E208A16A30021E2A9 /* YGNode.h in Headers */,
+				3BC92F1A208A16A30021E2A9 /* YGStyle.h in Headers */,
+				3BC92F14208A16A30021E2A9 /* YGLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +408,7 @@
 				TargetAttributes = {
 					3B2B90071DC70A3E00B4E92F = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -332,43 +446,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7C3D681F2DE25600BCB492 /* SourceDelegate.swift in Sources */,
+				3BC92F1C208A16A30021E2A9 /* YGEnums.cpp in Sources */,
 				3B2AB3A52081B4C900F95259 /* Component.swift in Sources */,
 				3B4080721F20800700F810BE /* NSObject.swift in Sources */,
+				3BC92EF4208A15E70021E2A9 /* YGLayout.m in Sources */,
 				3B7C3D6E1F2F575E00BCB492 /* Composite.swift in Sources */,
 				3B2AB3A72081B5C800F95259 /* RenderView.swift in Sources */,
 				3B8D24E42084F7BF00FB0567 /* ElementStack.swift in Sources */,
 				3B40807F1F20800700F810BE /* UIActivityIndicatorView.swift in Sources */,
 				3B40808B1F20800700F810BE /* UICollectionViewCell.swift in Sources */,
 				3B4080931F20800700F810BE /* UIDatePicker.swift in Sources */,
+				3BC92F20208A16A30021E2A9 /* Utils.cpp in Sources */,
 				3BA7760D2081F98F000AA7E5 /* Children.swift in Sources */,
+				3BC92F16208A16A30021E2A9 /* YGConfig.cpp in Sources */,
 				3B2AB3A12081B2F400F95259 /* ElementObject.swift in Sources */,
+				3BC92EF8208A15E70021E2A9 /* UIView+Yoga.m in Sources */,
 				3B4080A31F20800700F810BE /* UIInputView.swift in Sources */,
 				3B4080B21F20800700F810BE /* UINavigationBar.swift in Sources */,
+				3BC92F17208A16A30021E2A9 /* YGFloatOptional.cpp in Sources */,
 				3B4080B51F20800700F810BE /* UIPageControl.swift in Sources */,
 				3B7C3D641F2DCD0100BCB492 /* Transform.swift in Sources */,
+				3BC92F21208A16A30021E2A9 /* YGLayout.cpp in Sources */,
+				3BC92F13208A16A30021E2A9 /* Yoga.cpp in Sources */,
 				3B4080BA1F20800700F810BE /* UIPickerView.swift in Sources */,
 				3B4080BC1F20800700F810BE /* UIPopoverBackgroundView.swift in Sources */,
 				3B4080C61F20800700F810BE /* UIProgressView.swift in Sources */,
 				3B4080C81F20800700F810BE /* UIRefreshControl.swift in Sources */,
 				3B4080CC1F20800700F810BE /* UISearchBar.swift in Sources */,
 				3B4080CE1F20800700F810BE /* UISegmentedControl.swift in Sources */,
+				3BC92F25208A22BB0021E2A9 /* Layout.swift in Sources */,
 				3B77B3192082F8FD005ECEB2 /* Helper.swift in Sources */,
 				3B4080D01F20800700F810BE /* UISlider.swift in Sources */,
 				3B4080D31F20800700F810BE /* UIStepper.swift in Sources */,
 				3B4080D51F20800700F810BE /* UISwitch.swift in Sources */,
 				3B4080D61F20800700F810BE /* UITabBar.swift in Sources */,
+				3BC92F1B208A16A30021E2A9 /* YGStyle.cpp in Sources */,
 				3B4080D91F20800700F810BE /* UITableViewCell.swift in Sources */,
 				3B4080DB1F20800700F810BE /* UITableViewHeaderFooterView.swift in Sources */,
+				3B65456B208C65FC00206D9B /* LayoutManager.swift in Sources */,
 				3B4080E11F20800700F810BE /* UIToolbar.swift in Sources */,
 				3B2AB39F2081B18900F95259 /* Element.swift in Sources */,
 				3B4080E71F20800700F810BE /* UIVisualEffectView.swift in Sources */,
 				3B4080E81F20800700F810BE /* UIWebView.swift in Sources */,
 				3B4080E91F20800700F810BE /* UIWindow.swift in Sources */,
 				3B8D24E62085D0BE00FB0567 /* UITextInput.swift in Sources */,
+				3BC92F15208A16A30021E2A9 /* YGNodePrint.cpp in Sources */,
 				3BB2EE931DC9BF09001D7AAB /* UIStackView.swift in Sources */,
 				3B0F7CBC20887E8500B68587 /* Subviews.swift in Sources */,
 				3B0F7CC12089919600B68587 /* KeyPath.swift in Sources */,
 				3BF5F3591DC99E680037C598 /* UICollectionView.swift in Sources */,
+				3BC92F0F208A16A30021E2A9 /* YGNode.cpp in Sources */,
 				3BB2EEAB1DC9E891001D7AAB /* Font.swift in Sources */,
 				3B2B90191DC7770500B4E92F /* Layer.swift in Sources */,
 				3B2B90201DC8530800B4E92F /* Actions.swift in Sources */,
@@ -380,6 +507,7 @@
 				3B2B901C1DC84F5500B4E92F /* UIResponder.swift in Sources */,
 				3B77B31B20832C25005ECEB2 /* ComponentUpdater.swift in Sources */,
 				3BF5F3531DC98BFD0037C598 /* UIScrollView.swift in Sources */,
+				3BC92EF6208A15E70021E2A9 /* YGLayoutExtensions.swift in Sources */,
 				3B8D24E820874E2E00FB0567 /* Hash.swift in Sources */,
 				3BF5F3551DC98E4F0037C598 /* UITableView.swift in Sources */,
 				3B2B90151DC70D9B00B4E92F /* UIView.swift in Sources */,

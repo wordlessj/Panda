@@ -25,35 +25,51 @@
 
 import Foundation
 
+private var renderStateKey: UInt8 = 0
 private var propsKey: UInt8 = 0
 private var stateKey: UInt8 = 0
 private var prevPropsKey: UInt8 = 0
 private var prevStateKey: UInt8 = 0
 private var oldElementKey: UInt8 = 0
 
-public protocol Renderable {
-    func doShouldRender() -> Bool
-    func doBeforeRender()
-    func doRender()
-    func doAfterRender()
+enum RenderState {
+    case normal, dirty, rendering
 }
 
-public protocol SetRenderable: AnyObject {}
+public protocol Renderable {
+    func doRender()
+}
+
+public protocol SetRenderable: AnyObject, AssociatedObject {}
 
 extension SetRenderable {
+    var renderState: RenderState {
+        get { return associatedObject(key: &renderStateKey) ?? .normal }
+        set { setAssociatedObject(key: &renderStateKey, value: newValue) }
+    }
+
     public func setNeedsRender() {
-        ComponentUpdater.shared.update(self, lazily: true)
+        guard renderState == .normal else { return }
+        renderState = .dirty
+        ComponentUpdater.shared.add(self)
     }
 
     public func forceRender() {
-        ComponentUpdater.shared.update(self, lazily: false)
+        guard renderState != .rendering else { return }
+        renderState = .dirty
+        renderIfNeeded()
+    }
+
+    public func renderIfNeeded() {
+        guard let component = self as? Renderable, renderState == .dirty else { return }
+        component.doRender()
     }
 }
 
 public typealias PropsProtocol = Initable & Equatable
 public typealias StateProtocol = PropsProtocol
 
-public protocol Component: Renderable, SetRenderable, AssociatedObject {
+public protocol Component: Renderable, SetRenderable {
     associatedtype Props: PropsProtocol
     associatedtype State: StateProtocol
 
@@ -109,31 +125,29 @@ extension Component {
         set { setAssociatedObject(key: &oldElementKey, value: newValue) }
     }
 
-    private var somePrevProps: Props { return prevProps ?? props }
-    private var somePrevState: State { return prevState ?? state }
-
     public var renderObject: Any { return self }
 
-    public func doShouldRender() -> Bool {
-        return shouldRender(prevProps: somePrevProps, prevState: somePrevState)
-    }
-
-    public func doBeforeRender() {
-        willRender(prevProps: somePrevProps, prevState: somePrevState)
-    }
-
     public func doRender() {
-        let element = render()
-        element.apply(to: renderObject, old: oldElement)
-        oldElement = element.toOld()
-    }
+        renderState = .rendering
 
-    public func doAfterRender() {
-        let p = somePrevProps
-        let s = somePrevState
-        prevProps = nil
-        prevState = nil
-        didRender(prevProps: p, prevState: s)
+        let somePrevProps = prevProps ?? props
+        let somePrevState = prevState ?? state
+        let should = shouldRender(prevProps: somePrevProps, prevState: somePrevState)
+
+        if should {
+            willRender(prevProps: somePrevProps, prevState: somePrevState)
+            let element = render()
+            element.apply(to: renderObject, old: oldElement)
+            oldElement = element.toOld()
+        }
+
+        renderState = .normal
+
+        if should {
+            prevProps = nil
+            prevState = nil
+            didRender(prevProps: somePrevProps, prevState: somePrevState)
+        }
     }
 
     public func shouldRender(prevProps: Props, prevState: State) -> Bool { return true }

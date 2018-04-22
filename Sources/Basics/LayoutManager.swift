@@ -1,5 +1,5 @@
 //
-//  ComponentUpdater.swift
+//  LayoutManager.swift
 //  Panda
 //
 //  Copyright (c) 2018 Javier Zhang (https://wordlessj.github.io/)
@@ -25,26 +25,41 @@
 
 import Foundation
 
-private struct WeakBox {
-    weak var object: SetRenderable?
+private extension UIView {
+    var rootLayoutView: UIView {
+        var view = self
+
+        while (view.superview?.yoga.isEnabled ?? false) {
+            view = view.superview!
+        }
+
+        return view
+    }
 }
 
-class ComponentUpdater {
-    static let shared = ComponentUpdater()
+class LayoutManager {
+    static let shared = LayoutManager()
 
-    private var components = [WeakBox]()
+    private var rootViews = Set<UIView>()
+    private var counter = 0
 
-    func add(_ component: SetRenderable) {
-        components.append(WeakBox(object: component))
+    func add(_ view: UIView) {
+        rootViews.insert(view.rootLayoutView)
+    }
 
-        if components.count == 1 {
-            DispatchQueue.main.async(qos: .userInteractive) {
-                while !self.components.isEmpty {
-                    let box = self.components[0]
-                    box.object?.renderIfNeeded()
-                    self.components.removeFirst()
-                }
+    func beginLayout() {
+        counter += 1
+    }
+
+    func endLayout() {
+        counter -= 1
+
+        if counter == 0 {
+            for rootView in rootViews {
+                rootView.yoga.applyLayout(preservingOrigin: true)
             }
+
+            rootViews.removeAll()
         }
     }
 }

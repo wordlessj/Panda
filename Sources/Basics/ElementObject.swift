@@ -37,6 +37,15 @@ extension ElementObject {
     public static var style: Element<Self> { return Element<Self>() }
 }
 
+extension ElementObject where Self: UIView {
+    public static var el: Element<Self> {
+        let element = Element<Self>()
+        element.layoutEnabled(true)
+        ElementStack.shared.add(element)
+        return element
+    }
+}
+
 extension UIView: ElementObject {}
 
 extension Element {

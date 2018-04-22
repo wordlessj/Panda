@@ -29,6 +29,26 @@ public enum ValueID: Equatable {
     case hash(Int)
     case none
     case changing
+
+    init<Value: Hashable>(_ value: Value?) {
+        self = value.map { .hash($0.hashValue) } ?? .none
+    }
+
+    init(_ value: Any?) {
+        if let value = value {
+            if let value = value as? NSObjectProtocol, !(value is NSArray), !(value is NSDictionary) {
+                self = .hash(value.hash)
+            } else {
+                self = .changing
+            }
+        } else {
+            self = .none
+        }
+    }
+
+    func shouldChange(from old: ValueID?) -> Bool {
+        return self != old || self == .changing
+    }
 }
 
 public struct OldElement {
@@ -53,25 +73,12 @@ public class Element<Object: ElementObject> {
     private var key: Int?
 
     func addAttributes<Value: Hashable>(key: String, value: Value?, apply: @escaping (Object) -> ()) -> Self {
-        let id: ValueID = value.map { .hash($0.hashValue) } ?? .none
-        attributes[key] = (id, apply)
+        attributes[key] = (ValueID(value), apply)
         return self
     }
 
     func addAttributes(key: String, value: Any?, apply: @escaping (Object) -> ()) -> Self {
-        let id: ValueID
-
-        if let value = value {
-            if let value = value as? NSObjectProtocol, !(value is NSArray), !(value is NSDictionary) {
-                id = .hash(value.hash)
-            } else {
-                id = .changing
-            }
-        } else {
-            id = .none
-        }
-
-        attributes[key] = (id, apply)
+        attributes[key] = (ValueID(value), apply)
         return self
     }
 
@@ -99,16 +106,22 @@ extension Element: ElementProtocol {
 
     public func apply(to object: Any, old: OldElement?) {
         let object = object as! Object
-        let oldAttributes = old?.attributes ?? [:]
 
-        for (key, value) in attributes
-            where oldAttributes[key] != value.id || value.id == .changing {
-                value.apply(object)
+        LayoutManager.shared.beginLayout()
+
+        for (key, value) in attributes where value.id.shouldChange(from: old?.attributes[key]) {
+            value.apply(object)
         }
 
         for (key, value) in children {
             value.apply(to: object, oldElements: old?.children[key] ?? [])
         }
+
+        if let component = object as? SetRenderable {
+            component.renderIfNeeded()
+        }
+
+        LayoutManager.shared.endLayout()
     }
 
     public func toOld() -> OldElement {

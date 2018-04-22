@@ -68,8 +68,8 @@ struct Children<Object> {
     private func insertChild(to object: Object, at index: Int) {
         let element = elements[index]
         let child = element.createObject()
-        element.apply(to: child, old: nil)
         insert(object, child, index)
+        element.apply(to: child, old: nil)
     }
 
     private func removeChild(from object: Object, at index: Int) {

@@ -25,6 +25,13 @@
 
 import Foundation
 
+private extension UIView {
+    func applyLayoutIfRoot() {
+        guard yoga.isEnabled && !(superview?.yoga.isEnabled ?? false) else { return }
+        yoga.applyLayout(preservingOrigin: true)
+    }
+}
+
 open class RenderView: UIView, SetRenderable {
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,8 +45,11 @@ open class RenderView: UIView, SetRenderable {
         didInit()
     }
 
-    open func didInit() {
+    open func didInit() {}
 
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        applyLayoutIfRoot()
     }
 }
 
@@ -47,5 +57,10 @@ open class RenderViewController: UIViewController, SetRenderable {
     open override func viewDidLoad() {
         super.viewDidLoad()
         forceRender()
+    }
+
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.applyLayoutIfRoot()
     }
 }

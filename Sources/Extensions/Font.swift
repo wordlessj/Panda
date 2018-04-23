@@ -29,11 +29,12 @@ public protocol FontContainer: class {
     var containedFont: UIFont? { get set }
 }
 
-extension Element where Object: FontContainer {
+extension Element where Object: FontContainer, Object: UIView {
     @discardableResult
     public func font(_ value: UIFont?) -> Self {
         return addAttributes(key: "font", value: value) {
             $0.containedFont = value
+            $0.invalidateLayout()
         }
     }
 

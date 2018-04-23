@@ -12,6 +12,7 @@ extension Element where Object: UILabel {
     public func text(_ value: String?) -> Self {
         return addAttributes(key: "text", value: value) {
             $0.text = value
+            $0.invalidateLayout()
         }
     }
 
@@ -81,6 +82,7 @@ extension Element where Object: UILabel {
     public func attributedText(_ value: NSAttributedString?) -> Self {
         return addAttributes(key: "attributedText", value: value) {
             $0.attributedText = value
+            $0.invalidateLayout()
         }
     }
 
@@ -135,6 +137,7 @@ extension Element where Object: UILabel {
     public func lines(_ value: Int) -> Self {
         return addAttributes(key: "numberOfLines", value: value) {
             $0.numberOfLines = value
+            $0.invalidateLayout()
         }
     }
 
@@ -143,6 +146,7 @@ extension Element where Object: UILabel {
     public func numberOfLines(_ value: Int) -> Self {
         return addAttributes(key: "numberOfLines", value: value) {
             $0.numberOfLines = value
+            $0.invalidateLayout()
         }
     }
 

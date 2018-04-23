@@ -12,6 +12,7 @@ extension Element where Object: UIImageView {
     public func image(_ value: UIImage?) -> Self {
         return addAttributes(key: "image", value: value) {
             $0.image = value
+            $0.invalidateLayout()
         }
     }
 
@@ -19,6 +20,7 @@ extension Element where Object: UIImageView {
     public func highlightedImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "highlightedImage", value: value) {
             $0.highlightedImage = value
+            $0.invalidateLayout()
         }
     }
 
@@ -49,6 +51,7 @@ extension Element where Object: UIImageView {
     public func animationImages(_ value: [UIImage]?) -> Self {
         return addAttributes(key: "animationImages", value: value) {
             $0.animationImages = value
+            $0.invalidateLayout()
         }
     }
 

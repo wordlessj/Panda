@@ -13,6 +13,7 @@ extension Element where Object: UIButton {
     public func contentInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "contentEdgeInsets", value: value) {
             $0.contentEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -21,6 +22,7 @@ extension Element where Object: UIButton {
     public func contentEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "contentEdgeInsets", value: value) {
             $0.contentEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -29,6 +31,7 @@ extension Element where Object: UIButton {
     public func titleInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "titleEdgeInsets", value: value) {
             $0.titleEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -37,6 +40,7 @@ extension Element where Object: UIButton {
     public func titleEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "titleEdgeInsets", value: value) {
             $0.titleEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -52,6 +56,7 @@ extension Element where Object: UIButton {
     public func imageInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "imageEdgeInsets", value: value) {
             $0.imageEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -60,6 +65,7 @@ extension Element where Object: UIButton {
     public func imageEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "imageEdgeInsets", value: value) {
             $0.imageEdgeInsets = value
+            $0.invalidateLayout()
         }
     }
 
@@ -104,6 +110,7 @@ extension Element where Object: UIButton {
     public func title(_ value: String?) -> Self {
         return addAttributes(key: "titleNormal", value: value) {
             $0.setTitle(value, for: .normal)
+            $0.invalidateLayout()
         }
     }
 
@@ -111,6 +118,7 @@ extension Element where Object: UIButton {
     public func titleHighlighted(_ value: String?) -> Self {
         return addAttributes(key: "titleHighlighted", value: value) {
             $0.setTitle(value, for: .highlighted)
+            $0.invalidateLayout()
         }
     }
 
@@ -118,6 +126,7 @@ extension Element where Object: UIButton {
     public func titleSelected(_ value: String?) -> Self {
         return addAttributes(key: "titleSelected", value: value) {
             $0.setTitle(value, for: .selected)
+            $0.invalidateLayout()
         }
     }
 
@@ -125,6 +134,7 @@ extension Element where Object: UIButton {
     public func titleDisabled(_ value: String?) -> Self {
         return addAttributes(key: "titleDisabled", value: value) {
             $0.setTitle(value, for: .disabled)
+            $0.invalidateLayout()
         }
     }
 
@@ -188,6 +198,7 @@ extension Element where Object: UIButton {
     public func image(_ value: UIImage?) -> Self {
         return addAttributes(key: "imageNormal", value: value) {
             $0.setImage(value, for: .normal)
+            $0.invalidateLayout()
         }
     }
 
@@ -195,6 +206,7 @@ extension Element where Object: UIButton {
     public func imageHighlighted(_ value: UIImage?) -> Self {
         return addAttributes(key: "imageHighlighted", value: value) {
             $0.setImage(value, for: .highlighted)
+            $0.invalidateLayout()
         }
     }
 
@@ -202,6 +214,7 @@ extension Element where Object: UIButton {
     public func imageSelected(_ value: UIImage?) -> Self {
         return addAttributes(key: "imageSelected", value: value) {
             $0.setImage(value, for: .selected)
+            $0.invalidateLayout()
         }
     }
 
@@ -209,6 +222,7 @@ extension Element where Object: UIButton {
     public func imageDisabled(_ value: UIImage?) -> Self {
         return addAttributes(key: "imageDisabled", value: value) {
             $0.setImage(value, for: .disabled)
+            $0.invalidateLayout()
         }
     }
 
@@ -280,6 +294,7 @@ extension Element where Object: UIButton {
     public func attributedTitle(_ value: NSAttributedString?) -> Self {
         return addAttributes(key: "attributedTitleNormal", value: value) {
             $0.setAttributedTitle(value, for: .normal)
+            $0.invalidateLayout()
         }
     }
 
@@ -287,6 +302,7 @@ extension Element where Object: UIButton {
     public func attributedTitleHighlighted(_ value: NSAttributedString?) -> Self {
         return addAttributes(key: "attributedTitleHighlighted", value: value) {
             $0.setAttributedTitle(value, for: .highlighted)
+            $0.invalidateLayout()
         }
     }
 
@@ -294,6 +310,7 @@ extension Element where Object: UIButton {
     public func attributedTitleSelected(_ value: NSAttributedString?) -> Self {
         return addAttributes(key: "attributedTitleSelected", value: value) {
             $0.setAttributedTitle(value, for: .selected)
+            $0.invalidateLayout()
         }
     }
 
@@ -301,6 +318,7 @@ extension Element where Object: UIButton {
     public func attributedTitleDisabled(_ value: NSAttributedString?) -> Self {
         return addAttributes(key: "attributedTitleDisabled", value: value) {
             $0.setAttributedTitle(value, for: .disabled)
+            $0.invalidateLayout()
         }
     }
 }

@@ -1,6 +1,6 @@
 //
-//  LayoutManager.swift
-//  Panda
+//  AppDelegate.swift
+//  CounterSample
 //
 //  Copyright (c) 2018 Javier Zhang (https://wordlessj.github.io/)
 //
@@ -23,52 +23,16 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-extension UIView {
-    var rootLayoutView: UIView {
-        var view = self
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
 
-        while (view.superview?.yoga.isEnabled ?? false) {
-            view = view.superview!
-        }
-
-        return view
-    }
-
-    func setNeedsApplyLayout() {
-        LayoutManager.shared.add(self)
-    }
-
-    func invalidateLayout() {
-        yoga.markDirty()
-        setNeedsApplyLayout()
-    }
-}
-
-class LayoutManager {
-    static let shared = LayoutManager()
-
-    private var rootViews = Set<UIView>()
-    private var counter = 0
-
-    func add(_ view: UIView) {
-        rootViews.insert(view.rootLayoutView)
-    }
-
-    func beginLayout() {
-        counter += 1
-    }
-
-    func endLayout() {
-        counter -= 1
-
-        if counter == 0 {
-            for rootView in rootViews {
-                rootView.yoga.applyLayout(preservingOrigin: true)
-            }
-
-            rootViews.removeAll()
-        }
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    ) -> Bool {
+        return true
     }
 }

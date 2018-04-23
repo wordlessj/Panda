@@ -27,6 +27,19 @@ import UIKit
 
 private var actionBoxesKey: UInt8 = 0
 
+public protocol SelfWeakable: AnyObject {}
+
+extension SelfWeakable {
+    public func weakSelf<Param>(_ action: @escaping (Self) -> (Param) -> ()) -> (Param) -> () {
+        return { [weak self] param in
+            guard let s = self else { return }
+            action(s)(param)
+        }
+    }
+}
+
+extension NSObject: SelfWeakable {}
+
 class ActionBox {
     static let selector = #selector(trigger(_:))
 

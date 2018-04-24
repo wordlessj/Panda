@@ -10,8 +10,24 @@
 		3B654597208C973400206D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B654596208C973400206D9B /* AppDelegate.swift */; };
 		3B654599208C973400206D9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B654598208C973400206D9B /* ViewController.swift */; };
 		3B65459C208C973400206D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B65459A208C973400206D9B /* Main.storyboard */; };
-		3B6545AA208C992400206D9B /* Panda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6545A9208C992400206D9B /* Panda.framework */; };
+		3B6545AC208E2EB200206D9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6545AB208E2EB200206D9B /* LaunchScreen.storyboard */; };
+		3B6545B3208ED94700206D9B /* Panda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6545A9208C992400206D9B /* Panda.framework */; };
+		3B6545B4208ED94700206D9B /* Panda.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6545A9208C992400206D9B /* Panda.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3B6545B5208ED94800206D9B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B6545B4208ED94700206D9B /* Panda.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B654593208C973400206D9B /* CounterSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CounterSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +36,7 @@
 		3B65459B208C973400206D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B6545A2208C973500206D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B6545A9208C992400206D9B /* Panda.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Panda.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B6545AB208E2EB200206D9B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B6545AA208C992400206D9B /* Panda.framework in Frameworks */,
+				3B6545B3208ED94700206D9B /* Panda.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +74,7 @@
 				3B654596208C973400206D9B /* AppDelegate.swift */,
 				3B654598208C973400206D9B /* ViewController.swift */,
 				3B65459A208C973400206D9B /* Main.storyboard */,
+				3B6545AB208E2EB200206D9B /* LaunchScreen.storyboard */,
 				3B6545A2208C973500206D9B /* Info.plist */,
 			);
 			path = Sources;
@@ -80,6 +98,7 @@
 				3B65458F208C973400206D9B /* Sources */,
 				3B654590208C973400206D9B /* Frameworks */,
 				3B654591208C973400206D9B /* Resources */,
+				3B6545B5208ED94800206D9B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B65459C208C973400206D9B /* Main.storyboard in Resources */,
+				3B6545AC208E2EB200206D9B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

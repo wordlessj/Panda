@@ -37,7 +37,8 @@ enum RenderState {
 }
 
 public protocol Renderable {
-    func doRender()
+    func doRender() -> Bool
+    func doDidRender()
 }
 
 public protocol SetRenderable: AnyObject, AssociatedObject {}
@@ -62,7 +63,16 @@ extension SetRenderable {
 
     public func renderIfNeeded() {
         guard let component = self as? Renderable, renderState == .dirty else { return }
-        component.doRender()
+        LayoutManager.shared.beginLayout()
+        renderState = .rendering
+        let shouldRender = component.doRender()
+        renderState = .normal
+
+        if shouldRender {
+            LayoutManager.shared.addRendered(component)
+        }
+
+        LayoutManager.shared.endLayout()
     }
 }
 
@@ -125,29 +135,32 @@ extension Component {
         set { setAssociatedObject(key: &oldElementKey, value: newValue) }
     }
 
+    private var somePrevProps: Props { return prevProps ?? props }
+    private var somePrevState: State { return prevState ?? state }
+
     public var renderObject: Any { return self }
 
-    public func doRender() {
-        renderState = .rendering
-
-        let somePrevProps = prevProps ?? props
-        let somePrevState = prevState ?? state
-        let should = shouldRender(prevProps: somePrevProps, prevState: somePrevState)
+    public func doRender() -> Bool {
+        let p = somePrevProps
+        let s = somePrevState
+        let should = shouldRender(prevProps: p, prevState: s)
 
         if should {
-            willRender(prevProps: somePrevProps, prevState: somePrevState)
+            willRender(prevProps: p, prevState: s)
             let element = render()
             element.apply(to: renderObject, old: oldElement)
             oldElement = element.toOld()
         }
 
-        renderState = .normal
+        return should
+    }
 
-        if should {
-            prevProps = nil
-            prevState = nil
-            didRender(prevProps: somePrevProps, prevState: somePrevState)
-        }
+    public func doDidRender() {
+        let p = somePrevProps
+        let s = somePrevState
+        prevProps = nil
+        prevState = nil
+        didRender(prevProps: p, prevState: s)
     }
 
     public func shouldRender(prevProps: Props, prevState: State) -> Bool { return true }

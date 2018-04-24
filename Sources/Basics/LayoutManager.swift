@@ -37,7 +37,7 @@ extension UIView {
     }
 
     func setNeedsApplyLayout() {
-        LayoutManager.shared.add(self)
+        LayoutManager.shared.addLayout(self)
     }
 
     func invalidateLayout() {
@@ -50,10 +50,15 @@ class LayoutManager {
     static let shared = LayoutManager()
 
     private var rootViews = Set<UIView>()
+    private var components = [Renderable]()
     private var counter = 0
 
-    func add(_ view: UIView) {
+    func addLayout(_ view: UIView) {
         rootViews.insert(view.rootLayoutView)
+    }
+
+    func addRendered(_ component: Renderable) {
+        components.append(component)
     }
 
     func beginLayout() {
@@ -64,11 +69,20 @@ class LayoutManager {
         counter -= 1
 
         if counter == 0 {
-            for rootView in rootViews {
-                rootView.yoga.applyLayout(preservingOrigin: true)
-            }
-
-            rootViews.removeAll()
+            commit()
         }
+    }
+
+    private func commit() {
+        for rootView in rootViews {
+            rootView.yoga.applyLayout(preservingOrigin: true)
+        }
+
+        for component in components {
+            component.doDidRender()
+        }
+
+        rootViews.removeAll()
+        components.removeAll()
     }
 }

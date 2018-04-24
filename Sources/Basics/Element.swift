@@ -107,8 +107,6 @@ extension Element: ElementProtocol {
     public func apply(to object: Any, old: OldElement?) {
         let object = object as! Object
 
-        LayoutManager.shared.beginLayout()
-
         for (key, value) in attributes where value.id.shouldChange(from: old?.attributes[key]) {
             value.apply(object)
         }
@@ -120,8 +118,6 @@ extension Element: ElementProtocol {
         if let component = object as? SetRenderable {
             component.renderIfNeeded()
         }
-
-        LayoutManager.shared.endLayout()
     }
 
     public func toOld() -> OldElement {

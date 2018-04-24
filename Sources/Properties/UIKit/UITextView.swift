@@ -117,15 +117,6 @@ extension Element where Object: UITextView {
         }
     }
 
-    /// `textColor`
-    @discardableResult
-    public func color(_ value: UIColor?) -> Self {
-        return addAttributes(key: "textColor", value: value) {
-            $0.textColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "color()")
     @discardableResult
     public func textColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "textColor", value: value) {
@@ -133,15 +124,6 @@ extension Element where Object: UITextView {
         }
     }
 
-    /// `textAlignment`
-    @discardableResult
-    public func align(_ value: NSTextAlignment) -> Self {
-        return addAttributes(key: "textAlignment", value: value) {
-            $0.textAlignment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> Self {
         return addAttributes(key: "textAlignment", value: value) {
@@ -177,15 +159,6 @@ extension Element where Object: UITextView {
         }
     }
 
-    /// `allowsEditingTextAttributes`
-    @discardableResult
-    public func attributesEditable(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsEditingTextAttributes", value: value) {
-            $0.allowsEditingTextAttributes = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "attributesEditable()")
     @discardableResult
     public func allowsEditingTextAttributes(_ value: Bool) -> Self {
         return addAttributes(key: "allowsEditingTextAttributes", value: value) {
@@ -228,15 +201,6 @@ extension Element where Object: UITextView {
         }
     }
 
-    /// `textContainerInset`
-    @discardableResult
-    public func containerInset(_ value: UIEdgeInsets) -> Self {
-        return addAttributes(key: "textContainerInset", value: value) {
-            $0.textContainerInset = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "containerInset()")
     @discardableResult
     public func textContainerInset(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "textContainerInset", value: value) {
@@ -244,15 +208,6 @@ extension Element where Object: UITextView {
         }
     }
 
-    /// `linkTextAttributes`
-    @discardableResult
-    public func linkAttributes(_ value: [String: Any]?) -> Self {
-        return addAttributes(key: "linkTextAttributes", value: value) {
-            $0.linkTextAttributes = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "linkAttributes()")
     @discardableResult
     public func linkTextAttributes(_ value: [String: Any]?) -> Self {
         return addAttributes(key: "linkTextAttributes", value: value) {

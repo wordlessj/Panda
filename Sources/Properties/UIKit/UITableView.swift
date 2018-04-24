@@ -22,16 +22,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `prefetchDataSource`
-    @available(iOS 10.0, *)
-    @discardableResult
-    public func prefetchSource(_ value: UITableViewDataSourcePrefetching?) -> Self {
-        return addAttributes(key: "prefetchDataSource", value: value) {
-            $0.prefetchDataSource = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "prefetchSource()")
     @available(iOS 10.0, *)
     @discardableResult
     public func prefetchDataSource(_ value: UITableViewDataSourcePrefetching?) -> Self {
@@ -63,15 +53,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `sectionHeaderHeight`
-    @discardableResult
-    public func headerHeight(_ value: CGFloat) -> Self {
-        return addAttributes(key: "sectionHeaderHeight", value: value) {
-            $0.sectionHeaderHeight = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "headerHeight()")
     @discardableResult
     public func sectionHeaderHeight(_ value: CGFloat) -> Self {
         return addAttributes(key: "sectionHeaderHeight", value: value) {
@@ -79,15 +60,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `sectionFooterHeight`
-    @discardableResult
-    public func footerHeight(_ value: CGFloat) -> Self {
-        return addAttributes(key: "sectionFooterHeight", value: value) {
-            $0.sectionFooterHeight = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "footerHeight()")
     @discardableResult
     public func sectionFooterHeight(_ value: CGFloat) -> Self {
         return addAttributes(key: "sectionFooterHeight", value: value) {
@@ -102,15 +74,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `estimatedSectionHeaderHeight`
-    @discardableResult
-    public func estimatedHeaderHeight(_ value: CGFloat) -> Self {
-        return addAttributes(key: "estimatedSectionHeaderHeight", value: value) {
-            $0.estimatedSectionHeaderHeight = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "estimatedHeaderHeight()")
     @discardableResult
     public func estimatedSectionHeaderHeight(_ value: CGFloat) -> Self {
         return addAttributes(key: "estimatedSectionHeaderHeight", value: value) {
@@ -118,15 +81,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `estimatedSectionFooterHeight`
-    @discardableResult
-    public func estimatedFooterHeight(_ value: CGFloat) -> Self {
-        return addAttributes(key: "estimatedSectionFooterHeight", value: value) {
-            $0.estimatedSectionFooterHeight = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "estimatedFooterHeight()")
     @discardableResult
     public func estimatedSectionFooterHeight(_ value: CGFloat) -> Self {
         return addAttributes(key: "estimatedSectionFooterHeight", value: value) {
@@ -149,15 +103,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `backgroundView`
-    @discardableResult
-    public func background(_ value: UIView?) -> Self {
-        return addAttributes(key: "backgroundView", value: value) {
-            $0.backgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "backgroundView", value: value) {
@@ -172,15 +117,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `allowsSelection`
-    @discardableResult
-    public func selectable(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsSelection", value: value) {
-            $0.allowsSelection = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "selectable()")
     @discardableResult
     public func allowsSelection(_ value: Bool) -> Self {
         return addAttributes(key: "allowsSelection", value: value) {
@@ -188,15 +124,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `allowsSelectionDuringEditing`
-    @discardableResult
-    public func selectableDuringEditing(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsSelectionDuringEditing", value: value) {
-            $0.allowsSelectionDuringEditing = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "selectableDuringEditing()")
     @discardableResult
     public func allowsSelectionDuringEditing(_ value: Bool) -> Self {
         return addAttributes(key: "allowsSelectionDuringEditing", value: value) {
@@ -204,15 +131,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `allowsMultipleSelection`
-    @discardableResult
-    public func multiSelectable(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsMultipleSelection", value: value) {
-            $0.allowsMultipleSelection = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "multiSelectable()")
     @discardableResult
     public func allowsMultipleSelection(_ value: Bool) -> Self {
         return addAttributes(key: "allowsMultipleSelection", value: value) {
@@ -220,15 +138,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `allowsMultipleSelectionDuringEditing`
-    @discardableResult
-    public func multiSelectableDuringEditing(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsMultipleSelectionDuringEditing", value: value) {
-            $0.allowsMultipleSelectionDuringEditing = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "multiSelectableDuringEditing()")
     @discardableResult
     public func allowsMultipleSelectionDuringEditing(_ value: Bool) -> Self {
         return addAttributes(key: "allowsMultipleSelectionDuringEditing", value: value) {
@@ -236,15 +145,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `sectionIndexMinimumDisplayRowCount`
-    @discardableResult
-    public func sectionIndexMinDisplayRowCount(_ value: Int) -> Self {
-        return addAttributes(key: "sectionIndexMinimumDisplayRowCount", value: value) {
-            $0.sectionIndexMinimumDisplayRowCount = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "sectionIndexMinDisplayRowCount()")
     @discardableResult
     public func sectionIndexMinimumDisplayRowCount(_ value: Int) -> Self {
         return addAttributes(key: "sectionIndexMinimumDisplayRowCount", value: value) {
@@ -259,15 +159,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `sectionIndexBackgroundColor`
-    @discardableResult
-    public func sectionIndexBackground(_ value: UIColor?) -> Self {
-        return addAttributes(key: "sectionIndexBackgroundColor", value: value) {
-            $0.sectionIndexBackgroundColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "sectionIndexBackground()")
     @discardableResult
     public func sectionIndexBackgroundColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "sectionIndexBackgroundColor", value: value) {
@@ -275,15 +166,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `sectionIndexTrackingBackgroundColor`
-    @discardableResult
-    public func sectionIndexTrackingBackground(_ value: UIColor?) -> Self {
-        return addAttributes(key: "sectionIndexTrackingBackgroundColor", value: value) {
-            $0.sectionIndexTrackingBackgroundColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "sectionIndexTrackingBackground()")
     @discardableResult
     public func sectionIndexTrackingBackgroundColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "sectionIndexTrackingBackgroundColor", value: value) {
@@ -312,15 +194,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `cellLayoutMarginsFollowReadableWidth`
-    @discardableResult
-    public func cellMarginsFollowReadableWidth(_ value: Bool) -> Self {
-        return addAttributes(key: "cellLayoutMarginsFollowReadableWidth", value: value) {
-            $0.cellLayoutMarginsFollowReadableWidth = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "cellMarginsFollowReadableWidth()")
     @discardableResult
     public func cellLayoutMarginsFollowReadableWidth(_ value: Bool) -> Self {
         return addAttributes(key: "cellLayoutMarginsFollowReadableWidth", value: value) {
@@ -350,15 +223,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `remembersLastFocusedIndexPath`
-    @discardableResult
-    public func remembersLastFocus(_ value: Bool) -> Self {
-        return addAttributes(key: "remembersLastFocusedIndexPath", value: value) {
-            $0.remembersLastFocusedIndexPath = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "remembersLastFocus()")
     @discardableResult
     public func remembersLastFocusedIndexPath(_ value: Bool) -> Self {
         return addAttributes(key: "remembersLastFocusedIndexPath", value: value) {
@@ -366,16 +230,6 @@ extension Element where Object: UITableView {
         }
     }
 
-    /// `dragInteractionEnabled`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func draggable(_ value: Bool) -> Self {
-        return addAttributes(key: "dragInteractionEnabled", value: value) {
-            $0.dragInteractionEnabled = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "draggable()")
     @available(iOS 11.0, *)
     @discardableResult
     public func dragInteractionEnabled(_ value: Bool) -> Self {

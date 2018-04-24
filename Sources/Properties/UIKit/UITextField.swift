@@ -29,15 +29,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `textColor`
-    @discardableResult
-    public func color(_ value: UIColor?) -> Self {
-        return addAttributes(key: "textColor", value: value) {
-            $0.textColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "color()")
     @discardableResult
     public func textColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "textColor", value: value) {
@@ -45,15 +36,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `textAlignment`
-    @discardableResult
-    public func align(_ value: NSTextAlignment) -> Self {
-        return addAttributes(key: "textAlignment", value: value) {
-            $0.textAlignment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> Self {
         return addAttributes(key: "textAlignment", value: value) {
@@ -68,15 +50,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `defaultTextAttributes`
-    @discardableResult
-    public func defaultAttributes(_ value: [String: Any]) -> Self {
-        return addAttributes(key: "defaultTextAttributes", value: value) {
-            $0.defaultTextAttributes = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "defaultAttributes()")
     @discardableResult
     public func defaultTextAttributes(_ value: [String: Any]) -> Self {
         return addAttributes(key: "defaultTextAttributes", value: value) {
@@ -105,15 +78,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `adjustsFontSizeToFitWidth`
-    @discardableResult
-    public func adjustsFontSize(_ value: Bool) -> Self {
-        return addAttributes(key: "adjustsFontSizeToFitWidth", value: value) {
-            $0.adjustsFontSizeToFitWidth = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "adjustsFontSize()")
     @discardableResult
     public func adjustsFontSizeToFitWidth(_ value: Bool) -> Self {
         return addAttributes(key: "adjustsFontSizeToFitWidth", value: value) {
@@ -121,15 +85,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `minimumFontSize`
-    @discardableResult
-    public func minFontSize(_ value: CGFloat) -> Self {
-        return addAttributes(key: "minimumFontSize", value: value) {
-            $0.minimumFontSize = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "minFontSize()")
     @discardableResult
     public func minimumFontSize(_ value: CGFloat) -> Self {
         return addAttributes(key: "minimumFontSize", value: value) {
@@ -158,15 +113,6 @@ extension Element where Object: UITextField {
         }
     }
 
-    /// `allowsEditingTextAttributes`
-    @discardableResult
-    public func attributesEditable(_ value: Bool) -> Self {
-        return addAttributes(key: "allowsEditingTextAttributes", value: value) {
-            $0.allowsEditingTextAttributes = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "attributesEditable()")
     @discardableResult
     public func allowsEditingTextAttributes(_ value: Bool) -> Self {
         return addAttributes(key: "allowsEditingTextAttributes", value: value) {

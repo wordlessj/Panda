@@ -29,15 +29,6 @@ extension Element where Object: UIControl {
         }
     }
 
-    /// `contentVerticalAlignment`
-    @discardableResult
-    public func verticalAlign(_ value: UIControlContentVerticalAlignment) -> Self {
-        return addAttributes(key: "contentVerticalAlignment", value: value) {
-            $0.contentVerticalAlignment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "verticalAlign()")
     @discardableResult
     public func contentVerticalAlignment(_ value: UIControlContentVerticalAlignment) -> Self {
         return addAttributes(key: "contentVerticalAlignment", value: value) {
@@ -45,15 +36,6 @@ extension Element where Object: UIControl {
         }
     }
 
-    /// `contentHorizontalAlignment`
-    @discardableResult
-    public func horizontalAlign(_ value: UIControlContentHorizontalAlignment) -> Self {
-        return addAttributes(key: "contentHorizontalAlignment", value: value) {
-            $0.contentHorizontalAlignment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "horizontalAlign()")
     @discardableResult
     public func contentHorizontalAlignment(_ value: UIControlContentHorizontalAlignment) -> Self {
         return addAttributes(key: "contentHorizontalAlignment", value: value) {

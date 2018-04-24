@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UISwitch {
-    /// `onTintColor`
-    @discardableResult
-    public func onTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "onTintColor", value: value) {
-            $0.onTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "onTint()")
     @discardableResult
     public func onTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "onTintColor", value: value) {
@@ -24,15 +15,6 @@ extension Element where Object: UISwitch {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -40,15 +22,6 @@ extension Element where Object: UISwitch {
         }
     }
 
-    /// `thumbTintColor`
-    @discardableResult
-    public func thumbTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "thumbTintColor", value: value) {
-            $0.thumbTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "thumbTint()")
     @discardableResult
     public func thumbTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "thumbTintColor", value: value) {

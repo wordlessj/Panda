@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UIProgressView {
-    /// `progressViewStyle`
-    @discardableResult
-    public func style(_ value: UIProgressViewStyle) -> Self {
-        return addAttributes(key: "progressViewStyle", value: value) {
-            $0.progressViewStyle = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func progressViewStyle(_ value: UIProgressViewStyle) -> Self {
         return addAttributes(key: "progressViewStyle", value: value) {
@@ -31,15 +22,6 @@ extension Element where Object: UIProgressView {
         }
     }
 
-    /// `progressTintColor`
-    @discardableResult
-    public func progressTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "progressTintColor", value: value) {
-            $0.progressTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "progressTint()")
     @discardableResult
     public func progressTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "progressTintColor", value: value) {
@@ -47,15 +29,6 @@ extension Element where Object: UIProgressView {
         }
     }
 
-    /// `trackTintColor`
-    @discardableResult
-    public func trackTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "trackTintColor", value: value) {
-            $0.trackTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "trackTint()")
     @discardableResult
     public func trackTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "trackTintColor", value: value) {

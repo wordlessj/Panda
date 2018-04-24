@@ -29,16 +29,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `contentInsetAdjustmentBehavior`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func contentInsetAdjust(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> Self {
-        return addAttributes(key: "contentInsetAdjustmentBehavior", value: value) {
-            $0.contentInsetAdjustmentBehavior = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "contentInsetAdjust()")
     @available(iOS 11.0, *)
     @discardableResult
     public func contentInsetAdjustmentBehavior(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> Self {
@@ -54,15 +44,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `isDirectionalLockEnabled`
-    @discardableResult
-    public func directionLocked(_ value: Bool) -> Self {
-        return addAttributes(key: "isDirectionalLockEnabled", value: value) {
-            $0.isDirectionalLockEnabled = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "directionLocked()")
     @discardableResult
     public func directionalLockEnabled(_ value: Bool) -> Self {
         return addAttributes(key: "isDirectionalLockEnabled", value: value) {
@@ -91,15 +72,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `isPagingEnabled`
-    @discardableResult
-    public func paged(_ value: Bool) -> Self {
-        return addAttributes(key: "isPagingEnabled", value: value) {
-            $0.isPagingEnabled = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "paged()")
     @discardableResult
     public func pagingEnabled(_ value: Bool) -> Self {
         return addAttributes(key: "isPagingEnabled", value: value) {
@@ -107,15 +79,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `isScrollEnabled`
-    @discardableResult
-    public func scrollable(_ value: Bool) -> Self {
-        return addAttributes(key: "isScrollEnabled", value: value) {
-            $0.isScrollEnabled = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "scrollable()")
     @discardableResult
     public func scrollEnabled(_ value: Bool) -> Self {
         return addAttributes(key: "isScrollEnabled", value: value) {
@@ -123,15 +86,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `showsHorizontalScrollIndicator`
-    @discardableResult
-    public func showsHorizontalIndicator(_ value: Bool) -> Self {
-        return addAttributes(key: "showsHorizontalScrollIndicator", value: value) {
-            $0.showsHorizontalScrollIndicator = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "showsHorizontalIndicator()")
     @discardableResult
     public func showsHorizontalScrollIndicator(_ value: Bool) -> Self {
         return addAttributes(key: "showsHorizontalScrollIndicator", value: value) {
@@ -139,15 +93,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `showsVerticalScrollIndicator`
-    @discardableResult
-    public func showsVerticalIndicator(_ value: Bool) -> Self {
-        return addAttributes(key: "showsVerticalScrollIndicator", value: value) {
-            $0.showsVerticalScrollIndicator = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "showsVerticalIndicator()")
     @discardableResult
     public func showsVerticalScrollIndicator(_ value: Bool) -> Self {
         return addAttributes(key: "showsVerticalScrollIndicator", value: value) {
@@ -155,15 +100,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `scrollIndicatorInsets`
-    @discardableResult
-    public func indicatorInsets(_ value: UIEdgeInsets) -> Self {
-        return addAttributes(key: "scrollIndicatorInsets", value: value) {
-            $0.scrollIndicatorInsets = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "indicatorInsets()")
     @discardableResult
     public func scrollIndicatorInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "scrollIndicatorInsets", value: value) {
@@ -206,15 +142,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `minimumZoomScale`
-    @discardableResult
-    public func minZoomScale(_ value: CGFloat) -> Self {
-        return addAttributes(key: "minimumZoomScale", value: value) {
-            $0.minimumZoomScale = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "minZoomScale()")
     @discardableResult
     public func minimumZoomScale(_ value: CGFloat) -> Self {
         return addAttributes(key: "minimumZoomScale", value: value) {
@@ -222,15 +149,6 @@ extension Element where Object: UIScrollView {
         }
     }
 
-    /// `maximumZoomScale`
-    @discardableResult
-    public func maxZoomScale(_ value: CGFloat) -> Self {
-        return addAttributes(key: "maximumZoomScale", value: value) {
-            $0.maximumZoomScale = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "maxZoomScale()")
     @discardableResult
     public func maximumZoomScale(_ value: CGFloat) -> Self {
         return addAttributes(key: "maximumZoomScale", value: value) {

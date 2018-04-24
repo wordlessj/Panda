@@ -8,16 +8,6 @@
 import UIKit
 
 extension Element where Object: UIButton {
-    /// `contentEdgeInsets`
-    @discardableResult
-    public func contentInsets(_ value: UIEdgeInsets) -> Self {
-        return addAttributes(key: "contentEdgeInsets", value: value) {
-            $0.contentEdgeInsets = value
-            $0.invalidateLayout()
-        }
-    }
-
-    @available(*, deprecated, renamed: "contentInsets()")
     @discardableResult
     public func contentEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "contentEdgeInsets", value: value) {
@@ -26,16 +16,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `titleEdgeInsets`
-    @discardableResult
-    public func titleInsets(_ value: UIEdgeInsets) -> Self {
-        return addAttributes(key: "titleEdgeInsets", value: value) {
-            $0.titleEdgeInsets = value
-            $0.invalidateLayout()
-        }
-    }
-
-    @available(*, deprecated, renamed: "titleInsets()")
     @discardableResult
     public func titleEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "titleEdgeInsets", value: value) {
@@ -51,16 +31,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `imageEdgeInsets`
-    @discardableResult
-    public func imageInsets(_ value: UIEdgeInsets) -> Self {
-        return addAttributes(key: "imageEdgeInsets", value: value) {
-            $0.imageEdgeInsets = value
-            $0.invalidateLayout()
-        }
-    }
-
-    @available(*, deprecated, renamed: "imageInsets()")
     @discardableResult
     public func imageEdgeInsets(_ value: UIEdgeInsets) -> Self {
         return addAttributes(key: "imageEdgeInsets", value: value) {
@@ -90,15 +60,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -226,15 +187,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageNormal", value: value) {
-            $0.setBackgroundImage(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageNormal", value: value) {
@@ -242,15 +194,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `backgroundImageHighlighted`
-    @discardableResult
-    public func backgroundHighlighted(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageHighlighted", value: value) {
-            $0.setBackgroundImage(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundHighlighted()")
     @discardableResult
     public func backgroundImageHighlighted(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageHighlighted", value: value) {
@@ -258,15 +201,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `backgroundImageSelected`
-    @discardableResult
-    public func backgroundSelected(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageSelected", value: value) {
-            $0.setBackgroundImage(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundSelected()")
     @discardableResult
     public func backgroundImageSelected(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageSelected", value: value) {
@@ -274,15 +208,6 @@ extension Element where Object: UIButton {
         }
     }
 
-    /// `backgroundImageDisabled`
-    @discardableResult
-    public func backgroundDisabled(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageDisabled", value: value) {
-            $0.setBackgroundImage(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundDisabled()")
     @discardableResult
     public func backgroundImageDisabled(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageDisabled", value: value) {

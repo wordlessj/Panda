@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UITableViewCell {
-    /// `backgroundView`
-    @discardableResult
-    public func background(_ value: UIView?) -> Self {
-        return addAttributes(key: "backgroundView", value: value) {
-            $0.backgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "backgroundView", value: value) {
@@ -24,15 +15,6 @@ extension Element where Object: UITableViewCell {
         }
     }
 
-    /// `selectedBackgroundView`
-    @discardableResult
-    public func selectedBackground(_ value: UIView?) -> Self {
-        return addAttributes(key: "selectedBackgroundView", value: value) {
-            $0.selectedBackgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "selectedBackground()")
     @discardableResult
     public func selectedBackgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "selectedBackgroundView", value: value) {
@@ -40,15 +22,6 @@ extension Element where Object: UITableViewCell {
         }
     }
 
-    /// `multipleSelectionBackgroundView`
-    @discardableResult
-    public func multipleSelectionBackground(_ value: UIView?) -> Self {
-        return addAttributes(key: "multipleSelectionBackgroundView", value: value) {
-            $0.multipleSelectionBackgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "multipleSelectionBackground()")
     @discardableResult
     public func multipleSelectionBackgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "multipleSelectionBackgroundView", value: value) {
@@ -154,16 +127,6 @@ extension Element where Object: UITableViewCell {
         }
     }
 
-    /// `userInteractionEnabledWhileDragging`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func interactableWhileDragging(_ value: Bool) -> Self {
-        return addAttributes(key: "userInteractionEnabledWhileDragging", value: value) {
-            $0.userInteractionEnabledWhileDragging = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "interactableWhileDragging()")
     @available(iOS 11.0, *)
     @discardableResult
     public func userInteractionEnabledWhileDragging(_ value: Bool) -> Self {

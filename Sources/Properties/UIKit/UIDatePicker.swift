@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UIDatePicker {
-    /// `datePickerMode`
-    @discardableResult
-    public func mode(_ value: UIDatePickerMode) -> Self {
-        return addAttributes(key: "datePickerMode", value: value) {
-            $0.datePickerMode = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "mode()")
     @discardableResult
     public func datePickerMode(_ value: UIDatePickerMode) -> Self {
         return addAttributes(key: "datePickerMode", value: value) {
@@ -52,15 +43,6 @@ extension Element where Object: UIDatePicker {
         }
     }
 
-    /// `minimumDate`
-    @discardableResult
-    public func minDate(_ value: Date?) -> Self {
-        return addAttributes(key: "minimumDate", value: value) {
-            $0.minimumDate = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "minDate()")
     @discardableResult
     public func minimumDate(_ value: Date?) -> Self {
         return addAttributes(key: "minimumDate", value: value) {
@@ -68,15 +50,6 @@ extension Element where Object: UIDatePicker {
         }
     }
 
-    /// `maximumDate`
-    @discardableResult
-    public func maxDate(_ value: Date?) -> Self {
-        return addAttributes(key: "maximumDate", value: value) {
-            $0.maximumDate = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "maxDate()")
     @discardableResult
     public func maximumDate(_ value: Date?) -> Self {
         return addAttributes(key: "maximumDate", value: value) {

@@ -41,7 +41,7 @@ extension Element where Object: UIScrollView {
 
     /// Shows horizontal and vertical scroll indicators.
     @discardableResult
-    public func showsIndicators(_ value: Bool) -> Self {
-        return showsHorizontalIndicator(value).showsVerticalIndicator(value)
+    public func showsScrollIndicators(_ value: Bool) -> Self {
+        return showsHorizontalScrollIndicator(value).showsVerticalScrollIndicator(value)
     }
 }

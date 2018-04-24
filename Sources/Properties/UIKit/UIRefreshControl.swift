@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UIRefreshControl {
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {

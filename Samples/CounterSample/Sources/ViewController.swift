@@ -35,7 +35,7 @@ class ViewController: RenderViewController, Component {
 
     private let labelStyle = UILabel.style
         .font(monospacedDigitSize: 200, weight: .ultraLight)
-        .align(.center)
+        .textAlignment(.center)
 
     private let buttonStyle = UIButton.style
         .font(size: 100, weight: .ultraLight)

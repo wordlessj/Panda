@@ -15,15 +15,6 @@ extension Element where Object: UIWindow {
         }
     }
 
-    /// `windowLevel`
-    @discardableResult
-    public func level(_ value: UIWindowLevel) -> Self {
-        return addAttributes(key: "windowLevel", value: value) {
-            $0.windowLevel = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "level()")
     @discardableResult
     public func windowLevel(_ value: UIWindowLevel) -> Self {
         return addAttributes(key: "windowLevel", value: value) {

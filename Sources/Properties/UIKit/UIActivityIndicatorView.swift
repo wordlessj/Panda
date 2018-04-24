@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UIActivityIndicatorView {
-    /// `activityIndicatorViewStyle`
-    @discardableResult
-    public func style(_ value: UIActivityIndicatorViewStyle) -> Self {
-        return addAttributes(key: "activityIndicatorViewStyle", value: value) {
-            $0.activityIndicatorViewStyle = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func activityIndicatorViewStyle(_ value: UIActivityIndicatorViewStyle) -> Self {
         return addAttributes(key: "activityIndicatorViewStyle", value: value) {

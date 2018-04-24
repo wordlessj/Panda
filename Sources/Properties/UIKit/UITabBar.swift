@@ -29,15 +29,6 @@ extension Element where Object: UITabBar {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -45,15 +36,6 @@ extension Element where Object: UITabBar {
         }
     }
 
-    /// `barTintColor`
-    @discardableResult
-    public func barTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "barTintColor", value: value) {
-            $0.barTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "barTint()")
     @discardableResult
     public func barTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "barTintColor", value: value) {
@@ -61,16 +43,6 @@ extension Element where Object: UITabBar {
         }
     }
 
-    /// `unselectedItemTintColor`
-    @available(iOS 10.0, *)
-    @discardableResult
-    public func unselectedItemTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "unselectedItemTintColor", value: value) {
-            $0.unselectedItemTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "unselectedItemTint()")
     @available(iOS 10.0, *)
     @discardableResult
     public func unselectedItemTintColor(_ value: UIColor?) -> Self {
@@ -79,15 +51,6 @@ extension Element where Object: UITabBar {
         }
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImage", value: value) {
-            $0.backgroundImage = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImage", value: value) {
@@ -130,15 +93,6 @@ extension Element where Object: UITabBar {
         }
     }
 
-    /// `barStyle`
-    @discardableResult
-    public func style(_ value: UIBarStyle) -> Self {
-        return addAttributes(key: "barStyle", value: value) {
-            $0.barStyle = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func barStyle(_ value: UIBarStyle) -> Self {
         return addAttributes(key: "barStyle", value: value) {

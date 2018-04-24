@@ -24,15 +24,6 @@ extension Element where Object: UIImageView {
         }
     }
 
-    /// `isUserInteractionEnabled`
-    @discardableResult
-    public func interactable(_ value: Bool) -> Self {
-        return addAttributes(key: "isUserInteractionEnabled", value: value) {
-            $0.isUserInteractionEnabled = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "interactable()")
     @discardableResult
     public func userInteractionEnabled(_ value: Bool) -> Self {
         return addAttributes(key: "isUserInteractionEnabled", value: value) {
@@ -76,15 +67,6 @@ extension Element where Object: UIImageView {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {

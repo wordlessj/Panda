@@ -56,18 +56,11 @@ extension Element where Object: UIView {
         }
     }
 
-    /// `drawsAsynchronously`
     @discardableResult
-    public func drawsAsync(_ value: Bool) -> Self {
+    public func drawsAsynchronously(_ value: Bool) -> Self {
         return addAttributes(key: "drawsAsynchronously", value: value) {
             $0.layer.drawsAsynchronously = value
         }
-    }
-
-    @available(*, deprecated, renamed: "drawsAsync()")
-    @discardableResult
-    public func drawsAsynchronously(_ value: Bool) -> Self {
-        return drawsAsync(value)
     }
 
     @discardableResult
@@ -77,18 +70,11 @@ extension Element where Object: UIView {
         }
     }
 
-    /// `shouldRasterize`
     @discardableResult
-    public func rasterized(_ value: Bool) -> Self {
+    public func shouldRasterize(_ value: Bool) -> Self {
         return addAttributes(key: "shouldRasterize", value: value) {
             $0.layer.shouldRasterize = value
         }
-    }
-
-    @available(*, deprecated, renamed: "rasterized()")
-    @discardableResult
-    public func shouldRasterize(_ value: Bool) -> Self {
-        return rasterized(value)
     }
 
     @discardableResult

@@ -29,15 +29,6 @@ extension Element where Object: UISegmentedControl {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -45,15 +36,6 @@ extension Element where Object: UISegmentedControl {
         }
     }
 
-    /// `titleTextAttributes`
-    @discardableResult
-    public func titleAttributes(_ value: [AnyHashable: Any]?) -> Self {
-        return addAttributes(key: "titleTextAttributesNormal", value: value) {
-            $0.setTitleTextAttributes(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
     public func titleTextAttributes(_ value: [AnyHashable: Any]?) -> Self {
         return addAttributes(key: "titleTextAttributesNormal", value: value) {
@@ -61,15 +43,6 @@ extension Element where Object: UISegmentedControl {
         }
     }
 
-    /// `titleTextAttributesHighlighted`
-    @discardableResult
-    public func titleAttributesHighlighted(_ value: [AnyHashable: Any]?) -> Self {
-        return addAttributes(key: "titleTextAttributesHighlighted", value: value) {
-            $0.setTitleTextAttributes(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "titleAttributesHighlighted()")
     @discardableResult
     public func titleTextAttributesHighlighted(_ value: [AnyHashable: Any]?) -> Self {
         return addAttributes(key: "titleTextAttributesHighlighted", value: value) {
@@ -77,15 +50,6 @@ extension Element where Object: UISegmentedControl {
         }
     }
 
-    /// `titleTextAttributesSelected`
-    @discardableResult
-    public func titleAttributesSelected(_ value: [AnyHashable: Any]?) -> Self {
-        return addAttributes(key: "titleTextAttributesSelected", value: value) {
-            $0.setTitleTextAttributes(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "titleAttributesSelected()")
     @discardableResult
     public func titleTextAttributesSelected(_ value: [AnyHashable: Any]?) -> Self {
         return addAttributes(key: "titleTextAttributesSelected", value: value) {
@@ -93,15 +57,6 @@ extension Element where Object: UISegmentedControl {
         }
     }
 
-    /// `titleTextAttributesDisabled`
-    @discardableResult
-    public func titleAttributesDisabled(_ value: [AnyHashable: Any]?) -> Self {
-        return addAttributes(key: "titleTextAttributesDisabled", value: value) {
-            $0.setTitleTextAttributes(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "titleAttributesDisabled()")
     @discardableResult
     public func titleTextAttributesDisabled(_ value: [AnyHashable: Any]?) -> Self {
         return addAttributes(key: "titleTextAttributesDisabled", value: value) {

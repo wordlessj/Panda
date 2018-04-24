@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UIPageControl {
-    /// `numberOfPages`
-    @discardableResult
-    public func pages(_ value: Int) -> Self {
-        return addAttributes(key: "numberOfPages", value: value) {
-            $0.numberOfPages = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "pages()")
     @discardableResult
     public func numberOfPages(_ value: Int) -> Self {
         return addAttributes(key: "numberOfPages", value: value) {
@@ -45,15 +36,6 @@ extension Element where Object: UIPageControl {
         }
     }
 
-    /// `pageIndicatorTintColor`
-    @discardableResult
-    public func pageIndicatorTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "pageIndicatorTintColor", value: value) {
-            $0.pageIndicatorTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "pageIndicatorTint()")
     @discardableResult
     public func pageIndicatorTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "pageIndicatorTintColor", value: value) {
@@ -61,15 +43,6 @@ extension Element where Object: UIPageControl {
         }
     }
 
-    /// `currentPageIndicatorTintColor`
-    @discardableResult
-    public func currentPageIndicatorTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "currentPageIndicatorTintColor", value: value) {
-            $0.currentPageIndicatorTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "currentPageIndicatorTint()")
     @discardableResult
     public func currentPageIndicatorTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "currentPageIndicatorTintColor", value: value) {

@@ -36,15 +36,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `minimumValue`
-    @discardableResult
-    public func minValue(_ value: Double) -> Self {
-        return addAttributes(key: "minimumValue", value: value) {
-            $0.minimumValue = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "minValue()")
     @discardableResult
     public func minimumValue(_ value: Double) -> Self {
         return addAttributes(key: "minimumValue", value: value) {
@@ -52,15 +43,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `maximumValue`
-    @discardableResult
-    public func maxValue(_ value: Double) -> Self {
-        return addAttributes(key: "maximumValue", value: value) {
-            $0.maximumValue = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "maxValue()")
     @discardableResult
     public func maximumValue(_ value: Double) -> Self {
         return addAttributes(key: "maximumValue", value: value) {
@@ -75,15 +57,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -91,15 +64,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageNormal", value: value) {
-            $0.setBackgroundImage(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageNormal", value: value) {
@@ -107,15 +71,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `backgroundImageHighlighted`
-    @discardableResult
-    public func backgroundHighlighted(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageHighlighted", value: value) {
-            $0.setBackgroundImage(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundHighlighted()")
     @discardableResult
     public func backgroundImageHighlighted(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageHighlighted", value: value) {
@@ -123,15 +78,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `backgroundImageSelected`
-    @discardableResult
-    public func backgroundSelected(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageSelected", value: value) {
-            $0.setBackgroundImage(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundSelected()")
     @discardableResult
     public func backgroundImageSelected(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageSelected", value: value) {
@@ -139,15 +85,6 @@ extension Element where Object: UIStepper {
         }
     }
 
-    /// `backgroundImageDisabled`
-    @discardableResult
-    public func backgroundDisabled(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImageDisabled", value: value) {
-            $0.setBackgroundImage(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "backgroundDisabled()")
     @discardableResult
     public func backgroundImageDisabled(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImageDisabled", value: value) {

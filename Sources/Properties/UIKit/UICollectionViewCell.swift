@@ -22,15 +22,6 @@ extension Element where Object: UICollectionViewCell {
         }
     }
 
-    /// `backgroundView`
-    @discardableResult
-    public func background(_ value: UIView?) -> Self {
-        return addAttributes(key: "backgroundView", value: value) {
-            $0.backgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "backgroundView", value: value) {
@@ -38,15 +29,6 @@ extension Element where Object: UICollectionViewCell {
         }
     }
 
-    /// `selectedBackgroundView`
-    @discardableResult
-    public func selectedBackground(_ value: UIView?) -> Self {
-        return addAttributes(key: "selectedBackgroundView", value: value) {
-            $0.selectedBackgroundView = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "selectedBackground()")
     @discardableResult
     public func selectedBackgroundView(_ value: UIView?) -> Self {
         return addAttributes(key: "selectedBackgroundView", value: value) {

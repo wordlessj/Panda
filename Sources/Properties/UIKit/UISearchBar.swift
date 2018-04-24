@@ -8,15 +8,6 @@
 import UIKit
 
 extension Element where Object: UISearchBar {
-    /// `barStyle`
-    @discardableResult
-    public func style(_ value: UIBarStyle) -> Self {
-        return addAttributes(key: "barStyle", value: value) {
-            $0.barStyle = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func barStyle(_ value: UIBarStyle) -> Self {
         return addAttributes(key: "barStyle", value: value) {
@@ -80,15 +71,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `tintColor`
-    @discardableResult
-    public func tint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "tintColor", value: value) {
-            $0.tintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
     public func tintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "tintColor", value: value) {
@@ -96,15 +78,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `barTintColor`
-    @discardableResult
-    public func barTint(_ value: UIColor?) -> Self {
-        return addAttributes(key: "barTintColor", value: value) {
-            $0.barTintColor = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "barTint()")
     @discardableResult
     public func barTintColor(_ value: UIColor?) -> Self {
         return addAttributes(key: "barTintColor", value: value) {
@@ -112,15 +85,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchBarStyle`
-    @discardableResult
-    public func style(_ value: UISearchBarStyle) -> Self {
-        return addAttributes(key: "searchBarStyle", value: value) {
-            $0.searchBarStyle = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func searchBarStyle(_ value: UISearchBarStyle) -> Self {
         return addAttributes(key: "searchBarStyle", value: value) {
@@ -163,15 +127,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ value: UIImage?) -> Self {
-        return addAttributes(key: "backgroundImage", value: value) {
-            $0.backgroundImage = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "backgroundImage", value: value) {
@@ -179,15 +134,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarBackgroundImage`
-    @discardableResult
-    public func scopeBarBackground(_ value: UIImage?) -> Self {
-        return addAttributes(key: "scopeBarBackgroundImage", value: value) {
-            $0.scopeBarBackgroundImage = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarBackground()")
     @discardableResult
     public func scopeBarBackgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "scopeBarBackgroundImage", value: value) {
@@ -195,15 +141,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchFieldBackgroundPositionAdjustment`
-    @discardableResult
-    public func searchFieldBackgroundPositionAdjust(_ value: UIOffset) -> Self {
-        return addAttributes(key: "searchFieldBackgroundPositionAdjustment", value: value) {
-            $0.searchFieldBackgroundPositionAdjustment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchFieldBackgroundPositionAdjust()")
     @discardableResult
     public func searchFieldBackgroundPositionAdjustment(_ value: UIOffset) -> Self {
         return addAttributes(key: "searchFieldBackgroundPositionAdjustment", value: value) {
@@ -211,15 +148,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchTextPositionAdjustment`
-    @discardableResult
-    public func searchTextPositionAdjust(_ value: UIOffset) -> Self {
-        return addAttributes(key: "searchTextPositionAdjustment", value: value) {
-            $0.searchTextPositionAdjustment = value
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchTextPositionAdjust()")
     @discardableResult
     public func searchTextPositionAdjustment(_ value: UIOffset) -> Self {
         return addAttributes(key: "searchTextPositionAdjustment", value: value) {
@@ -315,15 +243,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchFieldBackgroundImage`
-    @discardableResult
-    public func searchFieldBackground(_ value: UIImage?) -> Self {
-        return addAttributes(key: "searchFieldBackgroundImageNormal", value: value) {
-            $0.setSearchFieldBackgroundImage(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchFieldBackground()")
     @discardableResult
     public func searchFieldBackgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "searchFieldBackgroundImageNormal", value: value) {
@@ -331,15 +250,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchFieldBackgroundImageHighlighted`
-    @discardableResult
-    public func searchFieldBackgroundHighlighted(_ value: UIImage?) -> Self {
-        return addAttributes(key: "searchFieldBackgroundImageHighlighted", value: value) {
-            $0.setSearchFieldBackgroundImage(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchFieldBackgroundHighlighted()")
     @discardableResult
     public func searchFieldBackgroundImageHighlighted(_ value: UIImage?) -> Self {
         return addAttributes(key: "searchFieldBackgroundImageHighlighted", value: value) {
@@ -347,15 +257,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchFieldBackgroundImageSelected`
-    @discardableResult
-    public func searchFieldBackgroundSelected(_ value: UIImage?) -> Self {
-        return addAttributes(key: "searchFieldBackgroundImageSelected", value: value) {
-            $0.setSearchFieldBackgroundImage(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchFieldBackgroundSelected()")
     @discardableResult
     public func searchFieldBackgroundImageSelected(_ value: UIImage?) -> Self {
         return addAttributes(key: "searchFieldBackgroundImageSelected", value: value) {
@@ -363,15 +264,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `searchFieldBackgroundImageDisabled`
-    @discardableResult
-    public func searchFieldBackgroundDisabled(_ value: UIImage?) -> Self {
-        return addAttributes(key: "searchFieldBackgroundImageDisabled", value: value) {
-            $0.setSearchFieldBackgroundImage(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "searchFieldBackgroundDisabled()")
     @discardableResult
     public func searchFieldBackgroundImageDisabled(_ value: UIImage?) -> Self {
         return addAttributes(key: "searchFieldBackgroundImageDisabled", value: value) {
@@ -379,15 +271,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonBackgroundImage`
-    @discardableResult
-    public func scopeBarButtonBackground(_ value: UIImage?) -> Self {
-        return addAttributes(key: "scopeBarButtonBackgroundImageNormal", value: value) {
-            $0.setScopeBarButtonBackgroundImage(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonBackground()")
     @discardableResult
     public func scopeBarButtonBackgroundImage(_ value: UIImage?) -> Self {
         return addAttributes(key: "scopeBarButtonBackgroundImageNormal", value: value) {
@@ -395,15 +278,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonBackgroundImageHighlighted`
-    @discardableResult
-    public func scopeBarButtonBackgroundHighlighted(_ value: UIImage?) -> Self {
-        return addAttributes(key: "scopeBarButtonBackgroundImageHighlighted", value: value) {
-            $0.setScopeBarButtonBackgroundImage(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonBackgroundHighlighted()")
     @discardableResult
     public func scopeBarButtonBackgroundImageHighlighted(_ value: UIImage?) -> Self {
         return addAttributes(key: "scopeBarButtonBackgroundImageHighlighted", value: value) {
@@ -411,15 +285,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonBackgroundImageSelected`
-    @discardableResult
-    public func scopeBarButtonBackgroundSelected(_ value: UIImage?) -> Self {
-        return addAttributes(key: "scopeBarButtonBackgroundImageSelected", value: value) {
-            $0.setScopeBarButtonBackgroundImage(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonBackgroundSelected()")
     @discardableResult
     public func scopeBarButtonBackgroundImageSelected(_ value: UIImage?) -> Self {
         return addAttributes(key: "scopeBarButtonBackgroundImageSelected", value: value) {
@@ -427,15 +292,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonBackgroundImageDisabled`
-    @discardableResult
-    public func scopeBarButtonBackgroundDisabled(_ value: UIImage?) -> Self {
-        return addAttributes(key: "scopeBarButtonBackgroundImageDisabled", value: value) {
-            $0.setScopeBarButtonBackgroundImage(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonBackgroundDisabled()")
     @discardableResult
     public func scopeBarButtonBackgroundImageDisabled(_ value: UIImage?) -> Self {
         return addAttributes(key: "scopeBarButtonBackgroundImageDisabled", value: value) {
@@ -443,15 +299,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonTitleTextAttributes`
-    @discardableResult
-    public func scopeBarButtonTitleAttributes(_ value: [String: Any]?) -> Self {
-        return addAttributes(key: "scopeBarButtonTitleTextAttributesNormal", value: value) {
-            $0.setScopeBarButtonTitleTextAttributes(value, for: .normal)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributes()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributes(_ value: [String: Any]?) -> Self {
         return addAttributes(key: "scopeBarButtonTitleTextAttributesNormal", value: value) {
@@ -459,15 +306,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonTitleTextAttributesHighlighted`
-    @discardableResult
-    public func scopeBarButtonTitleAttributesHighlighted(_ value: [String: Any]?) -> Self {
-        return addAttributes(key: "scopeBarButtonTitleTextAttributesHighlighted", value: value) {
-            $0.setScopeBarButtonTitleTextAttributes(value, for: .highlighted)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributesHighlighted()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributesHighlighted(_ value: [String: Any]?) -> Self {
         return addAttributes(key: "scopeBarButtonTitleTextAttributesHighlighted", value: value) {
@@ -475,15 +313,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonTitleTextAttributesSelected`
-    @discardableResult
-    public func scopeBarButtonTitleAttributesSelected(_ value: [String: Any]?) -> Self {
-        return addAttributes(key: "scopeBarButtonTitleTextAttributesSelected", value: value) {
-            $0.setScopeBarButtonTitleTextAttributes(value, for: .selected)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributesSelected()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributesSelected(_ value: [String: Any]?) -> Self {
         return addAttributes(key: "scopeBarButtonTitleTextAttributesSelected", value: value) {
@@ -491,15 +320,6 @@ extension Element where Object: UISearchBar {
         }
     }
 
-    /// `scopeBarButtonTitleTextAttributesDisabled`
-    @discardableResult
-    public func scopeBarButtonTitleAttributesDisabled(_ value: [String: Any]?) -> Self {
-        return addAttributes(key: "scopeBarButtonTitleTextAttributesDisabled", value: value) {
-            $0.setScopeBarButtonTitleTextAttributes(value, for: .disabled)
-        }
-    }
-
-    @available(*, deprecated, renamed: "scopeBarButtonTitleAttributesDisabled()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributesDisabled(_ value: [String: Any]?) -> Self {
         return addAttributes(key: "scopeBarButtonTitleTextAttributesDisabled", value: value) {

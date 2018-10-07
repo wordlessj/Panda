@@ -76,7 +76,7 @@ extension SetRenderable {
     }
 }
 
-public typealias PropsProtocol = Initable & Equatable
+public typealias PropsProtocol = Initable
 public typealias StateProtocol = PropsProtocol
 
 public protocol Component: Renderable, SetRenderable {
@@ -95,8 +95,6 @@ extension Component {
     public var props: Props {
         get { return associatedObject(key: &propsKey) ?? Props() }
         set {
-            guard props != newValue else { return }
-
             if prevProps == nil {
                 prevProps = props
             }
@@ -109,8 +107,6 @@ extension Component {
     public var state: State {
         get { return associatedObject(key: &stateKey) ?? State() }
         set {
-            guard state != newValue else { return }
-
             if prevState == nil {
                 prevState = state
             }
@@ -166,6 +162,18 @@ extension Component {
     public func shouldRender(prevProps: Props, prevState: State) -> Bool { return true }
     public func willRender(prevProps: Props, prevState: State) {}
     public func didRender(prevProps: Props, prevState: State) {}
+}
+
+extension Component where Self: UICollectionViewCell {
+    public var renderObject: Any { return contentView }
+}
+
+extension Component where Self: UITableViewCell {
+    public var renderObject: Any { return contentView }
+}
+
+extension Component where Self: UITableViewHeaderFooterView {
+    public var renderObject: Any { return contentView }
 }
 
 extension Component where Self: UIViewController {

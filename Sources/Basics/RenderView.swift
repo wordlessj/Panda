@@ -53,6 +53,90 @@ open class RenderView: UIView, SetRenderable {
     }
 }
 
+open class RenderCollectionViewCell: UICollectionViewCell, SetRenderable {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        forceRender()
+        didInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        forceRender()
+        didInit()
+    }
+
+    open func didInit() {}
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.applyLayoutIfRoot()
+    }
+}
+
+open class RenderCollectionReusableView: UICollectionReusableView, SetRenderable {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        forceRender()
+        didInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        forceRender()
+        didInit()
+    }
+
+    open func didInit() {}
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        applyLayoutIfRoot()
+    }
+}
+
+open class RenderTableViewCell: UITableViewCell, SetRenderable {
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        forceRender()
+        didInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        forceRender()
+        didInit()
+    }
+
+    open func didInit() {}
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.applyLayoutIfRoot()
+    }
+}
+
+open class RenderTableViewHeaderFooterView: UITableViewHeaderFooterView, SetRenderable {
+    public override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        forceRender()
+        didInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        forceRender()
+        didInit()
+    }
+
+    open func didInit() {}
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.applyLayoutIfRoot()
+    }
+}
+
 open class RenderViewController: UIViewController, SetRenderable {
     open override func viewDidLoad() {
         super.viewDidLoad()

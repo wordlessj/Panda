@@ -54,7 +54,6 @@ extension Element where Object: FontContainer, Object: UIView {
         return font(.systemFont(ofSize: size))
     }
 
-    @available(iOS 8.2, *)
     @discardableResult
     public func font(size: CGFloat, weight: UIFont.Weight) -> Self {
         return font(.systemFont(ofSize: size, weight: weight))
@@ -70,7 +69,6 @@ extension Element where Object: FontContainer, Object: UIView {
         return font(.italicSystemFont(ofSize: size))
     }
 
-    @available(iOS 9.0, *)
     @discardableResult
     public func font(monospacedDigitSize size: CGFloat, weight: UIFont.Weight) -> Self {
         return font(.monospacedDigitSystemFont(ofSize: size, weight: weight))

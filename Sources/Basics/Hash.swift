@@ -31,7 +31,7 @@ extension Array: Hashable where Element: Hashable {
         let offset: UInt = 14695981039346656037
         let prime: UInt = 1099511628211
         let hash = reduce(offset) {
-            $0 ^ UInt($1.hashValue) &* prime
+            $0 ^ UInt(truncatingIfNeeded: $1.hashValue) &* prime
         }
         return Int(truncatingIfNeeded: hash)
     }

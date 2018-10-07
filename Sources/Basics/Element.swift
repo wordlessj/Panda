@@ -141,7 +141,11 @@ extension Element: ElementProtocol {
     }
 
     public func createObject() -> Any {
-        return Object()
+        if let View = type as? UICollectionView.Type {
+            return View.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        } else {
+            return Object()
+        }
     }
 }
 

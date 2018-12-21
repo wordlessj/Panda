@@ -40,21 +40,21 @@ extension PandaChain where Object: CATextLayer {
 
     @discardableResult
     public func truncationMode(_ value: String) -> PandaChain {
-        object.truncationMode = value
+        object.truncationMode = convertToCATextLayerTruncationMode(value)
         return self
     }
 
     /// `alignmentMode`
     @discardableResult
     public func alignMode(_ value: String) -> PandaChain {
-        object.alignmentMode = value
+        object.alignmentMode = convertToCATextLayerAlignmentMode(value)
         return self
     }
 
     @available(*, deprecated, renamed: "alignMode()")
     @discardableResult
     public func alignmentMode(_ value: String) -> PandaChain {
-        object.alignmentMode = value
+        object.alignmentMode = convertToCATextLayerAlignmentMode(value)
         return self
     }
 
@@ -63,4 +63,14 @@ extension PandaChain where Object: CATextLayer {
         object.allowsFontSubpixelQuantization = value
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATextLayerTruncationMode(_ input: String) -> CATextLayerTruncationMode {
+	return CATextLayerTruncationMode(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATextLayerAlignmentMode(_ input: String) -> CATextLayerAlignmentMode {
+	return CATextLayerAlignmentMode(rawValue: input)
 }

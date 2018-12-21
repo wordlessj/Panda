@@ -42,7 +42,7 @@ extension PandaChain where Object: CAKeyframeAnimation {
 
     @discardableResult
     public func calculationMode(_ value: String) -> PandaChain {
-        object.calculationMode = value
+        object.calculationMode = convertToCAAnimationCalculationMode(value)
         return self
     }
 
@@ -66,7 +66,18 @@ extension PandaChain where Object: CAKeyframeAnimation {
 
     @discardableResult
     public func rotationMode(_ value: String?) -> PandaChain {
-        object.rotationMode = value
+        object.rotationMode = convertToOptionalCAAnimationRotationMode(value)
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAAnimationCalculationMode(_ input: String) -> CAAnimationCalculationMode {
+	return CAAnimationCalculationMode(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalCAAnimationRotationMode(_ input: String?) -> CAAnimationRotationMode? {
+	guard let input = input else { return nil }
+	return CAAnimationRotationMode(rawValue: input)
 }

@@ -131,7 +131,7 @@ extension PandaChain where Object: UITableView {
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func separatorInsetReference(_ value: UITableViewSeparatorInsetReference) -> PandaChain {
+    public func separatorInsetReference(_ value: UITableView.SeparatorInsetReference) -> PandaChain {
         object.separatorInsetReference = value
         return self
     }
@@ -261,7 +261,7 @@ extension PandaChain where Object: UITableView {
     }
 
     @discardableResult
-    public func separatorStyle(_ value: UITableViewCellSeparatorStyle) -> PandaChain {
+    public func separatorStyle(_ value: UITableViewCell.SeparatorStyle) -> PandaChain {
         object.separatorStyle = value
         return self
     }

@@ -55,7 +55,7 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func borderStyle(_ value: UITextBorderStyle) -> PandaChain {
+    public func borderStyle(_ value: UITextField.BorderStyle) -> PandaChain {
         object.borderStyle = value
         return self
     }
@@ -63,14 +63,14 @@ extension PandaChain where Object: UITextField {
     /// `defaultTextAttributes`
     @discardableResult
     public func defaultAttributes(_ value: [String: Any]) -> PandaChain {
-        object.defaultTextAttributes = value
+        object.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(value)
         return self
     }
 
     @available(*, deprecated, renamed: "defaultAttributes()")
     @discardableResult
     public func defaultTextAttributes(_ value: [String: Any]) -> PandaChain {
-        object.defaultTextAttributes = value
+        object.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(value)
         return self
     }
 
@@ -154,12 +154,12 @@ extension PandaChain where Object: UITextField {
 
     @discardableResult
     public func typingAttributes(_ value: [String: Any]?) -> PandaChain {
-        object.typingAttributes = value
+        object.typingAttributes = convertToOptionalNSAttributedStringKeyDictionary(value)
         return self
     }
 
     @discardableResult
-    public func clearButtonMode(_ value: UITextFieldViewMode) -> PandaChain {
+    public func clearButtonMode(_ value: UITextField.ViewMode) -> PandaChain {
         object.clearButtonMode = value
         return self
     }
@@ -171,7 +171,7 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func leftViewMode(_ value: UITextFieldViewMode) -> PandaChain {
+    public func leftViewMode(_ value: UITextField.ViewMode) -> PandaChain {
         object.leftViewMode = value
         return self
     }
@@ -183,7 +183,7 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func rightViewMode(_ value: UITextFieldViewMode) -> PandaChain {
+    public func rightViewMode(_ value: UITextField.ViewMode) -> PandaChain {
         object.rightViewMode = value
         return self
     }
@@ -281,4 +281,15 @@ extension PandaChain where Object: UITextField {
         object.textContentType = value
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

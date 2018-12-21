@@ -28,28 +28,28 @@ extension PandaChain where Object: UIControl {
 
     /// `contentVerticalAlignment`
     @discardableResult
-    public func verticalAlign(_ value: UIControlContentVerticalAlignment) -> PandaChain {
+    public func verticalAlign(_ value: UIControl.ContentVerticalAlignment) -> PandaChain {
         object.contentVerticalAlignment = value
         return self
     }
 
     @available(*, deprecated, renamed: "verticalAlign()")
     @discardableResult
-    public func contentVerticalAlignment(_ value: UIControlContentVerticalAlignment) -> PandaChain {
+    public func contentVerticalAlignment(_ value: UIControl.ContentVerticalAlignment) -> PandaChain {
         object.contentVerticalAlignment = value
         return self
     }
 
     /// `contentHorizontalAlignment`
     @discardableResult
-    public func horizontalAlign(_ value: UIControlContentHorizontalAlignment) -> PandaChain {
+    public func horizontalAlign(_ value: UIControl.ContentHorizontalAlignment) -> PandaChain {
         object.contentHorizontalAlignment = value
         return self
     }
 
     @available(*, deprecated, renamed: "horizontalAlign()")
     @discardableResult
-    public func contentHorizontalAlignment(_ value: UIControlContentHorizontalAlignment) -> PandaChain {
+    public func contentHorizontalAlignment(_ value: UIControl.ContentHorizontalAlignment) -> PandaChain {
         object.contentHorizontalAlignment = value
         return self
     }

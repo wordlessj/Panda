@@ -15,7 +15,7 @@ extension PandaChain where Object: UIImagePickerController {
     }
 
     @discardableResult
-    public func sourceType(_ value: UIImagePickerControllerSourceType) -> PandaChain {
+    public func sourceType(_ value: UIImagePickerController.SourceType) -> PandaChain {
         object.sourceType = value
         return self
     }
@@ -34,7 +34,7 @@ extension PandaChain where Object: UIImagePickerController {
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func imageExportPreset(_ value: UIImagePickerControllerImageURLExportPreset) -> PandaChain {
+    public func imageExportPreset(_ value: UIImagePickerController.ImageURLExportPreset) -> PandaChain {
         object.imageExportPreset = value
         return self
     }
@@ -54,7 +54,7 @@ extension PandaChain where Object: UIImagePickerController {
     }
 
     @discardableResult
-    public func videoQuality(_ value: UIImagePickerControllerQualityType) -> PandaChain {
+    public func videoQuality(_ value: UIImagePickerController.QualityType) -> PandaChain {
         object.videoQuality = value
         return self
     }
@@ -85,19 +85,19 @@ extension PandaChain where Object: UIImagePickerController {
     }
 
     @discardableResult
-    public func cameraCaptureMode(_ value: UIImagePickerControllerCameraCaptureMode) -> PandaChain {
+    public func cameraCaptureMode(_ value: UIImagePickerController.CameraCaptureMode) -> PandaChain {
         object.cameraCaptureMode = value
         return self
     }
 
     @discardableResult
-    public func cameraDevice(_ value: UIImagePickerControllerCameraDevice) -> PandaChain {
+    public func cameraDevice(_ value: UIImagePickerController.CameraDevice) -> PandaChain {
         object.cameraDevice = value
         return self
     }
 
     @discardableResult
-    public func cameraFlashMode(_ value: UIImagePickerControllerCameraFlashMode) -> PandaChain {
+    public func cameraFlashMode(_ value: UIImagePickerController.CameraFlashMode) -> PandaChain {
         object.cameraFlashMode = value
         return self
     }

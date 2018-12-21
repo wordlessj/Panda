@@ -34,7 +34,12 @@ extension PandaChain where Object: CAGradientLayer {
 
     @discardableResult
     public func type(_ value: String) -> PandaChain {
-        object.type = value
+        object.type = convertToCAGradientLayerType(value)
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAGradientLayerType(_ input: String) -> CAGradientLayerType {
+	return CAGradientLayerType(rawValue: input)
 }

@@ -292,7 +292,7 @@ extension UIViewController: ItemAdding, ItemRemoving {
         let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
-        case let controller as UIViewController: addChildViewController(controller)
+        case let controller as UIViewController: addChild(controller)
         default:
             if let controller = self as? UIAlertController, let action = unboxedItem as? UIAlertAction {
                 controller.addAction(action)
@@ -309,7 +309,7 @@ extension UIViewController: ItemAdding, ItemRemoving {
         let unboxedItem: Any = unbox(item)
 
         switch unboxedItem {
-        case let controller as UIViewController: controller.removeFromParentViewController()
+        case let controller as UIViewController: controller.removeFromParent()
         default:
             if #available(iOS 9.0, *), let command = unboxedItem as? UIKeyCommand {
                 removeKeyCommand(command)

@@ -35,7 +35,7 @@ extension PandaChain where Object: UIVideoEditorController {
     }
 
     @discardableResult
-    public func videoQuality(_ value: UIImagePickerControllerQualityType) -> PandaChain {
+    public func videoQuality(_ value: UIImagePickerController.QualityType) -> PandaChain {
         object.videoQuality = value
         return self
     }

@@ -15,7 +15,7 @@ extension PandaChain where Object: UIMenuController {
     }
 
     @discardableResult
-    public func arrowDirection(_ value: UIMenuControllerArrowDirection) -> PandaChain {
+    public func arrowDirection(_ value: UIMenuController.ArrowDirection) -> PandaChain {
         object.arrowDirection = value
         return self
     }

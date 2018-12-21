@@ -89,45 +89,45 @@ extension PandaChain where Object: UIButton {
     }
 
     @discardableResult
-    public func title(_ title: String?, for state: UIControlState) -> PandaChain {
+    public func title(_ title: String?, for state: UIControl.State) -> PandaChain {
         object.setTitle(title, for: state)
         return self
     }
 
     @discardableResult
-    public func titleColor(_ color: UIColor?, for state: UIControlState) -> PandaChain {
+    public func titleColor(_ color: UIColor?, for state: UIControl.State) -> PandaChain {
         object.setTitleColor(color, for: state)
         return self
     }
 
     @discardableResult
-    public func titleShadowColor(_ color: UIColor?, for state: UIControlState) -> PandaChain {
+    public func titleShadowColor(_ color: UIColor?, for state: UIControl.State) -> PandaChain {
         object.setTitleShadowColor(color, for: state)
         return self
     }
 
     @discardableResult
-    public func image(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func image(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setImage(image, for: state)
         return self
     }
 
     /// `backgroundImage`
     @discardableResult
-    public func background(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func background(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setBackgroundImage(image, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func backgroundImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setBackgroundImage(image, for: state)
         return self
     }
 
     @discardableResult
-    public func attributedTitle(_ title: NSAttributedString?, for state: UIControlState) -> PandaChain {
+    public func attributedTitle(_ title: NSAttributedString?, for state: UIControl.State) -> PandaChain {
         object.setAttributedTitle(title, for: state)
         return self
     }

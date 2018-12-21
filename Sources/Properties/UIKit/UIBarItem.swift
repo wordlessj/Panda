@@ -84,14 +84,14 @@ extension PandaChain where Object: UIBarItem {
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ attributes: [NSAttributedStringKey: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ attributes: [NSAttributedStringKey: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleTextAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
@@ -99,10 +99,10 @@ extension PandaChain where Object: UIBarItem {
     /// `titleTextAttributes`
     @discardableResult
     public func titleAttributes(
-        _ normal: [NSAttributedStringKey: Any],
-        highlighted: [NSAttributedStringKey: Any]? = nil,
-        selected: [NSAttributedStringKey: Any]? = nil,
-        disabled: [NSAttributedStringKey: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -116,10 +116,10 @@ extension PandaChain where Object: UIBarItem {
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
     public func titleTextAttributes(
-        _ normal: [NSAttributedStringKey: Any],
-        highlighted: [NSAttributedStringKey: Any]? = nil,
-        selected: [NSAttributedStringKey: Any]? = nil,
-        disabled: [NSAttributedStringKey: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,

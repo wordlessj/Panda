@@ -125,35 +125,35 @@ extension PandaChain where Object: UISlider {
     }
 
     @discardableResult
-    public func thumbImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func thumbImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setThumbImage(image, for: state)
         return self
     }
 
     /// `minimumTrackImage`
     @discardableResult
-    public func minTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func minTrackImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setMinimumTrackImage(image, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "minTrackImage()")
     @discardableResult
-    public func minimumTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func minimumTrackImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setMinimumTrackImage(image, for: state)
         return self
     }
 
     /// `maximumTrackImage`
     @discardableResult
-    public func maxTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func maxTrackImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setMaximumTrackImage(image, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "maxTrackImage()")
     @discardableResult
-    public func maximumTrackImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func maximumTrackImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setMaximumTrackImage(image, for: state)
         return self
     }

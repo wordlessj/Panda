@@ -22,7 +22,7 @@ extension PandaChain where Object: CAShapeLayer {
 
     @discardableResult
     public func fillRule(_ value: String) -> PandaChain {
-        object.fillRule = value
+        object.fillRule = convertToCAShapeLayerFillRule(value)
         return self
     }
 
@@ -58,13 +58,13 @@ extension PandaChain where Object: CAShapeLayer {
 
     @discardableResult
     public func lineCap(_ value: String) -> PandaChain {
-        object.lineCap = value
+        object.lineCap = convertToCAShapeLayerLineCap(value)
         return self
     }
 
     @discardableResult
     public func lineJoin(_ value: String) -> PandaChain {
-        object.lineJoin = value
+        object.lineJoin = convertToCAShapeLayerLineJoin(value)
         return self
     }
 
@@ -79,4 +79,19 @@ extension PandaChain where Object: CAShapeLayer {
         object.lineDashPattern = value
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAShapeLayerFillRule(_ input: String) -> CAShapeLayerFillRule {
+	return CAShapeLayerFillRule(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAShapeLayerLineCap(_ input: String) -> CAShapeLayerLineCap {
+	return CAShapeLayerLineCap(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAShapeLayerLineJoin(_ input: String) -> CAShapeLayerLineJoin {
+	return CAShapeLayerLineJoin(rawValue: input)
 }

@@ -48,18 +48,18 @@ extension PandaChain where Object: UITabBarItem {
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func badgeTextAttributes(_ textAttributes: [String: Any]?, for state: UIControlState) -> PandaChain {
-        object.setBadgeTextAttributes(textAttributes, for: state)
+    public func badgeTextAttributes(_ textAttributes: [String: Any]?, for state: UIControl.State) -> PandaChain {
+        object.setBadgeTextAttributes(convertToOptionalNSAttributedStringKeyDictionary(textAttributes), for: state)
         return self
     }
 
     @available(iOS 10.0, *)
     @discardableResult
     public func badgeTextAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -69,4 +69,10 @@ extension PandaChain where Object: UITabBarItem {
             setter: object.setBadgeTextAttributes
         )
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

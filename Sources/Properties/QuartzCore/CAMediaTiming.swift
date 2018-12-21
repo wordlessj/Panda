@@ -52,7 +52,12 @@ extension PandaChain where Object: CAMediaTiming {
 
     @discardableResult
     public func fillMode(_ value: String) -> PandaChain {
-        object.fillMode = value
+        object.fillMode = convertToCAMediaTimingFillMode(value)
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFillMode(_ input: String) -> CAMediaTimingFillMode {
+	return CAMediaTimingFillMode(rawValue: input)
 }

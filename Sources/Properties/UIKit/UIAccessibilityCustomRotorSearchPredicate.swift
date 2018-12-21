@@ -16,7 +16,7 @@ extension PandaChain where Object: UIAccessibilityCustomRotorSearchPredicate {
     }
 
     @discardableResult
-    public func searchDirection(_ value: UIAccessibilityCustomRotorDirection) -> PandaChain {
+    public func searchDirection(_ value: UIAccessibilityCustomRotor.Direction) -> PandaChain {
         object.searchDirection = value
         return self
     }

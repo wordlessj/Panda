@@ -57,13 +57,13 @@ extension PandaChain where Object: UIWebView {
     }
 
     @discardableResult
-    public func paginationMode(_ value: UIWebPaginationMode) -> PandaChain {
+    public func paginationMode(_ value: UIWebView.PaginationMode) -> PandaChain {
         object.paginationMode = value
         return self
     }
 
     @discardableResult
-    public func paginationBreakingMode(_ value: UIWebPaginationBreakingMode) -> PandaChain {
+    public func paginationBreakingMode(_ value: UIWebView.PaginationBreakingMode) -> PandaChain {
         object.paginationBreakingMode = value
         return self
     }

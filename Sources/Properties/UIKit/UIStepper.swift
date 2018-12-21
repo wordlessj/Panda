@@ -82,32 +82,32 @@ extension PandaChain where Object: UIStepper {
 
     /// `backgroundImage`
     @discardableResult
-    public func background(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func background(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setBackgroundImage(image, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func backgroundImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setBackgroundImage(image, for: state)
         return self
     }
 
     @discardableResult
-    public func dividerImage(_ image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> PandaChain {
+    public func dividerImage(_ image: UIImage?, forLeftSegmentState leftState: UIControl.State, rightSegmentState rightState: UIControl.State) -> PandaChain {
         object.setDividerImage(image, forLeftSegmentState: leftState, rightSegmentState: rightState)
         return self
     }
 
     @discardableResult
-    public func incrementImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func incrementImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setIncrementImage(image, for: state)
         return self
     }
 
     @discardableResult
-    public func decrementImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func decrementImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setDecrementImage(image, for: state)
         return self
     }

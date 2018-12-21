@@ -52,19 +52,19 @@ extension PandaChain where Object: CAEmitterLayer {
 
     @discardableResult
     public func emitterShape(_ value: String) -> PandaChain {
-        object.emitterShape = value
+        object.emitterShape = convertToCAEmitterLayerEmitterShape(value)
         return self
     }
 
     @discardableResult
     public func emitterMode(_ value: String) -> PandaChain {
-        object.emitterMode = value
+        object.emitterMode = convertToCAEmitterLayerEmitterMode(value)
         return self
     }
 
     @discardableResult
     public func renderMode(_ value: String) -> PandaChain {
-        object.renderMode = value
+        object.renderMode = convertToCAEmitterLayerRenderMode(value)
         return self
     }
 
@@ -97,4 +97,19 @@ extension PandaChain where Object: CAEmitterLayer {
         object.seed = value
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAEmitterLayerEmitterShape(_ input: String) -> CAEmitterLayerEmitterShape {
+	return CAEmitterLayerEmitterShape(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAEmitterLayerEmitterMode(_ input: String) -> CAEmitterLayerEmitterMode {
+	return CAEmitterLayerEmitterMode(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAEmitterLayerRenderMode(_ input: String) -> CAEmitterLayerRenderMode {
+	return CAEmitterLayerRenderMode(rawValue: input)
 }

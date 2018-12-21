@@ -10,15 +10,15 @@ import UIKit
 extension PandaChain where Object: UIActivityIndicatorView {
     /// `activityIndicatorViewStyle`
     @discardableResult
-    public func style(_ value: UIActivityIndicatorViewStyle) -> PandaChain {
-        object.activityIndicatorViewStyle = value
+    public func style(_ value: UIActivityIndicatorView.Style) -> PandaChain {
+        object.style = value
         return self
     }
 
     @available(*, deprecated, renamed: "style()")
     @discardableResult
-    public func activityIndicatorViewStyle(_ value: UIActivityIndicatorViewStyle) -> PandaChain {
-        object.activityIndicatorViewStyle = value
+    public func activityIndicatorViewStyle(_ value: UIActivityIndicatorView.Style) -> PandaChain {
+        object.style = value
         return self
     }
 

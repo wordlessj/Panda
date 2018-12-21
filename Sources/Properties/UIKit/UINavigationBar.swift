@@ -83,14 +83,14 @@ extension PandaChain where Object: UINavigationBar {
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+    public func titleAttributes(_ value: [NSAttributedString.Key: Any]?) -> PandaChain {
         object.titleTextAttributes = value
         return self
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+    public func titleTextAttributes(_ value: [NSAttributedString.Key: Any]?) -> PandaChain {
         object.titleTextAttributes = value
         return self
     }
@@ -98,7 +98,7 @@ extension PandaChain where Object: UINavigationBar {
     /// `largeTitleTextAttributes`
     @available(iOS 11.0, *)
     @discardableResult
-    public func largeTitleAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+    public func largeTitleAttributes(_ value: [NSAttributedString.Key: Any]?) -> PandaChain {
         object.largeTitleTextAttributes = value
         return self
     }
@@ -106,7 +106,7 @@ extension PandaChain where Object: UINavigationBar {
     @available(*, deprecated, renamed: "largeTitleAttributes()")
     @available(iOS 11.0, *)
     @discardableResult
-    public func largeTitleTextAttributes(_ value: [NSAttributedStringKey: Any]?) -> PandaChain {
+    public func largeTitleTextAttributes(_ value: [NSAttributedString.Key: Any]?) -> PandaChain {
         object.largeTitleTextAttributes = value
         return self
     }

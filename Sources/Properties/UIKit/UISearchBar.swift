@@ -100,14 +100,14 @@ extension PandaChain where Object: UISearchBar {
 
     /// `searchBarStyle`
     @discardableResult
-    public func style(_ value: UISearchBarStyle) -> PandaChain {
+    public func style(_ value: UISearchBar.Style) -> PandaChain {
         object.searchBarStyle = value
         return self
     }
 
     @available(*, deprecated, renamed: "style()")
     @discardableResult
-    public func searchBarStyle(_ value: UISearchBarStyle) -> PandaChain {
+    public func searchBarStyle(_ value: UISearchBar.Style) -> PandaChain {
         object.searchBarStyle = value
         return self
     }
@@ -296,68 +296,68 @@ extension PandaChain where Object: UISearchBar {
 
     /// `searchFieldBackgroundImage`
     @discardableResult
-    public func searchFieldBackground(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+    public func searchFieldBackground(_ backgroundImage: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setSearchFieldBackgroundImage(backgroundImage, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "searchFieldBackground()")
     @discardableResult
-    public func searchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+    public func searchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setSearchFieldBackgroundImage(backgroundImage, for: state)
         return self
     }
 
     @discardableResult
-    public func image(_ iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState) -> PandaChain {
+    public func image(_ iconImage: UIImage?, for icon: UISearchBar.Icon, state: UIControl.State) -> PandaChain {
         object.setImage(iconImage, for: icon, state: state)
         return self
     }
 
     /// `scopeBarButtonBackgroundImage`
     @discardableResult
-    public func scopeBarButtonBackground(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+    public func scopeBarButtonBackground(_ backgroundImage: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setScopeBarButtonBackgroundImage(backgroundImage, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "scopeBarButtonBackground()")
     @discardableResult
-    public func scopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState) -> PandaChain {
+    public func scopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setScopeBarButtonBackgroundImage(backgroundImage, for: state)
         return self
     }
 
     @discardableResult
-    public func scopeBarButtonDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> PandaChain {
+    public func scopeBarButtonDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControl.State, rightSegmentState rightState: UIControl.State) -> PandaChain {
         object.setScopeBarButtonDividerImage(dividerImage, forLeftSegmentState: leftState, rightSegmentState: rightState)
         return self
     }
 
     /// `scopeBarButtonTitleTextAttributes`
     @discardableResult
-    public func scopeBarButtonTitleAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
-        object.setScopeBarButtonTitleTextAttributes(attributes, for: state)
+    public func scopeBarButtonTitleAttributes(_ attributes: [String: Any]?, for state: UIControl.State) -> PandaChain {
+        object.setScopeBarButtonTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary(attributes), for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "scopeBarButtonTitleAttributes()")
     @discardableResult
-    public func scopeBarButtonTitleTextAttributes(_ attributes: [String: Any]?, for state: UIControlState) -> PandaChain {
-        object.setScopeBarButtonTitleTextAttributes(attributes, for: state)
+    public func scopeBarButtonTitleTextAttributes(_ attributes: [String: Any]?, for state: UIControl.State) -> PandaChain {
+        object.setScopeBarButtonTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary(attributes), for: state)
         return self
     }
 
     /// `positionAdjustment`
     @discardableResult
-    public func positionAdjust(_ adjustment: UIOffset, for icon: UISearchBarIcon) -> PandaChain {
+    public func positionAdjust(_ adjustment: UIOffset, for icon: UISearchBar.Icon) -> PandaChain {
         object.setPositionAdjustment(adjustment, for: icon)
         return self
     }
 
     @available(*, deprecated, renamed: "positionAdjust()")
     @discardableResult
-    public func positionAdjustment(_ adjustment: UIOffset, for icon: UISearchBarIcon) -> PandaChain {
+    public func positionAdjustment(_ adjustment: UIOffset, for icon: UISearchBar.Icon) -> PandaChain {
         object.setPositionAdjustment(adjustment, for: icon)
         return self
     }
@@ -433,10 +433,10 @@ extension PandaChain where Object: UISearchBar {
     /// `scopeBarButtonTitleTextAttributes`
     @discardableResult
     public func scopeBarButtonTitleAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -450,10 +450,10 @@ extension PandaChain where Object: UISearchBar {
     @available(*, deprecated, renamed: "scopeBarButtonTitleAttributes()")
     @discardableResult
     public func scopeBarButtonTitleTextAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -463,4 +463,10 @@ extension PandaChain where Object: UISearchBar {
             setter: object.setScopeBarButtonTitleTextAttributes
         )
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

@@ -72,48 +72,48 @@ extension PandaChain where Object: UISegmentedControl {
 
     /// `backgroundImage`
     @discardableResult
-    public func background(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func background(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }
 
     @discardableResult
-    public func dividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func dividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControl.State, rightSegmentState rightState: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setDividerImage(dividerImage, forLeftSegmentState: leftState, rightSegmentState: rightState, barMetrics: barMetrics)
         return self
     }
 
     /// `titleTextAttributes`
     @discardableResult
-    public func titleAttributes(_ attributes: [AnyHashable: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
 
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
-    public func titleTextAttributes(_ attributes: [AnyHashable: Any]?, for state: UIControlState) -> PandaChain {
+    public func titleTextAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) -> PandaChain {
         object.setTitleTextAttributes(attributes, for: state)
         return self
     }
 
     /// `contentPositionAdjustment`
     @discardableResult
-    public func contentPositionAdjust(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
+    public func contentPositionAdjust(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControl.Segment, barMetrics: UIBarMetrics) -> PandaChain {
         object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)
         return self
     }
 
     @available(*, deprecated, renamed: "contentPositionAdjust()")
     @discardableResult
-    public func contentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> PandaChain {
+    public func contentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControl.Segment, barMetrics: UIBarMetrics) -> PandaChain {
         object.setContentPositionAdjustment(adjustment, forSegmentType: leftCenterRightOrAlone, barMetrics: barMetrics)
         return self
     }
@@ -121,10 +121,10 @@ extension PandaChain where Object: UISegmentedControl {
     /// `titleTextAttributes`
     @discardableResult
     public func titleAttributes(
-        _ normal: [AnyHashable: Any],
-        highlighted: [AnyHashable: Any]? = nil,
-        selected: [AnyHashable: Any]? = nil,
-        disabled: [AnyHashable: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,
@@ -138,10 +138,10 @@ extension PandaChain where Object: UISegmentedControl {
     @available(*, deprecated, renamed: "titleAttributes()")
     @discardableResult
     public func titleTextAttributes(
-        _ normal: [AnyHashable: Any],
-        highlighted: [AnyHashable: Any]? = nil,
-        selected: [AnyHashable: Any]? = nil,
-        disabled: [AnyHashable: Any]? = nil
+        _ normal: [NSAttributedString.Key: Any],
+        highlighted: [NSAttributedString.Key: Any]? = nil,
+        selected: [NSAttributedString.Key: Any]? = nil,
+        disabled: [NSAttributedString.Key: Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,

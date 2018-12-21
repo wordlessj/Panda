@@ -103,7 +103,7 @@ extension PandaChain where Object: UICollectionView {
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func reorderingCadence(_ value: UICollectionViewReorderingCadence) -> PandaChain {
+    public func reorderingCadence(_ value: UICollectionView.ReorderingCadence) -> PandaChain {
         object.reorderingCadence = value
         return self
     }

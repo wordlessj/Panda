@@ -119,7 +119,7 @@ extension PandaChain where Object: CALayer {
 
     @discardableResult
     public func contentsGravity(_ value: String) -> PandaChain {
-        object.contentsGravity = value
+        object.contentsGravity = convertToCALayerContentsGravity(value)
         return self
     }
 
@@ -131,13 +131,13 @@ extension PandaChain where Object: CALayer {
 
     @discardableResult
     public func minificationFilter(_ value: String) -> PandaChain {
-        object.minificationFilter = value
+        object.minificationFilter = convertToCALayerContentsFilter(value)
         return self
     }
 
     @discardableResult
     public func magnificationFilter(_ value: String) -> PandaChain {
-        object.magnificationFilter = value
+        object.magnificationFilter = convertToCALayerContentsFilter(value)
         return self
     }
 
@@ -326,4 +326,14 @@ extension PandaChain where Object: CALayer {
         object.setNeedsDisplay(r)
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCALayerContentsGravity(_ input: String) -> CALayerContentsGravity {
+	return CALayerContentsGravity(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCALayerContentsFilter(_ input: String) -> CALayerContentsFilter {
+	return CALayerContentsFilter(rawValue: input)
 }

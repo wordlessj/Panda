@@ -31,7 +31,7 @@ extension PandaChain where Object: UIAccessibilityCustomRotor {
     }
 
     @discardableResult
-    public func itemSearchBlock(_ value: @escaping UIAccessibilityCustomRotorSearch) -> PandaChain {
+    public func itemSearchBlock(_ value: @escaping UIAccessibilityCustomRotor.Search) -> PandaChain {
         object.itemSearchBlock = value
         return self
     }

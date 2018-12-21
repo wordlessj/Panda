@@ -29,7 +29,7 @@ extension PandaChain where Object: UIScrollView {
     /// `contentInsetAdjustmentBehavior`
     @available(iOS 11.0, *)
     @discardableResult
-    public func contentInsetAdjust(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> PandaChain {
+    public func contentInsetAdjust(_ value: UIScrollView.ContentInsetAdjustmentBehavior) -> PandaChain {
         object.contentInsetAdjustmentBehavior = value
         return self
     }
@@ -37,7 +37,7 @@ extension PandaChain where Object: UIScrollView {
     @available(*, deprecated, renamed: "contentInsetAdjust()")
     @available(iOS 11.0, *)
     @discardableResult
-    public func contentInsetAdjustmentBehavior(_ value: UIScrollViewContentInsetAdjustmentBehavior) -> PandaChain {
+    public func contentInsetAdjustmentBehavior(_ value: UIScrollView.ContentInsetAdjustmentBehavior) -> PandaChain {
         object.contentInsetAdjustmentBehavior = value
         return self
     }
@@ -151,19 +151,19 @@ extension PandaChain where Object: UIScrollView {
     }
 
     @discardableResult
-    public func indicatorStyle(_ value: UIScrollViewIndicatorStyle) -> PandaChain {
+    public func indicatorStyle(_ value: UIScrollView.IndicatorStyle) -> PandaChain {
         object.indicatorStyle = value
         return self
     }
 
     @discardableResult
     public func decelerationRate(_ value: CGFloat) -> PandaChain {
-        object.decelerationRate = value
+        object.decelerationRate = UIScrollView.DecelerationRate(rawValue: value)
         return self
     }
 
     @discardableResult
-    public func indexDisplayMode(_ value: UIScrollViewIndexDisplayMode) -> PandaChain {
+    public func indexDisplayMode(_ value: UIScrollView.IndexDisplayMode) -> PandaChain {
         object.indexDisplayMode = value
         return self
     }
@@ -227,7 +227,7 @@ extension PandaChain where Object: UIScrollView {
     }
 
     @discardableResult
-    public func keyboardDismissMode(_ value: UIScrollViewKeyboardDismissMode) -> PandaChain {
+    public func keyboardDismissMode(_ value: UIScrollView.KeyboardDismissMode) -> PandaChain {
         object.keyboardDismissMode = value
         return self
     }

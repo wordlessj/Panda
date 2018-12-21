@@ -50,14 +50,14 @@ extension PandaChain where Object: UICollectionViewFlowLayout {
 
     /// `scrollDirection`
     @discardableResult
-    public func direction(_ value: UICollectionViewScrollDirection) -> PandaChain {
+    public func direction(_ value: UICollectionView.ScrollDirection) -> PandaChain {
         object.scrollDirection = value
         return self
     }
 
     @available(*, deprecated, renamed: "direction()")
     @discardableResult
-    public func scrollDirection(_ value: UICollectionViewScrollDirection) -> PandaChain {
+    public func scrollDirection(_ value: UICollectionView.ScrollDirection) -> PandaChain {
         object.scrollDirection = value
         return self
     }
@@ -98,7 +98,7 @@ extension PandaChain where Object: UICollectionViewFlowLayout {
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func sectionInsetReference(_ value: UICollectionViewFlowLayoutSectionInsetReference) -> PandaChain {
+    public func sectionInsetReference(_ value: UICollectionViewFlowLayout.SectionInsetReference) -> PandaChain {
         object.sectionInsetReference = value
         return self
     }

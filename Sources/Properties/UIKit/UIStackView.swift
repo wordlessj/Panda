@@ -10,27 +10,27 @@ import UIKit
 @available(iOS 9.0, *)
 extension PandaChain where Object: UIStackView {
     @discardableResult
-    public func axis(_ value: UILayoutConstraintAxis) -> PandaChain {
+    public func axis(_ value: NSLayoutConstraint.Axis) -> PandaChain {
         object.axis = value
         return self
     }
 
     @discardableResult
-    public func distribution(_ value: UIStackViewDistribution) -> PandaChain {
+    public func distribution(_ value: UIStackView.Distribution) -> PandaChain {
         object.distribution = value
         return self
     }
 
     /// `alignment`
     @discardableResult
-    public func align(_ value: UIStackViewAlignment) -> PandaChain {
+    public func align(_ value: UIStackView.Alignment) -> PandaChain {
         object.alignment = value
         return self
     }
 
     @available(*, deprecated, renamed: "align()")
     @discardableResult
-    public func alignment(_ value: UIStackViewAlignment) -> PandaChain {
+    public func alignment(_ value: UIStackView.Alignment) -> PandaChain {
         object.alignment = value
         return self
     }

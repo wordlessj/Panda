@@ -20,7 +20,7 @@ extension PandaChain where Object: UIScreen {
     }
 
     @discardableResult
-    public func overscanCompensation(_ value: UIScreenOverscanCompensation) -> PandaChain {
+    public func overscanCompensation(_ value: UIScreen.OverscanCompensation) -> PandaChain {
         object.overscanCompensation = value
         return self
     }

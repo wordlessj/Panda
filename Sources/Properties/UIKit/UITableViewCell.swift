@@ -51,7 +51,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func selectionStyle(_ value: UITableViewCellSelectionStyle) -> PandaChain {
+    public func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> PandaChain {
         object.selectionStyle = value
         return self
     }
@@ -81,7 +81,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func accessoryType(_ value: UITableViewCellAccessoryType) -> PandaChain {
+    public func accessoryType(_ value: UITableViewCell.AccessoryType) -> PandaChain {
         object.accessoryType = value
         return self
     }
@@ -93,7 +93,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func editingAccessoryType(_ value: UITableViewCellAccessoryType) -> PandaChain {
+    public func editingAccessoryType(_ value: UITableViewCell.AccessoryType) -> PandaChain {
         object.editingAccessoryType = value
         return self
     }
@@ -130,7 +130,7 @@ extension PandaChain where Object: UITableViewCell {
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func focusStyle(_ value: UITableViewCellFocusStyle) -> PandaChain {
+    public func focusStyle(_ value: UITableViewCell.FocusStyle) -> PandaChain {
         object.focusStyle = value
         return self
     }

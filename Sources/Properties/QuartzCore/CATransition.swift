@@ -10,13 +10,13 @@ import QuartzCore
 extension PandaChain where Object: CATransition {
     @discardableResult
     public func type(_ value: String) -> PandaChain {
-        object.type = value
+        object.type = convertToCATransitionType(value)
         return self
     }
 
     @discardableResult
     public func subtype(_ value: String?) -> PandaChain {
-        object.subtype = value
+        object.subtype = convertToOptionalCATransitionSubtype(value)
         return self
     }
 
@@ -31,4 +31,15 @@ extension PandaChain where Object: CATransition {
         object.endProgress = value
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATransitionType(_ input: String) -> CATransitionType {
+	return CATransitionType(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalCATransitionSubtype(_ input: String?) -> CATransitionSubtype? {
+	guard let input = input else { return nil }
+	return CATransitionSubtype(rawValue: input)
 }

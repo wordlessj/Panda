@@ -14,7 +14,7 @@ extension PandaChain: UIBarButtonItemConvertible {}
 
 extension PandaChain where Object: UIBarButtonItem {
     @discardableResult
-    public func style(_ value: UIBarButtonItemStyle) -> PandaChain {
+    public func style(_ value: UIBarButtonItem.Style) -> PandaChain {
         object.style = value
         return self
     }
@@ -65,28 +65,28 @@ extension PandaChain where Object: UIBarButtonItem {
 
     /// `backgroundImage`
     @discardableResult
-    public func background(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func background(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }
 
     /// `backgroundImage`
     @discardableResult
-    public func background(_ backgroundImage: UIImage?, for state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> PandaChain {
+    public func background(_ backgroundImage: UIImage?, for state: UIControl.State, style: UIBarButtonItem.Style, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, style: style, barMetrics: barMetrics)
         return self
     }
 
     @available(*, deprecated, renamed: "background()")
     @discardableResult
-    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> PandaChain {
+    public func backgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State, style: UIBarButtonItem.Style, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, for: state, style: style, barMetrics: barMetrics)
         return self
     }
@@ -121,14 +121,14 @@ extension PandaChain where Object: UIBarButtonItem {
 
     /// `backButtonBackgroundImage`
     @discardableResult
-    public func backButtonBackground(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func backButtonBackground(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackButtonBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }
 
     @available(*, deprecated, renamed: "backButtonBackground()")
     @discardableResult
-    public func backButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics) -> PandaChain {
+    public func backButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControl.State, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackButtonBackgroundImage(backgroundImage, for: state, barMetrics: barMetrics)
         return self
     }

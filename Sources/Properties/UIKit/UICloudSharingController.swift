@@ -16,7 +16,7 @@ extension PandaChain where Object: UICloudSharingController {
     }
 
     @discardableResult
-    public func availablePermissions(_ value: UICloudSharingPermissionOptions) -> PandaChain {
+    public func availablePermissions(_ value: UICloudSharingController.PermissionOptions) -> PandaChain {
         object.availablePermissions = value
         return self
     }

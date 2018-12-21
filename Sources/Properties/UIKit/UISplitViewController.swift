@@ -27,7 +27,7 @@ extension PandaChain where Object: UISplitViewController {
     }
 
     @discardableResult
-    public func preferredDisplayMode(_ value: UISplitViewControllerDisplayMode) -> PandaChain {
+    public func preferredDisplayMode(_ value: UISplitViewController.DisplayMode) -> PandaChain {
         object.preferredDisplayMode = value
         return self
     }
@@ -68,7 +68,7 @@ extension PandaChain where Object: UISplitViewController {
 
     @available(iOS 11.0, *)
     @discardableResult
-    public func primaryEdge(_ value: UISplitViewControllerPrimaryEdge) -> PandaChain {
+    public func primaryEdge(_ value: UISplitViewController.PrimaryEdge) -> PandaChain {
         object.primaryEdge = value
         return self
     }

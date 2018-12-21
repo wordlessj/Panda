@@ -137,14 +137,14 @@ extension PandaChain where Object: UIView {
 
     /// `autoresizingMask`
     @discardableResult
-    public func autoresizing(_ value: UIViewAutoresizing) -> PandaChain {
+    public func autoresizing(_ value: UIView.AutoresizingMask) -> PandaChain {
         object.autoresizingMask = value
         return self
     }
 
     @available(*, deprecated, renamed: "autoresizing()")
     @discardableResult
-    public func autoresizingMask(_ value: UIViewAutoresizing) -> PandaChain {
+    public func autoresizingMask(_ value: UIView.AutoresizingMask) -> PandaChain {
         object.autoresizingMask = value
         return self
     }
@@ -271,14 +271,14 @@ extension PandaChain where Object: UIView {
 
     /// `contentMode`
     @discardableResult
-    public func mode(_ value: UIViewContentMode) -> PandaChain {
+    public func mode(_ value: UIView.ContentMode) -> PandaChain {
         object.contentMode = value
         return self
     }
 
     @available(*, deprecated, renamed: "mode()")
     @discardableResult
-    public func contentMode(_ value: UIViewContentMode) -> PandaChain {
+    public func contentMode(_ value: UIView.ContentMode) -> PandaChain {
         object.contentMode = value
         return self
     }
@@ -305,14 +305,14 @@ extension PandaChain where Object: UIView {
 
     /// `tintAdjustmentMode`
     @discardableResult
-    public func tintAdjust(_ value: UIViewTintAdjustmentMode) -> PandaChain {
+    public func tintAdjust(_ value: UIView.TintAdjustmentMode) -> PandaChain {
         object.tintAdjustmentMode = value
         return self
     }
 
     @available(*, deprecated, renamed: "tintAdjust()")
     @discardableResult
-    public func tintAdjustmentMode(_ value: UIViewTintAdjustmentMode) -> PandaChain {
+    public func tintAdjustmentMode(_ value: UIView.TintAdjustmentMode) -> PandaChain {
         object.tintAdjustmentMode = value
         return self
     }
@@ -365,28 +365,28 @@ extension PandaChain where Object: UIView {
 
     /// `contentHuggingPriority`
     @discardableResult
-    public func huggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func huggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentHuggingPriority(priority, for: axis)
         return self
     }
 
     @available(*, deprecated, renamed: "huggingPriority()")
     @discardableResult
-    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentHuggingPriority(priority, for: axis)
         return self
     }
 
     /// `contentCompressionResistancePriority`
     @discardableResult
-    public func resistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func resistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentCompressionResistancePriority(priority, for: axis)
         return self
     }
 
     @available(*, deprecated, renamed: "resistancePriority()")
     @discardableResult
-    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentCompressionResistancePriority(priority, for: axis)
         return self
     }

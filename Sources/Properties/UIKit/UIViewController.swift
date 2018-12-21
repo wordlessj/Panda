@@ -174,7 +174,7 @@ extension PandaChain where Object: UIViewController {
 
     @discardableResult
     public func overrideTraitCollection(_ collection: UITraitCollection?, forChildViewController childViewController: UIViewController) -> PandaChain {
-        object.setOverrideTraitCollection(collection, forChildViewController: childViewController)
+        object.setOverrideTraitCollection(collection, forChild: childViewController)
         return self
     }
 

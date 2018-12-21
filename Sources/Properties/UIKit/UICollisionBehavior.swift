@@ -9,7 +9,7 @@ import UIKit
 
 extension PandaChain where Object: UICollisionBehavior {
     @discardableResult
-    public func collisionMode(_ value: UICollisionBehaviorMode) -> PandaChain {
+    public func collisionMode(_ value: UICollisionBehavior.Mode) -> PandaChain {
         object.collisionMode = value
         return self
     }

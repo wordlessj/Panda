@@ -15,7 +15,7 @@ extension PandaChain where Object: UITextInput {
     }
 
     @discardableResult
-    public func markedTextStyle(_ value: [AnyHashable: Any]?) -> PandaChain {
+    public func markedTextStyle(_ value: [NSAttributedString.Key: Any]?) -> PandaChain {
         object.markedTextStyle = value
         return self
     }

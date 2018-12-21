@@ -176,7 +176,7 @@ extension PandaChain where Object: UITextView {
 
     @discardableResult
     public func typingAttributes(_ value: [String: Any]) -> PandaChain {
-        object.typingAttributes = value
+        object.typingAttributes = convertToNSAttributedStringKeyDictionary(value)
         return self
     }
 
@@ -215,14 +215,25 @@ extension PandaChain where Object: UITextView {
     /// `linkTextAttributes`
     @discardableResult
     public func linkAttributes(_ value: [String: Any]?) -> PandaChain {
-        object.linkTextAttributes = value
+        object.linkTextAttributes = convertToOptionalNSAttributedStringKeyDictionary(value)
         return self
     }
 
     @available(*, deprecated, renamed: "linkAttributes()")
     @discardableResult
     public func linkTextAttributes(_ value: [String: Any]?) -> PandaChain {
-        object.linkTextAttributes = value
+        object.linkTextAttributes = convertToOptionalNSAttributedStringKeyDictionary(value)
         return self
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

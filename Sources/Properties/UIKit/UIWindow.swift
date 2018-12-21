@@ -16,14 +16,14 @@ extension PandaChain where Object: UIWindow {
 
     /// `windowLevel`
     @discardableResult
-    public func level(_ value: UIWindowLevel) -> PandaChain {
+    public func level(_ value: UIWindow.Level) -> PandaChain {
         object.windowLevel = value
         return self
     }
 
     @available(*, deprecated, renamed: "level()")
     @discardableResult
-    public func windowLevel(_ value: UIWindowLevel) -> PandaChain {
+    public func windowLevel(_ value: UIWindow.Level) -> PandaChain {
         object.windowLevel = value
         return self
     }

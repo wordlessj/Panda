@@ -97,7 +97,7 @@ extension PandaChain where Object: UITabBar {
     }
 
     @discardableResult
-    public func itemPositioning(_ value: UITabBarItemPositioning) -> PandaChain {
+    public func itemPositioning(_ value: UITabBar.ItemPositioning) -> PandaChain {
         object.itemPositioning = value
         return self
     }

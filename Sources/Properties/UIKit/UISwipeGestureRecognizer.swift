@@ -23,7 +23,7 @@ extension PandaChain where Object: UISwipeGestureRecognizer {
     }
 
     @discardableResult
-    public func direction(_ value: UISwipeGestureRecognizerDirection) -> PandaChain {
+    public func direction(_ value: UISwipeGestureRecognizer.Direction) -> PandaChain {
         object.direction = value
         return self
     }

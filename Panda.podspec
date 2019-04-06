@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = 'Javier Zhang'
   s.source           = { :git => 'https://github.com/wordlessj/Panda.git', :tag => s.version.to_s }
+  s.swift_version    = '5.0'
 
   s.ios.deployment_target = '8.0'
 

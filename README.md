@@ -4,7 +4,7 @@
 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Panda.svg)](#cocoapods)
-![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg)
+![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 ![Platform](https://img.shields.io/badge/platform-iOS%208.0%2B-lightgrey.svg)
 [![Build Status](https://travis-ci.org/wordlessj/Panda.svg?branch=master)](https://travis-ci.org/wordlessj/Panda)
 
@@ -15,7 +15,7 @@ Create view hierarchies declaratively.
 ```swift
 view.pd.add(
     imageView.pd.image(logoImage),
-    label.pd.text("Logo").color(.red).font(size: 20),
+    label.pd.text("Logo").textColor(.red).font(size: 20),
     button.pd.title("Go").action(buttonTapped)
 )
 ```
@@ -27,13 +27,13 @@ It’s much shorter and concise than the imperative API, and easier to edit than
 ### Carthage
 
 ```
-github "wordlessj/Panda" ~> 1.0
+github "wordlessj/Panda" ~> 2.0
 ```
 
 ### CocoaPods
 
 ```
-pod 'Panda', '~> 1.0'
+pod 'Panda', '~> 2.0'
 ```
 
 ## Usage
@@ -42,14 +42,12 @@ pod 'Panda', '~> 1.0'
 
 **ALL** settable properties and set methods in UIKit and Core Animation are available in `pd` extension, `set` prefixes are removed.
 
-Property and method names are notoriously verbose, they don’t fit nicely when written in a single line, so some of them are shortened. The complete mappings are documented in [Name Mappings](https://github.com/wordlessj/Panda/blob/master/Documentation/Name%20Mappings.md). Don’t be frightened by the long list, you don’t need to remember them all, just type original names, Xcode will help you fix it with a single click. Option-click the new name to see the original name if you forget what it is.
-
 Views are configured and added to a superview as you see in [Quick Look](#quick-look), you can also nest `add()` to create a more complex hierarchy, note that configuration by `pd` is optional.
 
 ```swift
 view.pd.add(
-    containerView.pd.clips(true).add(
-        view1.pd.background(.red)
+    containerView.pd.clipsToBounds(true).add(
+        view1.pd.backgroundColor(.red)
     ),
     view2
 )
@@ -61,9 +59,9 @@ Other types that can be added by `add*()` methods are also supported, like `UIGe
 view.pd.add(
     // view hierarchy
 ).add(
-    layoutGuide.pd.id("center guide")
+    layoutGuide.pd.identifier("center guide")
 ).add(
-    tapGestureRecognizer.pd.taps(2).action(doubleTapped)
+    tapGestureRecognizer.pd.numberOfTapsRequired(2).action(doubleTapped)
 )
 ```
 
@@ -73,7 +71,7 @@ Objects can be configured inline and passed to a method, if the method accepts a
 // mask() accepts a UIViewConvertible.
 // You can pass a plain or configured UIView.
 view.pd.mask(
-    maskView.pd.background(.white)
+    maskView.pd.backgroundColor(.white)
 )
 ```
 
@@ -155,10 +153,10 @@ For convenience, there’re several composition methods which set multiple prope
 | `UICollectionView`, `UIPageViewController`, `UIPickerView`, `UITableView` | `sourceDelegate` | `dataSource`, `delegate` |
 | `UILabel` | `shadow` | `shadowColor`, `shadowOffset` |
 | `UIScrollView` | `alwaysBounce` | `alwaysBounceHorizontal`, `alwaysBounceVertical` |
-| `UIScrollView` | `showsIndicators` | `showsHorizontalIndicator`, `showsVerticalIndicator` |
+| `UIScrollView` | `showsScrollIndicators` | `showsHorizontalScrollIndicator`, `showsVerticalScrollIndicator` |
 | `UIView` | `border` | `layer.border` |
-| `UIView` | `cornerRadius` | `layer.cornerRadius`, `layer.masks` to `true` |
-| `UIView` | `rasterized` | `layer.rasterized`, `layer.rasterizationScale` to screen's scale |
+| `UIView` | `cornerRadius` | `layer.cornerRadius`, `layer.masksToBounds` to `true` |
+| `UIView` | `shouldRasterize` | `layer.shouldRasterize`, `layer.rasterizationScale` to screen's scale |
 | `UIView` | `shadow` | `layer.shadow` |
 
 ### Set-Like Methods
@@ -189,7 +187,7 @@ view.pd.add(
 )
 
 func configLabel(_ label: UILabel) {
-    label.pd.color(.red).font(size: 20).lines(0)
+    label.pd.textColor(.red).font(size: 20).numberOfLines(0)
 }
 ```
 

@@ -1,7 +1,7 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode10.2
 env:
-  - SCHEME="Panda"   DESTINATION="platform=iOS Simulator,name=iPhone 7"
+  - SCHEME="Panda"   DESTINATION="platform=iOS Simulator,name=iPhone Xs"
 script:
   - set -o pipefail
   - xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty

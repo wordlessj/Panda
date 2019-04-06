@@ -1,5 +1,5 @@
 //
-//  UIDragInteraction.swift
+//  UIPencilInteraction.swift
 //  Panda
 //
 //  Baby of PandaMom. DO NOT TOUCH.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-@available(iOS 11.0, *)
-extension PandaChain where Object: UIDragInteraction {
+@available(iOS 12.1, *)
+extension PandaChain where Object: UIPencilInteraction {
     @discardableResult
-    public func allowsSimultaneousRecognitionDuringLift(_ value: Bool) -> PandaChain {
-        object.allowsSimultaneousRecognitionDuringLift = value
+    public func delegate(_ value: UIPencilInteractionDelegate?) -> PandaChain {
+        object.delegate = value
         return self
     }
 

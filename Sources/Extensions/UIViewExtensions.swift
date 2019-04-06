@@ -35,14 +35,14 @@ extension PandaChain where Object: UIView {
     /// Set corner radius. Also set `clipsToBounds` to `true` to enable corner radius.
     @discardableResult
     public func cornerRadius(_ value: CGFloat) -> PandaChain {
-        object.layer.pd.cornerRadius(value).masks(true)
+        object.layer.pd.cornerRadius(value).masksToBounds(true)
         return self
     }
 
-    /// Set rasterized. Also set `rasterizationScale` to screen's scale.
+    /// Set `shouldRasterize`. Also set `rasterizationScale` to screen's scale.
     @discardableResult
-    public func rasterized(_ value: Bool) -> PandaChain {
-        object.layer.pd.rasterized(value).rasterizationScale(UIScreen.main.scale)
+    public func shouldRasterize(_ value: Bool) -> PandaChain {
+        object.layer.pd.shouldRasterize(value).rasterizationScale(UIScreen.main.scale)
         return self
     }
 

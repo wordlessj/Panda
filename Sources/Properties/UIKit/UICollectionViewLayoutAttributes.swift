@@ -57,7 +57,7 @@ extension PandaChain where Object: UICollectionViewLayoutAttributes {
     }
 
     @discardableResult
-    public func hidden(_ value: Bool) -> PandaChain {
+    public func isHidden(_ value: Bool) -> PandaChain {
         object.isHidden = value
         return self
     }

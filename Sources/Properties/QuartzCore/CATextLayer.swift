@@ -33,27 +33,19 @@ extension PandaChain where Object: CATextLayer {
     }
 
     @discardableResult
-    public func wrapped(_ value: Bool) -> PandaChain {
+    public func isWrapped(_ value: Bool) -> PandaChain {
         object.isWrapped = value
         return self
     }
 
     @discardableResult
-    public func truncationMode(_ value: String) -> PandaChain {
+    public func truncationMode(_ value: CATextLayerTruncationMode) -> PandaChain {
         object.truncationMode = value
         return self
     }
 
-    /// `alignmentMode`
     @discardableResult
-    public func alignMode(_ value: String) -> PandaChain {
-        object.alignmentMode = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "alignMode()")
-    @discardableResult
-    public func alignmentMode(_ value: String) -> PandaChain {
+    public func alignmentMode(_ value: CATextLayerAlignmentMode) -> PandaChain {
         object.alignmentMode = value
         return self
     }

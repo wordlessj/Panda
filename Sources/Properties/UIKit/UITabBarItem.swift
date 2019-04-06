@@ -25,14 +25,6 @@ extension PandaChain where Object: UITabBarItem {
         return self
     }
 
-    /// `titlePositionAdjustment`
-    @discardableResult
-    public func titlePositionAdjust(_ value: UIOffset) -> PandaChain {
-        object.titlePositionAdjustment = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "titlePositionAdjust()")
     @discardableResult
     public func titlePositionAdjustment(_ value: UIOffset) -> PandaChain {
         object.titlePositionAdjustment = value
@@ -48,7 +40,7 @@ extension PandaChain where Object: UITabBarItem {
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func badgeTextAttributes(_ textAttributes: [String: Any]?, for state: UIControlState) -> PandaChain {
+    public func badgeTextAttributes(_ textAttributes: [NSAttributedString.Key : Any]?, for state: UIControl.State) -> PandaChain {
         object.setBadgeTextAttributes(textAttributes, for: state)
         return self
     }
@@ -56,10 +48,10 @@ extension PandaChain where Object: UITabBarItem {
     @available(iOS 10.0, *)
     @discardableResult
     public func badgeTextAttributes(
-        _ normal: [String: Any],
-        highlighted: [String: Any]? = nil,
-        selected: [String: Any]? = nil,
-        disabled: [String: Any]? = nil
+        _ normal: [NSAttributedString.Key : Any],
+        highlighted: [NSAttributedString.Key : Any]? = nil,
+        selected: [NSAttributedString.Key : Any]? = nil,
+        disabled: [NSAttributedString.Key : Any]? = nil
     ) -> PandaChain {
         return forControlState(
             normal: normal,

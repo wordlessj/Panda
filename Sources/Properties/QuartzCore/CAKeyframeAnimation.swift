@@ -26,14 +26,6 @@ extension PandaChain where Object: CAKeyframeAnimation {
         return self
     }
 
-    /// `timingFunctions`
-    @discardableResult
-    public func timings(_ value: [CAMediaTimingFunction]?) -> PandaChain {
-        object.timingFunctions = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "timings()")
     @discardableResult
     public func timingFunctions(_ value: [CAMediaTimingFunction]?) -> PandaChain {
         object.timingFunctions = value
@@ -41,7 +33,7 @@ extension PandaChain where Object: CAKeyframeAnimation {
     }
 
     @discardableResult
-    public func calculationMode(_ value: String) -> PandaChain {
+    public func calculationMode(_ value: CAAnimationCalculationMode) -> PandaChain {
         object.calculationMode = value
         return self
     }
@@ -65,7 +57,7 @@ extension PandaChain where Object: CAKeyframeAnimation {
     }
 
     @discardableResult
-    public func rotationMode(_ value: String?) -> PandaChain {
+    public func rotationMode(_ value: CAAnimationRotationMode?) -> PandaChain {
         object.rotationMode = value
         return self
     }

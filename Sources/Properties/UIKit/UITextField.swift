@@ -9,204 +9,6 @@ import UIKit
 
 extension PandaChain where Object: UITextField {
     @discardableResult
-    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
-        object.selectionAffinity = value
-        return self
-    }
-
-    @discardableResult
-    public func text(_ value: String?) -> PandaChain {
-        object.text = value
-        return self
-    }
-
-    @discardableResult
-    public func attributedText(_ value: NSAttributedString?) -> PandaChain {
-        object.attributedText = value
-        return self
-    }
-
-    /// `textColor`
-    @discardableResult
-    public func color(_ value: UIColor?) -> PandaChain {
-        object.textColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "color()")
-    @discardableResult
-    public func textColor(_ value: UIColor?) -> PandaChain {
-        object.textColor = value
-        return self
-    }
-
-    /// `textAlignment`
-    @discardableResult
-    public func align(_ value: NSTextAlignment) -> PandaChain {
-        object.textAlignment = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "align()")
-    @discardableResult
-    public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
-        object.textAlignment = value
-        return self
-    }
-
-    @discardableResult
-    public func borderStyle(_ value: UITextBorderStyle) -> PandaChain {
-        object.borderStyle = value
-        return self
-    }
-
-    /// `defaultTextAttributes`
-    @discardableResult
-    public func defaultAttributes(_ value: [String: Any]) -> PandaChain {
-        object.defaultTextAttributes = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "defaultAttributes()")
-    @discardableResult
-    public func defaultTextAttributes(_ value: [String: Any]) -> PandaChain {
-        object.defaultTextAttributes = value
-        return self
-    }
-
-    @discardableResult
-    public func placeholder(_ value: String?) -> PandaChain {
-        object.placeholder = value
-        return self
-    }
-
-    @discardableResult
-    public func attributedPlaceholder(_ value: NSAttributedString?) -> PandaChain {
-        object.attributedPlaceholder = value
-        return self
-    }
-
-    @discardableResult
-    public func clearsOnBeginEditing(_ value: Bool) -> PandaChain {
-        object.clearsOnBeginEditing = value
-        return self
-    }
-
-    /// `adjustsFontSizeToFitWidth`
-    @discardableResult
-    public func adjustsFontSize(_ value: Bool) -> PandaChain {
-        object.adjustsFontSizeToFitWidth = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "adjustsFontSize()")
-    @discardableResult
-    public func adjustsFontSizeToFitWidth(_ value: Bool) -> PandaChain {
-        object.adjustsFontSizeToFitWidth = value
-        return self
-    }
-
-    /// `minimumFontSize`
-    @discardableResult
-    public func minFontSize(_ value: CGFloat) -> PandaChain {
-        object.minimumFontSize = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "minFontSize()")
-    @discardableResult
-    public func minimumFontSize(_ value: CGFloat) -> PandaChain {
-        object.minimumFontSize = value
-        return self
-    }
-
-    @discardableResult
-    public func delegate(_ value: UITextFieldDelegate?) -> PandaChain {
-        object.delegate = value
-        return self
-    }
-
-    @discardableResult
-    public func background(_ value: UIImage?) -> PandaChain {
-        object.background = value
-        return self
-    }
-
-    @discardableResult
-    public func disabledBackground(_ value: UIImage?) -> PandaChain {
-        object.disabledBackground = value
-        return self
-    }
-
-    /// `allowsEditingTextAttributes`
-    @discardableResult
-    public func attributesEditable(_ value: Bool) -> PandaChain {
-        object.allowsEditingTextAttributes = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "attributesEditable()")
-    @discardableResult
-    public func allowsEditingTextAttributes(_ value: Bool) -> PandaChain {
-        object.allowsEditingTextAttributes = value
-        return self
-    }
-
-    @discardableResult
-    public func typingAttributes(_ value: [String: Any]?) -> PandaChain {
-        object.typingAttributes = value
-        return self
-    }
-
-    @discardableResult
-    public func clearButtonMode(_ value: UITextFieldViewMode) -> PandaChain {
-        object.clearButtonMode = value
-        return self
-    }
-
-    @discardableResult
-    public func leftView(_ value: UIViewConvertible?) -> PandaChain {
-        object.leftView = unbox(value)
-        return self
-    }
-
-    @discardableResult
-    public func leftViewMode(_ value: UITextFieldViewMode) -> PandaChain {
-        object.leftViewMode = value
-        return self
-    }
-
-    @discardableResult
-    public func rightView(_ value: UIViewConvertible?) -> PandaChain {
-        object.rightView = unbox(value)
-        return self
-    }
-
-    @discardableResult
-    public func rightViewMode(_ value: UITextFieldViewMode) -> PandaChain {
-        object.rightViewMode = value
-        return self
-    }
-
-    @discardableResult
-    public func inputView(_ value: UIViewConvertible?) -> PandaChain {
-        object.inputView = unbox(value)
-        return self
-    }
-
-    @discardableResult
-    public func inputAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
-        object.inputAccessoryView = unbox(value)
-        return self
-    }
-
-    @discardableResult
-    public func clearsOnInsertion(_ value: Bool) -> PandaChain {
-        object.clearsOnInsertion = value
-        return self
-    }
-
-    @discardableResult
     public func autocapitalizationType(_ value: UITextAutocapitalizationType) -> PandaChain {
         object.autocapitalizationType = value
         return self
@@ -270,15 +72,172 @@ extension PandaChain where Object: UITextField {
     }
 
     @discardableResult
-    public func secureTextEntry(_ value: Bool) -> PandaChain {
+    public func isSecureTextEntry(_ value: Bool) -> PandaChain {
         object.isSecureTextEntry = value
         return self
     }
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func textContentType(_ value: UITextContentType) -> PandaChain {
+    public func textContentType(_ value: UITextContentType!) -> PandaChain {
         object.textContentType = value
+        return self
+    }
+
+    @available(iOS 12.0, *)
+    @discardableResult
+    public func passwordRules(_ value: UITextInputPasswordRules?) -> PandaChain {
+        object.passwordRules = value
+        return self
+    }
+
+    @discardableResult
+    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
+        object.selectionAffinity = value
+        return self
+    }
+
+    @discardableResult
+    public func text(_ value: String?) -> PandaChain {
+        object.text = value
+        return self
+    }
+
+    @discardableResult
+    public func attributedText(_ value: NSAttributedString?) -> PandaChain {
+        object.attributedText = value
+        return self
+    }
+
+    @discardableResult
+    public func textColor(_ value: UIColor?) -> PandaChain {
+        object.textColor = value
+        return self
+    }
+
+    @discardableResult
+    public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
+        object.textAlignment = value
+        return self
+    }
+
+    @discardableResult
+    public func borderStyle(_ value: UITextField.BorderStyle) -> PandaChain {
+        object.borderStyle = value
+        return self
+    }
+
+    @discardableResult
+    public func defaultTextAttributes(_ value: [NSAttributedString.Key : Any]) -> PandaChain {
+        object.defaultTextAttributes = value
+        return self
+    }
+
+    @discardableResult
+    public func placeholder(_ value: String?) -> PandaChain {
+        object.placeholder = value
+        return self
+    }
+
+    @discardableResult
+    public func attributedPlaceholder(_ value: NSAttributedString?) -> PandaChain {
+        object.attributedPlaceholder = value
+        return self
+    }
+
+    @discardableResult
+    public func clearsOnBeginEditing(_ value: Bool) -> PandaChain {
+        object.clearsOnBeginEditing = value
+        return self
+    }
+
+    @discardableResult
+    public func adjustsFontSizeToFitWidth(_ value: Bool) -> PandaChain {
+        object.adjustsFontSizeToFitWidth = value
+        return self
+    }
+
+    @discardableResult
+    public func minimumFontSize(_ value: CGFloat) -> PandaChain {
+        object.minimumFontSize = value
+        return self
+    }
+
+    @discardableResult
+    public func delegate(_ value: UITextFieldDelegate?) -> PandaChain {
+        object.delegate = value
+        return self
+    }
+
+    @discardableResult
+    public func background(_ value: UIImage?) -> PandaChain {
+        object.background = value
+        return self
+    }
+
+    @discardableResult
+    public func disabledBackground(_ value: UIImage?) -> PandaChain {
+        object.disabledBackground = value
+        return self
+    }
+
+    @discardableResult
+    public func allowsEditingTextAttributes(_ value: Bool) -> PandaChain {
+        object.allowsEditingTextAttributes = value
+        return self
+    }
+
+    @discardableResult
+    public func typingAttributes(_ value: [NSAttributedString.Key : Any]?) -> PandaChain {
+        object.typingAttributes = value
+        return self
+    }
+
+    @discardableResult
+    public func clearButtonMode(_ value: UITextField.ViewMode) -> PandaChain {
+        object.clearButtonMode = value
+        return self
+    }
+
+    @discardableResult
+    public func leftView(_ value: UIViewConvertible?) -> PandaChain {
+        object.leftView = unbox(value)
+        return self
+    }
+
+    @discardableResult
+    public func leftViewMode(_ value: UITextField.ViewMode) -> PandaChain {
+        object.leftViewMode = value
+        return self
+    }
+
+    @discardableResult
+    public func rightView(_ value: UIViewConvertible?) -> PandaChain {
+        object.rightView = unbox(value)
+        return self
+    }
+
+    @discardableResult
+    public func rightViewMode(_ value: UITextField.ViewMode) -> PandaChain {
+        object.rightViewMode = value
+        return self
+    }
+
+    @discardableResult
+    public func inputView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputView = unbox(value)
+        return self
+    }
+
+    @discardableResult
+    public func inputAccessoryView(_ value: UIViewConvertible?) -> PandaChain {
+        object.inputAccessoryView = unbox(value)
+        return self
+    }
+
+    @discardableResult
+    public func clearsOnInsertion(_ value: Bool) -> PandaChain {
+        object.clearsOnInsertion = value
         return self
     }
 }

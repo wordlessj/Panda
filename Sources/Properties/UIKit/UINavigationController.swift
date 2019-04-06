@@ -15,13 +15,13 @@ extension PandaChain where Object: UINavigationController {
     }
 
     @discardableResult
-    public func navigationBarHidden(_ value: Bool) -> PandaChain {
+    public func isNavigationBarHidden(_ value: Bool) -> PandaChain {
         object.isNavigationBarHidden = value
         return self
     }
 
     @discardableResult
-    public func toolbarHidden(_ value: Bool) -> PandaChain {
+    public func isToolbarHidden(_ value: Bool) -> PandaChain {
         object.isToolbarHidden = value
         return self
     }

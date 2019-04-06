@@ -15,7 +15,7 @@ extension PandaChain where Object: UIDocument {
     }
 
     @discardableResult
-    public func undoManager(_ value: UndoManager?) -> PandaChain {
+    public func undoManager(_ value: UndoManager!) -> PandaChain {
         object.undoManager = value
         return self
     }

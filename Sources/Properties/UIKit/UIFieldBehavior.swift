@@ -33,14 +33,6 @@ extension PandaChain where Object: UIFieldBehavior {
         return self
     }
 
-    /// `minimumRadius`
-    @discardableResult
-    public func minRadius(_ value: CGFloat) -> PandaChain {
-        object.minimumRadius = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "minRadius()")
     @discardableResult
     public func minimumRadius(_ value: CGFloat) -> PandaChain {
         object.minimumRadius = value

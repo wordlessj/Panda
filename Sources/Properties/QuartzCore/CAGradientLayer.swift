@@ -33,7 +33,7 @@ extension PandaChain where Object: CAGradientLayer {
     }
 
     @discardableResult
-    public func type(_ value: String) -> PandaChain {
+    public func type(_ value: CAGradientLayerType) -> PandaChain {
         object.type = value
         return self
     }

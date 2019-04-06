@@ -8,28 +8,12 @@
 import UIKit
 
 extension PandaChain where Object: UIButton {
-    /// `contentEdgeInsets`
-    @discardableResult
-    public func contentInsets(_ value: UIEdgeInsets) -> PandaChain {
-        object.contentEdgeInsets = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "contentInsets()")
     @discardableResult
     public func contentEdgeInsets(_ value: UIEdgeInsets) -> PandaChain {
         object.contentEdgeInsets = value
         return self
     }
 
-    /// `titleEdgeInsets`
-    @discardableResult
-    public func titleInsets(_ value: UIEdgeInsets) -> PandaChain {
-        object.titleEdgeInsets = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "titleInsets()")
     @discardableResult
     public func titleEdgeInsets(_ value: UIEdgeInsets) -> PandaChain {
         object.titleEdgeInsets = value
@@ -42,14 +26,6 @@ extension PandaChain where Object: UIButton {
         return self
     }
 
-    /// `imageEdgeInsets`
-    @discardableResult
-    public func imageInsets(_ value: UIEdgeInsets) -> PandaChain {
-        object.imageEdgeInsets = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "imageInsets()")
     @discardableResult
     public func imageEdgeInsets(_ value: UIEdgeInsets) -> PandaChain {
         object.imageEdgeInsets = value
@@ -74,60 +50,44 @@ extension PandaChain where Object: UIButton {
         return self
     }
 
-    /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "tint()")
-    @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
+    public func tintColor(_ value: UIColor!) -> PandaChain {
         object.tintColor = value
         return self
     }
 
     @discardableResult
-    public func title(_ title: String?, for state: UIControlState) -> PandaChain {
+    public func title(_ title: String?, for state: UIControl.State) -> PandaChain {
         object.setTitle(title, for: state)
         return self
     }
 
     @discardableResult
-    public func titleColor(_ color: UIColor?, for state: UIControlState) -> PandaChain {
+    public func titleColor(_ color: UIColor?, for state: UIControl.State) -> PandaChain {
         object.setTitleColor(color, for: state)
         return self
     }
 
     @discardableResult
-    public func titleShadowColor(_ color: UIColor?, for state: UIControlState) -> PandaChain {
+    public func titleShadowColor(_ color: UIColor?, for state: UIControl.State) -> PandaChain {
         object.setTitleShadowColor(color, for: state)
         return self
     }
 
     @discardableResult
-    public func image(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func image(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setImage(image, for: state)
         return self
     }
 
-    /// `backgroundImage`
     @discardableResult
-    public func background(_ image: UIImage?, for state: UIControlState) -> PandaChain {
-        object.setBackgroundImage(image, for: state)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
-    @discardableResult
-    public func backgroundImage(_ image: UIImage?, for state: UIControlState) -> PandaChain {
+    public func backgroundImage(_ image: UIImage?, for state: UIControl.State) -> PandaChain {
         object.setBackgroundImage(image, for: state)
         return self
     }
 
     @discardableResult
-    public func attributedTitle(_ title: NSAttributedString?, for state: UIControlState) -> PandaChain {
+    public func attributedTitle(_ title: NSAttributedString?, for state: UIControl.State) -> PandaChain {
         object.setAttributedTitle(title, for: state)
         return self
     }
@@ -196,24 +156,6 @@ extension PandaChain where Object: UIButton {
         )
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(
-        _ normal: UIImage,
-        highlighted: UIImage? = nil,
-        selected: UIImage? = nil,
-        disabled: UIImage? = nil
-    ) -> PandaChain {
-        return forControlState(
-            normal: normal,
-            highlighted: highlighted,
-            selected: selected,
-            disabled: disabled,
-            setter: object.setBackgroundImage
-        )
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(
         _ normal: UIImage,

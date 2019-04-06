@@ -9,7 +9,7 @@ import QuartzCore
 
 extension PandaChain where Object: CAScrollLayer {
     @discardableResult
-    public func scrollMode(_ value: String) -> PandaChain {
+    public func scrollMode(_ value: CAScrollLayerScrollMode) -> PandaChain {
         object.scrollMode = value
         return self
     }

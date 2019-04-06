@@ -51,19 +51,19 @@ extension PandaChain where Object: CAEmitterLayer {
     }
 
     @discardableResult
-    public func emitterShape(_ value: String) -> PandaChain {
+    public func emitterShape(_ value: CAEmitterLayerEmitterShape) -> PandaChain {
         object.emitterShape = value
         return self
     }
 
     @discardableResult
-    public func emitterMode(_ value: String) -> PandaChain {
+    public func emitterMode(_ value: CAEmitterLayerEmitterMode) -> PandaChain {
         object.emitterMode = value
         return self
     }
 
     @discardableResult
-    public func renderMode(_ value: String) -> PandaChain {
+    public func renderMode(_ value: CAEmitterLayerRenderMode) -> PandaChain {
         object.renderMode = value
         return self
     }

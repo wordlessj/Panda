@@ -33,42 +33,18 @@ extension PandaChain where Object: UIPopoverController {
         return self
     }
 
-    /// `backgroundColor`
-    @discardableResult
-    public func background(_ value: UIColor?) -> PandaChain {
-        object.backgroundColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundColor(_ value: UIColor?) -> PandaChain {
         object.backgroundColor = value
         return self
     }
 
-    /// `layoutMargins`
-    @discardableResult
-    public func margins(_ value: UIEdgeInsets) -> PandaChain {
-        object.layoutMargins = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "margins()")
     @discardableResult
     public func layoutMargins(_ value: UIEdgeInsets) -> PandaChain {
         object.layoutMargins = value
         return self
     }
 
-    /// `backgroundViewClass`
-    @discardableResult
-    public func backgroundClass(_ value: AnyClass?) -> PandaChain {
-        object.backgroundViewClass = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "backgroundClass()")
     @discardableResult
     public func backgroundViewClass(_ value: AnyClass?) -> PandaChain {
         object.backgroundViewClass = value

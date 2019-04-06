@@ -21,9 +21,17 @@ extension PandaChain where Object: UIGraphicsImageRendererFormat {
         return self
     }
 
+    @available(iOS, introduced: 10.0, deprecated: 12.0)
     @discardableResult
     public func prefersExtendedRange(_ value: Bool) -> PandaChain {
         object.prefersExtendedRange = value
+        return self
+    }
+
+    @available(iOS 12.0, *)
+    @discardableResult
+    public func preferredRange(_ value: UIGraphicsImageRendererFormat.Range) -> PandaChain {
+        object.preferredRange = value
         return self
     }
 }

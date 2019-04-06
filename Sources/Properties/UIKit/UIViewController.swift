@@ -14,13 +14,13 @@ extension PandaChain: UIViewControllerConvertible {}
 
 extension PandaChain where Object: UIViewController {
     @discardableResult
-    public func modalInPopover(_ value: Bool) -> PandaChain {
-        object.isModalInPopover = value
+    public func tabBarItem(_ value: UITabBarItemConvertible!) -> PandaChain {
+        object.tabBarItem = unbox(value)
         return self
     }
 
     @discardableResult
-    public func view(_ value: UIViewConvertible?) -> PandaChain {
+    public func view(_ value: UIViewConvertible!) -> PandaChain {
         object.view = unbox(value)
         return self
     }
@@ -94,19 +94,11 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func editing(_ value: Bool) -> PandaChain {
+    public func isEditing(_ value: Bool) -> PandaChain {
         object.isEditing = value
         return self
     }
 
-    /// `restorationIdentifier`
-    @discardableResult
-    public func restorationID(_ value: String?) -> PandaChain {
-        object.restorationIdentifier = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "restorationID()")
     @discardableResult
     public func restorationIdentifier(_ value: String?) -> PandaChain {
         object.restorationIdentifier = value
@@ -132,19 +124,16 @@ extension PandaChain where Object: UIViewController {
         return self
     }
 
-    /// `viewRespectsSystemMinimumLayoutMargins`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func viewRespectsSystemMinMargins(_ value: Bool) -> PandaChain {
-        object.viewRespectsSystemMinimumLayoutMargins = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "viewRespectsSystemMinMargins()")
     @available(iOS 11.0, *)
     @discardableResult
     public func viewRespectsSystemMinimumLayoutMargins(_ value: Bool) -> PandaChain {
         object.viewRespectsSystemMinimumLayoutMargins = value
+        return self
+    }
+
+    @discardableResult
+    public func isModalInPopover(_ value: Bool) -> PandaChain {
+        object.isModalInPopover = value
         return self
     }
 
@@ -161,20 +150,14 @@ extension PandaChain where Object: UIViewController {
     }
 
     @discardableResult
-    public func tabBarItem(_ value: UITabBarItemConvertible?) -> PandaChain {
-        object.tabBarItem = unbox(value)
-        return self
-    }
-
-    @discardableResult
     public func editing(_ editing: Bool, animated: Bool) -> PandaChain {
         object.setEditing(editing, animated: animated)
         return self
     }
 
     @discardableResult
-    public func overrideTraitCollection(_ collection: UITraitCollection?, forChildViewController childViewController: UIViewController) -> PandaChain {
-        object.setOverrideTraitCollection(collection, forChildViewController: childViewController)
+    public func overrideTraitCollection(_ collection: UITraitCollection?, forChild childViewController: UIViewController) -> PandaChain {
+        object.setOverrideTraitCollection(collection, forChild: childViewController)
         return self
     }
 

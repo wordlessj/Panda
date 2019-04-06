@@ -8,16 +8,8 @@
 import UIKit
 
 extension PandaChain where Object: UIDatePicker {
-    /// `datePickerMode`
     @discardableResult
-    public func mode(_ value: UIDatePickerMode) -> PandaChain {
-        object.datePickerMode = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "mode()")
-    @discardableResult
-    public func datePickerMode(_ value: UIDatePickerMode) -> PandaChain {
+    public func datePickerMode(_ value: UIDatePicker.Mode) -> PandaChain {
         object.datePickerMode = value
         return self
     }
@@ -29,7 +21,7 @@ extension PandaChain where Object: UIDatePicker {
     }
 
     @discardableResult
-    public func calendar(_ value: Calendar?) -> PandaChain {
+    public func calendar(_ value: Calendar!) -> PandaChain {
         object.calendar = value
         return self
     }
@@ -46,28 +38,12 @@ extension PandaChain where Object: UIDatePicker {
         return self
     }
 
-    /// `minimumDate`
-    @discardableResult
-    public func minDate(_ value: Date?) -> PandaChain {
-        object.minimumDate = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "minDate()")
     @discardableResult
     public func minimumDate(_ value: Date?) -> PandaChain {
         object.minimumDate = value
         return self
     }
 
-    /// `maximumDate`
-    @discardableResult
-    public func maxDate(_ value: Date?) -> PandaChain {
-        object.maximumDate = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "maxDate()")
     @discardableResult
     public func maximumDate(_ value: Date?) -> PandaChain {
         object.maximumDate = value

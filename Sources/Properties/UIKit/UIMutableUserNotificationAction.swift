@@ -9,14 +9,6 @@ import UIKit
 
 @available(iOS, introduced: 8.0, deprecated: 10.0)
 extension PandaChain where Object: UIMutableUserNotificationAction {
-    /// `identifier`
-    @discardableResult
-    public func id(_ value: String?) -> PandaChain {
-        object.identifier = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "id()")
     @discardableResult
     public func identifier(_ value: String?) -> PandaChain {
         object.identifier = value
@@ -38,7 +30,7 @@ extension PandaChain where Object: UIMutableUserNotificationAction {
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func parameters(_ value: [AnyHashable: Any]) -> PandaChain {
+    public func parameters(_ value: [AnyHashable : Any]) -> PandaChain {
         object.parameters = value
         return self
     }
@@ -50,13 +42,13 @@ extension PandaChain where Object: UIMutableUserNotificationAction {
     }
 
     @discardableResult
-    public func authenticationRequired(_ value: Bool) -> PandaChain {
+    public func isAuthenticationRequired(_ value: Bool) -> PandaChain {
         object.isAuthenticationRequired = value
         return self
     }
 
     @discardableResult
-    public func destructive(_ value: Bool) -> PandaChain {
+    public func isDestructive(_ value: Bool) -> PandaChain {
         object.isDestructive = value
         return self
     }

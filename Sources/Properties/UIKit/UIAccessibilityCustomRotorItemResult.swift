@@ -18,8 +18,8 @@ extension PandaChain: UIAccessibilityCustomRotorItemResultConvertible {}
 @available(iOS 10.0, *)
 extension PandaChain where Object: UIAccessibilityCustomRotorItemResult {
     @discardableResult
-    public func targetElement(_ value: NSObjectConvertible) -> PandaChain {
-        object.targetElement = unbox(value)
+    public func targetElement(_ value: NSObjectProtocol?) -> PandaChain {
+        object.targetElement = value
         return self
     }
 

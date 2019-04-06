@@ -20,7 +20,7 @@ extension PandaChain where Object: UISearchController {
     }
 
     @discardableResult
-    public func active(_ value: Bool) -> PandaChain {
+    public func isActive(_ value: Bool) -> PandaChain {
         object.isActive = value
         return self
     }

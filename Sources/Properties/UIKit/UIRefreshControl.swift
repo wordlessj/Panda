@@ -13,16 +13,8 @@ extension UIRefreshControl: UIRefreshControlConvertible {}
 extension PandaChain: UIRefreshControlConvertible {}
 
 extension PandaChain where Object: UIRefreshControl {
-    /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "tint()")
-    @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
+    public func tintColor(_ value: UIColor!) -> PandaChain {
         object.tintColor = value
         return self
     }

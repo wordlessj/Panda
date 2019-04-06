@@ -34,7 +34,7 @@ extension PandaChain where Object: UIMutableApplicationShortcutItem {
     }
 
     @discardableResult
-    public func userInfo(_ value: [String: NSSecureCoding]?) -> PandaChain {
+    public func userInfo(_ value: [String : NSSecureCoding]?) -> PandaChain {
         object.userInfo = value
         return self
     }

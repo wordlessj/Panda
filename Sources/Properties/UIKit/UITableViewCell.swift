@@ -8,42 +8,18 @@
 import UIKit
 
 extension PandaChain where Object: UITableViewCell {
-    /// `backgroundView`
-    @discardableResult
-    public func background(_ value: UIViewConvertible?) -> PandaChain {
-        object.backgroundView = unbox(value)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundView(_ value: UIViewConvertible?) -> PandaChain {
         object.backgroundView = unbox(value)
         return self
     }
 
-    /// `selectedBackgroundView`
-    @discardableResult
-    public func selectedBackground(_ value: UIViewConvertible?) -> PandaChain {
-        object.selectedBackgroundView = unbox(value)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "selectedBackground()")
     @discardableResult
     public func selectedBackgroundView(_ value: UIViewConvertible?) -> PandaChain {
         object.selectedBackgroundView = unbox(value)
         return self
     }
 
-    /// `multipleSelectionBackgroundView`
-    @discardableResult
-    public func multipleSelectionBackground(_ value: UIViewConvertible?) -> PandaChain {
-        object.multipleSelectionBackgroundView = unbox(value)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "multipleSelectionBackground()")
     @discardableResult
     public func multipleSelectionBackgroundView(_ value: UIViewConvertible?) -> PandaChain {
         object.multipleSelectionBackgroundView = unbox(value)
@@ -51,19 +27,19 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func selectionStyle(_ value: UITableViewCellSelectionStyle) -> PandaChain {
+    public func selectionStyle(_ value: UITableViewCell.SelectionStyle) -> PandaChain {
         object.selectionStyle = value
         return self
     }
 
     @discardableResult
-    public func selected(_ value: Bool) -> PandaChain {
+    public func isSelected(_ value: Bool) -> PandaChain {
         object.isSelected = value
         return self
     }
 
     @discardableResult
-    public func highlighted(_ value: Bool) -> PandaChain {
+    public func isHighlighted(_ value: Bool) -> PandaChain {
         object.isHighlighted = value
         return self
     }
@@ -81,7 +57,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func accessoryType(_ value: UITableViewCellAccessoryType) -> PandaChain {
+    public func accessoryType(_ value: UITableViewCell.AccessoryType) -> PandaChain {
         object.accessoryType = value
         return self
     }
@@ -93,7 +69,7 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func editingAccessoryType(_ value: UITableViewCellAccessoryType) -> PandaChain {
+    public func editingAccessoryType(_ value: UITableViewCell.AccessoryType) -> PandaChain {
         object.editingAccessoryType = value
         return self
     }
@@ -123,27 +99,18 @@ extension PandaChain where Object: UITableViewCell {
     }
 
     @discardableResult
-    public func editing(_ value: Bool) -> PandaChain {
+    public func isEditing(_ value: Bool) -> PandaChain {
         object.isEditing = value
         return self
     }
 
     @available(iOS 9.0, *)
     @discardableResult
-    public func focusStyle(_ value: UITableViewCellFocusStyle) -> PandaChain {
+    public func focusStyle(_ value: UITableViewCell.FocusStyle) -> PandaChain {
         object.focusStyle = value
         return self
     }
 
-    /// `userInteractionEnabledWhileDragging`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func interactableWhileDragging(_ value: Bool) -> PandaChain {
-        object.userInteractionEnabledWhileDragging = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "interactableWhileDragging()")
     @available(iOS 11.0, *)
     @discardableResult
     public func userInteractionEnabledWhileDragging(_ value: Bool) -> PandaChain {

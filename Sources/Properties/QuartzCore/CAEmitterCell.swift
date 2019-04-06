@@ -20,7 +20,7 @@ extension PandaChain where Object: CAEmitterCell {
     }
 
     @discardableResult
-    public func enabled(_ value: Bool) -> PandaChain {
+    public func isEnabled(_ value: Bool) -> PandaChain {
         object.isEnabled = value
         return self
     }
@@ -218,7 +218,7 @@ extension PandaChain where Object: CAEmitterCell {
     }
 
     @discardableResult
-    public func style(_ value: [AnyHashable: Any]?) -> PandaChain {
+    public func style(_ value: [AnyHashable : Any]?) -> PandaChain {
         object.style = value
         return self
     }

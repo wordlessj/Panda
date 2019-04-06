@@ -37,13 +37,13 @@ extension PandaChain where Object: FontContainer {
     }
 
     @discardableResult
-    public func font(style: UIFontTextStyle) -> PandaChain {
+    public func font(style: UIFont.TextStyle) -> PandaChain {
         return font(.preferredFont(forTextStyle: style))
     }
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func font(style: UIFontTextStyle, compatibleWith traitCollection: UITraitCollection?) -> PandaChain {
+    public func font(style: UIFont.TextStyle, compatibleWith traitCollection: UITraitCollection?) -> PandaChain {
         return font(.preferredFont(forTextStyle: style, compatibleWith: traitCollection))
     }
 

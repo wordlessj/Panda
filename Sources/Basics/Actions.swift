@@ -113,7 +113,7 @@ extension PandaChain where Object: UIControl {
     ///     - events: Defaults to `touchUpInside`.
     ///     - action: If `nil`, the action associated with `events` will be removed.
     @discardableResult
-    public func action(for events: UIControlEvents = .touchUpInside, action: ((Object) -> ())?) -> PandaChain {
+    public func action(for events: UIControl.Event = .touchUpInside, action: ((Object) -> ())?) -> PandaChain {
         if let box = object.actionBoxes[events.rawValue] {
             object.removeTarget(box, action: ActionBox.selector, for: events)
             object.actionBoxes[events.rawValue] = nil

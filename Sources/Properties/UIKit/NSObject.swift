@@ -7,12 +7,20 @@
 
 import UIKit
 
-public protocol NSObjectConvertible {}
-
-extension NSObject: NSObjectConvertible {}
-extension PandaChain: NSObjectConvertible {}
-
 extension PandaChain where Object: NSObject {
+    @discardableResult
+    public func accessibilityElements(_ value: [Any]?) -> PandaChain {
+        object.accessibilityElements = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityContainerType(_ value: UIAccessibilityContainerType) -> PandaChain {
+        object.accessibilityContainerType = value
+        return self
+    }
+
     @discardableResult
     public func isAccessibilityElement(_ value: Bool) -> PandaChain {
         object.isAccessibilityElement = value
@@ -136,19 +144,6 @@ extension PandaChain where Object: NSObject {
     @discardableResult
     public func accessibilityCustomRotors(_ value: [UIAccessibilityCustomRotorConvertible]?) -> PandaChain {
         object.accessibilityCustomRotors = unboxArray(value)
-        return self
-    }
-
-    @discardableResult
-    public func accessibilityElements(_ value: [Any]?) -> PandaChain {
-        object.accessibilityElements = value
-        return self
-    }
-
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func accessibilityContainerType(_ value: UIAccessibilityContainerType) -> PandaChain {
-        object.accessibilityContainerType = value
         return self
     }
 }

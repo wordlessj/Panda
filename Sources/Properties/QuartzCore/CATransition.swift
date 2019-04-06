@@ -9,13 +9,13 @@ import QuartzCore
 
 extension PandaChain where Object: CATransition {
     @discardableResult
-    public func type(_ value: String) -> PandaChain {
+    public func type(_ value: CATransitionType) -> PandaChain {
         object.type = value
         return self
     }
 
     @discardableResult
-    public func subtype(_ value: String?) -> PandaChain {
+    public func subtype(_ value: CATransitionSubtype?) -> PandaChain {
         object.subtype = value
         return self
     }

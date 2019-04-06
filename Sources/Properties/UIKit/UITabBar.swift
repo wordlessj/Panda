@@ -26,43 +26,18 @@ extension PandaChain where Object: UITabBar {
         return self
     }
 
-    /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
+    public func tintColor(_ value: UIColor!) -> PandaChain {
         object.tintColor = value
         return self
     }
 
-    @available(*, deprecated, renamed: "tint()")
-    @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    /// `barTintColor`
-    @discardableResult
-    public func barTint(_ value: UIColor?) -> PandaChain {
-        object.barTintColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "barTint()")
     @discardableResult
     public func barTintColor(_ value: UIColor?) -> PandaChain {
         object.barTintColor = value
         return self
     }
 
-    /// `unselectedItemTintColor`
-    @available(iOS 10.0, *)
-    @discardableResult
-    public func unselectedItemTint(_ value: UIColor?) -> PandaChain {
-        object.unselectedItemTintColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "unselectedItemTint()")
     @available(iOS 10.0, *)
     @discardableResult
     public func unselectedItemTintColor(_ value: UIColor?) -> PandaChain {
@@ -70,14 +45,6 @@ extension PandaChain where Object: UITabBar {
         return self
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ value: UIImage?) -> PandaChain {
-        object.backgroundImage = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ value: UIImage?) -> PandaChain {
         object.backgroundImage = value
@@ -97,7 +64,7 @@ extension PandaChain where Object: UITabBar {
     }
 
     @discardableResult
-    public func itemPositioning(_ value: UITabBarItemPositioning) -> PandaChain {
+    public func itemPositioning(_ value: UITabBar.ItemPositioning) -> PandaChain {
         object.itemPositioning = value
         return self
     }
@@ -114,14 +81,6 @@ extension PandaChain where Object: UITabBar {
         return self
     }
 
-    /// `barStyle`
-    @discardableResult
-    public func style(_ value: UIBarStyle) -> PandaChain {
-        object.barStyle = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func barStyle(_ value: UIBarStyle) -> PandaChain {
         object.barStyle = value
@@ -129,7 +88,7 @@ extension PandaChain where Object: UITabBar {
     }
 
     @discardableResult
-    public func translucent(_ value: Bool) -> PandaChain {
+    public func isTranslucent(_ value: Bool) -> PandaChain {
         object.isTranslucent = value
         return self
     }

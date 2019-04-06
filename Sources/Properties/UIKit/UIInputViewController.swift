@@ -19,4 +19,10 @@ extension PandaChain where Object: UIInputViewController {
         object.primaryLanguage = value
         return self
     }
+
+    @discardableResult
+    public func hasDictationKey(_ value: Bool) -> PandaChain {
+        object.hasDictationKey = value
+        return self
+    }
 }

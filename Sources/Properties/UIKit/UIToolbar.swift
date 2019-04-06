@@ -8,14 +8,6 @@
 import UIKit
 
 extension PandaChain where Object: UIToolbar {
-    /// `barStyle`
-    @discardableResult
-    public func style(_ value: UIBarStyle) -> PandaChain {
-        object.barStyle = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "style()")
     @discardableResult
     public func barStyle(_ value: UIBarStyle) -> PandaChain {
         object.barStyle = value
@@ -29,33 +21,17 @@ extension PandaChain where Object: UIToolbar {
     }
 
     @discardableResult
-    public func translucent(_ value: Bool) -> PandaChain {
+    public func isTranslucent(_ value: Bool) -> PandaChain {
         object.isTranslucent = value
         return self
     }
 
-    /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
+    public func tintColor(_ value: UIColor!) -> PandaChain {
         object.tintColor = value
         return self
     }
 
-    @available(*, deprecated, renamed: "tint()")
-    @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    /// `barTintColor`
-    @discardableResult
-    public func barTint(_ value: UIColor?) -> PandaChain {
-        object.barTintColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "barTint()")
     @discardableResult
     public func barTintColor(_ value: UIColor?) -> PandaChain {
         object.barTintColor = value
@@ -74,14 +50,6 @@ extension PandaChain where Object: UIToolbar {
         return self
     }
 
-    /// `backgroundImage`
-    @discardableResult
-    public func background(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
-        object.setBackgroundImage(backgroundImage, forToolbarPosition: topOrBottom, barMetrics: barMetrics)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundImage(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> PandaChain {
         object.setBackgroundImage(backgroundImage, forToolbarPosition: topOrBottom, barMetrics: barMetrics)

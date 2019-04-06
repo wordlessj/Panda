@@ -21,7 +21,7 @@ extension PandaChain where Object: CAShapeLayer {
     }
 
     @discardableResult
-    public func fillRule(_ value: String) -> PandaChain {
+    public func fillRule(_ value: CAShapeLayerFillRule) -> PandaChain {
         object.fillRule = value
         return self
     }
@@ -57,13 +57,13 @@ extension PandaChain where Object: CAShapeLayer {
     }
 
     @discardableResult
-    public func lineCap(_ value: String) -> PandaChain {
+    public func lineCap(_ value: CAShapeLayerLineCap) -> PandaChain {
         object.lineCap = value
         return self
     }
 
     @discardableResult
-    public func lineJoin(_ value: String) -> PandaChain {
+    public func lineJoin(_ value: CAShapeLayerLineJoin) -> PandaChain {
         object.lineJoin = value
         return self
     }

@@ -98,7 +98,7 @@ extension PandaChain where Object: UILocalNotification {
     }
 
     @discardableResult
-    public func userInfo(_ value: [AnyHashable: Any]?) -> PandaChain {
+    public func userInfo(_ value: [AnyHashable : Any]?) -> PandaChain {
         object.userInfo = value
         return self
     }

@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 11.0, *)
 extension PandaChain where Object: UIDropProposal {
     @discardableResult
-    public func precise(_ value: Bool) -> PandaChain {
+    public func isPrecise(_ value: Bool) -> PandaChain {
         object.isPrecise = value
         return self
     }

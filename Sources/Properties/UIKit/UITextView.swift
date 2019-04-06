@@ -9,12 +9,6 @@ import UIKit
 
 extension PandaChain where Object: UITextView {
     @discardableResult
-    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
-        object.selectionAffinity = value
-        return self
-    }
-
-    @discardableResult
     public func autocapitalizationType(_ value: UITextAutocapitalizationType) -> PandaChain {
         object.autocapitalizationType = value
         return self
@@ -78,15 +72,28 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func secureTextEntry(_ value: Bool) -> PandaChain {
+    public func isSecureTextEntry(_ value: Bool) -> PandaChain {
         object.isSecureTextEntry = value
         return self
     }
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func textContentType(_ value: UITextContentType) -> PandaChain {
+    public func textContentType(_ value: UITextContentType!) -> PandaChain {
         object.textContentType = value
+        return self
+    }
+
+    @available(iOS 12.0, *)
+    @discardableResult
+    public func passwordRules(_ value: UITextInputPasswordRules?) -> PandaChain {
+        object.passwordRules = value
+        return self
+    }
+
+    @discardableResult
+    public func selectionAffinity(_ value: UITextStorageDirection) -> PandaChain {
+        object.selectionAffinity = value
         return self
     }
 
@@ -97,33 +104,17 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func text(_ value: String?) -> PandaChain {
+    public func text(_ value: String!) -> PandaChain {
         object.text = value
         return self
     }
 
-    /// `textColor`
-    @discardableResult
-    public func color(_ value: UIColor?) -> PandaChain {
-        object.textColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "color()")
     @discardableResult
     public func textColor(_ value: UIColor?) -> PandaChain {
         object.textColor = value
         return self
     }
 
-    /// `textAlignment`
-    @discardableResult
-    public func align(_ value: NSTextAlignment) -> PandaChain {
-        object.textAlignment = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "align()")
     @discardableResult
     public func textAlignment(_ value: NSTextAlignment) -> PandaChain {
         object.textAlignment = value
@@ -137,13 +128,13 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func editable(_ value: Bool) -> PandaChain {
+    public func isEditable(_ value: Bool) -> PandaChain {
         object.isEditable = value
         return self
     }
 
     @discardableResult
-    public func selectable(_ value: Bool) -> PandaChain {
+    public func isSelectable(_ value: Bool) -> PandaChain {
         object.isSelectable = value
         return self
     }
@@ -154,14 +145,6 @@ extension PandaChain where Object: UITextView {
         return self
     }
 
-    /// `allowsEditingTextAttributes`
-    @discardableResult
-    public func attributesEditable(_ value: Bool) -> PandaChain {
-        object.allowsEditingTextAttributes = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "attributesEditable()")
     @discardableResult
     public func allowsEditingTextAttributes(_ value: Bool) -> PandaChain {
         object.allowsEditingTextAttributes = value
@@ -169,13 +152,13 @@ extension PandaChain where Object: UITextView {
     }
 
     @discardableResult
-    public func attributedText(_ value: NSAttributedString?) -> PandaChain {
+    public func attributedText(_ value: NSAttributedString!) -> PandaChain {
         object.attributedText = value
         return self
     }
 
     @discardableResult
-    public func typingAttributes(_ value: [String: Any]) -> PandaChain {
+    public func typingAttributes(_ value: [NSAttributedString.Key : Any]) -> PandaChain {
         object.typingAttributes = value
         return self
     }
@@ -198,30 +181,14 @@ extension PandaChain where Object: UITextView {
         return self
     }
 
-    /// `textContainerInset`
-    @discardableResult
-    public func containerInset(_ value: UIEdgeInsets) -> PandaChain {
-        object.textContainerInset = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "containerInset()")
     @discardableResult
     public func textContainerInset(_ value: UIEdgeInsets) -> PandaChain {
         object.textContainerInset = value
         return self
     }
 
-    /// `linkTextAttributes`
     @discardableResult
-    public func linkAttributes(_ value: [String: Any]?) -> PandaChain {
-        object.linkTextAttributes = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "linkAttributes()")
-    @discardableResult
-    public func linkTextAttributes(_ value: [String: Any]?) -> PandaChain {
+    public func linkTextAttributes(_ value: [NSAttributedString.Key : Any]!) -> PandaChain {
         object.linkTextAttributes = value
         return self
     }

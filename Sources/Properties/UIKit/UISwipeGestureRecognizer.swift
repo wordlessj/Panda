@@ -8,14 +8,6 @@
 import UIKit
 
 extension PandaChain where Object: UISwipeGestureRecognizer {
-    /// `numberOfTouchesRequired`
-    @discardableResult
-    public func touches(_ value: Int) -> PandaChain {
-        object.numberOfTouchesRequired = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "touches()")
     @discardableResult
     public func numberOfTouchesRequired(_ value: Int) -> PandaChain {
         object.numberOfTouchesRequired = value
@@ -23,7 +15,7 @@ extension PandaChain where Object: UISwipeGestureRecognizer {
     }
 
     @discardableResult
-    public func direction(_ value: UISwipeGestureRecognizerDirection) -> PandaChain {
+    public func direction(_ value: UISwipeGestureRecognizer.Direction) -> PandaChain {
         object.direction = value
         return self
     }

@@ -9,13 +9,13 @@ import UIKit
 
 extension PandaChain where Object: UIMenuController {
     @discardableResult
-    public func menuVisible(_ value: Bool) -> PandaChain {
+    public func isMenuVisible(_ value: Bool) -> PandaChain {
         object.isMenuVisible = value
         return self
     }
 
     @discardableResult
-    public func arrowDirection(_ value: UIMenuControllerArrowDirection) -> PandaChain {
+    public func arrowDirection(_ value: UIMenuController.ArrowDirection) -> PandaChain {
         object.arrowDirection = value
         return self
     }

@@ -17,14 +17,6 @@ extension PandaChain: UIBarButtonItemGroupConvertible {}
 
 @available(iOS 9.0, *)
 extension PandaChain where Object: UIBarButtonItemGroup {
-    /// `barButtonItems`
-    @discardableResult
-    public func items(_ value: [UIBarButtonItemConvertible]) -> PandaChain {
-        object.barButtonItems = unboxArray(value)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "items()")
     @discardableResult
     public func barButtonItems(_ value: [UIBarButtonItemConvertible]) -> PandaChain {
         object.barButtonItems = unboxArray(value)

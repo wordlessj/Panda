@@ -30,7 +30,7 @@ extension PandaChain {
                                     highlighted: Attribute?,
                                     selected: Attribute?,
                                     disabled: Attribute?,
-                                    setter: (Attribute?, UIControlState) -> ()) -> PandaChain {
+                                    setter: (Attribute?, UIControl.State) -> ()) -> PandaChain {
         setter(normal, .normal)
 
         if let highlighted = highlighted {

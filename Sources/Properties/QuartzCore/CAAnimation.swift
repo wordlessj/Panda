@@ -13,14 +13,6 @@ extension CAAnimation: CAAnimationConvertible {}
 extension PandaChain: CAAnimationConvertible {}
 
 extension PandaChain where Object: CAAnimation {
-    /// `timingFunction`
-    @discardableResult
-    public func timing(_ value: CAMediaTimingFunction?) -> PandaChain {
-        object.timingFunction = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "timing()")
     @discardableResult
     public func timingFunction(_ value: CAMediaTimingFunction?) -> PandaChain {
         object.timingFunction = value
@@ -34,7 +26,7 @@ extension PandaChain where Object: CAAnimation {
     }
 
     @discardableResult
-    public func removedOnCompletion(_ value: Bool) -> PandaChain {
+    public func isRemovedOnCompletion(_ value: Bool) -> PandaChain {
         object.isRemovedOnCompletion = value
         return self
     }

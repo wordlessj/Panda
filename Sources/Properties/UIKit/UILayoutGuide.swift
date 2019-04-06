@@ -15,14 +15,6 @@ extension PandaChain where Object: UILayoutGuide {
         return self
     }
 
-    /// `identifier`
-    @discardableResult
-    public func id(_ value: String) -> PandaChain {
-        object.identifier = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "id()")
     @discardableResult
     public func identifier(_ value: String) -> PandaChain {
         object.identifier = value

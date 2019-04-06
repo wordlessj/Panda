@@ -16,7 +16,7 @@ extension PandaChain where Object: UIPasteboard {
     }
 
     @discardableResult
-    public func items(_ value: [[String: Any]]) -> PandaChain {
+    public func items(_ value: [[String : Any]]) -> PandaChain {
         object.items = value
         return self
     }
@@ -111,7 +111,7 @@ extension PandaChain where Object: UIPasteboard {
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func items(_ items: [[String: Any]], options: [UIPasteboardOption: Any]) -> PandaChain {
+    public func items(_ items: [[String : Any]], options: [UIPasteboard.OptionsKey : Any]) -> PandaChain {
         object.setItems(items, options: options)
         return self
     }

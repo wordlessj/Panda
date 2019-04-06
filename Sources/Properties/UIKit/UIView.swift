@@ -13,30 +13,8 @@ extension UIView: UIViewConvertible {}
 extension PandaChain: UIViewConvertible {}
 
 extension PandaChain where Object: UIView {
-    @available(iOS 11.0, *)
     @discardableResult
-    public func accessibilityIgnoresInvertColors(_ value: Bool) -> PandaChain {
-        object.accessibilityIgnoresInvertColors = value
-        return self
-    }
-
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func interactions(_ value: [UIInteraction]) -> PandaChain {
-        object.interactions = value
-        return self
-    }
-
-    /// `isUserInteractionEnabled`
-    @discardableResult
-    public func interactable(_ value: Bool) -> PandaChain {
-        object.isUserInteractionEnabled = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "interactable()")
-    @discardableResult
-    public func userInteractionEnabled(_ value: Bool) -> PandaChain {
+    public func isUserInteractionEnabled(_ value: Bool) -> PandaChain {
         object.isUserInteractionEnabled = value
         return self
     }
@@ -47,15 +25,6 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `semanticContentAttribute`
-    @available(iOS 9.0, *)
-    @discardableResult
-    public func semantics(_ value: UISemanticContentAttribute) -> PandaChain {
-        object.semanticContentAttribute = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "semantics()")
     @available(iOS 9.0, *)
     @discardableResult
     public func semanticContentAttribute(_ value: UISemanticContentAttribute) -> PandaChain {
@@ -87,91 +56,42 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `contentScaleFactor`
-    @discardableResult
-    public func contentScale(_ value: CGFloat) -> PandaChain {
-        object.contentScaleFactor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "contentScale()")
     @discardableResult
     public func contentScaleFactor(_ value: CGFloat) -> PandaChain {
         object.contentScaleFactor = value
         return self
     }
 
-    /// `isMultipleTouchEnabled`
     @discardableResult
-    public func multiTouchable(_ value: Bool) -> PandaChain {
-        object.isMultipleTouchEnabled = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "multiTouchable()")
-    @discardableResult
-    public func multipleTouchEnabled(_ value: Bool) -> PandaChain {
+    public func isMultipleTouchEnabled(_ value: Bool) -> PandaChain {
         object.isMultipleTouchEnabled = value
         return self
     }
 
     @discardableResult
-    public func exclusiveTouch(_ value: Bool) -> PandaChain {
+    public func isExclusiveTouch(_ value: Bool) -> PandaChain {
         object.isExclusiveTouch = value
         return self
     }
 
-    /// `autoresizesSubviews`
-    @discardableResult
-    public func autoresizes(_ value: Bool) -> PandaChain {
-        object.autoresizesSubviews = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "autoresizes()")
     @discardableResult
     public func autoresizesSubviews(_ value: Bool) -> PandaChain {
         object.autoresizesSubviews = value
         return self
     }
 
-    /// `autoresizingMask`
     @discardableResult
-    public func autoresizing(_ value: UIViewAutoresizing) -> PandaChain {
+    public func autoresizingMask(_ value: UIView.AutoresizingMask) -> PandaChain {
         object.autoresizingMask = value
         return self
     }
 
-    @available(*, deprecated, renamed: "autoresizing()")
-    @discardableResult
-    public func autoresizingMask(_ value: UIViewAutoresizing) -> PandaChain {
-        object.autoresizingMask = value
-        return self
-    }
-
-    /// `layoutMargins`
-    @discardableResult
-    public func margins(_ value: UIEdgeInsets) -> PandaChain {
-        object.layoutMargins = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "margins()")
     @discardableResult
     public func layoutMargins(_ value: UIEdgeInsets) -> PandaChain {
         object.layoutMargins = value
         return self
     }
 
-    /// `directionalLayoutMargins`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func directionalMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
-        object.directionalLayoutMargins = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "directionalMargins()")
     @available(iOS 11.0, *)
     @discardableResult
     public func directionalLayoutMargins(_ value: NSDirectionalEdgeInsets) -> PandaChain {
@@ -179,29 +99,12 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `preservesSuperviewLayoutMargins`
-    @discardableResult
-    public func preservesSuperviewMargins(_ value: Bool) -> PandaChain {
-        object.preservesSuperviewLayoutMargins = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "preservesSuperviewMargins()")
     @discardableResult
     public func preservesSuperviewLayoutMargins(_ value: Bool) -> PandaChain {
         object.preservesSuperviewLayoutMargins = value
         return self
     }
 
-    /// `insetsLayoutMarginsFromSafeArea`
-    @available(iOS 11.0, *)
-    @discardableResult
-    public func insetsMarginsFromSafeArea(_ value: Bool) -> PandaChain {
-        object.insetsLayoutMarginsFromSafeArea = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "insetsMarginsFromSafeArea()")
     @available(iOS 11.0, *)
     @discardableResult
     public func insetsLayoutMarginsFromSafeArea(_ value: Bool) -> PandaChain {
@@ -209,28 +112,12 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `clipsToBounds`
-    @discardableResult
-    public func clips(_ value: Bool) -> PandaChain {
-        object.clipsToBounds = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "clips()")
     @discardableResult
     public func clipsToBounds(_ value: Bool) -> PandaChain {
         object.clipsToBounds = value
         return self
     }
 
-    /// `backgroundColor`
-    @discardableResult
-    public func background(_ value: UIColor?) -> PandaChain {
-        object.backgroundColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundColor(_ value: UIColor?) -> PandaChain {
         object.backgroundColor = value
@@ -244,19 +131,11 @@ extension PandaChain where Object: UIView {
     }
 
     @discardableResult
-    public func opaque(_ value: Bool) -> PandaChain {
+    public func isOpaque(_ value: Bool) -> PandaChain {
         object.isOpaque = value
         return self
     }
 
-    /// `clearsContextBeforeDrawing`
-    @discardableResult
-    public func clearsContext(_ value: Bool) -> PandaChain {
-        object.clearsContextBeforeDrawing = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "clearsContext()")
     @discardableResult
     public func clearsContextBeforeDrawing(_ value: Bool) -> PandaChain {
         object.clearsContextBeforeDrawing = value
@@ -264,21 +143,13 @@ extension PandaChain where Object: UIView {
     }
 
     @discardableResult
-    public func hidden(_ value: Bool) -> PandaChain {
+    public func isHidden(_ value: Bool) -> PandaChain {
         object.isHidden = value
         return self
     }
 
-    /// `contentMode`
     @discardableResult
-    public func mode(_ value: UIViewContentMode) -> PandaChain {
-        object.contentMode = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "mode()")
-    @discardableResult
-    public func contentMode(_ value: UIViewContentMode) -> PandaChain {
+    public func contentMode(_ value: UIView.ContentMode) -> PandaChain {
         object.contentMode = value
         return self
     }
@@ -289,30 +160,14 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `tintColor`
     @discardableResult
-    public func tint(_ value: UIColor?) -> PandaChain {
+    public func tintColor(_ value: UIColor!) -> PandaChain {
         object.tintColor = value
         return self
     }
 
-    @available(*, deprecated, renamed: "tint()")
     @discardableResult
-    public func tintColor(_ value: UIColor?) -> PandaChain {
-        object.tintColor = value
-        return self
-    }
-
-    /// `tintAdjustmentMode`
-    @discardableResult
-    public func tintAdjust(_ value: UIViewTintAdjustmentMode) -> PandaChain {
-        object.tintAdjustmentMode = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "tintAdjust()")
-    @discardableResult
-    public func tintAdjustmentMode(_ value: UIViewTintAdjustmentMode) -> PandaChain {
+    public func tintAdjustmentMode(_ value: UIView.TintAdjustmentMode) -> PandaChain {
         object.tintAdjustmentMode = value
         return self
     }
@@ -329,31 +184,29 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `translatesAutoresizingMaskIntoConstraints`
-    @discardableResult
-    public func translatesAutoresizing(_ value: Bool) -> PandaChain {
-        object.translatesAutoresizingMaskIntoConstraints = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "translatesAutoresizing()")
     @discardableResult
     public func translatesAutoresizingMaskIntoConstraints(_ value: Bool) -> PandaChain {
         object.translatesAutoresizingMaskIntoConstraints = value
         return self
     }
 
-    /// `restorationIdentifier`
     @discardableResult
-    public func restorationID(_ value: String?) -> PandaChain {
+    public func restorationIdentifier(_ value: String?) -> PandaChain {
         object.restorationIdentifier = value
         return self
     }
 
-    @available(*, deprecated, renamed: "restorationID()")
+    @available(iOS 11.0, *)
     @discardableResult
-    public func restorationIdentifier(_ value: String?) -> PandaChain {
-        object.restorationIdentifier = value
+    public func interactions(_ value: [UIInteraction]) -> PandaChain {
+        object.interactions = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func accessibilityIgnoresInvertColors(_ value: Bool) -> PandaChain {
+        object.accessibilityIgnoresInvertColors = value
         return self
     }
 
@@ -363,30 +216,14 @@ extension PandaChain where Object: UIView {
         return self
     }
 
-    /// `contentHuggingPriority`
     @discardableResult
-    public func huggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentHuggingPriority(priority, for: axis)
         return self
     }
 
-    @available(*, deprecated, renamed: "huggingPriority()")
     @discardableResult
-    public func contentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentHuggingPriority(priority, for: axis)
-        return self
-    }
-
-    /// `contentCompressionResistancePriority`
-    @discardableResult
-    public func resistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
-        object.setContentCompressionResistancePriority(priority, for: axis)
-        return self
-    }
-
-    @available(*, deprecated, renamed: "resistancePriority()")
-    @discardableResult
-    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> PandaChain {
+    public func contentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> PandaChain {
         object.setContentCompressionResistancePriority(priority, for: axis)
         return self
     }

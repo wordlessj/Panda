@@ -34,7 +34,7 @@ extension PandaChain where Object: UIScrollView {
 
     /// Shows horizontal and vertical scroll indicators.
     @discardableResult
-    public func showsIndicators(_ value: Bool) -> PandaChain {
-        return showsHorizontalIndicator(value).showsVerticalIndicator(value)
+    public func showsScrollIndicators(_ value: Bool) -> PandaChain {
+        return showsHorizontalScrollIndicator(value).showsVerticalScrollIndicator(value)
     }
 }

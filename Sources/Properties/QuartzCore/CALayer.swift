@@ -56,19 +56,19 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func hidden(_ value: Bool) -> PandaChain {
+    public func isHidden(_ value: Bool) -> PandaChain {
         object.isHidden = value
         return self
     }
 
     @discardableResult
-    public func doubleSided(_ value: Bool) -> PandaChain {
+    public func isDoubleSided(_ value: Bool) -> PandaChain {
         object.isDoubleSided = value
         return self
     }
 
     @discardableResult
-    public func geometryFlipped(_ value: Bool) -> PandaChain {
+    public func isGeometryFlipped(_ value: Bool) -> PandaChain {
         object.isGeometryFlipped = value
         return self
     }
@@ -91,14 +91,6 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
-    /// `masksToBounds`
-    @discardableResult
-    public func masks(_ value: Bool) -> PandaChain {
-        object.masksToBounds = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "masks()")
     @discardableResult
     public func masksToBounds(_ value: Bool) -> PandaChain {
         object.masksToBounds = value
@@ -118,8 +110,14 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func contentsGravity(_ value: String) -> PandaChain {
+    public func contentsGravity(_ value: CALayerContentsGravity) -> PandaChain {
         object.contentsGravity = value
+        return self
+    }
+
+    @discardableResult
+    public func contentsScale(_ value: CGFloat) -> PandaChain {
+        object.contentsScale = value
         return self
     }
 
@@ -129,14 +127,21 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
+    @available(iOS 10.0, *)
     @discardableResult
-    public func minificationFilter(_ value: String) -> PandaChain {
+    public func contentsFormat(_ value: CALayerContentsFormat) -> PandaChain {
+        object.contentsFormat = value
+        return self
+    }
+
+    @discardableResult
+    public func minificationFilter(_ value: CALayerContentsFilter) -> PandaChain {
         object.minificationFilter = value
         return self
     }
 
     @discardableResult
-    public func magnificationFilter(_ value: String) -> PandaChain {
+    public func magnificationFilter(_ value: CALayerContentsFilter) -> PandaChain {
         object.magnificationFilter = value
         return self
     }
@@ -148,7 +153,7 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func opaque(_ value: Bool) -> PandaChain {
+    public func isOpaque(_ value: Bool) -> PandaChain {
         object.isOpaque = value
         return self
     }
@@ -160,33 +165,23 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
+    public func drawsAsynchronously(_ value: Bool) -> PandaChain {
+        object.drawsAsynchronously = value
+        return self
+    }
+
+    @discardableResult
     public func edgeAntialiasingMask(_ value: CAEdgeAntialiasingMask) -> PandaChain {
         object.edgeAntialiasingMask = value
         return self
     }
 
-    /// `allowsEdgeAntialiasing`
-    @discardableResult
-    public func edgeAntialiasable(_ value: Bool) -> PandaChain {
-        object.allowsEdgeAntialiasing = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "edgeAntialiasable()")
     @discardableResult
     public func allowsEdgeAntialiasing(_ value: Bool) -> PandaChain {
         object.allowsEdgeAntialiasing = value
         return self
     }
 
-    /// `backgroundColor`
-    @discardableResult
-    public func background(_ value: CGColor?) -> PandaChain {
-        object.backgroundColor = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "background()")
     @discardableResult
     public func backgroundColor(_ value: CGColor?) -> PandaChain {
         object.backgroundColor = value
@@ -196,6 +191,13 @@ extension PandaChain where Object: CALayer {
     @discardableResult
     public func cornerRadius(_ value: CGFloat) -> PandaChain {
         object.cornerRadius = value
+        return self
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    public func maskedCorners(_ value: CACornerMask) -> PandaChain {
+        object.maskedCorners = value
         return self
     }
 
@@ -241,14 +243,6 @@ extension PandaChain where Object: CALayer {
         return self
     }
 
-    /// `shouldRasterize`
-    @discardableResult
-    public func rasterized(_ value: Bool) -> PandaChain {
-        object.shouldRasterize = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "rasterized()")
     @discardableResult
     public func shouldRasterize(_ value: Bool) -> PandaChain {
         object.shouldRasterize = value
@@ -292,7 +286,7 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func actions(_ value: [String: CAAction]?) -> PandaChain {
+    public func actions(_ value: [String : CAAction]?) -> PandaChain {
         object.actions = value
         return self
     }
@@ -310,7 +304,7 @@ extension PandaChain where Object: CALayer {
     }
 
     @discardableResult
-    public func style(_ value: [AnyHashable: Any]?) -> PandaChain {
+    public func style(_ value: [AnyHashable : Any]?) -> PandaChain {
         object.style = value
         return self
     }

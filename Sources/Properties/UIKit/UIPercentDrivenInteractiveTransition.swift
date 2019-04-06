@@ -15,7 +15,7 @@ extension PandaChain where Object: UIPercentDrivenInteractiveTransition {
     }
 
     @discardableResult
-    public func completionCurve(_ value: UIViewAnimationCurve) -> PandaChain {
+    public func completionCurve(_ value: UIView.AnimationCurve) -> PandaChain {
         object.completionCurve = value
         return self
     }

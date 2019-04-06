@@ -26,19 +26,19 @@ extension PandaChain where Object: UIPrintInfo {
     }
 
     @discardableResult
-    public func outputType(_ value: UIPrintInfoOutputType) -> PandaChain {
+    public func outputType(_ value: UIPrintInfo.OutputType) -> PandaChain {
         object.outputType = value
         return self
     }
 
     @discardableResult
-    public func orientation(_ value: UIPrintInfoOrientation) -> PandaChain {
+    public func orientation(_ value: UIPrintInfo.Orientation) -> PandaChain {
         object.orientation = value
         return self
     }
 
     @discardableResult
-    public func duplex(_ value: UIPrintInfoDuplex) -> PandaChain {
+    public func duplex(_ value: UIPrintInfo.Duplex) -> PandaChain {
         object.duplex = value
         return self
     }

@@ -9,7 +9,7 @@ import UIKit
 
 extension PandaChain where Object: UITableViewController {
     @discardableResult
-    public func tableView(_ value: UITableViewConvertible?) -> PandaChain {
+    public func tableView(_ value: UITableViewConvertible!) -> PandaChain {
         object.tableView = unbox(value)
         return self
     }

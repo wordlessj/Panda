@@ -10,14 +10,14 @@ import UIKit
 @available(iOS 9.0, *)
 extension PandaChain where Object: UIFocusGuide {
     @discardableResult
-    public func enabled(_ value: Bool) -> PandaChain {
+    public func isEnabled(_ value: Bool) -> PandaChain {
         object.isEnabled = value
         return self
     }
 
     @available(iOS 10.0, *)
     @discardableResult
-    public func preferredFocusEnvironments(_ value: [UIFocusEnvironment]?) -> PandaChain {
+    public func preferredFocusEnvironments(_ value: [UIFocusEnvironment]!) -> PandaChain {
         object.preferredFocusEnvironments = value
         return self
     }

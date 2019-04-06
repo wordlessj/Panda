@@ -11,7 +11,7 @@ import UIKit
 extension PandaChain where Object: UISpringLoadedInteractionSupporting {
     @available(iOS 11.0, *)
     @discardableResult
-    public func springLoaded(_ value: Bool) -> PandaChain {
+    public func isSpringLoaded(_ value: Bool) -> PandaChain {
         object.isSpringLoaded = value
         return self
     }

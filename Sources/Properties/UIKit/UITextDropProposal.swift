@@ -10,13 +10,13 @@ import UIKit
 @available(iOS 11.0, *)
 extension PandaChain where Object: UITextDropProposal {
     @discardableResult
-    public func dropAction(_ value: UITextDropAction) -> PandaChain {
+    public func dropAction(_ value: UITextDropProposal.Action) -> PandaChain {
         object.dropAction = value
         return self
     }
 
     @discardableResult
-    public func dropProgressMode(_ value: UITextDropProgressMode) -> PandaChain {
+    public func dropProgressMode(_ value: UITextDropProposal.ProgressMode) -> PandaChain {
         object.dropProgressMode = value
         return self
     }
@@ -28,7 +28,7 @@ extension PandaChain where Object: UITextDropProposal {
     }
 
     @discardableResult
-    public func dropPerformer(_ value: UITextDropPerformer) -> PandaChain {
+    public func dropPerformer(_ value: UITextDropProposal.Performer) -> PandaChain {
         object.dropPerformer = value
         return self
     }

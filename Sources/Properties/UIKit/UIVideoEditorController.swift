@@ -20,14 +20,6 @@ extension PandaChain where Object: UIVideoEditorController {
         return self
     }
 
-    /// `videoMaximumDuration`
-    @discardableResult
-    public func videoMaxDuration(_ value: TimeInterval) -> PandaChain {
-        object.videoMaximumDuration = value
-        return self
-    }
-
-    @available(*, deprecated, renamed: "videoMaxDuration()")
     @discardableResult
     public func videoMaximumDuration(_ value: TimeInterval) -> PandaChain {
         object.videoMaximumDuration = value
@@ -35,7 +27,7 @@ extension PandaChain where Object: UIVideoEditorController {
     }
 
     @discardableResult
-    public func videoQuality(_ value: UIImagePickerControllerQualityType) -> PandaChain {
+    public func videoQuality(_ value: UIImagePickerController.QualityType) -> PandaChain {
         object.videoQuality = value
         return self
     }

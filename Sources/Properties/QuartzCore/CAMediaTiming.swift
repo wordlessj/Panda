@@ -51,7 +51,7 @@ extension PandaChain where Object: CAMediaTiming {
     }
 
     @discardableResult
-    public func fillMode(_ value: String) -> PandaChain {
+    public func fillMode(_ value: CAMediaTimingFillMode) -> PandaChain {
         object.fillMode = value
         return self
     }

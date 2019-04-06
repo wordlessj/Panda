@@ -55,6 +55,13 @@ extension PandaChain where Object: NSLayoutManager {
         return self
     }
 
+    @available(iOS 12.0, *)
+    @discardableResult
+    public func limitsLayoutForSuspiciousContents(_ value: Bool) -> PandaChain {
+        object.limitsLayoutForSuspiciousContents = value
+        return self
+    }
+
     @discardableResult
     public func glyphs(_ glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSLayoutManager.GlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange) -> PandaChain {
         object.setGlyphs(glyphs, properties: props, characterIndexes: charIndexes, font: aFont, forGlyphRange: glyphRange)
